@@ -1,0 +1,10 @@
+#group by wands on level required and calculate the average price of the wands per level
+db.wands.aggregate(  [
+    {
+      "$group":{
+        "_id":"$level_required",
+        "price_average":{"$avg":"$price"}
+      }
+    }
+  ]
+)

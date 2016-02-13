@@ -1,0 +1,12 @@
+#this will group the wands by maker and calculate the total_cost
+db.wands.aggregate(
+  [
+    {
+      "$group":{
+         "_id":"$maker",
+        "total_cost":{"$sum":"$price"}
+        }
+    }
+    
+  ]
+)

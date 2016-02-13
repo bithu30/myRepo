@@ -1,0 +1,30 @@
+#1.match wands that has level required less than 5
+#2.keep only maker and damage.magic in the results
+#3.group by maker and calculate the max damage.magic
+#4.sort by max_damage in desc order
+#5. Limit the results to 4 docs
+db.wands.aggregate(
+  [
+    {
+      "$match":{"level_required":{"$lte":5}}
+    },
+     {
+      "$project": {"_id":false,"maker":1,"damage.magic":true}
+      
+    },
+    {
+      "$group":{
+        "_id":"$maker",
+        "max_damage":{"$max":"$damage.magic"}
+      }
+    },
+    {
+      "$sort":{"max_damage":-1}
+    },
+    {
+      "$limit":4
+    }
+   
+  ]
+)
+

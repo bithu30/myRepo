@@ -1,0 +1,8 @@
+#1.getting all wands with price lt 50
+#2.group by maker and calculate avg price
+#3. match makers whoose average price is gt 40
+db.wands.aggregate([
+  {"$match": {"price": {"$lt": 50}}},
+  {"$group": {"_id": "$maker", "average_magic": {"$avg": "$damage.magic"}}},
+  {"$match": {"average_magic": {"$gt": 40}}}
+])

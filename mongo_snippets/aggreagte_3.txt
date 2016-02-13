@@ -1,0 +1,12 @@
+#more wand stats with aggregators
+db.wands.aggregate ([
+  {
+    "$group":{
+      "_id":"$maker",
+      "total_wands":{"$sum":1},
+      "max_magic":{"$max":"$damage.magic"},
+      "lowest_price":{"$min":"$price"}
+    }
+  }
+]
+)
