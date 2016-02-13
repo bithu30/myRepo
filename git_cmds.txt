@@ -1,5 +1,7 @@
 execute in the same order to commit
 ======================================
-git status
-
-
+1.git status
+2.git add .
+3.git commit -m commit message 
+4.git status 
+5.git push -u origin master
