@@ -1,0 +1,16 @@
+<header 
+    [ngClass]="{'medium-movies':medium === 'Movies', 'medium-series':medium === 'Series'}">
+    <h2>{{medium}}</h2>
+    <div>{{ mediaItems | categoryList }}</div>
+</header>
+<section>
+    <media-item *ngFor="#mediaItem of mediaItems"
+        [mediaItemToWatch]="mediaItem"
+        (deleted)="onMediaItemDeleted($event)"
+        [ngClass]="{'medium-movies': mediaItem.medium === 'Movies', 'medium-series': mediaItem.medium === 'Series'}"></media-item>
+</section>
+<footer>
+    <a [routerLink]="['../AddMediaItem']">
+        <img src="media/01.png" class="icon" />
+    </a>
+</footer>
