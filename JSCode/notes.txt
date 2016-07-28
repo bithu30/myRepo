@@ -1,0 +1,3 @@
+syntax for creating a method in a JS object is:
+
+this.<method name > = function(param){}
