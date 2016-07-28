@@ -5,3 +5,8 @@ execute in the same order to commit
 3.git commit -m commit message 
 4.git status 
 5.git push -u origin master
+
+For checking out the repo
+===========================
+
+git clone https://bithu30@github.com/bithu30/myRepo.git
