@@ -10,3 +10,10 @@ For checking out the repo
 ===========================
 
 git clone https://bithu30@github.com/bithu30/myRepo.git
+
+Configuring git , if needed 
+==============================
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
