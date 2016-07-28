@@ -6,4 +6,8 @@ import {Component} from 'angular2/core';
     styleUrls: ['app/media-item.component.css']
 })
 export class MediaItemComponent {
+    onDelete() {
+        console.log("deleted");
+        
+    }
 }
