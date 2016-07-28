@@ -17,3 +17,7 @@ Configuring git , if needed
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
+Syncing repo with master 
+===========================
+git pull
+

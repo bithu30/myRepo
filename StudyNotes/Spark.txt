@@ -1,4 +1,26 @@
 
+dir(sqlContext) - display the list of all the attributes (including methods) accessible through the sqlContext object. 
+
+-creating DF in Pyspark
+
+dataDF = sqlContext.createDataFrame(data, ('last_name', 'first_name', 'ssn', 'occupation', 'age'))
+
+- to see the schema of the DF
+
+dataDF.printSchema()
+
+-Registering DF as a named table
+
+sqlContext.registerDataFrameAsTable(dataDF, 'dataframe')
+
+-how many partitions the DataFrame is split to
+
+dataDF.rdd.getNumPartitions()
+
+
+
+
+
 A note about DataFrames and queries
 ====================================
 
@@ -19,7 +41,52 @@ Transformations
 
 select() is a transformation. It returns a new DataFrame that captures both the previous DataFrame and the operation to add to the query (select, in this case). 
 
+# Transform dataDF through a select transformation and rename the newly created '(age -1)' column to 'age'
+# Because select is a transformation and Spark uses lazy evaluation, no jobs, stages,
+# or tasks will be launched when we run this code.
+subDF = dataDF.select('last_name', 'first_name', 'ssn', 'occupation', (dataDF.age - 1).alias('age'))
+
 filter() method is a transformation operation that creates a new DataFrame from the input DataFrame, keeping only values that match the filter expression.
+
+orderBy() allows you to sort a DataFrame by one or more columns, producing a new DataFrame.
+
+ex:
+
+# Get the five oldest people in the list. To do that, sort by age in descending order.
+display(dataDF.orderBy(dataDF.age.desc()).take(5))
+
+Pandas-style notation: filteredDF.age
+Subscript notation: filteredDF['age']
+
+
+distinct() filters out duplicate rows, and it considers all columns
+
+drop() is like the opposite of select(): Instead of selecting specific columns from a DataFrame, it drops a specifed column from a DataFrame
+
+GroupBy
+--------
+groupBy() is one of the most powerful transformations. It allows you to perform aggregations on a DataFrame.
+Unlike other DataFrame transformations, groupBy() does not return a DataFrame. Instead, it returns a special GroupedData object that contains various aggregation functions.
+The most commonly used aggregation function is count(), but there are others (like sum(), max(), and avg().
+These aggregation functions typically create a new column and return a new DataFrame.
+
+ex: 
+
+dataDF.groupBy('occupation').count().show(truncate=False)
+dataDF.groupBy().avg('age').show(truncate=False)
+
+print "Maximum age: {0}".format(dataDF.groupBy().max('age').first()[0])
+print "Minimum age: {0}".format(dataDF.groupBy().min('age').first()[0])
+
+sample
+---------
+
+When analyzing data, the sample() transformation is often quite useful. It returns a new DataFrame with a random sample of elements from the dataset. It takes in a withReplacement argument, which specifies whether it is okay to randomly pick the same item multiple times from the parent DataFrame (so when withReplacement=True, you can get the same item back multiple times). It takes in a fraction parameter, which specifies the fraction elements in the dataset you want to return. (So a fraction value of 0.20 returns 20% of the elements in the DataFrame.) It also takes an optional seed parameter that allows you to specify a seed value for the random number generator, so that reproducible results can be obtained.
+
+ex:
+sampledDF = dataDF.sample(withReplacement=False, fraction=0.10)
+print sampledDF.count()
+sampledDF.show()
 
 
 Actions
@@ -36,4 +103,76 @@ subDF.show(n=30, truncate=False) - we can increase the display limit in show
 display() - still more beautiful way to show results
 
 count() - is an action operation, Each task counts the entries in its partition and sends the result to your SparkContext, which adds up all of the counts. 
+
+first() - first few entries
+
+take() - to get a limites number of results ( like LIMIT in SQL )
+
+
+Caching DataFrames
+====================
+
+For efficiency Spark keeps your DataFrames in memory. (More formally, it keeps the RDDs that implement your DataFrames in memory.) By keeping the contents in memory, Spark can quickly access the data. However, memory is limited, so if you try to keep too many partitions in memory, Spark will automatically delete partitions from memory to make space for new ones. If you later refer to one of the deleted partitions, Spark will automatically recreate it for you, but that takes time.
+So, if you plan to use a DataFrame more than once, then you should tell Spark to cache it. You can use the cache() operation to keep the DataFrame in memory. However, you must still trigger an action on the DataFrame, such as collect() or count() before the caching will occur. In other words, cache() is lazy: It merely tells Spark that the DataFrame should be cached when the data is materialized. You have to run an action to materialize the data; the DataFrame will be cached as a side effect. The next time you use the DataFrame, Spark will use the cached data, rather than recomputing the DataFrame from the original data.
+
+ex:
+
+# Cache the DataFrame
+filteredDF.cache()
+# Trigger an action
+print filteredDF.count()
+# Check if it is cached
+print filteredDF.is_cached
+
+Unpersist and storage options
+==============================
+
+Spark automatically manages the partitions cached in memory. If it has more partitions than available memory, by default, it will evict older partitions to make room for new ones. For efficiency, once you are finished using cached DataFrame, you can optionally tell Spark to stop caching it in memory by using the DataFrame's unpersist() method to inform Spark that you no longer need the cached data.
+
+ex:
+
+# If we are done with the DataFrame we can unpersist it so that its memory can be reclaimed
+filteredDF.unpersist()
+# Check if it is cached
+print filteredDF.is_cached
+
+How Python is Executed in Spark
+==================================
+
+Internally, Spark executes using a Java Virtual Machine (JVM). pySpark runs Python code in a JVM using Py4J. Py4J enables Python programs running in a Python interpreter to dynamically access Java objects in a Java Virtual Machine. Methods are called as if the Java objects resided in the Python interpreter and Java collections can be accessed through standard Python collection methods. Py4J also enables Java programs to call back Python objects.
+Because pySpark uses Py4J, coding errors often result in a complicated, confusing stack trace that can be difficult to understand. In the following section, we'll explore how to understand stack traces.
+
+
+Coding Style
+============
+As you are learning Spark, I recommend that you write your code in the form:
+    df2 = df1.transformation1()
+    df2.action1()
+    df3 = df2.transformation2()
+    df3.action2()
+Using this style will make debugging your code much easier as it makes errors easier to localize - errors in your transformations will occur when the next action is executed.
+Once you become more experienced with Spark, you can write your code with the form: df.transformation1().transformation2().action()
+We can also use lambda() functions instead of separately defined functions when their use improves readability and conciseness.
+> 
+
+# Cleaner code through lambda use
+myUDF = udf(lambda v: v < 10)
+subDF.filter(myUDF(subDF.age) == True)
+Command skipped
+Command took 24.62s 
+
+Code Readability Tips 
+======================
+To make the expert coding style more readable, enclose the statement in parentheses and put each method, transformation, or action on a separate line.
+> 
+
+# Final version
+from pyspark.sql.functions import *
+(dataDF
+ .filter(dataDF.age > 20)
+ .select(concat(dataDF.first_name, lit(' '), dataDF.last_name), dataDF.occupation)
+ .show(truncate=False)
+ )
+
+
 
