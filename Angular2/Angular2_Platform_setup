@@ -1,0 +1,101 @@
+1) sudo apt-get install nodejs-legacy npm
+
+2) sudo npm install -g typescript
+
+3) Create a the Project Folder
+   ex: 
+
+3) creating tsconfig.json
+    
+Overview
+=========
+
+The presence of a tsconfig.json file in a directory indicates that the directory is the root of a TypeScript project. The tsconfig.json file specifies the root files and the compiler options required to compile the project. A project is compiled in one of the following ways:
+
+Using tsconfig.json
+===================
+
+By invoking tsc with no input files, in which case the compiler searches for the tsconfig.json file starting in the current directory and continuing up the parent directory chain.
+
+By invoking tsc with no input files and a --project (or just -p) command line option that specifies the path of a directory containing a tsconfig.json file.
+
+When input files are specified on the command line, tsconfig.json files are ignored.
+
+Please paste this content into a file named tsconfig.json into your project folder
+
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "system",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        "noImplicitAny": false
+    },
+    "exclude": [
+        "node_modules",
+        "typings/main",
+        "typings/main.d.ts"
+    ]
+}
+
+Notes on tsconfig.json
+==========================
+
+The first section is named compilerOptions and contains command line options which are passed to the TypeScript compiler every time the program is executed. The second section exclude is an array of folders and files in the project directory which should not be processed by the TypeScript compiler and it makes sense to exclude the node_modules directory.
+
+
+
+4) Create typings.json 
+
+
+This identifies TypeScript definition files
+
+Please paste this content into a file named typings.json into your project folder
+
+{
+  "ambientDependencies": {
+    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1"
+  }
+}
+
+5) Creating package.json
+
+ run the command npm init in your project folder
+
+6) Install Angular2
+
+npm install angular2 --save
+
+npm install systemjs --save
+
+npm install typings --save-dev
+
+npm install concurrently --save-dev
+
+npm install lite-server --save-dev
+
+
+Reference 
+============
+
+https://angular.io/docs/ts/latest/guide/typescript-configuration.html#!#tsconfig
+
+http://www.typescriptlang.org/docs/handbook/compiler-options.html for more compiler options
+
+
+Please refer 
+
+https://angular.io/docs/ts/latest/quickstart.html 
+
+for further details, Iḿ going to follow this for covering the gaps with the above steps
+
+
+
+
+
+
+
+

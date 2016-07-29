@@ -1,0 +1,38 @@
+@Import
+============= 
+
+Declares a data-bound input property.
+
+Angular automatically updates data-bound properties during change detection.
+
+InputMetadata takes an optional parameter that specifies the name used when instantiating a component in the template. When not provided, the name of the decorated property is used.
+
+Example
+--------
+
+The following example creates a component with two input properties.
+
+
+@Component({
+  selector: 'bank-account',
+  template: `
+    Bank Name: {{bankName}}
+    Account Id: {{id}}
+  `
+})
+class BankAccount {
+  @Input() bankName: string;
+  @Input('account-id') id: string;
+  // this property is not bound, and won't be automatically updated by Angular
+  normalizedBankName: string;
+}
+@Component({
+  selector: 'app',
+  template: `
+    <bank-account bank-name="RBC" account-id="4747"></bank-account>
+  `,
+  directives: [BankAccount]
+})
+class App {}
+bootstrap(App);
+
