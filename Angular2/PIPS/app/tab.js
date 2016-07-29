@@ -9,21 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var tabs_1 = require('./tabs');
-var tab_1 = require('./tab');
-var AppComponent = (function () {
-    function AppComponent() {
+var Tab = (function () {
+    function Tab() {
+        this.active = false;
     }
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input('tabTitle'), 
+        __metadata('design:type', String)
+    ], Tab.prototype, "title", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], Tab.prototype, "active", void 0);
+    Tab = __decorate([
         core_1.Component({
-            selector: 'pips',
+            selector: 'tab',
             styles: ["\n    .pane{\n      padding: 1em;\n    }\n  "],
-            template: "\n    <tabs>\n      <tab [tabTitle]=\"'Tab 1'\">Tab 1 Content</tab>\n      <tab tabTitle=\"Tab 2\">Tab 2 Content</tab>\n      <tab tabTitle=\"Tab 3\">Tab 3 Content</tab>\n      <tab tabTitle=\"Tab 4\">Tab 4 Content</tab>\n    </tabs>\n  ",
-            directives: [tabs_1.Tabs, tab_1.Tab]
+            template: "\n    <div [hidden]=\"!active\" class=\"pane\">\n      <ng-content></ng-content>\n    </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], Tab);
+    return Tab;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.Tab = Tab;
+//# sourceMappingURL=tab.js.map
