@@ -174,5 +174,15 @@ from pyspark.sql.functions import *
  .show(truncate=False)
  )
 
+ Word Count Example notes
+ =========================
+ 
+ Creating DF
+ ------------
+ 
+wordsDF = sqlContext.createDataFrame([('cat',), ('elephant',), ('rat',), ('rat',), ('cat', )], ['word'])
+wordsDF.show()
+print type(wordsDF)
+wordsDF.printSchema()
 
 
