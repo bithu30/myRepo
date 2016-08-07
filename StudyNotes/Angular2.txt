@@ -36,3 +36,68 @@ class BankAccount {
 class App {}
 bootstrap(App);
 
+Depedency Injection
+=====================
+
+Dependency Injection enables the framework is handling creating instinctive of things and injecting 
+them to places where they are needed. In Angular this is handled in two steps. 
+
+The first is Service Registration, in which you provide Angular with a list of things you wanted to know about, 
+that can be Injected.The second is a retrieval of those things. 
+Which can be done by constructor injection (constructor() {} )either by leveraging TypeScript type annotations, 
+or by using the Angular Inject Decorater( @Inject) .
+
+So step one is to tell Angular, Hey! I have this class or this value, 
+that I want you to handle for me.This is done by the Angular provider class, 
+or the provide helper function, or even by providing the type,You let Angular know, either at the bootstrap call or in the 
+component directive meditetor in the decorators. 
+
+Step two is to tell Angular from within class constructors signatures, 
+Hey! I want this constructor parameters to be of this type. 
+This is done by a bit of TypeScript, or can be done with the inject decorator. 
+From there Angular takes over. Collecting all the things you specify as providers into a list, 
+and in getting those when it goes to execute the constructors on your classes.
+
+When it goes to get the things, it checks to see if it has an instance of one already created. 
+And if not, it use one up ans store it. Then the next time the thing is needed, 
+it uses the existing one. 
+This means that the things, being classes and values, end up being singletons. 
+Remember that Angular is a client sign framework designed around the concept, 
+that the client side code keeps working as the user interact with the application. 
+They're no call to the server to retrieve a new visual state as the app is used.
+
+So Angulars Dependency Injections creates a new instance of something, 
+that something stays in memory. 
+And because the browser is not reloading, 
+that something is able to live around for the run of the application. 
+And because the Angular has a component tree, and you can register things at a component level, 
+those singleton of things, become available from the point in the component tree that they were registered on down. 
+So something registered at bootstrap, is available in the entire component tree. 
+Something registered at the component is available on that component, and its children and their children.
+
+And finally, if you create your own classes to encapsulate some logic, 
+refer to our services. It is extremely simple to tell Angular that you wanted to do constructor injection 
+for your service class as well. You use a decorator for it.
+
+Services
+=========
+
+Services are not an Angular construct, but rather a pattern. 
+They are nothing more than a class to encapsulate some logic 
+that you want to share across places in your application. 
+With Angular's dependency injection, you can inject services around your application. 
+To create a service class, you do not need to do anything Angular specific.
+There is no metadata needed. There's not some naming convention requirement, 
+or some functional interface that needs to be implemented. 
+They are just plain old classes that you create to modularize reusable code.
+
+There are several reasons why you would want to create and use services in your Angular applications. 
+One of the most common is a data service. A class that will handle getting and setting data from your data store. 
+In the case of the media watch list application, it displays a list of media items, 
+and allows the user to delete and add items, all done from different components.
+A data service that gets injected into each of those components allows you to not have 
+to recreate that same data store connection code in each component. 
+Another common use for a service is for some business logic.
+
+
+

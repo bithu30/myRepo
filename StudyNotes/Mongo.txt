@@ -1,0 +1,20 @@
+Mongo
+=====
+- document database.
+- Data not predicated by joining tables  
+  like in a relational database.
+- This makes much easier to Shrad  or
+  Share data.
+- mongod - db server 
+- mongo shell - connects to mongod, 
+                all queries are run here
+  
+  creating db names and inserting values
+  ------------------------------------------------
+> db.names.insert({ 'name' : 'Bijith Komalan' })
+WriteResult({ "nInserted" : 1 })
+Querying the db
+=================
+> db.names.find()
+{ "_id" : ObjectId("57a7ae5977d7ce796cd9c3a6"), "name" : "Bijith Komalan" }
+>
