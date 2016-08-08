@@ -36,6 +36,30 @@ class BankAccount {
 class App {}
 bootstrap(App);
 
+Forms
+======
+
+Angular comes with a directive ngForm that matches the <form> selector, 
+so in fact, our form element already has an instance of ngForm applied. 
+
+ngForm is there for a reason. It provides us information 
+about the current state of the form including:
+--A JSON representation of the form value
+--Validity state of the entire form
+
+it turns out that ngForm directive is exposed as ngForm, which means we can get an instance of our form without writing any application code like this:
+<form #form="ngForm">
+  ...
+</form>
+
+There’s another output event ngForm fires when it’s submitted. It’s called ngSubmit, and it seems to be doing exactly the same as submit 
+at a first glance. However, ngSubmit ensures that the form doesn’t submit when the handler code throws (which is the default behaviour of submit) 
+and causes an actual http post request. Let’s use ngSubmit instead as this is the best practice:
+<form #form="ngForm" (ngSubmit)="logForm(form.value)">
+  ...
+</form>
+
+
 Depedency Injection
 =====================
 
