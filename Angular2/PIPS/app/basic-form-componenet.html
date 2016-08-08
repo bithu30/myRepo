@@ -1,0 +1,18 @@
+<form #basicform = "ngForm" (ngSubmit)="storeVal(basicform.value)">
+  <label>Firstname:</label>
+  <input type="text" name="fname" ngModel><br>
+
+  <label>Lastname:</label>
+  <input type="text" name="lname" ngModel><br>
+
+  <label>Street:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="street" ngModel><br>
+
+  <label>Zip:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="zip" ngModel><br>
+
+  <label>City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="city" ngModel><br><br>
+
+  <button type="submit">Next</button>
+</form>

@@ -9,22 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var tabs_1 = require('./tabs');
-var tab_1 = require('./tab');
-var basic_form_component_1 = require('./basic-form-component');
-var AppComponent = (function () {
-    function AppComponent() {
+var BasicForm = (function () {
+    function BasicForm() {
     }
-    AppComponent = __decorate([
+    BasicForm.prototype.storeVal = function (value) {
+        console.log(value);
+    };
+    BasicForm = __decorate([
         core_1.Component({
-            selector: 'pips',
-            styles: ["\n    .pane{\n      padding: 1em;\n    }\n  "],
-            template: "\n    <tabs>\n      <tab [tabTitle]=\"'Tab 1'\"><basic-form></basic-form></tab>\n      <tab [tabTitle]=\"'Tab 2'\"><basic-form></basic-form></tab>\n      <tab [tabTitle]=\"'Tab 3'\"><basic-form></basic-form></tab>\n    </tabs>\n  ",
-            directives: [tabs_1.Tabs, tab_1.Tab, basic_form_component_1.BasicForm]
+            selector: 'basic-form',
+            templateUrl: 'app/basic-form-componenet.html',
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], BasicForm);
+    return BasicForm;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.BasicForm = BasicForm;
+//# sourceMappingURL=basic-form-component.js.map

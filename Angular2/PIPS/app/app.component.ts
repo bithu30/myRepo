@@ -1,7 +1,9 @@
-import {Component} from '@angular/core'
+import {Component} from '@angular/core';
+import {Control}   from '@angular/common'; 
 
 import {Tabs} from './tabs';
 import {Tab} from './tab';
+import {BasicForm} from './basic-form-component';
 
 @Component({
   selector: 'pips',
@@ -12,13 +14,12 @@ import {Tab} from './tab';
   `],
   template: `
     <tabs>
-      <tab [tabTitle]="'Tab 1'">Tab 1 Content</tab>
-      <tab tabTitle="Tab 2">Tab 2 Content</tab>
-      <tab tabTitle="Tab 3">Tab 3 Content</tab>
-      <tab tabTitle="Tab 4">Tab 4 Content</tab>
+      <tab [tabTitle]="'Tab 1'"><basic-form></basic-form></tab>
+      <tab [tabTitle]="'Tab 2'"><basic-form></basic-form></tab>
+      <tab [tabTitle]="'Tab 3'"><basic-form></basic-form></tab>
     </tabs>
   `,
-  directives: [Tabs, Tab]
+  directives: [Tabs, Tab, BasicForm]
 })
 export class AppComponent {
   
