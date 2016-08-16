@@ -17,6 +17,7 @@
 import webapp2
 import jinja2
 import os
+import logging
 
 
 
@@ -28,14 +29,17 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 #Routing classes for all the pages
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        #self.response.write('Hello world!')
-		title = "--Welcome to ABC Inc.--"
-		template_vars = {
-		'title':title
-		}
-		template = JINJA_ENVIRONMENT.get_template('index.html')
-		self.response.out.write( template.render(template_vars))
-		
+		try:
+			title = "--Welcome to ABC Inc.--"
+			template_vars = {
+			'title':title,
+			'users':['user1','user2']
+			}
+			template = JINJA_ENVIRONMENT.get_template('index.html')
+			self.response.out.write( template.render(template_vars))
+		except Exception,e:
+			logging.info('MainHandler Error')
+			self.response.out.write("<div >An error occured - {0}".format(e) +"</div>")
 class ProductPage(webapp2.RequestHandler):
     def get(self):
         #self.response.write('Hello world!')
