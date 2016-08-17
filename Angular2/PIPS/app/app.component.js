@@ -12,15 +12,18 @@ var core_1 = require('@angular/core');
 var tabs_1 = require('./tabs');
 var tab_1 = require('./tab');
 var basic_form_component_1 = require('./basic-form-component');
+var dataset_basic_form_1 = require('./dataset-basic-form');
+var dataset_desc_form_1 = require('./dataset-desc-form');
 var AppComponent = (function () {
     function AppComponent() {
+        this.dataStore = {};
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'pips',
             styles: ["\n    .pane{\n      padding: 1em;\n    }\n  "],
-            template: "\n    <tabs>\n      <tab [tabTitle]=\"'Tab 1'\"><basic-form></basic-form></tab>\n      <tab [tabTitle]=\"'Tab 2'\"><basic-form></basic-form></tab>\n      <tab [tabTitle]=\"'Tab 3'\"><basic-form></basic-form></tab>\n    </tabs>\n  ",
-            directives: [tabs_1.Tabs, tab_1.Tab, basic_form_component_1.BasicForm]
+            template: "\n    <tabs>\n      <tab [tabTitle]=\"'DataSet'\"><dataset-basic-form></dataset-basic-form></tab>\n      <tab [tabTitle]=\"'Description'\"><dataset-desc-form></dataset-desc-form></tab>\n    </tabs>\n  ",
+            directives: [tabs_1.Tabs, tab_1.Tab, basic_form_component_1.BasicForm, dataset_basic_form_1.DatasetBasicForm, dataset_desc_form_1.DatasetDescForm]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

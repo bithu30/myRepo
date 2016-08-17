@@ -4,6 +4,8 @@ import {Control}   from '@angular/common';
 import {Tabs} from './tabs';
 import {Tab} from './tab';
 import {BasicForm} from './basic-form-component';
+import {DatasetBasicForm} from './dataset-basic-form';
+import {DatasetDescForm} from './dataset-desc-form';
 
 @Component({
   selector: 'pips',
@@ -14,13 +16,14 @@ import {BasicForm} from './basic-form-component';
   `],
   template: `
     <tabs>
-      <tab [tabTitle]="'Tab 1'"><basic-form></basic-form></tab>
-      <tab [tabTitle]="'Tab 2'"><basic-form></basic-form></tab>
-      <tab [tabTitle]="'Tab 3'"><basic-form></basic-form></tab>
+      <tab [tabTitle]="'DataSet'"><dataset-basic-form></dataset-basic-form></tab>
+      <tab [tabTitle]="'Description'"><dataset-desc-form></dataset-desc-form></tab>
     </tabs>
   `,
-  directives: [Tabs, Tab, BasicForm]
+  directives: [Tabs, Tab, BasicForm, DatasetBasicForm,DatasetDescForm]
 })
 export class AppComponent {
+
+  public dataStore = {};
   
 }

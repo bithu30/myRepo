@@ -40,6 +40,8 @@ export class Tabs implements AfterContentInit {
     // activate the tab the user has clicked on.
     tab.active = true;
      console.log(tab);
+     
+     
   }
 
 }

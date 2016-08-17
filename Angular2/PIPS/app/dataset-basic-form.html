@@ -1,0 +1,85 @@
+<form #datasetbasicform = "ngForm" (ngSubmit)="storeVal(datasetbasicform.value)">
+  <label>Title:</label><br>
+  <input type="text" name="title" ngModel><br>
+
+  <label>Organisation:</label><br>
+  <input type="text" name="org" ngModel><br>
+
+  <label>Full File Name:</label><br>
+  <input type="text" name="ffname" ngModel><br>
+
+  <label>Date:</label><br>
+  <label>day:</label>
+  <select name="day" ngModel>
+    <option value = "" >day</option>
+      <option value = 1 >1</option>
+      <option value = 2 >2</option>
+      <option value = 3 >3</option>
+      <option value = 4 >4</option>
+      <option value = 5 >5</option>
+      <option value = 6 >6</option>
+      <option value = 7 >7</option>
+      <option value = 8 >8</option>
+      <option value = 9 >9</option>
+      <option value = 10 >10</option>
+      <option value = 11 >11</option>
+      <option value = 12 >12</option>
+      <option value = 13 >13</option>
+      <option value = 14 >14</option>
+      <option value = 15 >15</option>
+      <option value = 16 >16</option>
+      <option value = 17 >17</option>
+      <option value = 18 >18</option>
+      <option value = 19 >19</option>
+      <option value = 20 >20</option>
+      <option value = 21 >21</option>
+      <option value = 22 >22</option>
+      <option value = 23 >23</option>
+      <option value = 24 >24</option>
+      <option value = 25 >25</option>
+      <option value = 26 >26</option>
+      <option value = 27 >27</option>
+      <option value = 28 >28</option>
+      <option value = 29 >29</option>
+      <option value = 30 >30</option>
+      <option value = 31 >31</option>
+  </select>
+  <label>Month:</label>    
+  <select name="month" ngModel> 
+    <option value = ""  >month</option>
+     <option value ="January"  >January</option>
+     <option value ="February"  >February</option>
+     <option value ="March"  >March</option>
+     <option value ="April"  >April</option>
+     <option value ="May"  >May</option>
+     <option value ="June"  >June</option>
+     <option value ="July"  >July</option>
+     <option value ="August"  >August</option>
+     <option value ="September"  >September</option>
+     <option value ="October"  >October</option>
+     <option value ="November"  >November</option>
+     <option value ="December"  >December</option>
+  </select>
+  <label>Year:</label>   
+  <input type="text" name="year" ngModel><br><br> 
+  <label>Themes:</label><br>
+<input type="checkbox" name="DatasetAgriculture" value="farming" />Agriculture and Farming<br/> 
+<input type="checkbox" name="DatasetAdmin" value="boundaries"/>Administrative and Political Boundaries<br/>
+<input type="checkbox" name="DatasetAtmosphere"  value="climatologyMeteorologyAtmosphere"/>Atmosphere, Climatology and Meteorology<br/>
+<input type="checkbox" name="DatasetBiology"  value="biota"/>Biology and Ecology<br/>
+<input type="checkbox" name="DatasetBusiness" value="economy"/>Business and Economy<br/>
+<input type="checkbox" name="DatasetCadastral" value="planningCadastre"/>Cadastral and Land Planning<br/>
+<input type="checkbox" name="DatasetCulture" value="society"/>Cultural, Society and Demography<br/>
+<input type="checkbox" name="DatasetElevation" value="elevation"/>Elevation and Derived Products<br/>
+<input type="checkbox" name="DatasetEnvironment" value="environment">Environment and Conservation<br/>
+<input type="checkbox" name="DatasetFacilities" value="structure"/>Facilities and Structures<br/>
+<input type="checkbox" name="DatasetGeology" value="geoscientificInformation"/>Geological and Geophysical<br/>
+<input type="checkbox" name="DatasetHealth" value="health"/>Human Health and Disease<br/>
+<input type="checkbox" name="DatasetImagery" value="imageryBaseMapsEarthCover"/>Imagery, Base Maps and Land Cover<br/>
+<input type="checkbox" name="DatasetWater" value="inlandWaters"/>Inland Water Resources<br/>
+<input type="checkbox" name="DatasetLocations" value="location"/>Locations and Geodetic Networks<br/>
+<input type="checkbox" name="DatasetMilitary" value="intelligenceMilitary"/>Military and Intelligence<br/>
+<input type="checkbox" name="DatasetOceans" value="oceans"/>Oceans and Estuaries<br/>
+<input type="checkbox" name="DatasetTransport" value="transportation"/>Transportation Networks<br/>
+<input type="checkbox" name="DatasetComms" value="utilitiesCommunication"/>Utility and Communication Networks<br/>
+

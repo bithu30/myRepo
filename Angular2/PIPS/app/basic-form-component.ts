@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 
+
+
 @Component({
   selector: 'basic-form',
   templateUrl: 'app/basic-form-componenet.html',
@@ -7,7 +9,9 @@ import {Component} from '@angular/core';
 })
 
 export class BasicForm {
+    
     storeVal(value : any ) {
+    
         console.log(value);
         
     }
