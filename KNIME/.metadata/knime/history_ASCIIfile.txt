@@ -1,0 +1,5 @@
+knime://knime.workflow/data/adult.data
+knime://knime.workflow/data/shuttle.data
+knime://knime.workflow/data/german-credit-test.txt
+knime://knime.workflow/data/german-credit-train.txt
+knime://knime.workflow/data.all

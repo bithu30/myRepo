@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<met:KNIMEMetaInfo xmlns:met="http://www.knime.org/2.9/metainfo">
+  <met:element form="text" name="Author">KNIME</met:element>
+  <met:element form="date" name="Creation Date">21/6/2010</met:element>
+  <met:element form="multiline" name="Comments">Naive Bayes
+
+A simple example using a Naive Bayes learner and predictor to classify some shuttle data.  For more background information see" http://archive.ics.uci.edu/ml/datasets/Statlog+(Shuttle)</met:element>
+</met:KNIMEMetaInfo>

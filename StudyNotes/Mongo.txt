@@ -18,3 +18,38 @@ Querying the db
 > db.names.find()
 { "_id" : ObjectId("57a7ae5977d7ce796cd9c3a6"), "name" : "Bijith Komalan" }
 >
+
+-stores data as BSON Binary Json
+
+--show DBs in mongo db
+> show dbs
+local  0.000GB
+test   0.000GB
+>
+
+query format
+
+db.collection , collection = table
+
+use db , to start querying a DB
+
+> db.movies.insertOne({'title':'Jaws','year':'1975','imdb':'tth2390'}) -> insert one record in collection movies in videos db
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("57a8e98b77d7ce796cd9c3a7")
+}
+
+Basic principle of querying in MongoDB
+=======================================
+C- Create
+R - Read
+U- update
+D - Delete
+
+To query collections
+============================
+db.movies.find(),db.movies.find().pretty(), db.movies.find({'year':'1981'}).pretty() 
+
+var cur = db.movies.find()
+cur.next()
+cur.hasNext()

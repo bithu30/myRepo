@@ -1,0 +1,13 @@
+to get student_id with the highest score
+
+db.grades.aggregate({'$group':{'_id':'$student_id', 'average':{$avg:'$score'}}}, {'$sort':{'average':-1}}, {'$limit':1})
+
+find grades of student with score 65 and above and get the top 15
+
+   db.grades.find( { score: {$gte:65} } ).sort( {"score":1} ).limit(15)
+ 
+#find the name of the movie released in 2013 rated PG-13 that one no awards ( awards is a array ) 
+    db.movieDetails.find(  {$and:[ { "awards.wins": { $in:[0] } },{"rated":"PG-13"},{"year":2013} ] })
+
+how many movies have sweden listed as a second country (countries is an array)	
+	db.movieDetails.find( { "countries.1": { $in:['Sweden'] } }).count()

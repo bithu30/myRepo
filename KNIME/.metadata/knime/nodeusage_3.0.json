@@ -1,0 +1,28 @@
+
+{
+    "version":"3.2.0.v201607061829",
+    "created":"2016-08-13 23:12",
+    "nodestats":{
+        "nodes":[
+            {
+                "id":"org.knime.base.node.io.filereader.FileReaderNodeFactory#File Reader",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":1531,
+                "nrcreated":0,
+                "successor":"n/a"
+            }
+        ],
+        "metaNodes":{
+        },
+        "wrappedNodes":{
+        }
+    },
+    "uptime":312871,
+    "workflowsOpened":0,
+    "remoteWorkflowsOpened":2,
+    "launches":1,
+    "timeSinceLastStart":312871,
+    "crashes":0,
+    "properlyShutDown":false
+}
