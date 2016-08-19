@@ -1,28 +1,28 @@
 <form #datasetdescform = "ngForm" (ngSubmit)="storeVal(datasetdescform.value)">
     <p>Give a brief narrative summary about the contents of the dataset.<br>
-   <textarea name="DescriptionAbstract" align="center" cols="70" rows="20"></textarea>
+   <textarea name="DescriptionAbstract" align="center" cols="70" rows="20" #desc (blur) ="putVal({desc_abstract:desc.value})" ></textarea>
 </p>
 <p>Enter any keywords which help describe the dataset. Seperate terms by commas.<br>
-<input name="DescriptionKeywords" type="text" value="" size="85"> 
+<input name="DescriptionKeywords" type="text" value="" size="85" #keywords (blur) ="putVal({desc_keywords:keywords.value})"> 
 </p>
  
     <p>Describe the dataset's level of detail by specifying its scale or resolution. Scale is generally used for vector data while resolution is used for raster/imagery.</p>
      <p> 
           <label> 
-          <input type="radio" name="DescriptionScaleRes" value="DescriptionScale"  checked>Scale: </label><br>
-           <input type="text" name="DescriptionScaleValue">
+          <input type="radio" name="DescriptionScaleRes" value="DescriptionScale" #checkScale (blur) ="putVal({desc_chek_scale:checkScale.value})"  checked>Scale: </label><br>
+           <input type="text" name="DescriptionScaleValue" #scale (blur) ="putVal({desc_scale:scale.value})">
 
           <p><br>
           <label> 
-          <input type="radio" name="DescriptionScaleRes" value="DescriptionResolution" >
+          <input type="radio" name="DescriptionScaleRes" value="DescriptionResolution" #checkRes (blur) ="putVal({desc_chek_res:checkRes.value})" >
           Resolution</label><br>
           <p>A dataset's resolution is the distance between any 
               two adjacent grid squares or image pixels (e.g. 10 m, 1 km).</p>
           <br>
           <p>Distance:
-           &nbsp;&nbsp;<input type="text" name="DescriptionResolutionValue"></p>
+           &nbsp;&nbsp;<input type="text" name="DescriptionResolutionValue" #resVal (blur) ="putVal({desc_res_val:resVal.value})" ></p>
            <p>Units of Measure: &nbsp;&nbsp;
-                <select name="DescriptionResolutionUOM" size="1">
+                <select name="DescriptionResolutionUOM" size="1" #resUOM (blur) ="putVal({desc_res_uom:resUOM.value})" >
                   <option value="none" selected></option>
                   <option value="Metres">Metres</option>
                   <option value="Kilometers">Kilometers</option>

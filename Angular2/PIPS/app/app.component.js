@@ -16,7 +16,6 @@ var dataset_basic_form_1 = require('./dataset-basic-form');
 var dataset_desc_form_1 = require('./dataset-desc-form');
 var AppComponent = (function () {
     function AppComponent() {
-        this.dataStore = {};
     }
     AppComponent = __decorate([
         core_1.Component({

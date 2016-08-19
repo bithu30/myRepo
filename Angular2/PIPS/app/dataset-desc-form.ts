@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-
+import {PipsDataService} from './pips-data-service';
 
 
 @Component({
@@ -9,6 +9,13 @@ import {Component} from '@angular/core';
 })
 
 export class DatasetDescForm {
+
+    constructor ( private pipsDS : PipsDataService) {}
+
+    putVal(val){
+        this.pipsDS.add(val);
+        console.log(this.pipsDS.get())
+    }
     
     storeVal(value : any ) {
     

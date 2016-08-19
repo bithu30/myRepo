@@ -9,9 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var pips_data_service_1 = require('./pips-data-service');
 var DatasetDescForm = (function () {
-    function DatasetDescForm() {
+    function DatasetDescForm(pipsDS) {
+        this.pipsDS = pipsDS;
     }
+    DatasetDescForm.prototype.putVal = function (val) {
+        this.pipsDS.add(val);
+        console.log(this.pipsDS.get());
+    };
     DatasetDescForm.prototype.storeVal = function (value) {
         console.log(value);
     };
@@ -20,7 +26,7 @@ var DatasetDescForm = (function () {
             selector: 'dataset-desc-form',
             templateUrl: 'app/dataset-desc-form.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [pips_data_service_1.PipsDataService])
     ], DatasetDescForm);
     return DatasetDescForm;
 }());

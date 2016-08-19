@@ -24,6 +24,6 @@ import {DatasetDescForm} from './dataset-desc-form';
 })
 export class AppComponent {
 
-  public dataStore = {};
+   
   
 }

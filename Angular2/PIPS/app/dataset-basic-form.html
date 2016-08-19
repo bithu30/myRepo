@@ -1,16 +1,17 @@
 <form #datasetbasicform = "ngForm" (ngSubmit)="storeVal(datasetbasicform.value)">
   <label>Title:</label><br>
-  <input type="text" name="title" ngModel><br>
-
+  <!--<input type="text" name="title" (ngModel)<br>--> 
+ <input #title type="text" name="title" (blur) ="putVal({title:title.value} )"><br>
   <label>Organisation:</label><br>
-  <input type="text" name="org" ngModel><br>
-
+  <!--<input type="text" name="org" ngModel><br>-->
+  <input #org type="text" name="org" (blur) ="putVal({org:org.value})"><br>
   <label>Full File Name:</label><br>
-  <input type="text" name="ffname" ngModel><br>
-
+  <!--<input type="text" name="ffname" ngModel><br>-->
+  <input type="text" name="ffname" #ffname (blur) ="putVal({ffname:ffname.value})"><br>
   <label>Date:</label><br>
   <label>day:</label>
-  <select name="day" ngModel>
+  <!--<select name="day" ngModel>-->
+   <select name="day"  #day (blur) ="putVal({dataset_day:day.value})">
     <option value = "" >day</option>
       <option value = 1 >1</option>
       <option value = 2 >2</option>
@@ -45,7 +46,8 @@
       <option value = 31 >31</option>
   </select>
   <label>Month:</label>    
-  <select name="month" ngModel> 
+  <!--<select name="month" ngModel>--> 
+    <select name="month" #month (blur) ="putVal({dataset_month:month.value})">
     <option value = ""  >month</option>
      <option value ="January"  >January</option>
      <option value ="February"  >February</option>
@@ -61,25 +63,26 @@
      <option value ="December"  >December</option>
   </select>
   <label>Year:</label>   
-  <input type="text" name="year" ngModel><br><br> 
+  <!--<input type="text" name="year" ngModel><br><br> -->
+  <input type="text" name="year" #year (blur) ="putVal({dataset_year:year.value})"><br><br>
   <label>Themes:</label><br>
-<input type="checkbox" name="DatasetAgriculture" value="farming" />Agriculture and Farming<br/> 
-<input type="checkbox" name="DatasetAdmin" value="boundaries"/>Administrative and Political Boundaries<br/>
-<input type="checkbox" name="DatasetAtmosphere"  value="climatologyMeteorologyAtmosphere"/>Atmosphere, Climatology and Meteorology<br/>
-<input type="checkbox" name="DatasetBiology"  value="biota"/>Biology and Ecology<br/>
-<input type="checkbox" name="DatasetBusiness" value="economy"/>Business and Economy<br/>
-<input type="checkbox" name="DatasetCadastral" value="planningCadastre"/>Cadastral and Land Planning<br/>
-<input type="checkbox" name="DatasetCulture" value="society"/>Cultural, Society and Demography<br/>
-<input type="checkbox" name="DatasetElevation" value="elevation"/>Elevation and Derived Products<br/>
-<input type="checkbox" name="DatasetEnvironment" value="environment">Environment and Conservation<br/>
-<input type="checkbox" name="DatasetFacilities" value="structure"/>Facilities and Structures<br/>
-<input type="checkbox" name="DatasetGeology" value="geoscientificInformation"/>Geological and Geophysical<br/>
-<input type="checkbox" name="DatasetHealth" value="health"/>Human Health and Disease<br/>
-<input type="checkbox" name="DatasetImagery" value="imageryBaseMapsEarthCover"/>Imagery, Base Maps and Land Cover<br/>
-<input type="checkbox" name="DatasetWater" value="inlandWaters"/>Inland Water Resources<br/>
-<input type="checkbox" name="DatasetLocations" value="location"/>Locations and Geodetic Networks<br/>
-<input type="checkbox" name="DatasetMilitary" value="intelligenceMilitary"/>Military and Intelligence<br/>
-<input type="checkbox" name="DatasetOceans" value="oceans"/>Oceans and Estuaries<br/>
-<input type="checkbox" name="DatasetTransport" value="transportation"/>Transportation Networks<br/>
-<input type="checkbox" name="DatasetComms" value="utilitiesCommunication"/>Utility and Communication Networks<br/>
+<input type="checkbox" name="DatasetAgriculture" value="farming" #farming (blur) ="putVal({theme_farming:farming.value})" />Agriculture and Farming<br/> 
+<input type="checkbox" name="DatasetAdmin" value="boundaries" #bound (blur) ="putVal({theme_bound:bound.value})"/>Administrative and Political Boundaries<br/>
+<input type="checkbox" name="DatasetAtmosphere"  value="climatologyMeteorologyAtmosphere" #cli (blur) ="putVal({theme_cli:cli.value})" />Atmosphere, Climatology and Meteorology<br/>
+<input type="checkbox" name="DatasetBiology"  value="biota" #biota (blur) ="putVal({theme_biota:biota.value})"/>Biology and Ecology<br/>
+<input type="checkbox" name="DatasetBusiness" value="economy" #economy (blur) ="putVal({theme_economy:economy.value})"/>Business and Economy<br/>
+<input type="checkbox" name="DatasetCadastral" value="planningCadastre" #planningCadastre (blur) ="putVal({theme_planningCadastre:planningCadastre.value})"/>Cadastral and Land Planning<br/>
+<input type="checkbox" name="DatasetCulture" value="society" #society (blur) ="putVal({theme_society:society.value})"/>Cultural, Society and Demography<br/>
+<input type="checkbox" name="DatasetElevation" value="elevation" #elevetion (blur) ="putVal({theme_elevetion:elevetion.value})"/>Elevation and Derived Products<br/>
+<input type="checkbox" name="DatasetEnvironment" value="environment" #env (blur) ="putVal({theme_env:env.value})"/>Environment and Conservation<br/>
+<input type="checkbox" name="DatasetFacilities" value="structure" #struct (blur) ="putVal({theme_struct:struct.value})"/>Facilities and Structures<br/>
+<input type="checkbox" name="DatasetGeology" value="geoscientificInformation" #geoscientificInformation (blur) ="putVal({theme_geoscientificInformation:bound.geoscientificInformation})"/>Geological and Geophysical<br/>
+<input type="checkbox" name="DatasetHealth" value="health" #health (blur) ="putVal({theme_health:health.value})" />Human Health and Disease<br/>
+<input type="checkbox" name="DatasetImagery" value="imageryBaseMapsEarthCover" #imagery (blur) ="putVal({theme_imagery:imagery.value})" />Imagery, Base Maps and Land Cover<br/>
+<input type="checkbox" name="DatasetWater" value="inlandWaters" #inlandWaters (blur) ="putVal({theme_inlandWaters:inlandWaters.value})" />Inland Water Resources<br/>
+<input type="checkbox" name="DatasetLocations" value="location" #loc (blur) ="putVal({theme_loc:loc.value})" />Locations and Geodetic Networks<br/>
+<input type="checkbox" name="DatasetMilitary" value="intelligenceMilitary" #mil (blur) ="putVal({theme_mil:mil.value})" />Military and Intelligence<br/>
+<input type="checkbox" name="DatasetOceans" value="oceans" #ocean (blur) ="putVal({ocean_bound:ocean.value})" />Oceans and Estuaries<br/>
+<input type="checkbox" name="DatasetTransport" value="transportation" #trans (blur) ="putVal({theme_trans:trans.value})" />Transportation Networks<br/>
+<input type="checkbox" name="DatasetComms" value="utilitiesCommunication" #utils (blur) ="putVal({theme_utils:utils.value})" />Utility and Communication Networks<br/>
 
