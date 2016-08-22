@@ -13,6 +13,8 @@ export class PipsDataService {
          console.log(this.pipsData );
          
      }
-     
+     submitData() {
+         console.log(JSON.stringify( this.pipsData ) );
+     }
 
 }

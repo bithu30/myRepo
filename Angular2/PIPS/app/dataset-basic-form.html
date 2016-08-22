@@ -1,4 +1,4 @@
-<form #datasetbasicform = "ngForm" (ngSubmit)="storeVal(datasetbasicform.value)">
+<form #datasetbasicform = "ngForm" (ngSubmit)="sendVal()">
   <label>Title:</label><br>
   <!--<input type="text" name="title" (ngModel)<br>--> 
  <input #title type="text" name="title" (blur) ="putVal({title:title.value} )"><br>

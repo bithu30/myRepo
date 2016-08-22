@@ -12,6 +12,9 @@ var PipsDataService = (function () {
     PipsDataService.prototype.show = function () {
         console.log(this.pipsData);
     };
+    PipsDataService.prototype.submitData = function () {
+        console.log(JSON.stringify(this.pipsData));
+    };
     return PipsDataService;
 }());
 exports.PipsDataService = PipsDataService;

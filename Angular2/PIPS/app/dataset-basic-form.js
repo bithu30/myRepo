@@ -10,21 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var pips_data_service_1 = require('./pips-data-service');
+var tidyprint_pipe_1 = require('./tidyprint-pipe');
 var DatasetBasicForm = (function () {
     function DatasetBasicForm(pipsDS) {
         this.pipsDS = pipsDS;
     }
     DatasetBasicForm.prototype.putVal = function (val) {
         this.pipsDS.add(val);
-        console.log(this.pipsDS.get());
+        //console.log(this.pipsDS.get())
     };
-    DatasetBasicForm.prototype.storeVal = function (value) {
-        console.log(value);
+    DatasetBasicForm.prototype.sendVal = function () {
+        this.pipsDS.submitData();
     };
     DatasetBasicForm = __decorate([
         core_1.Component({
             selector: 'dataset-basic-form',
             templateUrl: 'app/dataset-basic-form.html',
+            pipes: [tidyprint_pipe_1.TidyPrintPipe]
         }), 
         __metadata('design:paramtypes', [pips_data_service_1.PipsDataService])
     ], DatasetBasicForm);

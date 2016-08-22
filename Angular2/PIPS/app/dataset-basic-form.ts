@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 import {PipsDataService} from './pips-data-service';
-
+import {TidyPrintPipe  } from './tidyprint-pipe';
 
 @Component({
   selector: 'dataset-basic-form',
   templateUrl: 'app/dataset-basic-form.html',
+  pipes: [ TidyPrintPipe ]
  
 })
 
@@ -14,12 +15,13 @@ export class DatasetBasicForm {
 
     putVal(val){
         this.pipsDS.add(val);
-        console.log(this.pipsDS.get())
+        
+        //console.log(this.pipsDS.get())
     }
     
-    storeVal(value : any ) {
+    sendVal( ) {
     
-        console.log(value);
+        this.pipsDS.submitData();
        
         
     }

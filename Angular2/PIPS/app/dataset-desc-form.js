@@ -16,10 +16,10 @@ var DatasetDescForm = (function () {
     }
     DatasetDescForm.prototype.putVal = function (val) {
         this.pipsDS.add(val);
-        console.log(this.pipsDS.get());
+        //console.log(this.pipsDS.get())
     };
-    DatasetDescForm.prototype.storeVal = function (value) {
-        console.log(value);
+    DatasetDescForm.prototype.sendVal = function () {
+        this.pipsDS.submitData();
     };
     DatasetDescForm = __decorate([
         core_1.Component({

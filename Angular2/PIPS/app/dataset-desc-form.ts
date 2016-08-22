@@ -14,12 +14,13 @@ export class DatasetDescForm {
 
     putVal(val){
         this.pipsDS.add(val);
-        console.log(this.pipsDS.get())
+        //console.log(this.pipsDS.get())
     }
     
-    storeVal(value : any ) {
+    sendVal() {
     
-        console.log(value);
+        this.pipsDS.submitData();
+       
         
     }
   
