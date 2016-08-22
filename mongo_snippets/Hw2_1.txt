@@ -28,3 +28,18 @@ how many movies have sweden listed as a second country (countries is an array)
 		}
 	   }
     )
+	
+	
+	
+	db.movie.find( {"tomato.meter":100}) -> this is how we must access the values in a embedded document
+	
+	db.movie.find ( {"writers":["MD","VKN"]}) - match only those documents that writes MD followed by VKN , the order matters
+	
+	db.movie.find ( {"actors.0":"Mohanlal"}) - where mohanlal occurs in the first position of the actors array
+	
+	projection allows explicitly include and exclude documents in the query results
+	ex: db.movie.find( {"rating":"PG-13"},{title:1_id:0}) - results will only have _id and title, if you want to exclude id use _id:0
+	
+	db.movie.find({ "tomato.meter":{$exists:true}) -check if the element tomato.meter exists or not
+	
+	show collections - show collections in a table

@@ -1,0 +1,24 @@
+Django
+=======
+
+MVC Framework
+
+Model - stores and validates data
+
+View(Controller) - process data
+
+Template(View) - displays data
+
+Projects will have many apps , reprsented as folders inside the proj location
+
+create a project
+==================
+django-admin startproject <name>
+
+start first app
+================
+python manage.py startapp main_app
+
+start django built in server
+============================
+python manage.py runserver

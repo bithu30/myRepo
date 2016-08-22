@@ -1,0 +1,19 @@
+Anonymous function
+===================
+var diff = function  ( a, b) {
+}; -> new style loads only when this line of code is reached ,
+
+call like diff ( a,b)
+console.log(diff) - return the function body returned
+
+function test1 ( a, b) {
+} old style,loads when the prgm loads
+
+map function example
+=====================
+
+var res = numbers.map ( function (arraycell) {
+			return arraycell *2;
+}
+
+);
