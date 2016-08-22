@@ -1,5 +1,7 @@
-import {Component} from 'angular2/core';
-import {ControlGroup, Control, Validators} from 'angular2/common';
+import {Component, Inject} from 'angular2/core';
+import { Control, Validators, FormBuilder} from 'angular2/common';
+import {MediaItemService}  from './media-item-service';
+import  {LOOKUP_LISTS }from './providers';
 
 @Component({
     selector: 'media-item-form',
@@ -8,9 +10,12 @@ import {ControlGroup, Control, Validators} from 'angular2/common';
 })
 export class MediaItemFormComponent {
     form;
+    constructor (private fb : FormBuilder,
+    private  mediaItemService:MediaItemService,
+    @Inject(LOOKUP_LISTS) public lookUpLists){};
 
     ngOnInit() {
-        this.form = new ControlGroup({
+        this.form = this.fb.group({
             'medium': new Control('Movies'),
             'name': new Control('', Validators.compose([
                 Validators.required, 
@@ -31,6 +36,6 @@ export class MediaItemFormComponent {
     }
 
     onSubmit(mediaItem) {
-        console.log(mediaItem);
+        this.mediaItemService.add(mediaItem);
     }
 }

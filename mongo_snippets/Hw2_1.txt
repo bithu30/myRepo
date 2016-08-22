@@ -11,3 +11,20 @@ find grades of student with score 65 and above and get the top 15
 
 how many movies have sweden listed as a second country (countries is an array)	
 	db.movieDetails.find( { "countries.1": { $in:['Sweden'] } }).count()
+#( { field1: { $elemMatch: { one: 1 } } } );	
+	db.students.find ( { scores: {$elemMatch:{ type:"homework" } } },{ "scores.$": 2 }).pretty()
+	
+	#get all the home work scores
+	
+	db.students.aggregate([  {'$unwind':'$scores'},{$match : { 'scores.type':'homework' } } ])
+	
+	db.students.aggregate([  {'$unwind':'$scores'},{$match : { 'scores.type':'homework' } },{$group:{'_id':'$_id'},{'scores':'$scores'} } ])
+	
+	db.students.update(
+	   {'_id':199,},
+	   {$pull :
+		{
+		scores:{'type':'homework','score': 5.861613903793295}
+		}
+	   }
+    )

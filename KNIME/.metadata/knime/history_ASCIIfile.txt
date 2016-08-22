@@ -1,3 +1,4 @@
+http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
 knime://knime.workflow/data/adult.data
 knime://knime.workflow/data/shuttle.data
 knime://knime.workflow/data/german-credit-test.txt

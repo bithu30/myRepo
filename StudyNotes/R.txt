@@ -1,0 +1,4 @@
+You can give a name to the elements of a vector with the names() function. Have a look at this example:
+
+some_vector <- c("John Doe", "poker player")
+names(some_vector) <- c("Name", "Profession")

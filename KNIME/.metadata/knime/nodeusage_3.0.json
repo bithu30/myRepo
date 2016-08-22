@@ -9,8 +9,48 @@
                 "nrexecs":1,
                 "nrfails":0,
                 "exectime":1531,
+                "nrcreated":1,
+                "successor":"n/a"
+            },
+            {
+                "id":"org.knime.base.node.preproc.partition.PartitionNodeFactory#Partitioning",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":1099,
                 "nrcreated":0,
                 "successor":"n/a"
+            },
+            {
+                "id":"org.knime.base.node.mine.bayes.naivebayes.learner2.NaiveBayesLearnerNodeFactory3#Naive Bayes Learner",
+                "nrexecs":2,
+                "nrfails":0,
+                "exectime":355,
+                "nrcreated":1,
+                "successor":"org.knime.base.node.mine.bayes.naivebayes.predictor3.NaiveBayesPredictorNodeFactory2#Naive Bayes Predictor"
+            },
+            {
+                "id":"org.knime.base.node.mine.bayes.naivebayes.predictor3.NaiveBayesPredictorNodeFactory2#Naive Bayes Predictor",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":3605,
+                "nrcreated":2,
+                "successor":"n/a"
+            },
+            {
+                "id":"org.knime.base.node.mine.scorer.accuracy.AccuracyScorerNodeFactory#Scorer",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":241,
+                "nrcreated":0,
+                "successor":"n/a"
+            },
+            {
+                "id":"org.knime.base.node.io.arffreader.ARFFReaderNodeFactory#ARFF Reader",
+                "nrexecs":1,
+                "nrfails":0,
+                "exectime":374,
+                "nrcreated":2,
+                "successor":"org.knime.base.node.mine.bayes.naivebayes.learner2.NaiveBayesLearnerNodeFactory3#Naive Bayes Learner"
             }
         ],
         "metaNodes":{
@@ -18,11 +58,11 @@
         "wrappedNodes":{
         }
     },
-    "uptime":312871,
-    "workflowsOpened":0,
-    "remoteWorkflowsOpened":2,
+    "uptime":513386143,
+    "workflowsOpened":1,
+    "remoteWorkflowsOpened":3,
     "launches":1,
-    "timeSinceLastStart":312871,
+    "timeSinceLastStart":513386143,
     "crashes":0,
     "properlyShutDown":false
 }
