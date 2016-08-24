@@ -12,28 +12,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var collection_1 = require('../facade/collection');
-var lang_1 = require('../facade/lang');
-var ParserError = (function () {
-    function ParserError(message, input, errLocation, ctxLocation) {
-        this.input = input;
-        this.errLocation = errLocation;
-        this.ctxLocation = ctxLocation;
-        this.message = "Parser Error: " + message + " " + errLocation + " [" + input + "] in " + ctxLocation;
-    }
-    return ParserError;
-}());
-exports.ParserError = ParserError;
-var ParseSpan = (function () {
-    function ParseSpan(start, end) {
-        this.start = start;
-        this.end = end;
-    }
-    return ParseSpan;
-}());
-exports.ParseSpan = ParseSpan;
 var AST = (function () {
-    function AST(span) {
-        this.span = span;
+    function AST() {
     }
     AST.prototype.visit = function (visitor, context) {
         if (context === void 0) { context = null; }
@@ -58,8 +38,8 @@ exports.AST = AST;
  */
 var Quote = (function (_super) {
     __extends(Quote, _super);
-    function Quote(span, prefix, uninterpretedExpression, location) {
-        _super.call(this, span);
+    function Quote(prefix, uninterpretedExpression, location) {
+        _super.call(this);
         this.prefix = prefix;
         this.uninterpretedExpression = uninterpretedExpression;
         this.location = location;
@@ -101,8 +81,8 @@ exports.ImplicitReceiver = ImplicitReceiver;
  */
 var Chain = (function (_super) {
     __extends(Chain, _super);
-    function Chain(span, expressions) {
-        _super.call(this, span);
+    function Chain(expressions) {
+        _super.call(this);
         this.expressions = expressions;
     }
     Chain.prototype.visit = function (visitor, context) {
@@ -114,8 +94,8 @@ var Chain = (function (_super) {
 exports.Chain = Chain;
 var Conditional = (function (_super) {
     __extends(Conditional, _super);
-    function Conditional(span, condition, trueExp, falseExp) {
-        _super.call(this, span);
+    function Conditional(condition, trueExp, falseExp) {
+        _super.call(this);
         this.condition = condition;
         this.trueExp = trueExp;
         this.falseExp = falseExp;
@@ -129,8 +109,8 @@ var Conditional = (function (_super) {
 exports.Conditional = Conditional;
 var PropertyRead = (function (_super) {
     __extends(PropertyRead, _super);
-    function PropertyRead(span, receiver, name) {
-        _super.call(this, span);
+    function PropertyRead(receiver, name) {
+        _super.call(this);
         this.receiver = receiver;
         this.name = name;
     }
@@ -143,8 +123,8 @@ var PropertyRead = (function (_super) {
 exports.PropertyRead = PropertyRead;
 var PropertyWrite = (function (_super) {
     __extends(PropertyWrite, _super);
-    function PropertyWrite(span, receiver, name, value) {
-        _super.call(this, span);
+    function PropertyWrite(receiver, name, value) {
+        _super.call(this);
         this.receiver = receiver;
         this.name = name;
         this.value = value;
@@ -158,8 +138,8 @@ var PropertyWrite = (function (_super) {
 exports.PropertyWrite = PropertyWrite;
 var SafePropertyRead = (function (_super) {
     __extends(SafePropertyRead, _super);
-    function SafePropertyRead(span, receiver, name) {
-        _super.call(this, span);
+    function SafePropertyRead(receiver, name) {
+        _super.call(this);
         this.receiver = receiver;
         this.name = name;
     }
@@ -172,8 +152,8 @@ var SafePropertyRead = (function (_super) {
 exports.SafePropertyRead = SafePropertyRead;
 var KeyedRead = (function (_super) {
     __extends(KeyedRead, _super);
-    function KeyedRead(span, obj, key) {
-        _super.call(this, span);
+    function KeyedRead(obj, key) {
+        _super.call(this);
         this.obj = obj;
         this.key = key;
     }
@@ -186,8 +166,8 @@ var KeyedRead = (function (_super) {
 exports.KeyedRead = KeyedRead;
 var KeyedWrite = (function (_super) {
     __extends(KeyedWrite, _super);
-    function KeyedWrite(span, obj, key, value) {
-        _super.call(this, span);
+    function KeyedWrite(obj, key, value) {
+        _super.call(this);
         this.obj = obj;
         this.key = key;
         this.value = value;
@@ -201,8 +181,8 @@ var KeyedWrite = (function (_super) {
 exports.KeyedWrite = KeyedWrite;
 var BindingPipe = (function (_super) {
     __extends(BindingPipe, _super);
-    function BindingPipe(span, exp, name, args) {
-        _super.call(this, span);
+    function BindingPipe(exp, name, args) {
+        _super.call(this);
         this.exp = exp;
         this.name = name;
         this.args = args;
@@ -216,8 +196,8 @@ var BindingPipe = (function (_super) {
 exports.BindingPipe = BindingPipe;
 var LiteralPrimitive = (function (_super) {
     __extends(LiteralPrimitive, _super);
-    function LiteralPrimitive(span, value) {
-        _super.call(this, span);
+    function LiteralPrimitive(value) {
+        _super.call(this);
         this.value = value;
     }
     LiteralPrimitive.prototype.visit = function (visitor, context) {
@@ -229,8 +209,8 @@ var LiteralPrimitive = (function (_super) {
 exports.LiteralPrimitive = LiteralPrimitive;
 var LiteralArray = (function (_super) {
     __extends(LiteralArray, _super);
-    function LiteralArray(span, expressions) {
-        _super.call(this, span);
+    function LiteralArray(expressions) {
+        _super.call(this);
         this.expressions = expressions;
     }
     LiteralArray.prototype.visit = function (visitor, context) {
@@ -242,8 +222,8 @@ var LiteralArray = (function (_super) {
 exports.LiteralArray = LiteralArray;
 var LiteralMap = (function (_super) {
     __extends(LiteralMap, _super);
-    function LiteralMap(span, keys, values) {
-        _super.call(this, span);
+    function LiteralMap(keys, values) {
+        _super.call(this);
         this.keys = keys;
         this.values = values;
     }
@@ -256,8 +236,8 @@ var LiteralMap = (function (_super) {
 exports.LiteralMap = LiteralMap;
 var Interpolation = (function (_super) {
     __extends(Interpolation, _super);
-    function Interpolation(span, strings, expressions) {
-        _super.call(this, span);
+    function Interpolation(strings, expressions) {
+        _super.call(this);
         this.strings = strings;
         this.expressions = expressions;
     }
@@ -270,8 +250,8 @@ var Interpolation = (function (_super) {
 exports.Interpolation = Interpolation;
 var Binary = (function (_super) {
     __extends(Binary, _super);
-    function Binary(span, operation, left, right) {
-        _super.call(this, span);
+    function Binary(operation, left, right) {
+        _super.call(this);
         this.operation = operation;
         this.left = left;
         this.right = right;
@@ -285,8 +265,8 @@ var Binary = (function (_super) {
 exports.Binary = Binary;
 var PrefixNot = (function (_super) {
     __extends(PrefixNot, _super);
-    function PrefixNot(span, expression) {
-        _super.call(this, span);
+    function PrefixNot(expression) {
+        _super.call(this);
         this.expression = expression;
     }
     PrefixNot.prototype.visit = function (visitor, context) {
@@ -298,8 +278,8 @@ var PrefixNot = (function (_super) {
 exports.PrefixNot = PrefixNot;
 var MethodCall = (function (_super) {
     __extends(MethodCall, _super);
-    function MethodCall(span, receiver, name, args) {
-        _super.call(this, span);
+    function MethodCall(receiver, name, args) {
+        _super.call(this);
         this.receiver = receiver;
         this.name = name;
         this.args = args;
@@ -313,8 +293,8 @@ var MethodCall = (function (_super) {
 exports.MethodCall = MethodCall;
 var SafeMethodCall = (function (_super) {
     __extends(SafeMethodCall, _super);
-    function SafeMethodCall(span, receiver, name, args) {
-        _super.call(this, span);
+    function SafeMethodCall(receiver, name, args) {
+        _super.call(this);
         this.receiver = receiver;
         this.name = name;
         this.args = args;
@@ -328,8 +308,8 @@ var SafeMethodCall = (function (_super) {
 exports.SafeMethodCall = SafeMethodCall;
 var FunctionCall = (function (_super) {
     __extends(FunctionCall, _super);
-    function FunctionCall(span, target, args) {
-        _super.call(this, span);
+    function FunctionCall(target, args) {
+        _super.call(this);
         this.target = target;
         this.args = args;
     }
@@ -342,12 +322,11 @@ var FunctionCall = (function (_super) {
 exports.FunctionCall = FunctionCall;
 var ASTWithSource = (function (_super) {
     __extends(ASTWithSource, _super);
-    function ASTWithSource(ast, source, location, errors) {
-        _super.call(this, new ParseSpan(0, lang_1.isBlank(source) ? 0 : source.length));
+    function ASTWithSource(ast, source, location) {
+        _super.call(this);
         this.ast = ast;
         this.source = source;
         this.location = location;
-        this.errors = errors;
     }
     ASTWithSource.prototype.visit = function (visitor, context) {
         if (context === void 0) { context = null; }
@@ -451,52 +430,52 @@ var AstTransformer = (function () {
     }
     AstTransformer.prototype.visitImplicitReceiver = function (ast, context) { return ast; };
     AstTransformer.prototype.visitInterpolation = function (ast, context) {
-        return new Interpolation(ast.span, ast.strings, this.visitAll(ast.expressions));
+        return new Interpolation(ast.strings, this.visitAll(ast.expressions));
     };
     AstTransformer.prototype.visitLiteralPrimitive = function (ast, context) {
-        return new LiteralPrimitive(ast.span, ast.value);
+        return new LiteralPrimitive(ast.value);
     };
     AstTransformer.prototype.visitPropertyRead = function (ast, context) {
-        return new PropertyRead(ast.span, ast.receiver.visit(this), ast.name);
+        return new PropertyRead(ast.receiver.visit(this), ast.name);
     };
     AstTransformer.prototype.visitPropertyWrite = function (ast, context) {
-        return new PropertyWrite(ast.span, ast.receiver.visit(this), ast.name, ast.value);
+        return new PropertyWrite(ast.receiver.visit(this), ast.name, ast.value);
     };
     AstTransformer.prototype.visitSafePropertyRead = function (ast, context) {
-        return new SafePropertyRead(ast.span, ast.receiver.visit(this), ast.name);
+        return new SafePropertyRead(ast.receiver.visit(this), ast.name);
     };
     AstTransformer.prototype.visitMethodCall = function (ast, context) {
-        return new MethodCall(ast.span, ast.receiver.visit(this), ast.name, this.visitAll(ast.args));
+        return new MethodCall(ast.receiver.visit(this), ast.name, this.visitAll(ast.args));
     };
     AstTransformer.prototype.visitSafeMethodCall = function (ast, context) {
-        return new SafeMethodCall(ast.span, ast.receiver.visit(this), ast.name, this.visitAll(ast.args));
+        return new SafeMethodCall(ast.receiver.visit(this), ast.name, this.visitAll(ast.args));
     };
     AstTransformer.prototype.visitFunctionCall = function (ast, context) {
-        return new FunctionCall(ast.span, ast.target.visit(this), this.visitAll(ast.args));
+        return new FunctionCall(ast.target.visit(this), this.visitAll(ast.args));
     };
     AstTransformer.prototype.visitLiteralArray = function (ast, context) {
-        return new LiteralArray(ast.span, this.visitAll(ast.expressions));
+        return new LiteralArray(this.visitAll(ast.expressions));
     };
     AstTransformer.prototype.visitLiteralMap = function (ast, context) {
-        return new LiteralMap(ast.span, ast.keys, this.visitAll(ast.values));
+        return new LiteralMap(ast.keys, this.visitAll(ast.values));
     };
     AstTransformer.prototype.visitBinary = function (ast, context) {
-        return new Binary(ast.span, ast.operation, ast.left.visit(this), ast.right.visit(this));
+        return new Binary(ast.operation, ast.left.visit(this), ast.right.visit(this));
     };
     AstTransformer.prototype.visitPrefixNot = function (ast, context) {
-        return new PrefixNot(ast.span, ast.expression.visit(this));
+        return new PrefixNot(ast.expression.visit(this));
     };
     AstTransformer.prototype.visitConditional = function (ast, context) {
-        return new Conditional(ast.span, ast.condition.visit(this), ast.trueExp.visit(this), ast.falseExp.visit(this));
+        return new Conditional(ast.condition.visit(this), ast.trueExp.visit(this), ast.falseExp.visit(this));
     };
     AstTransformer.prototype.visitPipe = function (ast, context) {
-        return new BindingPipe(ast.span, ast.exp.visit(this), ast.name, this.visitAll(ast.args));
+        return new BindingPipe(ast.exp.visit(this), ast.name, this.visitAll(ast.args));
     };
     AstTransformer.prototype.visitKeyedRead = function (ast, context) {
-        return new KeyedRead(ast.span, ast.obj.visit(this), ast.key.visit(this));
+        return new KeyedRead(ast.obj.visit(this), ast.key.visit(this));
     };
     AstTransformer.prototype.visitKeyedWrite = function (ast, context) {
-        return new KeyedWrite(ast.span, ast.obj.visit(this), ast.key.visit(this), ast.value.visit(this));
+        return new KeyedWrite(ast.obj.visit(this), ast.key.visit(this), ast.value.visit(this));
     };
     AstTransformer.prototype.visitAll = function (asts) {
         var res = collection_1.ListWrapper.createFixedSize(asts.length);
@@ -505,11 +484,9 @@ var AstTransformer = (function () {
         }
         return res;
     };
-    AstTransformer.prototype.visitChain = function (ast, context) {
-        return new Chain(ast.span, this.visitAll(ast.expressions));
-    };
+    AstTransformer.prototype.visitChain = function (ast, context) { return new Chain(this.visitAll(ast.expressions)); };
     AstTransformer.prototype.visitQuote = function (ast, context) {
-        return new Quote(ast.span, ast.prefix, ast.uninterpretedExpression, ast.location);
+        return new Quote(ast.prefix, ast.uninterpretedExpression, ast.location);
     };
     return AstTransformer;
 }());

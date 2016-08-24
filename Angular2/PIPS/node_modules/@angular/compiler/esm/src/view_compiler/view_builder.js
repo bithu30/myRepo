@@ -13,12 +13,11 @@ import { ListWrapper, SetWrapper, StringMapWrapper } from '../facade/collection'
 import { StringWrapper, isPresent } from '../facade/lang';
 import { Identifiers, identifierToken } from '../identifiers';
 import * as o from '../output/output_ast';
-import { templateVisitAll } from '../template_parser/template_ast';
-import { createDiTokenExpression } from '../util';
+import { templateVisitAll } from '../template_ast';
 import { CompileElement, CompileNode } from './compile_element';
 import { CompileView } from './compile_view';
 import { ChangeDetectorStatusEnum, DetectChangesVars, InjectMethodVars, ViewConstructorVars, ViewEncapsulationEnum, ViewProperties, ViewTypeEnum } from './constants';
-import { createFlatArray, getViewFactoryName } from './util';
+import { createDiTokenExpression, createFlatArray, getViewFactoryName } from './util';
 const IMPLICIT_TEMPLATE_VAR = '\$implicit';
 const CLASS_ATTR = 'class';
 const STYLE_ATTR = 'style';
@@ -177,12 +176,12 @@ class ViewBuilderVisitor {
         if (isPresent(component)) {
             let nestedComponentIdentifier = new CompileIdentifierMetadata({ name: getViewFactoryName(component, 0) });
             this.targetDependencies.push(new ViewFactoryDependency(component.type, nestedComponentIdentifier));
-            let entryComponentIdentifiers = component.entryComponents.map((entryComponent) => {
-                var id = new CompileIdentifierMetadata({ name: entryComponent.name });
-                this.targetDependencies.push(new ComponentFactoryDependency(entryComponent, id));
+            let precompileComponentIdentifiers = component.precompile.map((precompileComp) => {
+                var id = new CompileIdentifierMetadata({ name: precompileComp.name });
+                this.targetDependencies.push(new ComponentFactoryDependency(precompileComp, id));
                 return id;
             });
-            compileElement.createComponentFactoryResolver(entryComponentIdentifiers);
+            compileElement.createComponentFactoryResolver(precompileComponentIdentifiers);
             compViewExpr = o.variable(`compView_${nodeIndex}`); // fix highlighting: `
             compileElement.setComponentView(compViewExpr);
             this.view.createMethod.addStmt(compViewExpr
@@ -224,7 +223,7 @@ class ViewBuilderVisitor {
         var directives = ast.directives.map(directiveAst => directiveAst.directive);
         var compileElement = new CompileElement(parent, this.view, nodeIndex, renderNode, ast, null, directives, ast.providers, ast.hasViewContainer, true, ast.references);
         this.view.nodes.push(compileElement);
-        var compiledAnimations = this._animationCompiler.compileComponent(this.view.component, [ast]);
+        var compiledAnimations = this._animationCompiler.compileComponent(this.view.component);
         this.nestedViewCount++;
         var embeddedView = new CompileView(this.view.component, this.view.genConfig, this.view.pipeMetas, o.NULL_EXPR, compiledAnimations, this.view.viewIndex + this.nestedViewCount, compileElement, templateVariableBindings);
         this.nestedViewCount += buildView(embeddedView, ast.children, this.targetDependencies);
@@ -396,14 +395,12 @@ function createViewFactory(view, viewClass, renderCompTypeVar) {
         templateUrlInfo = view.component.template.templateUrl;
     }
     if (view.viewIndex === 0) {
-        var animationsExpr = o.literalMap(view.animations.map(entry => [entry.name, entry.fnVariable]));
         initRenderCompTypeStmts = [new o.IfStmt(renderCompTypeVar.identical(o.NULL_EXPR), [
                 renderCompTypeVar
                     .set(ViewConstructorVars.viewUtils.callMethod('createRenderComponentType', [
                     o.literal(templateUrlInfo),
                     o.literal(view.component.template.ngContentSelectors.length),
-                    ViewEncapsulationEnum.fromValue(view.component.template.encapsulation), view.styles,
-                    animationsExpr
+                    ViewEncapsulationEnum.fromValue(view.component.template.encapsulation), view.styles
                 ]))
                     .toStmt()
             ])];

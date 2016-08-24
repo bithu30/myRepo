@@ -25,7 +25,7 @@ exports.SwitchView = SwitchView;
 var NgSwitch = (function () {
     function NgSwitch() {
         this._useDefault = false;
-        this._valueViews = new Map();
+        this._valueViews = new collection_1.Map();
         this._activeViews = [];
     }
     Object.defineProperty(NgSwitch.prototype, "ngSwitch", {
@@ -109,12 +109,8 @@ var NgSwitch = (function () {
     };
     /** @nocollapse */
     NgSwitch.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[ngSwitch]' },] },
+        { type: core_1.Directive, args: [{ selector: '[ngSwitch]', inputs: ['ngSwitch'] },] },
     ];
-    /** @nocollapse */
-    NgSwitch.propDecorators = {
-        'ngSwitch': [{ type: core_1.Input },],
-    };
     return NgSwitch;
 }());
 exports.NgSwitch = NgSwitch;
@@ -148,7 +144,7 @@ var NgSwitchCase = (function () {
     });
     /** @nocollapse */
     NgSwitchCase.decorators = [
-        { type: core_1.Directive, args: [{ selector: '[ngSwitchCase],[ngSwitchWhen]' },] },
+        { type: core_1.Directive, args: [{ selector: '[ngSwitchCase],[ngSwitchWhen]', inputs: ['ngSwitchCase', 'ngSwitchWhen'] },] },
     ];
     /** @nocollapse */
     NgSwitchCase.ctorParameters = [
@@ -156,11 +152,6 @@ var NgSwitchCase = (function () {
         { type: core_1.TemplateRef, },
         { type: NgSwitch, decorators: [{ type: core_1.Host },] },
     ];
-    /** @nocollapse */
-    NgSwitchCase.propDecorators = {
-        'ngSwitchCase': [{ type: core_1.Input },],
-        'ngSwitchWhen': [{ type: core_1.Input },],
-    };
     return NgSwitchCase;
 }());
 exports.NgSwitchCase = NgSwitchCase;

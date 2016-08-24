@@ -5,9 +5,10 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { StringMapWrapper } from '../../facade/collection';
+import { MapWrapper, StringMapWrapper } from '../../facade/collection';
 import { BaseException } from '../../facade/exceptions';
-import { isJsObject, looseIdentical, stringify } from '../../facade/lang';
+import { isBlank, isJsObject, looseIdentical, stringify } from '../../facade/lang';
+/* @ts2dart_const */
 export class DefaultKeyValueDifferFactory {
     constructor() {
     }
@@ -61,37 +62,45 @@ export class DefaultKeyValueDiffer {
         }
     }
     diff(map) {
-        if (!map) {
-            map = new Map();
-        }
-        else if (!(map instanceof Map || isJsObject(map))) {
+        if (isBlank(map))
+            map = MapWrapper.createFromPairs([]);
+        if (!(map instanceof Map || isJsObject(map))) {
             throw new BaseException(`Error trying to diff '${map}'`);
         }
-        return this.check(map) ? this : null;
+        if (this.check(map)) {
+            return this;
+        }
+        else {
+            return null;
+        }
     }
     onDestroy() { }
     check(map) {
         this._reset();
-        let records = this._records;
-        let oldSeqRecord = this._mapHead;
-        let lastOldSeqRecord = null;
-        let lastNewSeqRecord = null;
-        let seqChanged = false;
-        this._forEach(map, (value, key) => {
-            let newSeqRecord;
-            if (oldSeqRecord && key === oldSeqRecord.key) {
+        var records = this._records;
+        var oldSeqRecord = this._mapHead;
+        var lastOldSeqRecord = null;
+        var lastNewSeqRecord = null;
+        var seqChanged = false;
+        this._forEach(map, (value /** TODO #9100 */, key /** TODO #9100 */) => {
+            var newSeqRecord;
+            if (oldSeqRecord !== null && key === oldSeqRecord.key) {
                 newSeqRecord = oldSeqRecord;
-                this._maybeAddToChanges(newSeqRecord, value);
+                if (!looseIdentical(value, oldSeqRecord.currentValue)) {
+                    oldSeqRecord.previousValue = oldSeqRecord.currentValue;
+                    oldSeqRecord.currentValue = value;
+                    this._addToChanges(oldSeqRecord);
+                }
             }
             else {
                 seqChanged = true;
                 if (oldSeqRecord !== null) {
+                    oldSeqRecord._next = null;
                     this._removeFromSeq(lastOldSeqRecord, oldSeqRecord);
                     this._addToRemovals(oldSeqRecord);
                 }
                 if (records.has(key)) {
                     newSeqRecord = records.get(key);
-                    this._maybeAddToChanges(newSeqRecord, value);
                 }
                 else {
                     newSeqRecord = new KeyValueChangeRecord(key);
@@ -113,7 +122,7 @@ export class DefaultKeyValueDiffer {
             }
             lastOldSeqRecord = oldSeqRecord;
             lastNewSeqRecord = newSeqRecord;
-            oldSeqRecord = oldSeqRecord && oldSeqRecord._next;
+            oldSeqRecord = oldSeqRecord === null ? null : oldSeqRecord._next;
         });
         this._truncate(lastOldSeqRecord, oldSeqRecord);
         return this.isDirty;
@@ -121,7 +130,7 @@ export class DefaultKeyValueDiffer {
     /** @internal */
     _reset() {
         if (this.isDirty) {
-            let record;
+            var record;
             // Record the state of the mapping
             for (record = this._previousMapHead = this._mapHead; record !== null; record = record._next) {
                 record._nextPrevious = record._next;
@@ -132,6 +141,31 @@ export class DefaultKeyValueDiffer {
             for (record = this._additionsHead; record != null; record = record._nextAdded) {
                 record.previousValue = record.currentValue;
             }
+            // todo(vicb) once assert is supported
+            // assert(() {
+            //  var r = _changesHead;
+            //  while (r != null) {
+            //    var nextRecord = r._nextChanged;
+            //    r._nextChanged = null;
+            //    r = nextRecord;
+            //  }
+            //
+            //  r = _additionsHead;
+            //  while (r != null) {
+            //    var nextRecord = r._nextAdded;
+            //    r._nextAdded = null;
+            //    r = nextRecord;
+            //  }
+            //
+            //  r = _removalsHead;
+            //  while (r != null) {
+            //    var nextRecord = r._nextRemoved;
+            //    r._nextRemoved = null;
+            //    r = nextRecord;
+            //  }
+            //
+            //  return true;
+            //});
             this._changesHead = this._changesTail = null;
             this._additionsHead = this._additionsTail = null;
             this._removalsHead = this._removalsTail = null;
@@ -147,21 +181,19 @@ export class DefaultKeyValueDiffer {
                 lastRecord._next = null;
             }
             var nextRecord = record._next;
+            // todo(vicb) assert
+            // assert((() {
+            //  record._next = null;
+            //  return true;
+            //}));
             this._addToRemovals(record);
             lastRecord = record;
             record = nextRecord;
         }
-        for (let rec = this._removalsHead; rec !== null; rec = rec._nextRemoved) {
+        for (var rec = this._removalsHead; rec !== null; rec = rec._nextRemoved) {
             rec.previousValue = rec.currentValue;
             rec.currentValue = null;
             this._records.delete(rec.key);
-        }
-    }
-    _maybeAddToChanges(record, newValue) {
-        if (!looseIdentical(newValue, record.currentValue)) {
-            record.previousValue = record.currentValue;
-            record.currentValue = newValue;
-            this._addToChanges(record);
         }
     }
     /** @internal */
@@ -171,6 +203,12 @@ export class DefaultKeyValueDiffer {
     }
     /** @internal */
     _addToRemovals(record) {
+        // todo(vicb) assert
+        // assert(record._next == null);
+        // assert(record._nextAdded == null);
+        // assert(record._nextChanged == null);
+        // assert(record._nextRemoved == null);
+        // assert(record._prevRemoved == null);
         if (this._removalsHead === null) {
             this._removalsHead = this._removalsTail = record;
         }
@@ -189,12 +227,20 @@ export class DefaultKeyValueDiffer {
         else {
             prev._next = next;
         }
-        record._next = null;
+        // todo(vicb) assert
+        // assert((() {
+        //  record._next = null;
+        //  return true;
+        //})());
     }
     /** @internal */
     _removeFromRemovals(record) {
-        const prev = record._prevRemoved;
-        const next = record._nextRemoved;
+        // todo(vicb) assert
+        // assert(record._next == null);
+        // assert(record._nextAdded == null);
+        // assert(record._nextChanged == null);
+        var prev = record._prevRemoved;
+        var next = record._nextRemoved;
         if (prev === null) {
             this._removalsHead = next;
         }
@@ -211,6 +257,12 @@ export class DefaultKeyValueDiffer {
     }
     /** @internal */
     _addToAdditions(record) {
+        // todo(vicb): assert
+        // assert(record._next == null);
+        // assert(record._nextAdded == null);
+        // assert(record._nextChanged == null);
+        // assert(record._nextRemoved == null);
+        // assert(record._prevRemoved == null);
         if (this._additionsHead === null) {
             this._additionsHead = this._additionsTail = record;
         }
@@ -221,6 +273,11 @@ export class DefaultKeyValueDiffer {
     }
     /** @internal */
     _addToChanges(record) {
+        // todo(vicb) assert
+        // assert(record._nextAdded == null);
+        // assert(record._nextChanged == null);
+        // assert(record._nextRemoved == null);
+        // assert(record._prevRemoved == null);
         if (this._changesHead === null) {
             this._changesHead = this._changesTail = record;
         }
@@ -230,12 +287,12 @@ export class DefaultKeyValueDiffer {
         }
     }
     toString() {
-        const items = [];
-        const previous = [];
-        const changes = [];
-        const additions = [];
-        const removals = [];
-        let record;
+        var items = [];
+        var previous = [];
+        var changes = [];
+        var additions = [];
+        var removals = [];
+        var record;
         for (record = this._mapHead; record !== null; record = record._next) {
             items.push(stringify(record));
         }
@@ -258,7 +315,7 @@ export class DefaultKeyValueDiffer {
             'removals: ' + removals.join(', ') + '\n';
     }
     /** @internal */
-    _forEach(obj, fn) {
+    _forEach(obj /** TODO #9100 */, fn) {
         if (obj instanceof Map) {
             obj.forEach(fn);
         }

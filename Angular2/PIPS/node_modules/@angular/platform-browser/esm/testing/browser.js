@@ -5,12 +5,24 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { APP_ID, NgModule, NgZone, PLATFORM_COMMON_PROVIDERS, PLATFORM_INITIALIZER, createPlatformFactory, platformCore } from '@angular/core';
-import { BrowserModule } from '../src/browser';
+import { APP_ID, NgZone, PLATFORM_COMMON_PROVIDERS, PLATFORM_INITIALIZER } from '@angular/core';
+import { AnimationDriver, NoOpAnimationDriver } from '../core_private';
+import { BROWSER_APP_PROVIDERS } from '../src/browser';
 import { BrowserDomAdapter } from '../src/browser/browser_adapter';
-import { AnimationDriver } from '../src/dom/animation_driver';
 import { ELEMENT_PROBE_PROVIDERS } from '../src/dom/debug/ng_probe';
 import { BrowserDetection } from './browser_util';
+/**
+ * Default platform providers for testing without a compiler.
+ */
+const TEST_BROWSER_STATIC_PLATFORM_PROVIDERS = [
+    PLATFORM_COMMON_PROVIDERS,
+    { provide: PLATFORM_INITIALIZER, useValue: initBrowserTests, multi: true }
+];
+const ADDITIONAL_TEST_BROWSER_STATIC_PROVIDERS = [
+    { provide: APP_ID, useValue: 'a' }, ELEMENT_PROBE_PROVIDERS,
+    { provide: NgZone, useFactory: createNgZone },
+    { provide: AnimationDriver, useClass: NoOpAnimationDriver }
+];
 function initBrowserTests() {
     BrowserDomAdapter.makeCurrent();
     BrowserDetection.setup();
@@ -18,42 +30,16 @@ function initBrowserTests() {
 function createNgZone() {
     return new NgZone({ enableLongStackTrace: true });
 }
-const _TEST_BROWSER_PLATFORM_PROVIDERS = [{ provide: PLATFORM_INITIALIZER, useValue: initBrowserTests, multi: true }];
 /**
- * Providers for the browser test platform
+ * Default platform providers for testing.
  *
- * @deprecated Use `platformBrowserTesting()` or create a custom platform factory via
- * `createPlatformFactory(platformBrowserTesting, ...)`
+ * @stable
  */
-export const TEST_BROWSER_PLATFORM_PROVIDERS = [PLATFORM_COMMON_PROVIDERS, _TEST_BROWSER_PLATFORM_PROVIDERS];
+export const TEST_BROWSER_PLATFORM_PROVIDERS = TEST_BROWSER_STATIC_PLATFORM_PROVIDERS;
 /**
- * @deprecated Use initTestEnvironment with BrowserTestModule instead. This is empty for backwards
- * compatibility,
- * as all of our bootstrap methods add a module implicitly, i.e. keeping this filled would add the
- * providers 2x.
- */
-export const TEST_BROWSER_APPLICATION_PROVIDERS = [];
-/**
- * Platform for testing
+ * Default application providers for testing without a compiler.
  *
- * @experimental API related to bootstrapping are still under review.
+ * @stable
  */
-export const platformBrowserTesting = createPlatformFactory(platformCore, 'browserTesting', _TEST_BROWSER_PLATFORM_PROVIDERS);
-/**
- * @deprecated Use {@link platformBrowserTesting} instead
- */
-export const browserTestingPlatform = platformBrowserTesting;
-export class BrowserTestingModule {
-}
-/** @nocollapse */
-BrowserTestingModule.decorators = [
-    { type: NgModule, args: [{
-                exports: [BrowserModule],
-                providers: [
-                    { provide: APP_ID, useValue: 'a' }, ELEMENT_PROBE_PROVIDERS,
-                    { provide: NgZone, useFactory: createNgZone },
-                    { provide: AnimationDriver, useValue: AnimationDriver.NOOP }
-                ]
-            },] },
-];
+export const TEST_BROWSER_APPLICATION_PROVIDERS = [BROWSER_APP_PROVIDERS, ADDITIONAL_TEST_BROWSER_STATIC_PROVIDERS];
 //# sourceMappingURL=browser.js.map

@@ -8,6 +8,7 @@
 import { XHR } from '@angular/compiler';
 import { BaseException } from '../facade/exceptions';
 import { global } from '../facade/lang';
+import { PromiseWrapper } from '../facade/promise';
 /**
  * An implementation of XHR that uses a template cache to avoid doing an actual
  * XHR.
@@ -25,10 +26,10 @@ export class CachedXHR extends XHR {
     }
     get(url) {
         if (this._cache.hasOwnProperty(url)) {
-            return Promise.resolve(this._cache[url]);
+            return PromiseWrapper.resolve(this._cache[url]);
         }
         else {
-            return Promise.reject('CachedXHR: Did not find cached template for ' + url);
+            return PromiseWrapper.reject('CachedXHR: Did not find cached template for ' + url, null);
         }
     }
 }

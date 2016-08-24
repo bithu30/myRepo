@@ -18,8 +18,6 @@ export class AbstractControlDirective {
     get control() { return unimplemented(); }
     get value() { return isPresent(this.control) ? this.control.value : null; }
     get valid() { return isPresent(this.control) ? this.control.valid : null; }
-    get invalid() { return isPresent(this.control) ? this.control.invalid : null; }
-    get pending() { return isPresent(this.control) ? this.control.pending : null; }
     get errors() {
         return isPresent(this.control) ? this.control.errors : null;
     }
@@ -34,9 +32,5 @@ export class AbstractControlDirective {
         return isPresent(this.control) ? this.control.valueChanges : null;
     }
     get path() { return null; }
-    reset(value = undefined) {
-        if (isPresent(this.control))
-            this.control.reset(value);
-    }
 }
 //# sourceMappingURL=abstract_control_directive.js.map

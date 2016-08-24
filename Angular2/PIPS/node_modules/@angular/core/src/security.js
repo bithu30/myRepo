@@ -25,7 +25,8 @@
 })(exports.SecurityContext || (exports.SecurityContext = {}));
 var SecurityContext = exports.SecurityContext;
 /**
- * SanitizationService is used by the views to sanitize potentially dangerous values.
+ * SanitizationService is used by the views to sanitize potentially dangerous values. This is a
+ * private API, use code should only refer to DomSanitizationService.
  *
  * @stable
  */

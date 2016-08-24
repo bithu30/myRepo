@@ -1,4 +1,10 @@
-import { isPresent } from './facade/lang';
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 export class ParseLocation {
     constructor(file, offset, line, col) {
         this.file = file;
@@ -6,9 +12,7 @@ export class ParseLocation {
         this.line = line;
         this.col = col;
     }
-    toString() {
-        return isPresent(this.offset) ? `${this.file.url}@${this.line}:${this.col}` : this.file.url;
-    }
+    toString() { return `${this.file.url}@${this.line}:${this.col}`; }
 }
 export class ParseSourceFile {
     constructor(content, url) {
@@ -17,10 +21,9 @@ export class ParseSourceFile {
     }
 }
 export class ParseSourceSpan {
-    constructor(start, end, details = null) {
+    constructor(start, end) {
         this.start = start;
         this.end = end;
-        this.details = details;
     }
     toString() {
         return this.start.file.content.substring(this.start.offset, this.end.offset);
@@ -40,43 +43,35 @@ export class ParseError {
     toString() {
         var source = this.span.start.file.content;
         var ctxStart = this.span.start.offset;
-        var contextStr = '';
-        var details = '';
-        if (isPresent(ctxStart)) {
-            if (ctxStart > source.length - 1) {
-                ctxStart = source.length - 1;
-            }
-            var ctxEnd = ctxStart;
-            var ctxLen = 0;
-            var ctxLines = 0;
-            while (ctxLen < 100 && ctxStart > 0) {
-                ctxStart--;
-                ctxLen++;
-                if (source[ctxStart] == '\n') {
-                    if (++ctxLines == 3) {
-                        break;
-                    }
+        if (ctxStart > source.length - 1) {
+            ctxStart = source.length - 1;
+        }
+        var ctxEnd = ctxStart;
+        var ctxLen = 0;
+        var ctxLines = 0;
+        while (ctxLen < 100 && ctxStart > 0) {
+            ctxStart--;
+            ctxLen++;
+            if (source[ctxStart] == '\n') {
+                if (++ctxLines == 3) {
+                    break;
                 }
             }
-            ctxLen = 0;
-            ctxLines = 0;
-            while (ctxLen < 100 && ctxEnd < source.length - 1) {
-                ctxEnd++;
-                ctxLen++;
-                if (source[ctxEnd] == '\n') {
-                    if (++ctxLines == 3) {
-                        break;
-                    }
+        }
+        ctxLen = 0;
+        ctxLines = 0;
+        while (ctxLen < 100 && ctxEnd < source.length - 1) {
+            ctxEnd++;
+            ctxLen++;
+            if (source[ctxEnd] == '\n') {
+                if (++ctxLines == 3) {
+                    break;
                 }
             }
-            let context = source.substring(ctxStart, this.span.start.offset) + '[ERROR ->]' +
-                source.substring(this.span.start.offset, ctxEnd + 1);
-            contextStr = ` ("${context}")`;
         }
-        if (this.span.details) {
-            details = `, ${this.span.details}`;
-        }
-        return `${this.msg}${contextStr}: ${this.span.start}${details}`;
+        let context = source.substring(ctxStart, this.span.start.offset) + '[ERROR ->]' +
+            source.substring(this.span.start.offset, ctxEnd + 1);
+        return `${this.msg} ("${context}"): ${this.span.start}`;
     }
 }
 //# sourceMappingURL=parse_util.js.map

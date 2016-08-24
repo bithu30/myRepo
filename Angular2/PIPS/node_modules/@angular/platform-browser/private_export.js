@@ -6,7 +6,6 @@
  * found in the LICENSE file at https://angular.io/license
  */
 "use strict";
-var browser = require('./src/browser');
 var ng_proble = require('./src/dom/debug/ng_probe');
 var dom_adapter = require('./src/dom/dom_adapter');
 var dom_renderer = require('./src/dom/dom_renderer');
@@ -21,8 +20,6 @@ exports.__platform_browser_private__ = {
     DomSharedStylesHost: shared_styles_host.DomSharedStylesHost,
     SharedStylesHost: shared_styles_host.SharedStylesHost,
     ELEMENT_PROBE_PROVIDERS: ng_proble.ELEMENT_PROBE_PROVIDERS,
-    DomEventsPlugin: dom_events.DomEventsPlugin,
-    initDomAdapter: browser.initDomAdapter,
-    INTERNAL_BROWSER_PLATFORM_PROVIDERS: browser.INTERNAL_BROWSER_PLATFORM_PROVIDERS
+    DomEventsPlugin: dom_events.DomEventsPlugin
 };
 //# sourceMappingURL=private_export.js.map

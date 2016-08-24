@@ -6,19 +6,23 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Injectable, ViewEncapsulation } from '@angular/core';
+import { MapWrapper } from '../src/facade/collection';
+import { BaseException } from '../src/facade/exceptions';
+import { isBlank, isPresent } from '../src/facade/lang';
 import { CompileDirectiveMetadata, CompileStylesheetMetadata, CompileTemplateMetadata } from './compile_metadata';
 import { CompilerConfig } from './config';
-import { MapWrapper } from './facade/collection';
-import { BaseException } from './facade/exceptions';
-import { isBlank, isPresent } from './facade/lang';
-import * as html from './ml_parser/ast';
-import { HtmlParser } from './ml_parser/html_parser';
-import { InterpolationConfig } from './ml_parser/interpolation_config';
+import { HtmlTextAst, htmlVisitAll } from './html_ast';
+import { HtmlParser } from './html_parser';
 import { extractStyleUrls, isStyleUrlResolvable } from './style_url_resolver';
-import { PreparsedElementType, preparseElement } from './template_parser/template_preparser';
+import { PreparsedElementType, preparseElement } from './template_preparser';
 import { UrlResolver } from './url_resolver';
-import { SyncAsyncResult } from './util';
 import { XHR } from './xhr';
+export class NormalizeDirectiveResult {
+    constructor(syncResult, asyncResult) {
+        this.syncResult = syncResult;
+        this.asyncResult = asyncResult;
+    }
+}
 export class DirectiveNormalizer {
     constructor(_xhr, _urlResolver, _htmlParser, _config) {
         this._xhr = _xhr;
@@ -46,7 +50,7 @@ export class DirectiveNormalizer {
     normalizeDirective(directive) {
         if (!directive.isComponent) {
             // For non components there is nothing to be normalized yet.
-            return new SyncAsyncResult(directive, Promise.resolve(directive));
+            return new NormalizeDirectiveResult(directive, Promise.resolve(directive));
         }
         let normalizedTemplateSync = null;
         let normalizedTemplateAsync;
@@ -63,11 +67,11 @@ export class DirectiveNormalizer {
         if (normalizedTemplateSync && normalizedTemplateSync.styleUrls.length === 0) {
             // sync case
             let normalizedDirective = _cloneDirectiveWithTemplate(directive, normalizedTemplateSync);
-            return new SyncAsyncResult(normalizedDirective, Promise.resolve(normalizedDirective));
+            return new NormalizeDirectiveResult(normalizedDirective, Promise.resolve(normalizedDirective));
         }
         else {
             // async case
-            return new SyncAsyncResult(null, normalizedTemplateAsync
+            return new NormalizeDirectiveResult(null, normalizedTemplateAsync
                 .then((normalizedTemplate) => this.normalizeExternalStylesheets(normalizedTemplate))
                 .then((normalizedTemplate) => _cloneDirectiveWithTemplate(directive, normalizedTemplate)));
         }
@@ -81,23 +85,22 @@ export class DirectiveNormalizer {
             .then((value) => this.normalizeLoadedTemplate(directiveType, template, value, templateUrl));
     }
     normalizeLoadedTemplate(directiveType, templateMeta, template, templateAbsUrl) {
-        const interpolationConfig = InterpolationConfig.fromArray(templateMeta.interpolation);
-        const rootNodesAndErrors = this._htmlParser.parse(template, directiveType.name, false, interpolationConfig);
+        var rootNodesAndErrors = this._htmlParser.parse(template, directiveType.name);
         if (rootNodesAndErrors.errors.length > 0) {
-            const errorString = rootNodesAndErrors.errors.join('\n');
+            var errorString = rootNodesAndErrors.errors.join('\n');
             throw new BaseException(`Template parse errors:\n${errorString}`);
         }
-        const templateMetadataStyles = this.normalizeStylesheet(new CompileStylesheetMetadata({
+        var templateMetadataStyles = this.normalizeStylesheet(new CompileStylesheetMetadata({
             styles: templateMeta.styles,
             styleUrls: templateMeta.styleUrls,
             moduleUrl: directiveType.moduleUrl
         }));
-        const visitor = new TemplatePreparseVisitor();
-        html.visitAll(visitor, rootNodesAndErrors.rootNodes);
-        const templateStyles = this.normalizeStylesheet(new CompileStylesheetMetadata({ styles: visitor.styles, styleUrls: visitor.styleUrls, moduleUrl: templateAbsUrl }));
-        const allStyles = templateMetadataStyles.styles.concat(templateStyles.styles);
-        const allStyleUrls = templateMetadataStyles.styleUrls.concat(templateStyles.styleUrls);
-        let encapsulation = templateMeta.encapsulation;
+        var visitor = new TemplatePreparseVisitor();
+        htmlVisitAll(visitor, rootNodesAndErrors.rootNodes);
+        var templateStyles = this.normalizeStylesheet(new CompileStylesheetMetadata({ styles: visitor.styles, styleUrls: visitor.styleUrls, moduleUrl: templateAbsUrl }));
+        var allStyles = templateMetadataStyles.styles.concat(templateStyles.styles);
+        var allStyleUrls = templateMetadataStyles.styleUrls.concat(templateStyles.styleUrls);
+        var encapsulation = templateMeta.encapsulation;
         if (isBlank(encapsulation)) {
             encapsulation = this._config.defaultEncapsulation;
         }
@@ -106,7 +109,7 @@ export class DirectiveNormalizer {
             encapsulation = ViewEncapsulation.None;
         }
         return new CompileTemplateMetadata({
-            encapsulation,
+            encapsulation: encapsulation,
             template: template,
             templateUrl: templateAbsUrl,
             styles: allStyles,
@@ -181,7 +184,7 @@ class TemplatePreparseVisitor {
             case PreparsedElementType.STYLE:
                 var textContent = '';
                 ast.children.forEach(child => {
-                    if (child instanceof html.Text) {
+                    if (child instanceof HtmlTextAst) {
                         textContent += child.value;
                     }
                 });
@@ -191,19 +194,21 @@ class TemplatePreparseVisitor {
                 this.styleUrls.push(preparsedElement.hrefAttr);
                 break;
             default:
+                // DDC reports this as error. See:
+                // https://github.com/dart-lang/dev_compiler/issues/428
                 break;
         }
         if (preparsedElement.nonBindable) {
             this.ngNonBindableStackCount++;
         }
-        html.visitAll(this, ast.children);
+        htmlVisitAll(this, ast.children);
         if (preparsedElement.nonBindable) {
             this.ngNonBindableStackCount--;
         }
         return null;
     }
     visitComment(ast, context) { return null; }
-    visitAttribute(ast, context) { return null; }
+    visitAttr(ast, context) { return null; }
     visitText(ast, context) { return null; }
     visitExpansion(ast, context) { return null; }
     visitExpansionCase(ast, context) { return null; }
@@ -220,11 +225,12 @@ function _cloneDirectiveWithTemplate(directive, template) {
         hostListeners: directive.hostListeners,
         hostProperties: directive.hostProperties,
         hostAttributes: directive.hostAttributes,
+        lifecycleHooks: directive.lifecycleHooks,
         providers: directive.providers,
         viewProviders: directive.viewProviders,
         queries: directive.queries,
         viewQueries: directive.viewQueries,
-        entryComponents: directive.entryComponents,
+        precompile: directive.precompile,
         template: template
     });
 }

@@ -41,31 +41,32 @@ export class StyleCompiler {
         this._shadowCss = new ShadowCss();
     }
     compileComponent(comp) {
-        const externalStylesheets = [];
-        const componentStylesheet = this._compileStyles(comp, new CompileStylesheetMetadata({
+        var shim = comp.template.encapsulation === ViewEncapsulation.Emulated;
+        var externalStylesheets = [];
+        var componentStylesheet = this._compileStyles(comp, new CompileStylesheetMetadata({
             styles: comp.template.styles,
             styleUrls: comp.template.styleUrls,
             moduleUrl: comp.type.moduleUrl
         }), true);
         comp.template.externalStylesheets.forEach((stylesheetMeta) => {
-            const compiledStylesheet = this._compileStyles(comp, stylesheetMeta, false);
+            var compiledStylesheet = this._compileStyles(comp, stylesheetMeta, false);
             externalStylesheets.push(compiledStylesheet);
         });
         return new StylesCompileResult(componentStylesheet, externalStylesheets);
     }
     _compileStyles(comp, stylesheet, isComponentStylesheet) {
-        const shim = comp.template.encapsulation === ViewEncapsulation.Emulated;
-        const styleExpressions = stylesheet.styles.map(plainStyle => o.literal(this._shimIfNeeded(plainStyle, shim)));
-        const dependencies = [];
-        for (let i = 0; i < stylesheet.styleUrls.length; i++) {
-            const identifier = new CompileIdentifierMetadata({ name: getStylesVarName(null) });
+        var shim = comp.template.encapsulation === ViewEncapsulation.Emulated;
+        var styleExpressions = stylesheet.styles.map(plainStyle => o.literal(this._shimIfNeeded(plainStyle, shim)));
+        var dependencies = [];
+        for (var i = 0; i < stylesheet.styleUrls.length; i++) {
+            var identifier = new CompileIdentifierMetadata({ name: getStylesVarName(null) });
             dependencies.push(new StylesCompileDependency(stylesheet.styleUrls[i], shim, identifier));
             styleExpressions.push(new o.ExternalExpr(identifier));
         }
         // styles variable contains plain strings and arrays of other styles arrays (recursive),
         // so we set its type to dynamic.
-        const stylesVar = getStylesVarName(isComponentStylesheet ? comp : null);
-        const stmt = o.variable(stylesVar)
+        var stylesVar = getStylesVarName(isComponentStylesheet ? comp : null);
+        var stmt = o.variable(stylesVar)
             .set(o.literalArr(styleExpressions, new o.ArrayType(o.DYNAMIC_TYPE, [o.TypeModifier.Const])))
             .toDeclStmt(null, [o.StmtModifier.Final]);
         return new CompiledStylesheet([stmt], stylesVar, dependencies, shim, stylesheet);
@@ -83,7 +84,7 @@ StyleCompiler.ctorParameters = [
     { type: UrlResolver, },
 ];
 function getStylesVarName(component) {
-    let result = `styles`;
+    var result = `styles`;
     if (component) {
         result += `_${component.type.name}`;
     }

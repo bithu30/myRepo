@@ -27,6 +27,7 @@ var lang_1 = require('../facade/lang');
  *
  * expect(injector.get("message")).toEqual('Hello');
  * ```
+ * @ts2dart_const
  * @deprecated
  */
 var Provider = (function () {
@@ -82,6 +83,7 @@ exports.Provider = Provider;
  * See {@link Provider} instead.
  *
  * @deprecated
+ * @ts2dart_const
  */
 var Binding = (function (_super) {
     __extends(Binding, _super);
@@ -139,7 +141,7 @@ exports.Binding = Binding;
  * to an existing `token`.
  * See {@link ProviderBuilder} for more details.
  *
- * The `token` is most commonly a class or {@link OpaqueToken}.
+ * The `token` is most commonly a class or {@link OpaqueToken-class.html}.
  *
  * @deprecated
  */

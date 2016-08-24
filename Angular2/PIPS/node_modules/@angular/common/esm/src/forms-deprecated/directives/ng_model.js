@@ -6,13 +6,14 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Directive, Inject, Optional, Self, forwardRef } from '@angular/core';
-import { EventEmitter } from '../../facade/async';
+import { EventEmitter, ObservableWrapper } from '../../facade/async';
 import { Control } from '../model';
 import { NG_ASYNC_VALIDATORS, NG_VALIDATORS } from '../validators';
 import { NG_VALUE_ACCESSOR } from './control_value_accessor';
 import { NgControl } from './ng_control';
 import { composeAsyncValidators, composeValidators, isPropertyUpdated, selectValueAccessor, setUpControl } from './shared';
-export const formControlBinding = {
+export const formControlBinding = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
     provide: NgControl,
     useExisting: forwardRef(() => NgModel)
 };
@@ -47,7 +48,7 @@ export class NgModel extends NgControl {
     }
     viewToModelUpdate(newValue) {
         this.viewModel = newValue;
-        this.update.emit(newValue);
+        ObservableWrapper.callEmit(this.update, newValue);
     }
 }
 /** @nocollapse */

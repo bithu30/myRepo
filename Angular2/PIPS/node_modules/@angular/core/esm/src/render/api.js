@@ -9,15 +9,13 @@ import { unimplemented } from '../facade/exceptions';
 /**
  * @experimental
  */
-// TODO (matsko): add typing for the animation function
 export class RenderComponentType {
-    constructor(id, templateUrl, slotCount, encapsulation, styles, animations) {
+    constructor(id, templateUrl, slotCount, encapsulation, styles) {
         this.id = id;
         this.templateUrl = templateUrl;
         this.slotCount = slotCount;
         this.encapsulation = encapsulation;
         this.styles = styles;
-        this.animations = animations;
     }
 }
 export class RenderDebugInfo {

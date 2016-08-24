@@ -1,14 +1,16 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 import { XHR } from '@angular/compiler';
-import { Injectable } from '@angular/core';
 import { isPresent } from '../facade/lang';
+import { PromiseWrapper } from '../facade/promise';
 export class XHRImpl extends XHR {
     get(url) {
-        var resolve;
-        var reject;
-        const promise = new Promise((res, rej) => {
-            resolve = res;
-            reject = rej;
-        });
+        var completer = PromiseWrapper.completer();
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'text';
@@ -25,19 +27,15 @@ export class XHRImpl extends XHR {
                 status = response ? 200 : 0;
             }
             if (200 <= status && status <= 300) {
-                resolve(response);
+                completer.resolve(response);
             }
             else {
-                reject(`Failed to load ${url}`);
+                completer.reject(`Failed to load ${url}`, null);
             }
         };
-        xhr.onerror = function () { reject(`Failed to load ${url}`); };
+        xhr.onerror = function () { completer.reject(`Failed to load ${url}`, null); };
         xhr.send();
-        return promise;
+        return completer.promise;
     }
 }
-/** @nocollapse */
-XHRImpl.decorators = [
-    { type: Injectable },
-];
 //# sourceMappingURL=xhr_impl.js.map

@@ -5,9 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { StringMapWrapper } from '../facade/collection';
+import { ListWrapper, StringMapWrapper } from '../facade/collection';
 import { StringWrapper, isBlank, isPresent } from '../facade/lang';
-import { identifierToken } from '../identifiers';
 import * as o from '../output/output_ast';
 import { CompileBinding } from './compile_binding';
 import { CompileMethod } from './compile_method';
@@ -100,8 +99,8 @@ export function collectEventListeners(hostEvents, dirs, compileElement) {
         var listener = CompileEventListener.getOrCreate(compileElement, hostEvent.target, hostEvent.name, eventListeners);
         listener.addAction(hostEvent, null, null);
     });
-    dirs.forEach((directiveAst) => {
-        var directiveInstance = compileElement.instances.get(identifierToken(directiveAst.directive.type));
+    ListWrapper.forEachWithIndex(dirs, (directiveAst, i) => {
+        var directiveInstance = compileElement.directiveInstances[i];
         directiveAst.hostEvents.forEach((hostEvent) => {
             compileElement.view.bindings.push(new CompileBinding(compileElement, hostEvent));
             var listener = CompileEventListener.getOrCreate(compileElement, hostEvent.target, hostEvent.name, eventListeners);

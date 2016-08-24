@@ -5,10 +5,10 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { CommonModule, FORM_PROVIDERS } from '@angular/common';
-import { APP_INITIALIZER, ApplicationModule, ExceptionHandler, NgModule, NgZone, PLATFORM_COMMON_PROVIDERS, RootRenderer, createPlatformFactory, platformCore } from '@angular/core';
+import { FORM_PROVIDERS } from '@angular/common';
+import { APPLICATION_COMMON_PROVIDERS, APP_INITIALIZER, ExceptionHandler, NgZone, OpaqueToken, PLATFORM_COMMON_PROVIDERS, ReflectiveInjector, RootRenderer, assertPlatform, createPlatform, getPlatform } from '@angular/core';
 import { BROWSER_SANITIZATION_PROVIDERS } from './browser';
-import { print } from './facade/lang';
+import { isBlank, print } from './facade/lang';
 import { ON_WEB_WORKER } from './web_workers/shared/api';
 import { ClientMessageBrokerFactory, ClientMessageBrokerFactory_ } from './web_workers/shared/client_message_broker';
 import { MessageBus } from './web_workers/shared/message_bus';
@@ -26,26 +26,33 @@ class PrintLogger {
     }
     logGroupEnd() { }
 }
-/**
- * @deprecated Use `platformWorkerApp()` or create a custom platform factory via
- * `createPlatformFactory(platformWorkerApp, ...)`
- */
-export const WORKER_APP_PLATFORM_PROVIDERS = PLATFORM_COMMON_PROVIDERS;
-/**
- * @deprecated Create a module that includes `WorkerAppModule` instead. This is empty for backwards
- * compatibility,
- * as all of our bootstrap methods add a module implicitly, i.e. keeping this filled would add the
- * providers 2x.
- */
-export const WORKER_APP_APPLICATION_PROVIDERS = [];
+const WORKER_APP_PLATFORM_MARKER = new OpaqueToken('WorkerAppPlatformMarker');
 /**
  * @experimental
  */
-export const platformWorkerApp = createPlatformFactory(platformCore, 'workerApp');
+export const WORKER_APP_PLATFORM_PROVIDERS = [PLATFORM_COMMON_PROVIDERS, { provide: WORKER_APP_PLATFORM_MARKER, useValue: true }];
 /**
- * @deprecated Use {@link platformWorkerApp} instead
+ * @experimental
  */
-export const workerAppPlatform = platformWorkerApp;
+export const WORKER_APP_APPLICATION_PROVIDERS = [
+    APPLICATION_COMMON_PROVIDERS, FORM_PROVIDERS, BROWSER_SANITIZATION_PROVIDERS, Serializer,
+    { provide: ClientMessageBrokerFactory, useClass: ClientMessageBrokerFactory_ },
+    { provide: ServiceMessageBrokerFactory, useClass: ServiceMessageBrokerFactory_ },
+    WebWorkerRootRenderer, { provide: RootRenderer, useExisting: WebWorkerRootRenderer },
+    { provide: ON_WEB_WORKER, useValue: true }, RenderStore,
+    { provide: ExceptionHandler, useFactory: _exceptionHandler, deps: [] },
+    { provide: MessageBus, useFactory: createMessageBus, deps: [NgZone] },
+    { provide: APP_INITIALIZER, useValue: setupWebWorker, multi: true }
+];
+/**
+ * @experimental
+ */
+export function workerAppPlatform() {
+    if (isBlank(getPlatform())) {
+        createPlatform(ReflectiveInjector.resolveAndCreate(WORKER_APP_PLATFORM_PROVIDERS));
+    }
+    return assertPlatform(WORKER_APP_PLATFORM_MARKER);
+}
 function _exceptionHandler() {
     return new ExceptionHandler(new PrintLogger());
 }
@@ -65,22 +72,4 @@ function createMessageBus(zone) {
 function setupWebWorker() {
     WorkerDomAdapter.makeCurrent();
 }
-export class WorkerAppModule {
-}
-/** @nocollapse */
-WorkerAppModule.decorators = [
-    { type: NgModule, args: [{
-                providers: [
-                    FORM_PROVIDERS, BROWSER_SANITIZATION_PROVIDERS, Serializer,
-                    { provide: ClientMessageBrokerFactory, useClass: ClientMessageBrokerFactory_ },
-                    { provide: ServiceMessageBrokerFactory, useClass: ServiceMessageBrokerFactory_ },
-                    WebWorkerRootRenderer, { provide: RootRenderer, useExisting: WebWorkerRootRenderer },
-                    { provide: ON_WEB_WORKER, useValue: true }, RenderStore,
-                    { provide: ExceptionHandler, useFactory: _exceptionHandler, deps: [] },
-                    { provide: MessageBus, useFactory: createMessageBus, deps: [NgZone] },
-                    { provide: APP_INITIALIZER, useValue: setupWebWorker, multi: true }
-                ],
-                exports: [CommonModule, ApplicationModule]
-            },] },
-];
 //# sourceMappingURL=worker_app.js.map

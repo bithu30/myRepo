@@ -31,8 +31,7 @@ function mergeOptions(defaultOpts, providedOpts, method, url) {
             search: providedOpts.search,
             headers: providedOpts.headers,
             body: providedOpts.body,
-            withCredentials: providedOpts.withCredentials,
-            responseType: providedOpts.responseType
+            withCredentials: providedOpts.withCredentials
         }));
     }
     if (lang_1.isPresent(method)) {
@@ -101,12 +100,6 @@ var Http = (function () {
      */
     Http.prototype.head = function (url, options) {
         return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Head, url)));
-    };
-    /**
-     * Performs a request with `options` http method.
-     */
-    Http.prototype.options = function (url, options) {
-        return httpRequest(this._backend, new static_request_1.Request(mergeOptions(this._defaultOptions, options, enums_1.RequestMethod.Options, url)));
     };
     /** @nocollapse */
     Http.decorators = [

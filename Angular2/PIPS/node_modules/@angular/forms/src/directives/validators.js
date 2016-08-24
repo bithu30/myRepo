@@ -9,10 +9,10 @@
 var core_1 = require('@angular/core');
 var lang_1 = require('../facade/lang');
 var validators_1 = require('../validators');
-exports.REQUIRED = validators_1.Validators.required;
+var REQUIRED = validators_1.Validators.required;
 exports.REQUIRED_VALIDATOR = {
     provide: validators_1.NG_VALIDATORS,
-    useValue: exports.REQUIRED,
+    useValue: REQUIRED,
     multi: true
 };
 var RequiredValidator = (function () {
@@ -29,7 +29,7 @@ var RequiredValidator = (function () {
 }());
 exports.RequiredValidator = RequiredValidator;
 /**
- * Provider which adds {@link MinLengthValidator} to {@link NG_VALIDATORS}.
+ * Provivder which adds {@link MinLengthValidator} to {@link NG_VALIDATORS}.
  *
  * ## Example:
  *

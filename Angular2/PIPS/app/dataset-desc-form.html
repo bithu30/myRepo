@@ -1,4 +1,4 @@
-<form #datasetdescform = "ngForm" (ngSubmit)="sendVal()">
+<form #datasetdescform = "ngForm" >
     <p>Give a brief narrative summary about the contents of the dataset.<br>
    <textarea name="DescriptionAbstract" align="center" cols="70" rows="20" #desc (blur) ="putVal({desc_abstract:desc.value})" ></textarea>
 </p>
@@ -33,5 +33,5 @@
                   <option value="Unknown">Unknown</option>
                 </select>
             </p><br>
-            <button type="submit">Submit</button>
+            <button type="button" (click)="sendVal()" >Submit</button>
 </form>

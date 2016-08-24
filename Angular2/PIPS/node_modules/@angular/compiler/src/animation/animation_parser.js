@@ -281,7 +281,7 @@ function _parseAnimationKeyframes(keyframeSequence, currentTime, collectedStyles
         collection_1.ListWrapper.insert(rawKeyframes, 0, firstKeyframe = [_INITIAL_KEYFRAME, {}]);
     }
     var firstKeyframeStyles = firstKeyframe[1];
-    limit = rawKeyframes.length - 1;
+    var limit = rawKeyframes.length - 1;
     var lastKeyframe = rawKeyframes[limit];
     if (lastKeyframe[0] != _TERMINAL_KEYFRAME) {
         rawKeyframes.push(lastKeyframe = [_TERMINAL_KEYFRAME, {}]);
@@ -409,13 +409,13 @@ function _fillAnimationAstStartingKeyframes(ast, collectedStyles, errors) {
     }
 }
 function _parseTimeExpression(exp, errors) {
-    var regex = /^([\.\d]+)(m?s)(?:\s+([\.\d]+)(m?s))?(?:\s+([-a-z]+(?:\(.+?\))?))?/i;
+    var regex = /^([\.\d]+)(m?s)(?:\s+([\.\d]+)(m?s))?(?:\s+([-a-z]+(?:\(.+?\))?))?/gi;
     var duration;
     var delay = 0;
     var easing = null;
     if (lang_1.isString(exp)) {
-        var matches = exp.match(regex);
-        if (matches === null) {
+        var matches = lang_1.RegExpWrapper.firstMatch(regex, exp);
+        if (!lang_1.isPresent(matches)) {
             errors.push(new AnimationParseError("The provided timing value \"" + exp + "\" is invalid."));
             return new _AnimationTimings(0, 0, null);
         }

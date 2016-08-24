@@ -959,6 +959,11 @@ function importType(id, typeParams, typeModifiers) {
     return lang_1.isPresent(id) ? new ExternalType(id, typeParams, typeModifiers) : null;
 }
 exports.importType = importType;
+function literal(value, type) {
+    if (type === void 0) { type = null; }
+    return new LiteralExpr(value, type);
+}
+exports.literal = literal;
 function literalArr(values, type) {
     if (type === void 0) { type = null; }
     return new LiteralArrayExpr(values, type);
@@ -978,9 +983,4 @@ function fn(params, body, type) {
     return new FunctionExpr(params, body, type);
 }
 exports.fn = fn;
-function literal(value, type) {
-    if (type === void 0) { type = null; }
-    return new LiteralExpr(value, type);
-}
-exports.literal = literal;
 //# sourceMappingURL=output_ast.js.map

@@ -19,7 +19,8 @@ var lang_1 = require('../../facade/lang');
 var validators_1 = require('../validators');
 var control_container_1 = require('./control_container');
 var shared_1 = require('./shared');
-exports.formDirectiveProvider = {
+exports.formDirectiveProvider = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
     provide: control_container_1.ControlContainer,
     useExisting: core_1.forwardRef(function () { return NgFormModel; })
 };
@@ -40,7 +41,7 @@ var NgFormModel = (function (_super) {
         // TODO(kara): Update this when the new forms module becomes the default
         if (!_formModelWarningDisplayed) {
             _formModelWarningDisplayed = true;
-            console.warn("\n      *It looks like you're using the old forms module. This will be opt-in in the next RC, and\n      will eventually be removed in favor of the new forms module. For more information, see:\n      https://docs.google.com/document/d/1RIezQqE4aEhBRmArIAS1mRIZtWFf6JxN_7B4meyWK0Y/preview\n    ");
+            console.warn("\n      *It looks like you're using the old forms module. This will be opt-in in the next RC, and\n      will eventually be removed in favor of the new forms module. For more information, see:\n      https://docs.google.com/document/u/1/d/1RIezQqE4aEhBRmArIAS1mRIZtWFf6JxN_7B4meyWK0Y/pub\n    ");
         }
     };
     NgFormModel.prototype.ngOnChanges = function (changes) {
@@ -97,7 +98,7 @@ var NgFormModel = (function (_super) {
     };
     NgFormModel.prototype.onSubmit = function () {
         this._submitted = true;
-        this.ngSubmit.emit(null);
+        async_1.ObservableWrapper.callEmit(this.ngSubmit, null);
         return false;
     };
     /** @internal */

@@ -7,6 +7,7 @@
  */
 import { Injectable } from '@angular/core';
 import * as chars from '../chars';
+import { BaseException } from '../facade/exceptions';
 import { NumberWrapper, StringJoiner, StringWrapper, isPresent } from '../facade/lang';
 export var TokenType;
 (function (TokenType) {
@@ -16,14 +17,13 @@ export var TokenType;
     TokenType[TokenType["String"] = 3] = "String";
     TokenType[TokenType["Operator"] = 4] = "Operator";
     TokenType[TokenType["Number"] = 5] = "Number";
-    TokenType[TokenType["Error"] = 6] = "Error";
 })(TokenType || (TokenType = {}));
-const KEYWORDS = ['var', 'let', 'null', 'undefined', 'true', 'false', 'if', 'else', 'this'];
+const KEYWORDS = ['var', 'let', 'null', 'undefined', 'true', 'false', 'if', 'else'];
 export class Lexer {
     tokenize(text) {
-        const scanner = new _Scanner(text);
-        const tokens = [];
-        let token = scanner.scanToken();
+        var scanner = new _Scanner(text);
+        var tokens = [];
+        var token = scanner.scanToken();
         while (token != null) {
             tokens.push(token);
             token = scanner.scanToken();
@@ -43,28 +43,29 @@ export class Token {
         this.strValue = strValue;
     }
     isCharacter(code) {
-        return this.type == TokenType.Character && this.numValue == code;
+        return (this.type == TokenType.Character && this.numValue == code);
     }
-    isNumber() { return this.type == TokenType.Number; }
-    isString() { return this.type == TokenType.String; }
+    isNumber() { return (this.type == TokenType.Number); }
+    isString() { return (this.type == TokenType.String); }
     isOperator(operater) {
-        return this.type == TokenType.Operator && this.strValue == operater;
+        return (this.type == TokenType.Operator && this.strValue == operater);
     }
-    isIdentifier() { return this.type == TokenType.Identifier; }
-    isKeyword() { return this.type == TokenType.Keyword; }
+    isIdentifier() { return (this.type == TokenType.Identifier); }
+    isKeyword() { return (this.type == TokenType.Keyword); }
     isKeywordDeprecatedVar() {
-        return this.type == TokenType.Keyword && this.strValue == 'var';
+        return (this.type == TokenType.Keyword && this.strValue == 'var');
     }
-    isKeywordLet() { return this.type == TokenType.Keyword && this.strValue == 'let'; }
-    isKeywordNull() { return this.type == TokenType.Keyword && this.strValue == 'null'; }
+    isKeywordLet() { return (this.type == TokenType.Keyword && this.strValue == 'let'); }
+    isKeywordNull() { return (this.type == TokenType.Keyword && this.strValue == 'null'); }
     isKeywordUndefined() {
-        return this.type == TokenType.Keyword && this.strValue == 'undefined';
+        return (this.type == TokenType.Keyword && this.strValue == 'undefined');
     }
-    isKeywordTrue() { return this.type == TokenType.Keyword && this.strValue == 'true'; }
-    isKeywordFalse() { return this.type == TokenType.Keyword && this.strValue == 'false'; }
-    isKeywordThis() { return this.type == TokenType.Keyword && this.strValue == 'this'; }
-    isError() { return this.type == TokenType.Error; }
-    toNumber() { return this.type == TokenType.Number ? this.numValue : -1; }
+    isKeywordTrue() { return (this.type == TokenType.Keyword && this.strValue == 'true'); }
+    isKeywordFalse() { return (this.type == TokenType.Keyword && this.strValue == 'false'); }
+    toNumber() {
+        // -1 instead of NULL ok?
+        return (this.type == TokenType.Number) ? this.numValue : -1;
+    }
     toString() {
         switch (this.type) {
             case TokenType.Character:
@@ -72,7 +73,6 @@ export class Token {
             case TokenType.Keyword:
             case TokenType.Operator:
             case TokenType.String:
-            case TokenType.Error:
                 return this.strValue;
             case TokenType.Number:
                 return this.numValue.toString();
@@ -99,10 +99,14 @@ function newStringToken(index, text) {
 function newNumberToken(index, n) {
     return new Token(index, TokenType.Number, n, '');
 }
-function newErrorToken(index, message) {
-    return new Token(index, TokenType.Error, 0, message);
-}
 export var EOF = new Token(-1, TokenType.Character, 0, '');
+export class ScannerError extends BaseException {
+    constructor(message) {
+        super();
+        this.message = message;
+    }
+    toString() { return this.message; }
+}
 class _Scanner {
     constructor(input) {
         this.input = input;
@@ -181,8 +185,8 @@ class _Scanner {
                     this.advance();
                 return this.scanToken();
         }
-        this.advance();
-        return this.error(`Unexpected character [${StringWrapper.fromCharCode(peek)}]`, 0);
+        this.error(`Unexpected character [${StringWrapper.fromCharCode(peek)}]`, 0);
+        return null;
     }
     scanCharacter(start, code) {
         this.advance();
@@ -239,7 +243,7 @@ class _Scanner {
                 if (isExponentSign(this.peek))
                     this.advance();
                 if (!chars.isDigit(this.peek))
-                    return this.error('Invalid exponent', -1);
+                    this.error('Invalid exponent', -1);
                 simple = false;
             }
             else {
@@ -272,7 +276,7 @@ class _Scanner {
                         unescapedCode = NumberWrapper.parseInt(hex, 16);
                     }
                     catch (e) {
-                        return this.error(`Invalid unicode escape [\\u${hex}]`, 0);
+                        this.error(`Invalid unicode escape [\\u${hex}]`, 0);
                     }
                     for (var i = 0; i < 5; i++) {
                         this.advance();
@@ -286,7 +290,7 @@ class _Scanner {
                 marker = this.index;
             }
             else if (this.peek == chars.$EOF) {
-                return this.error('Unterminated quote', 0);
+                this.error('Unterminated quote', 0);
             }
             else {
                 this.advance();
@@ -303,8 +307,8 @@ class _Scanner {
         return newStringToken(start, unescaped);
     }
     error(message, offset) {
-        const position = this.index + offset;
-        return newErrorToken(position, `Lexer Error: ${message} at column ${position} in expression [${this.input}]`);
+        var position = this.index + offset;
+        throw new ScannerError(`Lexer Error: ${message} at column ${position} in expression [${this.input}]`);
     }
 }
 function isIdentifierStart(code) {

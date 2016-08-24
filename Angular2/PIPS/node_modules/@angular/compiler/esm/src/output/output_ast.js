@@ -770,6 +770,9 @@ export function importExpr(id, typeParams = null) {
 export function importType(id, typeParams = null, typeModifiers = null) {
     return isPresent(id) ? new ExternalType(id, typeParams, typeModifiers) : null;
 }
+export function literal(value, type = null) {
+    return new LiteralExpr(value, type);
+}
 export function literalArr(values, type = null) {
     return new LiteralArrayExpr(values, type);
 }
@@ -781,8 +784,5 @@ export function not(expr) {
 }
 export function fn(params, body, type = null) {
     return new FunctionExpr(params, body, type);
-}
-export function literal(value, type = null) {
-    return new LiteralExpr(value, type);
 }
 //# sourceMappingURL=output_ast.js.map

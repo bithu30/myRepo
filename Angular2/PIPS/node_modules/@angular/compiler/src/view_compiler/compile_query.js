@@ -94,8 +94,7 @@ function mapNestedViews(declarationAppElement, view, expressions) {
         return o.replaceVarInExpression(o.THIS_EXPR.name, o.variable('nestedView'), expr);
     });
     return declarationAppElement.callMethod('mapNestedViews', [
-        o.variable(view.className),
-        o.fn([new o.FnParam('nestedView', view.classType)], [new o.ReturnStatement(o.literalArr(adjustedExpressions))], o.DYNAMIC_TYPE)
+        o.variable(view.className), o.fn([new o.FnParam('nestedView', view.classType)], [new o.ReturnStatement(o.literalArr(adjustedExpressions))])
     ]);
 }
 function createQueryList(query, directiveInstance, propertyName, compileView) {

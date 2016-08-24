@@ -5,23 +5,22 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { SecurityContext } from '@angular/core';
-import { EMPTY_STATE as EMPTY_ANIMATION_STATE, LifecycleHooks, isDefaultChangeDetectionStrategy } from '../../core_private';
+import { EMPTY_STATE as EMPTY_ANIMATION_STATE, LifecycleHooks, SecurityContext, isDefaultChangeDetectionStrategy } from '../../core_private';
 import { isBlank, isPresent } from '../facade/lang';
 import { Identifiers } from '../identifiers';
 import * as o from '../output/output_ast';
-import { PropertyBindingType } from '../template_parser/template_ast';
-import { camelCaseToDashCase } from '../util';
-import { CompileBinding } from './compile_binding';
 import { DetectChangesVars, ViewProperties } from './constants';
+import { PropertyBindingType } from '../template_ast';
+import { camelCaseToDashCase } from '../util';
 import { convertCdExpressionToIr } from './expression_converter';
+import { CompileBinding } from './compile_binding';
+import { BaseException } from '@angular/core';
 function createBindFieldExpr(exprIndex) {
     return o.THIS_EXPR.prop(`_expr_${exprIndex}`);
 }
 function createCurrValueExpr(exprIndex) {
     return o.variable(`currVal_${exprIndex}`); // fix syntax highlighting: `
 }
-const _animationViewCheckedFlagMap = new Map();
 function bind(view, currValExpr, fieldExpr, parsedExpression, context, actions, method) {
     var checkExpression = convertCdExpressionToIr(view, context, parsedExpression, DetectChangesVars.valUnwrapper);
     if (isBlank(checkExpression.expression)) {
@@ -30,7 +29,7 @@ function bind(view, currValExpr, fieldExpr, parsedExpression, context, actions, 
     }
     // private is fine here as no child view will reference the cached value...
     view.fields.push(new o.ClassField(fieldExpr.name, null, [o.StmtModifier.Private]));
-    view.createMethod.addStmt(o.THIS_EXPR.prop(fieldExpr.name).set(o.importExpr(Identifiers.UNINITIALIZED)).toStmt());
+    view.createMethod.addStmt(o.THIS_EXPR.prop(fieldExpr.name).set(o.importExpr(Identifiers.uninitialized)).toStmt());
     if (checkExpression.needsValueUnwrapper) {
         var initValueUnwrapperStmt = DetectChangesVars.valUnwrapper.callMethod('reset', []).toStmt();
         method.addStmt(initValueUnwrapperStmt);
@@ -54,7 +53,7 @@ export function bindRenderText(boundText, compileNode, view) {
             .callMethod('setText', [compileNode.renderNode, currValExpr])
             .toStmt()], view.detectChangesRenderPropertiesMethod);
 }
-function bindAndWriteToRenderer(boundProps, context, compileElement, isHostProp) {
+function bindAndWriteToRenderer(boundProps, context, compileElement) {
     var view = compileElement.view;
     var renderNode = compileElement.renderNode;
     boundProps.forEach((boundProp) => {
@@ -100,31 +99,25 @@ function bindAndWriteToRenderer(boundProps, context, compileElement, isHostProp)
                 break;
             case PropertyBindingType.Animation:
                 var animationName = boundProp.name;
-                var targetViewExpr = o.THIS_EXPR;
-                if (isHostProp) {
-                    targetViewExpr = compileElement.appElement.prop('componentView');
+                var animation = view.componentView.animations.get(animationName);
+                if (!isPresent(animation)) {
+                    throw new BaseException(`Internal Error: couldn't find an animation entry for ${boundProp.name}`);
                 }
-                var animationFnExpr = targetViewExpr.prop('componentType').prop('animations').key(o.literal(animationName));
                 // it's important to normalize the void value as `void` explicitly
                 // so that the styles data can be obtained from the stringmap
                 var emptyStateValue = o.literal(EMPTY_ANIMATION_STATE);
                 // void => ...
                 var oldRenderVar = o.variable('oldRenderVar');
                 updateStmts.push(oldRenderVar.set(oldRenderValue).toDeclStmt());
-                updateStmts.push(new o.IfStmt(oldRenderVar.equals(o.importExpr(Identifiers.UNINITIALIZED)), [oldRenderVar.set(emptyStateValue).toStmt()]));
+                updateStmts.push(new o.IfStmt(oldRenderVar.equals(o.importExpr(Identifiers.uninitialized)), [oldRenderVar.set(emptyStateValue).toStmt()]));
                 // ... => void
                 var newRenderVar = o.variable('newRenderVar');
                 updateStmts.push(newRenderVar.set(renderValue).toDeclStmt());
-                updateStmts.push(new o.IfStmt(newRenderVar.equals(o.importExpr(Identifiers.UNINITIALIZED)), [newRenderVar.set(emptyStateValue).toStmt()]));
-                updateStmts.push(animationFnExpr.callFn([o.THIS_EXPR, renderNode, oldRenderVar, newRenderVar]).toStmt());
-                view.detachMethod.addStmt(animationFnExpr.callFn([o.THIS_EXPR, renderNode, oldRenderValue, emptyStateValue])
+                updateStmts.push(new o.IfStmt(newRenderVar.equals(o.importExpr(Identifiers.uninitialized)), [newRenderVar.set(emptyStateValue).toStmt()]));
+                updateStmts.push(animation.fnVariable.callFn([o.THIS_EXPR, renderNode, oldRenderVar, newRenderVar])
                     .toStmt());
-                if (!_animationViewCheckedFlagMap.get(view)) {
-                    _animationViewCheckedFlagMap.set(view, true);
-                    var triggerStmt = o.THIS_EXPR.callMethod('triggerQueuedAnimations', []).toStmt();
-                    view.afterViewLifecycleCallbacksMethod.addStmt(triggerStmt);
-                    view.detachMethod.addStmt(triggerStmt);
-                }
+                view.detachMethod.addStmt(animation.fnVariable.callFn([o.THIS_EXPR, renderNode, oldRenderValue, emptyStateValue])
+                    .toStmt());
                 break;
         }
         bind(view, currValExpr, fieldExpr, boundProp.value, context, updateStmts, view.detectChangesRenderPropertiesMethod);
@@ -158,10 +151,10 @@ function sanitizedValue(boundProp, renderValue) {
     return ctx.callMethod('sanitize', args);
 }
 export function bindRenderInputs(boundProps, compileElement) {
-    bindAndWriteToRenderer(boundProps, compileElement.view.componentContext, compileElement, false);
+    bindAndWriteToRenderer(boundProps, compileElement.view.componentContext, compileElement);
 }
 export function bindDirectiveHostProps(directiveAst, directiveInstance, compileElement) {
-    bindAndWriteToRenderer(directiveAst.hostProperties, directiveInstance, compileElement, true);
+    bindAndWriteToRenderer(directiveAst.hostProperties, directiveInstance, compileElement);
 }
 export function bindDirectiveInputs(directiveAst, directiveInstance, compileElement) {
     if (directiveAst.inputs.length === 0) {
@@ -170,7 +163,7 @@ export function bindDirectiveInputs(directiveAst, directiveInstance, compileElem
     var view = compileElement.view;
     var detectChangesInInputsMethod = view.detectChangesInInputsMethod;
     detectChangesInInputsMethod.resetDebugInfo(compileElement.nodeIndex, compileElement.sourceAst);
-    var lifecycleHooks = directiveAst.directive.type.lifecycleHooks;
+    var lifecycleHooks = directiveAst.directive.lifecycleHooks;
     var calcChangesMap = lifecycleHooks.indexOf(LifecycleHooks.OnChanges) !== -1;
     var isOnPushComp = directiveAst.directive.isComponent &&
         !isDefaultChangeDetectionStrategy(directiveAst.directive.changeDetection);
@@ -210,18 +203,11 @@ export function bindDirectiveInputs(directiveAst, directiveInstance, compileElem
     }
 }
 function logBindingUpdateStmt(renderNode, propName, value) {
-    const tryStmt = o.THIS_EXPR.prop('renderer')
+    return o.THIS_EXPR.prop('renderer')
         .callMethod('setBindingDebugInfo', [
         renderNode, o.literal(`ng-reflect-${camelCaseToDashCase(propName)}`),
         value.isBlank().conditional(o.NULL_EXPR, value.callMethod('toString', []))
     ])
         .toStmt();
-    const catchStmt = o.THIS_EXPR.prop('renderer')
-        .callMethod('setBindingDebugInfo', [
-        renderNode, o.literal(`ng-reflect-${camelCaseToDashCase(propName)}`),
-        o.literal('[ERROR] Exception while trying to serialize the value')
-    ])
-        .toStmt();
-    return new o.TryCatchStmt([tryStmt], [catchStmt]);
 }
 //# sourceMappingURL=property_binder.js.map

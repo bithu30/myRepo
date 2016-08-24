@@ -27,7 +27,7 @@ var Tabs = (function () {
         this.tabs.toArray().forEach(function (tab) { return tab.active = false; });
         // activate the tab the user has clicked on.
         tab.active = true;
-        console.log(tab);
+        //console.log(tab);
     };
     __decorate([
         core_1.ContentChildren(tab_1.Tab), 

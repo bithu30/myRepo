@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 "use strict";
+var async_1 = require('../../facade/async');
 var exceptions_1 = require('../../facade/exceptions');
 var serializer_1 = require('../shared/serializer');
 var event_serializer_1 = require('./event_serializer');
@@ -97,7 +98,7 @@ var EventDispatcher = (function () {
             default:
                 throw new exceptions_1.BaseException(eventName + ' not supported on WebWorkers');
         }
-        this._sink.emit({
+        async_1.ObservableWrapper.callEmit(this._sink, {
             'element': this._serializer.serialize(element, serializer_1.RenderStoreObject),
             'eventName': eventName,
             'eventTarget': eventTarget,

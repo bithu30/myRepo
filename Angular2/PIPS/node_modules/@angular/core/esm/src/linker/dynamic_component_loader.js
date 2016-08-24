@@ -5,11 +5,12 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Injectable, ReflectiveInjector } from '../di';
+import { Injectable } from '../di/decorators';
+import { ReflectiveInjector } from '../di/reflective_injector';
 import { isPresent } from '../facade/lang';
-import { Compiler } from './compiler';
+import { ComponentResolver } from './component_resolver';
 /**
- * Use ComponentFactoryResolver and ViewContainerRef directly.
+ * Use ComponentResolver and ViewContainerRef directly.
  *
  * @deprecated
  */
@@ -21,7 +22,7 @@ export class DynamicComponentLoader_ extends DynamicComponentLoader {
         this._compiler = _compiler;
     }
     loadAsRoot(type, overrideSelectorOrNode, injector, onDispose, projectableNodes) {
-        return this._compiler.compileComponentAsync(type).then(componentFactory => {
+        return this._compiler.resolveComponent(type).then(componentFactory => {
             var componentRef = componentFactory.create(injector, projectableNodes, isPresent(overrideSelectorOrNode) ? overrideSelectorOrNode : componentFactory.selector);
             if (isPresent(onDispose)) {
                 componentRef.onDestroy(onDispose);
@@ -30,7 +31,7 @@ export class DynamicComponentLoader_ extends DynamicComponentLoader {
         });
     }
     loadNextToLocation(type, location, providers = null, projectableNodes = null) {
-        return this._compiler.compileComponentAsync(type).then(componentFactory => {
+        return this._compiler.resolveComponent(type).then(componentFactory => {
             var contextInjector = location.parentInjector;
             var childInjector = isPresent(providers) && providers.length > 0 ?
                 ReflectiveInjector.fromResolvedProviders(providers, contextInjector) :
@@ -45,6 +46,6 @@ DynamicComponentLoader_.decorators = [
 ];
 /** @nocollapse */
 DynamicComponentLoader_.ctorParameters = [
-    { type: Compiler, },
+    { type: ComponentResolver, },
 ];
 //# sourceMappingURL=dynamic_component_loader.js.map

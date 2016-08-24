@@ -25,8 +25,7 @@ function mergeOptions(defaultOpts, providedOpts, method, url) {
             search: providedOpts.search,
             headers: providedOpts.headers,
             body: providedOpts.body,
-            withCredentials: providedOpts.withCredentials,
-            responseType: providedOpts.responseType
+            withCredentials: providedOpts.withCredentials
         }));
     }
     if (isPresent(method)) {
@@ -95,12 +94,6 @@ export class Http {
      */
     head(url, options) {
         return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Head, url)));
-    }
-    /**
-     * Performs a request with `options` http method.
-     */
-    options(url, options) {
-        return httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Options, url)));
     }
 }
 /** @nocollapse */

@@ -6,14 +6,15 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Directive, Inject, Optional, Self, forwardRef } from '@angular/core';
-import { EventEmitter } from '../../facade/async';
+import { EventEmitter, ObservableWrapper } from '../../facade/async';
 import { ListWrapper, StringMapWrapper } from '../../facade/collection';
 import { BaseException } from '../../facade/exceptions';
 import { isBlank } from '../../facade/lang';
 import { NG_ASYNC_VALIDATORS, NG_VALIDATORS, Validators } from '../validators';
 import { ControlContainer } from './control_container';
 import { composeAsyncValidators, composeValidators, setUpControl, setUpControlGroup } from './shared';
-export const formDirectiveProvider = {
+export const formDirectiveProvider = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
     provide: ControlContainer,
     useExisting: forwardRef(() => NgFormModel)
 };
@@ -36,7 +37,7 @@ export class NgFormModel extends ControlContainer {
             console.warn(`
       *It looks like you're using the old forms module. This will be opt-in in the next RC, and
       will eventually be removed in favor of the new forms module. For more information, see:
-      https://docs.google.com/document/d/1RIezQqE4aEhBRmArIAS1mRIZtWFf6JxN_7B4meyWK0Y/preview
+      https://docs.google.com/document/u/1/d/1RIezQqE4aEhBRmArIAS1mRIZtWFf6JxN_7B4meyWK0Y/pub
     `);
         }
     }
@@ -78,7 +79,7 @@ export class NgFormModel extends ControlContainer {
     }
     onSubmit() {
         this._submitted = true;
-        this.ngSubmit.emit(null);
+        ObservableWrapper.callEmit(this.ngSubmit, null);
         return false;
     }
     /** @internal */

@@ -38,7 +38,7 @@ import { URLSearchParams } from './url_search_params';
  * @experimental
  */
 export class RequestOptions {
-    constructor({ method, headers, body, url, search, withCredentials, responseType } = {}) {
+    constructor({ method, headers, body, url, search, withCredentials } = {}) {
         this.method = isPresent(method) ? normalizeMethodName(method) : null;
         this.headers = isPresent(headers) ? headers : null;
         this.body = isPresent(body) ? body : null;
@@ -47,7 +47,6 @@ export class RequestOptions {
             (isString(search) ? new URLSearchParams((search)) : (search)) :
             null;
         this.withCredentials = isPresent(withCredentials) ? withCredentials : null;
-        this.responseType = isPresent(responseType) ? responseType : null;
     }
     /**
      * Creates a copy of the `RequestOptions` instance, using the optional input as values to override
@@ -86,9 +85,7 @@ export class RequestOptions {
                 this.search,
             withCredentials: isPresent(options) && isPresent(options.withCredentials) ?
                 options.withCredentials :
-                this.withCredentials,
-            responseType: isPresent(options) && isPresent(options.responseType) ? options.responseType :
-                this.responseType
+                this.withCredentials
         });
     }
 }

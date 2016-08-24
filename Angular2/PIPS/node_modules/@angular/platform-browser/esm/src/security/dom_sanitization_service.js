@@ -5,7 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Injectable, SecurityContext } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { SecurityContext } from '../../core_private';
 import { sanitizeHtml } from './html_sanitizer';
 import { sanitizeStyle } from './style_sanitizer';
 import { sanitizeUrl } from './url_sanitizer';
@@ -66,10 +67,8 @@ export class DomSanitizationServiceImpl extends DomSanitizationService {
                 this.checkNotSafeValue(value, 'Script');
                 throw new Error('unsafe value used in a script context');
             case SecurityContext.URL:
-                if (value instanceof SafeResourceUrlImpl || value instanceof SafeUrlImpl) {
-                    // Allow resource URLs in URL contexts, they are strictly more trusted.
+                if (value instanceof SafeUrlImpl)
                     return value.changingThisBreaksApplicationSecurity;
-                }
                 this.checkNotSafeValue(value, 'URL');
                 return sanitizeUrl(String(value));
             case SecurityContext.RESOURCE_URL:

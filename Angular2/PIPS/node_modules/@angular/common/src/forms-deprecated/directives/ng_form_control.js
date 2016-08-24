@@ -18,7 +18,8 @@ var validators_1 = require('../validators');
 var control_value_accessor_1 = require('./control_value_accessor');
 var ng_control_1 = require('./ng_control');
 var shared_1 = require('./shared');
-exports.formControlBinding = {
+exports.formControlBinding = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
     provide: ng_control_1.NgControl,
     useExisting: core_1.forwardRef(function () { return NgFormControl; })
 };
@@ -65,7 +66,7 @@ var NgFormControl = (function (_super) {
     });
     NgFormControl.prototype.viewToModelUpdate = function (newValue) {
         this.viewModel = newValue;
-        this.update.emit(newValue);
+        async_1.ObservableWrapper.callEmit(this.update, newValue);
     };
     NgFormControl.prototype._isControlChanged = function (changes) {
         return collection_1.StringMapWrapper.contains(changes, 'form');

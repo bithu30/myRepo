@@ -9,7 +9,8 @@ import { Directive, Host, Inject, Optional, Self, SkipSelf, forwardRef } from '@
 import { NG_ASYNC_VALIDATORS, NG_VALIDATORS } from '../validators';
 import { ControlContainer } from './control_container';
 import { composeAsyncValidators, composeValidators, controlPath } from './shared';
-export const controlGroupProvider = {
+export const controlGroupProvider = 
+/*@ts2dart_const*/ /* @ts2dart_Provider */ {
     provide: ControlContainer,
     useExisting: forwardRef(() => NgControlGroup)
 };

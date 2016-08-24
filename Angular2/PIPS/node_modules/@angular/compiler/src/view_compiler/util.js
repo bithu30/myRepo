@@ -8,9 +8,8 @@
 "use strict";
 var exceptions_1 = require('../facade/exceptions');
 var lang_1 = require('../facade/lang');
-var identifiers_1 = require('../identifiers');
 var o = require('../output/output_ast');
-var util_1 = require('../util');
+var identifiers_1 = require('../identifiers');
 function getPropertyInView(property, callingView, definedView) {
     if (callingView === definedView) {
         return property;
@@ -38,7 +37,7 @@ function getPropertyInView(property, callingView, definedView) {
 }
 exports.getPropertyInView = getPropertyInView;
 function injectFromViewParentInjector(token, optional) {
-    var args = [util_1.createDiTokenExpression(token)];
+    var args = [createDiTokenExpression(token)];
     if (optional) {
         args.push(o.NULL_EXPR);
     }
@@ -49,6 +48,19 @@ function getViewFactoryName(component, embeddedTemplateIndex) {
     return "viewFactory_" + component.type.name + embeddedTemplateIndex;
 }
 exports.getViewFactoryName = getViewFactoryName;
+function createDiTokenExpression(token) {
+    if (lang_1.isPresent(token.value)) {
+        return o.literal(token.value);
+    }
+    else if (token.identifierIsInstance) {
+        return o.importExpr(token.identifier)
+            .instantiate([], o.importType(token.identifier, [], [o.TypeModifier.Const]));
+    }
+    else {
+        return o.importExpr(token.identifier);
+    }
+}
+exports.createDiTokenExpression = createDiTokenExpression;
 function createFlatArray(expressions) {
     var lastNonArrayExpressions = [];
     var result = o.literalArr([]);
