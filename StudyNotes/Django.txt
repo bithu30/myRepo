@@ -22,3 +22,14 @@ python manage.py startapp main_app
 start django built in server
 ============================
 python manage.py runserver
+
+view samples
+==============
+from django.shortcuts import render ( used to render HTML templates)
+from django.http import HttpResponse ( needed for giving simple HTTP response)
+
+view function, view.py contains a set of functions that process data
+def index ( request):
+	return HttpResponse("hi")
+
+url dispatcher in Django is urls.py is found in the project folder ( not in the app )
