@@ -1,1 +1,3 @@
 Jquery(arg) = $(arg)
+$(h1).text - gives the content in the tag <h1>
+Jquery.(document).ready() - signals that the DOM element is completly loaded in the browser

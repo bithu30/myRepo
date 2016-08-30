@@ -2,3 +2,34 @@ You can give a name to the elements of a vector with the names() function. Have 
 
 some_vector <- c("John Doe", "poker player")
 names(some_vector) <- c("Name", "Profession")
+
+elect the first and the fifth day of the week: use the vector c(1, 5) between the square brackets. 
+For example, the code below selects the first and fifth element of poker_vector:
+
+poker_vector[c(1, 5)]
+
+poker_vector[2:4]. Notice how the vector 2:4 is placed between the square brackets to select element 2 up to 4.
+
+you can also use the element names to select multiple elements, for example:
+
+poker_vector[c("Monday","Tuesday")]
+
+by putting selection_vector between the square brackets that follow poker_vector:
+
+poker_vector[selection_vector]
+
+Matrix
+=======
+
+In R, a matrix is a collection of elements of the same data type (numeric, character, or logical) arranged into a fixed number of rows and columns. 
+Since you are only working with rows and columns, a matrix is called two-dimensional.
+
+You can construct a matrix in R with the matrix() function. Consider the following example:
+
+matrix(1:9, byrow = TRUE, nrow = 3)
+
+In the matrix() function:
+
+The first argument is the collection of elements that R will arrange into the rows and columns of the matrix. Here, we use 1:9 which is a shortcut for c(1, 2, 3, 4, 5, 6, 7, 8, 9).
+The argument byrow indicates that the matrix is filled by the rows. If we want the matrix to be filled by the columns, we just place byrow = FALSE.
+The third argument nrow indicates that the matrix should have three rows.

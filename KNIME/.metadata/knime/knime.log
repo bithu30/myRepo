@@ -13368,3 +13368,74 @@ javax.ws.rs.NotAuthorizedException: HTTP 401 Unauthorized
 
 
 2016-08-22 11:35:41,597 : DEBUG : Service Thread : MemoryAlertSystem :  :  : Memory usage below threshold of 0.876401179941003 after GC run
+2016-08-22 17:11:20,213 : DEBUG : KNIME-Node-Usage-Writer : NodeTimer$GlobalNodeStats :  :  : Successfully wrote node usage stats to file: C:\myRepo\KNIME\.metadata\knime\nodeusage_3.0.json
+2016-08-22 17:11:20,228 : DEBUG : KNIME-Node-Usage-Sender : NodeTimer$GlobalNodeStats :  :  : Sending of usage stats disabled.
+2016-08-22 17:11:21,893 : DEBUG : main : WorkflowEditor :  :  : Saving workflow Naye_Bayes_assignment 4
+2016-08-22 17:11:21,966 : DEBUG : ModalContext : FileSingleNodeContainerPersistor :  :  : Created node directory "C:\myRepo\KNIME\Naye_Bayes_assignment\File Reader (#1)"
+2016-08-22 17:11:22,004 : DEBUG : ModalContext : FileSingleNodeContainerPersistor :  :  : Created node directory "C:\myRepo\KNIME\Naye_Bayes_assignment\Naive Bayes Learner (#2)"
+2016-08-22 17:11:22,009 : DEBUG : ModalContext : FileSingleNodeContainerPersistor :  :  : Created node directory "C:\myRepo\KNIME\Naye_Bayes_assignment\Naive Bayes Predictor (#3)"
+2016-08-22 17:11:22,084 : DEBUG : ModalContext : LocalWorkspaceContentProvider :  :  : Refreshing "/Naye_Bayes_assignment"
+2016-08-22 17:11:22,844 : DEBUG : main : WorkflowRootEditPart :  :  : WorkflowRootEditPart deactivated
+2016-08-22 17:11:22,853 : DEBUG : main : WorkflowEditor :  :  : Disposing editor...
+2016-08-22 17:11:22,854 : DEBUG : main : ProjectWorkflowMap :  :  : unregistering org.knime.workbench.editor2.WorkflowEditor@5991020b from file:/C:/Users/bkomalan/AppData/Local/Temp/knime_temp_space_bkomalan_27893/01_Simple_Example_with_Statistics27900/01_Simple_Example_with_Statistics/. 0 left.
+2016-08-22 17:11:22,854 : DEBUG : main : ProjectWorkflowMap : 01_Simple_Example_with_Statistics : 3 : Removing "file:/C:/Users/bkomalan/AppData/Local/Temp/knime_temp_space_bkomalan_27893/01_Simple_Example_with_Statistics27900/01_Simple_Example_with_Statistics/" from project map (3 remaining)
+2016-08-22 17:11:22,857 : DEBUG : main : WorkflowManager : 01_Simple_Example_with_Statistics : 3 : Removing project "01_Simple_Example_with_Statistics 3"
+2016-08-22 17:11:22,867 : DEBUG : main : BoxPlotNodeModel : Box Plot : 3:10 : Removing all (0) views from model.
+2016-08-22 17:11:22,867 : DEBUG : main : Box Plot : Box Plot : 3:10 : clean output ports.
+2016-08-22 17:11:22,867 : DEBUG : main : ExtendedStatisticsNodeModel : Statistics : 3:14 : Removing all (0) views from model.
+2016-08-22 17:11:22,867 : DEBUG : main : Statistics : Statistics : 3:14 : clean output ports.
+2016-08-22 17:11:22,868 : DEBUG : main : FilterColumnNodeModel : Column Filter : 3:11 : Removing all (0) views from model.
+2016-08-22 17:11:22,868 : DEBUG : main : Column Filter : Column Filter : 3:11 : clean output ports.
+2016-08-22 17:11:22,868 : DEBUG : main : Joiner2NodeModel : Joiner : 3:7 : Removing all (0) views from model.
+2016-08-22 17:11:22,869 : DEBUG : main : Joiner : Joiner : 3:7 : clean output ports.
+2016-08-22 17:11:22,869 : DEBUG : main : RowFilterNodeModel : Row Filter : 3:5 : Removing all (0) views from model.
+2016-08-22 17:11:22,869 : DEBUG : main : Row Filter : Row Filter : 3:5 : clean output ports.
+2016-08-22 17:11:22,869 : DEBUG : main : NominalValueRowFilterNodeModel : Nominal Value Row Filter : 3:9 : Removing all (0) views from model.
+2016-08-22 17:11:22,869 : DEBUG : main : Nominal Value Row Filter : Nominal Value Row Filter : 3:9 : clean output ports.
+2016-08-22 17:11:22,869 : DEBUG : main : SplitNodeModel2 : Column Splitter : 3:13 : Removing all (0) views from model.
+2016-08-22 17:11:22,869 : DEBUG : main : Column Splitter : Column Splitter : 3:13 : clean output ports.
+2016-08-22 17:11:22,871 : DEBUG : main : FileReaderNodeModel : File Reader : 3:1 : Removing all (0) views from model.
+2016-08-22 17:11:22,871 : DEBUG : main : File Reader : File Reader : 3:1 : clean output ports.
+2016-08-22 17:11:22,874 : DEBUG : main : WorkflowManager : 01_Simple_Example_with_Statistics : 3 : Project "01_Simple_Example_with_Statistics 3" removed (4 remaining)
+2016-08-22 17:11:23,379 : DEBUG : main : WorkflowRootEditPart :  :  : WorkflowRootEditPart deactivated
+2016-08-22 17:11:23,384 : DEBUG : main : WorkflowEditor :  :  : Disposing editor...
+2016-08-22 17:11:23,384 : DEBUG : main : ProjectWorkflowMap :  :  : unregistering org.knime.workbench.editor2.WorkflowEditor@5b4e3618 from file:/C:/myRepo/KNIME/Weather_Data/. 0 left.
+2016-08-22 17:11:23,384 : DEBUG : main : ProjectWorkflowMap : Weather_Data : 2 : Removing "file:/C:/myRepo/KNIME/Weather_Data/" from project map (2 remaining)
+2016-08-22 17:11:23,384 : DEBUG : main : WorkflowManager : Weather_Data : 2 : Removing project "Weather_Data 2"
+2016-08-22 17:11:23,387 : DEBUG : main : NaiveBayesPredictorNodeModel2 : Naive Bayes Predictor : 2:3 : Removing all (0) views from model.
+2016-08-22 17:11:23,387 : DEBUG : main : Naive Bayes Predictor : Naive Bayes Predictor : 2:3 : clean output ports.
+2016-08-22 17:11:23,388 : DEBUG : main : WorkflowFileStoreHandlerRepository : Naive Bayes Learner : 2:2 : Removing handler 7a8f291e-e7b9-42a8-8750-41424f4bc5f0 (Naive Bayes Learner 2:2: <no directory>) - 1 remaining
+2016-08-22 17:11:23,388 : DEBUG : main : NaiveBayesLearnerNodeModel2 : Naive Bayes Learner : 2:2 : Removing all (0) views from model.
+2016-08-22 17:11:23,388 : DEBUG : main : Naive Bayes Learner : Naive Bayes Learner : 2:2 : clean output ports.
+2016-08-22 17:11:23,390 : DEBUG : main : WorkflowFileStoreHandlerRepository : ARFF Reader : 2:1 : Removing handler 3b1f3977-368f-4a71-8ef3-e905ca6b03c6 (ARFF Reader 2:1: <no directory>) - 0 remaining
+2016-08-22 17:11:23,390 : DEBUG : main : ARFFReaderNodeModel : ARFF Reader : 2:1 : Removing all (0) views from model.
+2016-08-22 17:11:23,391 : DEBUG : main : ARFF Reader : ARFF Reader : 2:1 : clean output ports.
+2016-08-22 17:11:23,391 : DEBUG : main : WorkflowManager : Weather_Data : 2 : Project "Weather_Data 2" removed (3 remaining)
+2016-08-22 17:11:23,406 : DEBUG : main : WorkflowRootEditPart :  :  : WorkflowRootEditPart deactivated
+2016-08-22 17:11:23,408 : DEBUG : main : WorkflowEditor :  :  : Disposing editor...
+2016-08-22 17:11:23,408 : DEBUG : main : ProjectWorkflowMap :  :  : unregistering org.knime.workbench.editor2.WorkflowEditor@4977e352 from file:/C:/myRepo/KNIME/03_Example_for_Learning_a_Naive_Bayes_Model/. 0 left.
+2016-08-22 17:11:23,409 : DEBUG : main : ProjectWorkflowMap : 03_Example_for_Learning_a_Naive_Bayes_Model : 0 : Removing "file:/C:/myRepo/KNIME/03_Example_for_Learning_a_Naive_Bayes_Model/" from project map (1 remaining)
+2016-08-22 17:11:23,409 : DEBUG : main : WorkflowManager : 03_Example_for_Learning_a_Naive_Bayes_Model : 0 : Removing project "03_Example_for_Learning_a_Naive_Bayes_Model 0"
+2016-08-22 17:11:23,412 : DEBUG : main : AccuracyScorerNodeModel : Scorer : 0:11 : Removing all (0) views from model.
+2016-08-22 17:11:23,413 : DEBUG : main : Scorer : Scorer : 0:11 : clean output ports.
+2016-08-22 17:11:23,415 : DEBUG : main : NaiveBayesPredictorNodeModel2 : Naive Bayes Predictor : 0:10 : Removing all (0) views from model.
+2016-08-22 17:11:23,415 : DEBUG : main : Naive Bayes Predictor : Naive Bayes Predictor : 0:10 : clean output ports.
+2016-08-22 17:11:23,415 : DEBUG : main : NaiveBayesLearnerNodeModel2 : Naive Bayes Learner : 0:14 : Removing all (0) views from model.
+2016-08-22 17:11:23,416 : DEBUG : main : Naive Bayes Learner : Naive Bayes Learner : 0:14 : clean output ports.
+2016-08-22 17:11:23,416 : DEBUG : main : PartitionNodeModel : Partitioning : 0:7 : Removing all (0) views from model.
+2016-08-22 17:11:23,416 : DEBUG : main : Partitioning : Partitioning : 0:7 : clean output ports.
+2016-08-22 17:11:23,417 : DEBUG : main : FileReaderNodeModel : File Reader : 0:1 : Removing all (0) views from model.
+2016-08-22 17:11:23,417 : DEBUG : main : File Reader : File Reader : 0:1 : clean output ports.
+2016-08-22 17:11:23,418 : DEBUG : main : WorkflowManager : 03_Example_for_Learning_a_Naive_Bayes_Model : 0 : Project "03_Example_for_Learning_a_Naive_Bayes_Model 0" removed (2 remaining)
+2016-08-22 17:11:23,428 : DEBUG : main : WorkflowRootEditPart :  :  : WorkflowRootEditPart deactivated
+2016-08-22 17:11:23,431 : DEBUG : main : WorkflowEditor :  :  : Disposing editor...
+2016-08-22 17:11:23,431 : DEBUG : main : ProjectWorkflowMap :  :  : unregistering org.knime.workbench.editor2.WorkflowEditor@23ec3003 from file:/C:/myRepo/KNIME/Naye_Bayes_assignment/. 0 left.
+2016-08-22 17:11:23,431 : DEBUG : main : ProjectWorkflowMap : Naye_Bayes_assignment : 4 : Removing "file:/C:/myRepo/KNIME/Naye_Bayes_assignment/" from project map (0 remaining)
+2016-08-22 17:11:23,432 : DEBUG : main : WorkflowManager : Naye_Bayes_assignment : 4 : Removing project "Naye_Bayes_assignment 4"
+2016-08-22 17:11:23,434 : DEBUG : main : NaiveBayesPredictorNodeModel2 : Naive Bayes Predictor : 4:3 : Removing all (0) views from model.
+2016-08-22 17:11:23,434 : DEBUG : main : Naive Bayes Predictor : Naive Bayes Predictor : 4:3 : clean output ports.
+2016-08-22 17:11:23,434 : DEBUG : main : NaiveBayesLearnerNodeModel2 : Naive Bayes Learner : 4:2 : Removing all (0) views from model.
+2016-08-22 17:11:23,434 : DEBUG : main : Naive Bayes Learner : Naive Bayes Learner : 4:2 : clean output ports.
+2016-08-22 17:11:23,435 : DEBUG : main : FileReaderNodeModel : File Reader : 4:1 : Removing all (0) views from model.
+2016-08-22 17:11:23,435 : DEBUG : main : File Reader : File Reader : 4:1 : clean output ports.
+2016-08-22 17:11:23,436 : DEBUG : main : WorkflowManager : Naye_Bayes_assignment : 4 : Project "Naye_Bayes_assignment 4" removed (1 remaining)

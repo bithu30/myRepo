@@ -10,7 +10,7 @@
                 "nrfails":0,
                 "exectime":1531,
                 "nrcreated":1,
-                "successor":"n/a"
+                "successor":"org.knime.base.node.mine.bayes.naivebayes.learner2.NaiveBayesLearnerNodeFactory3#Naive Bayes Learner"
             },
             {
                 "id":"org.knime.base.node.preproc.partition.PartitionNodeFactory#Partitioning",
@@ -25,7 +25,7 @@
                 "nrexecs":2,
                 "nrfails":0,
                 "exectime":355,
-                "nrcreated":1,
+                "nrcreated":2,
                 "successor":"org.knime.base.node.mine.bayes.naivebayes.predictor3.NaiveBayesPredictorNodeFactory2#Naive Bayes Predictor"
             },
             {
@@ -33,7 +33,7 @@
                 "nrexecs":1,
                 "nrfails":0,
                 "exectime":3605,
-                "nrcreated":2,
+                "nrcreated":3,
                 "successor":"n/a"
             },
             {
@@ -58,11 +58,11 @@
         "wrappedNodes":{
         }
     },
-    "uptime":513386143,
+    "uptime":755944392,
     "workflowsOpened":1,
     "remoteWorkflowsOpened":3,
     "launches":1,
-    "timeSinceLastStart":513386143,
+    "timeSinceLastStart":755944392,
     "crashes":0,
-    "properlyShutDown":false
+    "properlyShutDown":true
 }
