@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>First App - Hello world</title>
+    <!-- Libraries -->
+    <script src="node_modules/es6-shim/es6-shim.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app-expanded.js').then(null, console.error.bind(console));
+    </script>
+
+    <hello-world></hello-world>
+
+  </body>
+</html>
+
