@@ -53,3 +53,4 @@ db.movies.find(),db.movies.find().pretty(), db.movies.find({'year':'1981'}).pret
 var cur = db.movies.find()
 cur.next()
 cur.hasNext()
+

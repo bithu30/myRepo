@@ -3,7 +3,7 @@
  <csw:Insert>
 <gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:geonet="http://www.fao.org/geonetwork" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://www.isotc211.org/2005/gmd/gmd.xsd">
   <gmd:fileIdentifier>
-    <gco:CharacterString>SERVER_SIDE</gco:CharacterString>
+    <gco:CharacterString>createCharString</gco:CharacterString>
   </gmd:fileIdentifier>
   <gmd:language>
     <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">English</gmd:LanguageCode>
@@ -17,58 +17,58 @@
   <gmd:contact>
     <gmd:CI_ResponsibleParty>
       <gmd:individualName>
-        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+        <gco:CharacterString>field_cont_res_individualName</gco:CharacterString>
          </gmd:individualName>
       <gmd:organisationName>
-        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+        <gco:CharacterString>field_cont_res_organisationName</gco:CharacterString>
       </gmd:organisationName>
       <gmd:contactInfo>
         <gmd:CI_Contact>
           <gmd:phone>
             <gmd:CI_Telephone>
               <gmd:voice>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_tel_voice</gco:CharacterString>
               </gmd:voice>
               <gmd:facsimile>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_tel_facsimile</gco:CharacterString>
               </gmd:facsimile>
             </gmd:CI_Telephone>
           </gmd:phone>
             <gmd:address>
               <gmd:CI_Address>
                 <gmd:deliveryPoint>
-                  <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                  <gco:CharacterString>field_addr_deliveryPoint</gco:CharacterString>
                 </gmd:deliveryPoint>
                 <gmd:city>
-                  <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                  <gco:CharacterString>field_addr_city</gco:CharacterString>
                 </gmd:city>
                 <gmd:administrativeArea>
-                  <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                  <gco:CharacterString>field_addr_admArea</gco:CharacterString>
                 </gmd:administrativeArea>
                 <gmd:country>
-                  <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                  <gco:CharacterString>field_addr_country</gco:CharacterString>
                 </gmd:country>
                 <gmd:electronicMailAddress>
-                  <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                  <gco:CharacterString>field_addr_email</gco:CharacterString>
                 </gmd:electronicMailAddress>
               </gmd:CI_Address>
             </gmd:address>
           <gmd:onlineResource>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                <gmd:URL>CLIENT_SIDE</gmd:URL>
+                <gmd:URL>field_onlineResource_url</gmd:URL>
               </gmd:linkage>
             </gmd:CI_OnlineResource>
           </gmd:onlineResource>
         </gmd:CI_Contact>
       </gmd:contactInfo>
       <gmd:role>
-            <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:CI_RoleCode>
+            <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_attr_rolecode_codeListValue">field_rolecode</gmd:CI_RoleCode>
          </gmd:role>
     </gmd:CI_ResponsibleParty>
   </gmd:contact>
   <gmd:dateStamp>
-    <gco:Date>SERVER_SIDE</gco:Date>
+    <gco:Date>getDateStamp</gco:Date>
   </gmd:dateStamp>
   <gmd:metadataStandardName>
     <gco:CharacterString>NETMAR ISO 19115:2003 Profile</gco:CharacterString>
@@ -79,12 +79,12 @@
   <gmd:spatialRepresentationInfo>
     <gmd:MD_VectorSpatialRepresentation>
       <gmd:topologyLevel>
-        <gmd:MD_TopologyLevelCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:MD_TopologyLevelCode>
+        <gmd:MD_TopologyLevelCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="MD_TopologyLevelCode_attr_codeListValue">MD_TopologyLevelCode</gmd:MD_TopologyLevelCode>
       </gmd:topologyLevel>
       <gmd:geometricObjects>
         <gmd:MD_GeometricObjects>
           <gmd:geometricObjectType>
-            <gmd:MD_GeometricObjectTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:MD_GeometricObjectTypeCode>
+            <gmd:MD_GeometricObjectTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="feild_MD_GeometricObjectTypeCode_attr_codeListValue">feild_MD_GeometricObjectTypeCode</gmd:MD_GeometricObjectTypeCode>
           </gmd:geometricObjectType>
         </gmd:MD_GeometricObjects>
       </gmd:geometricObjects>
@@ -95,7 +95,7 @@
       <gmd:referenceSystemIdentifier>
         <gmd:RS_Identifier>
           <gmd:code>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_rsIdentifier_code</gco:CharacterString>
           </gmd:code>
           <gmd:codeSpace>
             <gco:CharacterString>OGP</gco:CharacterString>
@@ -109,15 +109,15 @@
       <gmd:citation>
         <gmd:CI_Citation>
           <gmd:title>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_citation_title</gco:CharacterString>
           </gmd:title>
           <gmd:alternateTitle>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_citation_altTitle</gco:CharacterString>
           </gmd:alternateTitle>
           <gmd:date>
             <gmd:CI_Date>
               <gmd:date>
-                <gco:Date>CLIENT_SIDE</gco:Date>
+                <gco:Date>field_ci_Date</gco:Date>
               </gmd:date>
               <gmd:dateType>
                 <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</gmd:CI_DateTypeCode>
@@ -127,7 +127,7 @@
           <gmd:date>
             <gmd:CI_Date>
               <gmd:date>
-                <gco:Date>CLIENT_SIDE</gco:Date>
+                <gco:Date>field_ci_Date</gco:Date>
               </gmd:date>
               <gmd:dateType>
                 <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication">publication</gmd:CI_DateTypeCode>
@@ -137,7 +137,7 @@
           <gmd:date>
             <gmd:CI_Date>
               <gmd:date>
-                <gco:Date>CLIENT_SIDE</gco:Date>
+                <gco:Date>field_ci_Date</gco:Date>
               </gmd:date>
               <gmd:dateType>
                 <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="revision">revision</gmd:CI_DateTypeCode>
@@ -147,144 +147,144 @@
           <gmd:identifier>
             <gmd:RS_Identifier>
               <gmd:code>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_ci_Code</gco:CharacterString>
               </gmd:code>
               <gmd:codeSpace>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_ci_codeSpace</gco:CharacterString>
               </gmd:codeSpace>
             </gmd:RS_Identifier>
           </gmd:identifier>
           <gmd:citedResponsibleParty>
             <gmd:CI_ResponsibleParty>
               <gmd:individualName>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_citation_res_individualName</gco:CharacterString>
               </gmd:individualName>
               <gmd:organisationName>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_citation_res_orgName</gco:CharacterString>
               </gmd:organisationName>
               <gmd:contactInfo>
                 <gmd:CI_Contact>
                   <gmd:phone>
                     <gmd:CI_Telephone>
                       <gmd:voice>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_tel_voice</gco:CharacterString>
                       </gmd:voice>
                       <gmd:facsimile>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_tel_facsimile</gco:CharacterString>
                       </gmd:facsimile>
                     </gmd:CI_Telephone>
                   </gmd:phone>
                   <gmd:address>
                     <gmd:CI_Address>
                       <gmd:deliveryPoint>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_addr_deliveryPoint</gco:CharacterString>
                       </gmd:deliveryPoint>
                       <gmd:city>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_addr_city</gco:CharacterString>
                       </gmd:city>
                       <gmd:administrativeArea>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_addr_admArea</gco:CharacterString>
                       </gmd:administrativeArea>
                       <gmd:postalCode>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_addr_postalCode</gco:CharacterString>
                       </gmd:postalCode>
                       <gmd:country>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_addr_country</gco:CharacterString>
                       </gmd:country>
                       <gmd:electronicMailAddress>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_citation_res_addr_email</gco:CharacterString>
                       </gmd:electronicMailAddress>
                     </gmd:CI_Address>
                   </gmd:address>
                   <gmd:onlineResource>
                     <gmd:CI_OnlineResource>
                       <gmd:linkage>
-                        <gmd:URL>CLIENT_SIDE</gmd:URL>
+                        <gmd:URL>field_citation_onlineResource_url</gmd:URL>
                       </gmd:linkage>
                     </gmd:CI_OnlineResource>
                   </gmd:onlineResource>
                 </gmd:CI_Contact>
               </gmd:contactInfo>
               <gmd:role>
-                <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:CI_RoleCode>
+                <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_citiation_attr_rolecode_codeListValue">field_citiation_rolecode</gmd:CI_RoleCode>
               </gmd:role>
             </gmd:CI_ResponsibleParty>
           </gmd:citedResponsibleParty>
         </gmd:CI_Citation>
       </gmd:citation>
       <gmd:abstract>
-        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+        <gco:CharacterString>field_abstract</gco:CharacterString>
       </gmd:abstract>
       <gmd:purpose>
-        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+        <gco:CharacterString>field_purpose</gco:CharacterString>
       </gmd:purpose>
       <gmd:status>
-        <gmd:MD_ProgressCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:MD_ProgressCode>
+        <gmd:MD_ProgressCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="field_attr_mdProgressCode_codeListValue">field_mdProgressCode</gmd:MD_ProgressCode>
       </gmd:status>
       <gmd:pointOfContact>
         <gmd:CI_ResponsibleParty>
           <gmd:individualName>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_point0fContact_name</gco:CharacterString>
           </gmd:individualName>
           <gmd:organisationName>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_point0fContact_orgName</gco:CharacterString>
           </gmd:organisationName>
           <gmd:contactInfo>
             <gmd:CI_Contact>
               <gmd:phone>
                 <gmd:CI_Telephone>
                   <gmd:voice>
-                    <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                    <gco:CharacterString>field_pointOfContact_tel_voice</gco:CharacterString>
                   </gmd:voice>
                   <gmd:facsimile>
-                    <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                    <gco:CharacterString>field_pointOfContact_tel_facsimile</gco:CharacterString>
                   </gmd:facsimile>
                 </gmd:CI_Telephone>
               </gmd:phone>
               <gmd:address>
                 <gmd:CI_Address>
                   <gmd:deliveryPoint>
-                    <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                    <gco:CharacterString>field_pointOfContact_addr_deliveryPoint</gco:CharacterString>
                   </gmd:deliveryPoint>
                   <gmd:city>
-                    <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                    <gco:CharacterString>field_pointOfContact_addr_city</gco:CharacterString>
                   </gmd:city>
                   <gmd:administrativeArea>
-                    <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                    <gco:CharacterString>field_pointOfContact_addr_admArea</gco:CharacterString>
                   </gmd:administrativeArea>
                   <gmd:country>
-                    <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                    <gco:CharacterString>field_pointOfContact_addr_country</gco:CharacterString>
                   </gmd:country>
                   <gmd:electronicMailAddress>
-                    <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                    <gco:CharacterString>field_pointOfContact_addr_email</gco:CharacterString>
                   </gmd:electronicMailAddress>
                 </gmd:CI_Address>
               </gmd:address>
               <gmd:onlineResource>
                 <gmd:CI_OnlineResource>
                   <gmd:linkage>
-                    <gmd:URL>CLIENT_SIDE</gmd:URL>
+                    <gmd:URL>field_pointOfContact_onlineResource_url</gmd:URL>
                   </gmd:linkage>
                 </gmd:CI_OnlineResource>
               </gmd:onlineResource>
             </gmd:CI_Contact>
           </gmd:contactInfo>
         <gmd:role>
-          <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:CI_RoleCode>
+          <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_pointOfContact_rolecode_attr_codeListValue">field_pointOfContact_rolecode</gmd:CI_RoleCode>
         </gmd:role>
         </gmd:CI_ResponsibleParty>
       </gmd:pointOfContact>
       <gmd:resourceMaintenance>
         <gmd:MD_MaintenanceInformation>
           <gmd:maintenanceAndUpdateFrequency>
-            <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:MD_MaintenanceFrequencyCode>
+            <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="field_MD_MaintenanceFrequencyCode_attr_codeListValue">field_MD_MaintenanceFrequencyCode</gmd:MD_MaintenanceFrequencyCode>
           </gmd:maintenanceAndUpdateFrequency>
         </gmd:MD_MaintenanceInformation>
       </gmd:resourceMaintenance>
       <gmd:resourceFormat>
         <gmd:MD_Format>
           <gmd:name>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_MD_format_name</gco:CharacterString>
           </gmd:name>
           <gmd:version gco:nilReason="unknown"/>
         </gmd:MD_Format>
@@ -292,7 +292,7 @@
       <gmd:descriptiveKeywords>
         <gmd:MD_Keywords>
           <gmd:keyword>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_MD_Keyword</gco:CharacterString>
           </gmd:keyword>
           <gmd:thesaurusName>
             <gmd:CI_Citation>
@@ -316,30 +316,30 @@
       <gmd:descriptiveKeywords>
         <gmd:MD_Keywords>
           <gmd:keyword>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_MD_Keyword</gco:CharacterString>
           </gmd:keyword>
         </gmd:MD_Keywords>
       </gmd:descriptiveKeywords>
       <gmd:resourceConstraints>
         <gmd:MD_LegalConstraints>
           <gmd:useLimitation>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_useLimitation</gco:CharacterString>
           </gmd:useLimitation>
           <gmd:accessConstraints>
             <gmd:MD_RestrictionCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
           </gmd:accessConstraints>
           <gmd:otherConstraints>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_otherConstraints<</gco:CharacterString>
           </gmd:otherConstraints>
         </gmd:MD_LegalConstraints>
       </gmd:resourceConstraints>
       <gmd:spatialRepresentationType>
-        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="CLIENT_SIDE">CLIENT_SIDE</gmd:MD_SpatialRepresentationTypeCode>
+        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="field_MD_SpatialRepresentationTypeCode_attr_codeListValue">field_MD_SpatialRepresentationTypeCode</gmd:MD_SpatialRepresentationTypeCode>
       </gmd:spatialRepresentationType>
       <gmd:spatialResolution>
         <gmd:MD_Resolution>
           <gmd:distance>
-            <gco:Distance uom="urn:ogc:def:uom:EPSG::9102">CLIENT_SIDE</gco:Distance>
+            <gco:Distance uom="urn:ogc:def:uom:EPSG::9102">field_MD_Resolution_distance</gco:Distance>
           </gmd:distance>
         </gmd:MD_Resolution>
       </gmd:spatialResolution>
@@ -347,23 +347,23 @@
         <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">English</gmd:LanguageCode>
       </gmd:language>
       <gmd:topicCategory>
-        <gmd:MD_TopicCategoryCode>CLIENT_SIDE</gmd:MD_TopicCategoryCode>
+        <gmd:MD_TopicCategoryCode>field_MD_TopicCategoryCode</gmd:MD_TopicCategoryCode>
       </gmd:topicCategory>
       <gmd:extent>
         <gmd:EX_Extent>
           <gmd:geographicElement>
             <gmd:EX_GeographicBoundingBox>
               <gmd:westBoundLongitude>
-                <gco:Decimal>CLIENT_SIDE</gco:Decimal>
+                <gco:Decimal>field_westBoundLongitude</gco:Decimal>
               </gmd:westBoundLongitude>
               <gmd:eastBoundLongitude>
-                <gco:Decimal>CLIENT_SIDE</gco:Decimal>
+                <gco:Decimal>field_eastBoundLongitude</gco:Decimal>
               </gmd:eastBoundLongitude>
               <gmd:southBoundLatitude>
-                <gco:Decimal>CLIENT_SIDE</gco:Decimal>
+                <gco:Decimal>feild_southBoundLatitude</gco:Decimal>
               </gmd:southBoundLatitude>
               <gmd:northBoundLatitude>
-                <gco:Decimal>CLIENT_SIDE</gco:Decimal>
+                <gco:Decimal>feild_northBoundLatitude</gco:Decimal>
               </gmd:northBoundLatitude>
             </gmd:EX_GeographicBoundingBox>
           </gmd:geographicElement>
@@ -376,7 +376,7 @@
          <gmd:distributionFormat>
             <gmd:MD_Format>
                <gmd:name>
-                  <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                  <gco:CharacterString>field_distributionFormat_name</gco:CharacterString>
                </gmd:name>
                <gmd:version gco:nilReason="inapplicable"/>
                </gmd:MD_Format>
@@ -386,46 +386,46 @@
           <gmd:distributorContact>
             <gmd:CI_ResponsibleParty>
               <gmd:individualName>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_distributor_individualName</gco:CharacterString>
               </gmd:individualName>
               <gmd:organisationName>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_distributor_orgName</gco:CharacterString>
               </gmd:organisationName>
               <gmd:contactInfo>
                 <gmd:CI_Contact>
                   <gmd:phone>
                     <gmd:CI_Telephone>
                       <gmd:voice>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_distributor_tel_voice</gco:CharacterString>
                       </gmd:voice>
                       <gmd:facsimile>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_distributor_tel_facsimile</gco:CharacterString>
                       </gmd:facsimile>
                     </gmd:CI_Telephone>
                   </gmd:phone>
                   <gmd:address>
                     <gmd:CI_Address>
                       <gmd:deliveryPoint>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_distributor_deliveryPoint</gco:CharacterString>
                       </gmd:deliveryPoint>
                       <gmd:city>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_distributor_city</gco:CharacterString>
                       </gmd:city>
                       <gmd:administrativeArea>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_distributor_admArea</gco:CharacterString>
                       </gmd:administrativeArea>
                       <gmd:country>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_distributor_country</gco:CharacterString>
                       </gmd:country>
                       <gmd:electronicMailAddress>
-                        <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                        <gco:CharacterString>field_distributor_email</gco:CharacterString>
                       </gmd:electronicMailAddress>
                     </gmd:CI_Address>
                   </gmd:address>
                   <gmd:onlineResource>
                     <gmd:CI_OnlineResource>
                       <gmd:linkage>
-                        <gmd:URL>CLIENT_SIDE</gmd:URL>
+                        <gmd:URL>field_distributor_url</gmd:URL>
                       </gmd:linkage>
                     </gmd:CI_OnlineResource>
                   </gmd:onlineResource>
@@ -443,13 +443,13 @@
           <gmd:onLine>
             <gmd:CI_OnlineResource>
               <gmd:linkage>
-                 <gmd:URL>CLIENT_SIDE</gmd:URL>
+                 <gmd:URL>field_MD_DigitalTransferOptions_linkage</gmd:URL>
               </gmd:linkage>
               <gmd:protocol>
                 <gco:CharacterString>WWW:DOWNLOAD-1.0-http--download</gco:CharacterString>
               </gmd:protocol>
               <gmd:description>
-                <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+                <gco:CharacterString>field_MD_DigitalTransferOptions_desc</gco:CharacterString>
               </gmd:description>
             </gmd:CI_OnlineResource>
           </gmd:onLine>
@@ -462,7 +462,7 @@
       <gmd:lineage>
         <gmd:LI_Lineage>
           <gmd:statement>
-            <gco:CharacterString>CLIENT_SIDE</gco:CharacterString>
+            <gco:CharacterString>field_dataQualityInfo_lineage_stmt</gco:CharacterString>
           </gmd:statement>
         </gmd:LI_Lineage>
       </gmd:lineage>

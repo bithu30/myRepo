@@ -87,10 +87,10 @@
                   <gmd:MD_DimensionNameTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_DimensionNameTypeCode" codeListValue="column">column</gmd:MD_DimensionNameTypeCode>
                </gmd:dimensionName>
                <gmd:dimensionSize>
-                  <gco:Integer>field_dimen_size</gco:Integer>
+                  <gco:Integer>field_dimen_size_1</gco:Integer>
                </gmd:dimensionSize>
                <gmd:resolution>
-                  <gco:Measure uom="urn:ogc:def:uom:EPSG::9102">field_dimen_res</gco:Measure>
+                  <gco:Measure uom="urn:ogc:def:uom:EPSG::9102">field_dimen_res_1</gco:Measure>
                </gmd:resolution>
             </gmd:MD_Dimension>
          </gmd:axisDimensionProperties>
@@ -100,10 +100,10 @@
                   <gmd:MD_DimensionNameTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_DimensionNameTypeCode" codeListValue="row">row</gmd:MD_DimensionNameTypeCode>
                </gmd:dimensionName>
                <gmd:dimensionSize>
-                  <gco:Integer>field_dimen_size</gco:Integer>
+                  <gco:Integer>field_dimen_size_2</gco:Integer>
                </gmd:dimensionSize>
                <gmd:resolution>
-                  <gco:Measure uom="urn:ogc:def:uom:EPSG::9102">field_dimen_res</gco:Measure>
+                  <gco:Measure uom="urn:ogc:def:uom:EPSG::9102">field_dimen_res_2</gco:Measure>
                </gmd:resolution>
             </gmd:MD_Dimension>
          </gmd:axisDimensionProperties>
@@ -142,7 +142,7 @@
                <gmd:date>
                   <gmd:CI_Date>
                      <gmd:date>
-                        <gco:Date>field_ci_Date</gco:Date>
+                        <gco:Date>field_ci_Date_1</gco:Date>
                      </gmd:date>
                      <gmd:dateType>
                         <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</gmd:CI_DateTypeCode>
@@ -152,7 +152,7 @@
                <gmd:date>
                   <gmd:CI_Date>
                      <gmd:date>
-                        <gco:Date>field_ci_Date</gco:Date>
+                        <gco:Date>field_ci_Date_2</gco:Date>
                      </gmd:date>
                      <gmd:dateType>
                         <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication">publication</gmd:CI_DateTypeCode>
@@ -162,7 +162,7 @@
                <gmd:date>
                   <gmd:CI_Date>
                      <gmd:date>
-                        <gco:Date>field_ci_Date</gco:Date>
+                        <gco:Date>field_ci_Date_3</gco:Date>
                      </gmd:date>
                      <gmd:dateType>
                         <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="revision">revision</gmd:CI_DateTypeCode>
@@ -309,7 +309,7 @@
          <gmd:graphicOverview>
             <gmd:MD_BrowseGraphic>
                <gmd:fileName>
-                  <gco:CharacterString>field_MD_browseGraphic_file</gco:CharacterString>
+                  <gco:CharacterString>field_MD_browseGraphic_file_1</gco:CharacterString>
                </gmd:fileName>
                <gmd:fileDescription>
                   <gco:CharacterString>thumbnail</gco:CharacterString>
@@ -322,7 +322,7 @@
          <gmd:graphicOverview>
             <gmd:MD_BrowseGraphic>
                <gmd:fileName>
-                  <gco:CharacterString>field_MD_browseGraphic_file</gco:CharacterString>
+                  <gco:CharacterString>field_MD_browseGraphic_file_2</gco:CharacterString>
                </gmd:fileName>
                <gmd:fileDescription>
                   <gco:CharacterString>large_thumbnail</gco:CharacterString>
@@ -343,7 +343,7 @@
          <gmd:descriptiveKeywords>
             <gmd:MD_Keywords>
                <gmd:keyword>
-                  <gco:CharacterString>field_MD_Keyword</gco:CharacterString>
+                  <gco:CharacterString>field_MD_Keyword_1</gco:CharacterString>
                </gmd:keyword>
                <gmd:thesaurusName>
                   <gmd:CI_Citation>
@@ -367,7 +367,7 @@
          <gmd:descriptiveKeywords>
             <gmd:MD_Keywords>
                <gmd:keyword>
-                  <gco:CharacterString>field_MD_Keyword</gco:CharacterString>
+                  <gco:CharacterString>field_MD_Keyword_2</gco:CharacterString>
                </gmd:keyword>
                <gmd:thesaurusName>
                   <gmd:CI_Citation>
@@ -511,13 +511,13 @@
                <gmd:onLine>
                   <gmd:CI_OnlineResource>
                      <gmd:linkage>
-                        <gmd:URL>field_MD_DigitalTransferOptions_linkage</gmd:URL>
+                        <gmd:URL>field_MD_DigitalTransferOptions_linkage_1</gmd:URL>
                      </gmd:linkage>
                      <gmd:protocol>
                         <gco:CharacterString>WWW:DOWNLOAD-1.0-http--download</gco:CharacterString>
                      </gmd:protocol>
                      <gmd:description>
-                        <gco:CharacterString>field_MD_DigitalTransferOptions_desc</gco:CharacterString>
+                        <gco:CharacterString>field_MD_DigitalTransferOptions_desc_1</gco:CharacterString>
                      </gmd:description>
                   </gmd:CI_OnlineResource>
                </gmd:onLine>
@@ -528,7 +528,7 @@
                <gmd:onLine>
                   <gmd:CI_OnlineResource>
                      <gmd:linkage>
-                        <gmd:URL>field_MD_DigitalTransferOptions_linkage</gmd:URL>
+                        <gmd:URL>field_MD_DigitalTransferOptions_linkage_2</gmd:URL>
                      </gmd:linkage>
                      <gmd:protocol>
                         <gco:CharacterString>field_MD_DigitalTransferOptions_protocol</gco:CharacterString>
@@ -537,7 +537,7 @@
                         <gco:CharacterString>field_MD_DigitalTransferOptions_name</gco:CharacterString>
                      </gmd:name>
                      <gmd:description>
-                        <gco:CharacterString>field_MD_DigitalTransferOptions_desc</gco:CharacterString>
+                        <gco:CharacterString>field_MD_DigitalTransferOptions_desc_2</gco:CharacterString>
                      </gmd:description>
                   </gmd:CI_OnlineResource>
                </gmd:onLine>
