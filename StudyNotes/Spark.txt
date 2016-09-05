@@ -185,6 +185,74 @@ wordsDF.show()
 print type(wordsDF)
 wordsDF.printSchema()
 
+Intro and DataFrames
+=====================
 
+Spark programs consist of two programs, a driver program,
+and a worker's program.The worker programs run on cluster nodes
+or in local threads, and data frames are distributed across the workers.
+
+A Spark program first creates a Spark context object.
+This Spark context object tells Spark how and where
+to access a cluster.
+
+DataFrames are the primary abstraction in Spark.
+They're immutable once constructed,
+and Spark automatically tracks lineage information
+to efficiently recompute lost data.
+
+We can construct data frames by paralyzing
+existing Python collections, such as lists,
+or by transforming an existing Spark or pandas DataFrame.
+You can also construct DataFrames
+from files in HDFS or any other storage system.
+
+There are two types of operations for DataFrames:
+transformations, which are lazy, they're
+not computed immediately, and actions.
+A transformed DataFrame is executed
+when an action runs on it.
+And you can persist or cache DataFrames
+in memory or on disk.
+
+RDD
+====
+untyped Spark abstraction, underlying DF's are RDD's
+and they share many of the same properties as DataFrames.
+For example, they're immutable once constructed,
+and Spark automatically tracks the lineage information
+for RDDs to efficiently recompute them.
+
+You can construct RDDs by paralyzing existing
+Python collections, or by transforming an existing
+RDD or DataFrame, or from files in HDFS or any other storage
+system.
+
+They support same operation as DF'same
+
+Usage DF vs RDD
+================
+
+
+Use DF's when u have semi or structured DataFrame
+Also, you should use DataFrames when
+you want to benefit from DataFrame's optimization
+and performance enhancements.
+In particular, DataFrames use Catalyst optimization engine,
+which can give you a 75% reduction in execution time,
+and they also benefit from Project Tungsten's
+off-heap memory management, which
+can yield more than a 75% reduction in memory usage.
+And that also means less garbage collection
+pauses occurring in your application.
+So DataFrames are faster than RDDs.
+
+use RDDs when you need low-level transformations
+and actions, and when you want low-level control
+over your dataset.If you have unstructured or schema-less data, such as media
+or text, you should use RDDs, or when
+you want to manipulate your data with functional programming
+constructs other than domain-specific expressions.
+In those cases, you should use RDDs.
 
 
