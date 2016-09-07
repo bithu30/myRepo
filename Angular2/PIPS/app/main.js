@@ -1,13 +1,39 @@
 "use strict";
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var app_component_1 = require('./app.component');
-var forms_1 = require('@angular/forms');
-var pips_data_service_1 = require('./pips-data-service');
-var http_1 = require('@angular/http');
-platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [
-    forms_1.disableDeprecatedForms(),
-    forms_1.provideForms(),
-    pips_data_service_1.PipsDataService,
-    http_1.HTTP_PROVIDERS
-]);
+// import {disableDeprecatedForms, provideForms} from '@angular/forms';
+// import {HTTP_PROVIDERS} from '@angular/http';
+var app_module_1 = require('./app.module');
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
+// bootstrap(AppComponent,[
+//    disableDeprecatedForms(), 
+//    provideForms(),
+//    HTTP_PROVIDERS
+// ]);
+// @Directive({
+//   selector:'[layout]'
+// })
+// export class LayoutDirective{
+//   @Input() layout:string;
+//   @HostBinding('style.display') display = 'flex';
+//   @HostBinding('style.flex-direction')
+//   get direction(){
+//        return (this.layout === 'column') ? 'column':'row';
+//   }
+// }
+// @Directive({
+//   selector:'[flex]'
+// })
+// export class FlexDirective{
+//     @Input() shrink:number = 1;
+//     @Input() grow:number = 1;
+//     @Input() flex:string;
+//     @HostBinding('style.flex')
+//     get style(){
+//         return `${this.grow} ${this.shrink} ${this.flex === '' ? '0':this.flex}%`;
+//     }
+// }
+// bootstrap(AppComponent,[
+//     provide(PLATFORM_DIRECTIVES, { useValue: FlexDirective, multi: true}),
+//     provide(PLATFORM_DIRECTIVES, { useValue: LayoutDirective, multi: true})
+// ]); 
 //# sourceMappingURL=main.js.map

@@ -1,0 +1,63 @@
+<form (ngSubmit)="onSubmit()">
+     <p-fieldset legend="Report - DataQuality Info & Lineage Stmt">
+         <div class="ui-grid ui-grid-responsive ui-grid-pad"> 
+
+          <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter DataQualityInfo Citation Title.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input" required [(ngModel)]="myMetadata.field_dataQualityInfo_citation_title" name="field_dataQualityInfo_citation_title">
+					</div>
+                </div>
+            </div>
+
+            <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter DataQualityInfo Citation Date.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <p-calendar [(ngModel)]="myMetadata.field_dataQualityInfo_citation_date" name=field_dataQualityInfo_citation_date></p-calendar>
+                    </div>
+                </div>
+            </div>
+
+         <div class="ui-grid-row form-row">
+             <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Select DataQualityInfo Citation Date Type.
+                    </div>
+                    <div class="ui-grid-col-6">
+                                    <p-dropdown [style]="{'width':'150px'}" [options]="CI_DateTypeCode.objects" [(ngModel)]="myMetadata.ield_dataQualityInfo_citation_dateTypeCode" name="field_dataQualityInfo_citation_dateTypeCode"[filter]="true"></p-dropdown>
+                    </div>
+            </div>
+        </div>
+
+         <div class="ui-grid-row form-row">
+             <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                         DataQualityInfo Pass?
+                    </div>
+                    <div class="ui-grid-col-6">
+                                    <p-dropdown [style]="{'width':'150px'}" [options]="Bool.objects" [(ngModel)]="myMetadata.field_dataQualityInfo_pass_bool" name="field_dataQualityInfo_pass_bool" [filter]="true"></p-dropdown>
+                    </div>
+            </div>
+        </div>
+
+        <div class="ui-grid-row form-row">
+             <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Lineage Statement( Describe how the dataset was created)
+                    </div>
+                    <div class="ui-grid-col-6">
+                                <textarea pInputTextarea class="form-input" [(ngModel)]="myMetadata.field_dataQualityInfo_lineage_stmt" autoResize="autoResize"  name="field_dataQualityInfo_lineage_stmt"></textarea>
+                    </div>
+            </div>
+        </div>
+
+         </div>       
+     </p-fieldset> 
+    <button type="submit" class="btn btn-default">Submit</button> {{json}}   
+</form>    

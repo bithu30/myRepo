@@ -1,0 +1,70 @@
+<form (ngSubmit)="onSubmit()">
+  <p-fieldset legend="Dataset Information">
+      <div class="ui-grid ui-grid-responsive ui-grid-pad">
+        <div class="ui-grid-row form-row">
+          <div class="ui-grid-col-12">
+            <div class="ui-grid-col-6">
+              Enter a title for the dataset.
+            </div>
+            <div class="ui-grid-col-6">
+              <input type="text" pInputText class="form-input" required [(ngModel)]="myMetadata.field_cont_res_individualName" name="field_cont_res_individualName">
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row form-row">
+          <div class="ui-grid-col-12">
+            <div class="ui-grid-col-6">
+              Enter the name of the organisation responsible for the dataset.
+            </div>
+            <div class="ui-grid-col-6">
+              <input type="text" pInputText class="form-input" required [(ngModel)]="myMetadata.field_cont_res_individualName" name="field_cont_res_individualName">
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row form-row">
+          <div class="ui-grid-col-6">
+            <div class="ui-grid-col-6">
+              Enter the full filename for the dataset.
+            </div>
+            <div class="ui-grid-col-6">
+              <input type="text" pInputText class="form-input" required [(ngModel)]="myMetadata.field_cont_res_individualName" name="field_cont_res_individualName">
+            </div>
+          </div>
+          <div class="ui-grid-col-6">
+            <div class="ui-grid-col-6">
+              Specify when the dataset was published.
+            </div>
+            <div class="ui-grid-col-6">
+              <p-calendar [(ngModel)]="dateValue" name=dateValue></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row form-row">
+          <div class="ui-grid-col-12">
+            <div class="ui-grid-col-6">
+              Select one or more of the following themes or categories which best describe the content of the dataset.
+            </div>
+            <div class="ui-grid-col-6">
+              Check Box List
+            </div>
+          </div>
+        </div>
+      </div>
+  </p-fieldset>
+
+  <!--<div class="form-group">
+    <div class="flex" flex>
+      <label class="form-label" for="field_cont_res_individualName">Enter the full filename for the dataset.</label>
+      <input type="text" class="form-control form-input" required [(ngModel)]="myMetadata.field_cont_res_individualName" name="field_cont_res_individualName">
+    </div>
+    <div class="flex" flex>
+      <label class="form-label" for="field_cont_res_individualName">Specify when the dataset was published.</label>
+      <p-calendar [(ngModel)]="dateValue" name=dateValue></p-calendar>
+    </div>
+  </div>-->
+  <!--<div class="form-group">
+                <label for="name">Name</label>
+                <p-calendar [(ngModel)]="dateValue" name=dateValue></p-calendar>
+            </div>-->
+  <button type="submit" class="btn btn-default">Submit</button> {{json}}
+</form>

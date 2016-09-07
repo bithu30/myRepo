@@ -1,24 +1,52 @@
 <html>
-  <head>
-    <title>PIPS</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link data-require="bootstrap-css@*" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- 1. Load libraries -->
-     <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <!-- 2. Configure SystemJS -->
-    <script src="systemjs.config.js"></script>
-    <script>
+
+<head>
+  <title>PIPS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link data-require="bootstrap-css@*" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+  
+  <!--CSS dependencies for Materail-->
+  <!--<link href="vendor/@angular2-material/core/overlay/overlay.css" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--CSS dependencies for PrimeNG-->
+  <link rel="stylesheet" type="text/css" href="node_modules/primeui/themes/omega/theme.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/primeui/primeui-ng-all.min.css" />
+  <!-- 1. Load libraries -->
+  <!-- Optional if a jquery dependant widget is used -->
+  <script src="node_modules/primeui/primeui-ng-all.min.js"></script>
+  <!-- Polyfill(s) for older browsers -->
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+<!--Load JQuery Library-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.1/jquery-ui-timepicker-addon.min.js"></script>
+  <!-- 2. Configure SystemJS -->
+  <script src="systemjs.config.js"></script>
+  <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
-  </head>
-  <!-- 3. Display the application -->
-  <body>
-    <pips>Loading...</pips>
-  </body>
+</head>
+<!-- 3. Display the application -->
+
+<body>
+
+  <div class="titleCenter">
+    <p class="head-title">Metadata Editor Beta</p>
+  </div>
+  <hr>
+  <div class="paragraph" layout="row" ng-app="">
+    <div flex>
+      <pips>Loading...</pips>
+    </div>
+  </div>
+</body>
+
 </html>

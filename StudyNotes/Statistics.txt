@@ -1,0 +1,32 @@
+we'll look at the relationship
+between variables.
+This is an association.
+It can be a trend that is a positive association
+or negative association or it can be a pattern.
+It could be any discernible shape.
+It could be linear or non-linear.
+
+Pearson product moment correlation coefficient
+===============================================
+
+Pearson product moment correlation coefficient, rho,
+measures the linear association between variables X and Y.
+It's based on standard units measured
+in terms of standard deviation and it ranges from minus 1
+to positive 1.Now a rho value of 1 indicates a scatter
+that is a perfect straight line sloping up.
+A rho value of negative 1 is a scatter plot
+where it's a perfect straight line sloping down.
+Rho 0 means that there's no linear association.
+X and Y are uncorrelated.
+
+Rho is defined as the average of the product of X in standard units
+and Y in standard units.
+That measures how clustered the scatter
+is around a straight line.
+
+ some additional properties of rho.
+It's a pure number with no units,
+and it's not affected by changing
+the units of measurement.
+It's also not affected by switching the X and Y-axes.
