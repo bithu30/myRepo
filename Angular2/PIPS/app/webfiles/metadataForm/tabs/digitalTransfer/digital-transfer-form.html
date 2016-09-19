@@ -1,0 +1,81 @@
+<form (ngSubmit)="onSubmit()">
+     <p-fieldset legend="DigitalTransfer -Linkage Information">
+         <div class="ui-grid ui-grid-responsive ui-grid-pad"> 
+
+           <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Digital Transfer Linkage Name.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input"  [(ngModel)]="myMetadata.field_MD_DigitalTransferOptions_name" name="field_MD_DigitalTransferOptions_name">
+					</div>
+                </div>
+            </div>
+
+            <div class="ui-grid-row form-row">
+             <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Digital Transfer Linkage Protocol.
+                    </div>
+                    <div class="ui-grid-col-6">
+                                   <input type="text" pInputText class="form-input"  [(ngModel)]="myMetadata.field_MD_DigitalTransferOptions_protocol" name="field_MD_DigitalTransferOptions_protocol">
+                    </div>
+            </div>
+        </div>
+
+             <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Digital Transfer Linkage URL1.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input" required [(ngModel)]="myMetadata.field_MD_DigitalTransferOptions_linkage_1" name="field_MD_DigitalTransferOptions_linkage_1">
+					</div>
+                </div>
+            </div>   
+
+             <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Digital Transfer Linkage Description1.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input" [(ngModel)]="myMetadata.field_MD_DigitalTransferOptions_desc_1" name=field_MD_DigitalTransferOptions_desc_1>
+                    </div>
+                </div>
+            </div>
+
+          <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Digital Transfer Linkage URL2.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input"  [(ngModel)]="myMetadata.field_MD_DigitalTransferOptions_linkage_1" name="field_MD_DigitalTransferOptions_linkage_1">
+					</div>
+                </div>
+            </div>
+  
+            
+
+            
+              <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Digital Transfer Linkage Description2.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input"  [(ngModel)]="myMetadata.field_MD_DigitalTransferOptions_desc_2" name=field_MD_DigitalTransferOptions_desc_2>
+                    </div>
+                </div>
+            </div>
+
+        
+
+        
+
+         </div>       
+     </p-fieldset> 
+    <button type="submit" class="btn btn-default">Submit</button> {{json}}   
+</form>    

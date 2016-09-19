@@ -14,6 +14,9 @@ var dataset_desc_form_1 = require('../../webfiles/metadataForm/tabs/description/
 var dataset_contact_form_1 = require('../../webfiles/metadataForm/tabs/contact/dataset-contact-form');
 var dataset_metadata_form_1 = require('../../webfiles/metadataForm/tabs/metadata/dataset-metadata-form');
 var report_form_1 = require('../../webfiles/metadataForm/tabs/report/report-form');
+var digital_transfer_form_1 = require('../../webfiles/metadataForm/tabs/digitalTransfer/digital-transfer-form');
+var spatial_reprsentation_form_1 = require('../../webfiles/metadataForm/tabs/spatialRepresentation/spatial-reprsentation-form');
+var extent_form_1 = require('../../webfiles/metadataForm/tabs/Extent/extent-form');
 var TemplateForm = (function () {
     function TemplateForm() {
     }
@@ -26,7 +29,10 @@ var TemplateForm = (function () {
                 dataset_desc_form_1.DatasetDescForm,
                 dataset_contact_form_1.DatasetContactForm,
                 dataset_metadata_form_1.DatasetMetadataForm,
-                report_form_1.ReportForm
+                report_form_1.ReportForm,
+                digital_transfer_form_1.DigitalTransferForm,
+                spatial_reprsentation_form_1.SpatialRepresentationForm,
+                extent_form_1.ExtentForm
             ]
         }), 
         __metadata('design:paramtypes', [])

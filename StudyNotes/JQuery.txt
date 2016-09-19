@@ -1,3 +1,21 @@
 Jquery(arg) = $(arg)
 $(h1).text - gives the content in the tag <h1>
 Jquery.(document).ready() - signals that the DOM element is completly loaded in the browser
+
+loading JQuery in html
+========================
+<script src="jquery-min.js"></script>
+
+css     	jquery
+=====   	======= 
+p {}          ${"p"} > dom element ( <p> )
+
+#container     ${'#container'} id of the dom element ( id=container)
+
+.class          $(".class") css class of the dome element ( class = .class)
+
+#container     ${"#container > li"} id of the dom element ( select the direct child of the id conatiner , only direct child not child of child)
+
+$(".promo,#france)  help to choose multiple items ( select class promo and element with if france)
+
+${"#dest li:First"} - choose li first

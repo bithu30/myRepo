@@ -1,0 +1,55 @@
+<form (ngSubmit)="onSubmit()">
+     <p-fieldset legend="Geographical Extent Information">
+         <div class="ui-grid ui-grid-responsive ui-grid-pad"> 
+
+           <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Northern-most Coordinate.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input"  [(ngModel)]="myMetadata.feild_northBoundLatitude" name="feild_northBoundLatitude">
+					</div>
+                </div>
+            </div>
+
+            <div class="ui-grid-row form-row">
+             <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                         Enter Southern-most Coordinate.
+                    </div>
+                    <div class="ui-grid-col-6">
+                                   <input type="text" pInputText class="form-input"  [(ngModel)]="myMetadata.field_southBoundLatitude" name="field_southBoundLatitude">
+                    </div>
+            </div>
+        </div>
+
+             <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Western-most Coordinate.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input" required [(ngModel)]="myMetadata.field_westBoundLongitude" name="field_westBoundLongitude">
+					</div>
+                </div>
+            </div>   
+
+             <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Eastern-most Coordinate.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input" [(ngModel)]="myMetadata.field_eastBoundLongitude" name=field_eastBoundLongitude>
+                    </div>
+                </div>
+            </div>
+
+         
+        
+
+         </div>       
+     </p-fieldset> 
+    <button type="submit" class="btn btn-default">Submit</button> {{json}}   
+</form>    

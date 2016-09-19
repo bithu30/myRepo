@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit()">
+     <p-fieldset legend="Spatial Representation">
+         <div class="ui-grid ui-grid-responsive ui-grid-pad"> 
+
+           <div class="ui-grid-row form-row">
+                <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter Resolution of the dataset.
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input type="text" pInputText class="form-input"  [(ngModel)]="myMetadata.field_MD_Resolution_distance" name="field_MD_Resolution_distance">
+					</div>
+                </div>
+            </div>
+
+            <div class="ui-grid-row form-row">
+             <div class="ui-grid-col-12">
+                    <div class="ui-grid-col-6">
+                        Enter how the data is spatially represented..
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <p-dropdown [style]="{'width':'150px'}" [options]="MD_SpatialRepresentationTypeCode.objects" [(ngModel)]="myMetadata.field_MD_SpatialRepresentationTypeCode" name="field_MD_SpatialRepresentationTypeCode"[filter]="true"></p-dropdown>
+                    </div>
+            </div>
+          </div>
+
+           
+         </div>       
+     </p-fieldset> 
+    <button type="submit" class="btn btn-default">Submit</button> {{json}}   
+</form>    

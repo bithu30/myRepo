@@ -1,0 +1,20 @@
+1.How many assets are owned by Martin and Annie?      
+	 We could follow the 'owns' edge to find it out . 
+	 The owns edge always map itself to its owner.            
+	 Simple but and effective way to find out the asset owner 
+	 
+2.Who consumes the asset TV?
+    Follow the edge 'sees'  to find this out.
+	There are specific edges marking the mode of
+	consumption of specific assets , this is to
+	depict the diffent ways they are consumed.
+	We mostly use verbs as edge names
+ 
+ 
+3. Who is Martin Married to?
+   Follow the 'MarriedTo' Edge from Martin to get his spouse name.
+   This is a more of a relationship tracker and is bi directiional
+   
+   https://www.coursera.org/learn/graph-analytics/peer/R53vw/graphs-in-everyday-life/review/Nc4ek3aEEeaAlg6zA9zuZQ
+   
+   

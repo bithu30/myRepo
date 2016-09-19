@@ -1,0 +1,5 @@
+R helpful websites:
+• http://www.statmethods.net
+• www.rseek.org
+• http://www.ats.ucla.edu/stat/r/
+• http://finzi.psych.upenn.edu/search.html

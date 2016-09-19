@@ -1,0 +1,64 @@
+//One way to "clean the slate" in Neo4j before importing (run both lines):
+
+match (a)-[r]->() delete a,r
+
+match (a) delete a
+
+
+//Script to Import Data Set: test.csv (simple road network)
+
+//For Windows use something like the following
+
+//[NOTE: replace any spaces in your path with %20, "percent twenty" ]
+
+LOAD CSV WITH HEADERS FROM "file:///neo4j_module_datasets/test.csv" AS line 
+
+-root node info: n is the root node(type MyNode) with attribute name taken form the Source columns in the csv 
+MERGE (n:MyNode {Name:line.Source})
+
+-target node info: m is the target node (type MyNode) with attribute name taken form the Target columns in the csv 
+MERGE (m:MyNode {Name:line.Target})
+
+-edge info will be label To and has a property dist taken form the distance columns in the csv
+MERGE (n) -[:TO {dist:line.distance}]-> (m)
+
+
+//For mac OSX use something like the following
+
+//[NOTE: replace any spaces in your path with %20, "percent twenty" ]
+
+LOAD CSV WITH HEADERS FROM "file:///coursera/data/test.csv" AS line
+
+MERGE (n:MyNode {Name:line.Source})
+
+MERGE (m:MyNode {Name:line.Target})
+
+MERGE (n) -[:TO {dist:line.distance}]-> (m)
+
+
+//Script to import global terrorist data
+
+LOAD CSV WITH HEADERS FROM "file:///neo4j_module_datasets/terrorist_data_subset.csv" AS row
+
+MERGE (c:Country {Name:row.Country})
+
+MERGE (a:Actor {Name: row.ActorName, Aliases: row.Aliases, Type: row.ActorType})
+
+MERGE (o:Organization {Name: row.AffiliationTo})
+
+MERGE (a)-[:AFFILIATED_TO {Start: row.AffiliationStartDate, End: row.AffiliationEndDate}]->(o)
+
+MERGE(c)<-[:IS_FROM]-(a);
+
+
+
+LOAD CSV WITH HEADERS FROM "file:///gene_gene_associations_50k.csv" AS line
+
+MERGE (n:TrialGene {Name:line.OFFICIAL_SYMBOL_A })
+
+MERGE (m:TrialGene {Name:line.OFFICIAL_SYMBOL_B})
+
+MERGE (n) -[:AssociationType {AssociatedWith:line.EXPERIMENTAL_SYSTEM}]-> (m)
+
+
+

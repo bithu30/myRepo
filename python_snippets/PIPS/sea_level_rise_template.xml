@@ -63,7 +63,7 @@
         </gmd:CI_Contact>
       </gmd:contactInfo>
       <gmd:role>
-            <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_attr_rolecode_codeListValue">field_rolecode</gmd:CI_RoleCode>
+            <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_rolecode">field_rolecode</gmd:CI_RoleCode>
          </gmd:role>
     </gmd:CI_ResponsibleParty>
   </gmd:contact>
@@ -79,12 +79,12 @@
   <gmd:spatialRepresentationInfo>
     <gmd:MD_VectorSpatialRepresentation>
       <gmd:topologyLevel>
-        <gmd:MD_TopologyLevelCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="MD_TopologyLevelCode_attr_codeListValue">MD_TopologyLevelCode</gmd:MD_TopologyLevelCode>
+        <gmd:MD_TopologyLevelCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="MD_TopologyLevelCode">MD_TopologyLevelCode</gmd:MD_TopologyLevelCode>
       </gmd:topologyLevel>
       <gmd:geometricObjects>
         <gmd:MD_GeometricObjects>
           <gmd:geometricObjectType>
-            <gmd:MD_GeometricObjectTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="feild_MD_GeometricObjectTypeCode_attr_codeListValue">feild_MD_GeometricObjectTypeCode</gmd:MD_GeometricObjectTypeCode>
+            <gmd:MD_GeometricObjectTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="feild_MD_GeometricObjectTypeCode">feild_MD_GeometricObjectTypeCode</gmd:MD_GeometricObjectTypeCode>
           </gmd:geometricObjectType>
         </gmd:MD_GeometricObjects>
       </gmd:geometricObjects>
@@ -206,7 +206,7 @@
                 </gmd:CI_Contact>
               </gmd:contactInfo>
               <gmd:role>
-                <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_citiation_attr_rolecode_codeListValue">field_citiation_rolecode</gmd:CI_RoleCode>
+                <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_citiation_rolecode">field_citiation_rolecode</gmd:CI_RoleCode>
               </gmd:role>
             </gmd:CI_ResponsibleParty>
           </gmd:citedResponsibleParty>
@@ -219,7 +219,7 @@
         <gco:CharacterString>field_purpose</gco:CharacterString>
       </gmd:purpose>
       <gmd:status>
-        <gmd:MD_ProgressCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="field_attr_mdProgressCode_codeListValue">field_mdProgressCode</gmd:MD_ProgressCode>
+        <gmd:MD_ProgressCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="field_mdProgressCode">field_mdProgressCode</gmd:MD_ProgressCode>
       </gmd:status>
       <gmd:pointOfContact>
         <gmd:CI_ResponsibleParty>
@@ -270,14 +270,14 @@
             </gmd:CI_Contact>
           </gmd:contactInfo>
         <gmd:role>
-          <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_pointOfContact_rolecode_attr_codeListValue">field_pointOfContact_rolecode</gmd:CI_RoleCode>
+          <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="field_pointOfContact_rolecode">field_pointOfContact_rolecode</gmd:CI_RoleCode>
         </gmd:role>
         </gmd:CI_ResponsibleParty>
       </gmd:pointOfContact>
       <gmd:resourceMaintenance>
         <gmd:MD_MaintenanceInformation>
           <gmd:maintenanceAndUpdateFrequency>
-            <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="field_MD_MaintenanceFrequencyCode_attr_codeListValue">field_MD_MaintenanceFrequencyCode</gmd:MD_MaintenanceFrequencyCode>
+            <gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="field_MD_MaintenanceFrequencyCode">field_MD_MaintenanceFrequencyCode</gmd:MD_MaintenanceFrequencyCode>
           </gmd:maintenanceAndUpdateFrequency>
         </gmd:MD_MaintenanceInformation>
       </gmd:resourceMaintenance>
@@ -355,7 +355,7 @@
                     <gco:Date>field_Keyword_Thessar_Citi_date</gco:Date>
                   </gmd:date>
                   <gmd:dateType>
-                    <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="field_Keyword_Thessar_Citi_dateType_attr_codeListValue">field_Keyword_Thessar_Citi_dateType</gmd:CI_DateTypeCode>
+                    <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="field_Keyword_Thessar_Citi_dateType">field_Keyword_Thessar_Citi_dateType</gmd:CI_DateTypeCode>
                   </gmd:dateType>
                 </gmd:CI_Date>
               </gmd:date>
@@ -377,7 +377,7 @@
         </gmd:MD_LegalConstraints>
       </gmd:resourceConstraints>
       <gmd:spatialRepresentationType>
-        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="field_MD_SpatialRepresentationTypeCode_attr_codeListValue">field_MD_SpatialRepresentationTypeCode</gmd:MD_SpatialRepresentationTypeCode>
+        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="field_MD_SpatialRepresentationTypeCode">field_MD_SpatialRepresentationTypeCode</gmd:MD_SpatialRepresentationTypeCode>
       </gmd:spatialRepresentationType>
       <gmd:spatialResolution>
         <gmd:MD_Resolution>
@@ -544,7 +544,7 @@
                         <gco:Date>field_dataQualityInfo_citation_date</gco:Date>
                       </gmd:date>
                       <gmd:dateType>
-                        <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="field_dataQualityInfo_citation_dateTypeCode_attr_codeListValue">field_dataQualityInfo_citation_dateTypeCode</gmd:CI_DateTypeCode>
+                        <gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="field_dataQualityInfo_citation_dateTypeCode">field_dataQualityInfo_citation_dateTypeCode</gmd:CI_DateTypeCode>
                       </gmd:dateType>
                     </gmd:CI_Date>
                   </gmd:date>

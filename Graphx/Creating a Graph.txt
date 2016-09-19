@@ -1,0 +1,55 @@
+import org.apache.log4j.Logger
+import org.apache.log4j.Level
+
+Logger.getLogger("org").setLevel(Level.ERROR)
+Logger.getLogger("akka").setLevel(Level.ERROR)
+
+import org.apache.spark.graphx._
+import org.apache.spark.rdd._
+
+import scala.io.Source
+
+Import the Vertices
+====================
+
+Source.fromFile("/home/cloudera/Downloads/ExamplesOfAnalytics/EOADATA/metro.csv").getLines().take(5).foreach(println)
+
+Source.fromFile("/home/cloudera/Downloads/ExamplesOfAnalytics/EOADATA/country.csv").getLines().take(5).foreach(println)
+
+Source.fromFile("/home/cloudera/Downloads/ExamplesOfAnalytics/EOADATA/metro_country.csv").getLines().take(5).foreach(println)
+
+class PlaceNode(val name: String) extends Serializable
+
+case class Metro(override val name: String, population: Int) extends PlaceNode(name)
+
+case class Country(override val name: String) extends PlaceNode(name)
+
+
+
+val metros: RDD[(VertexId, PlaceNode)] =
+  sc.textFile("/user/cloudera/EOADATA/metro.csv").
+    filter(! _.startsWith("#")).
+    map {line =>
+      val row = line split ','
+      (0L + row(0).toInt, Metro(row(1), row(2).toInt))
+    }
+	
+val countries: RDD[(VertexId, PlaceNode)] =
+  sc.textFile("/user/cloudera/EOADATA/country.csv").
+    filter(! _.startsWith("#")).
+    map {line =>
+      val row = line split ','
+      (100L + row(0).toInt, Country(row(1)))
+    }
+	
+val mclinks: RDD[Edge[Int]] =
+  sc.textFile("/user/cloudera/EOADATA/metro_country.csv").
+    filter(! _.startsWith("#")).
+    map {line =>
+      val row = line split ','
+      Edge(0L + row(0).toInt, 100L + row(1).toInt, 1)
+    }
+#combining metro and country nodes	
+val nodes = metros ++ countries
+#creating a graph
+val metrosGraph = Graph(nodes, mclinks)
