@@ -1,0 +1,8 @@
+
+public class Tutorial {
+    public static void main(String[] args) {
+        int x = ········;
+        int y = ········;
+        System.out.println("X = " + x + ", Y = " + y);
+    }
+}
