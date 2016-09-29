@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+
+public class IntensiveSumRC {
+    
+    private int answer = 0;
+    private int N = 0;
+
+    public IntensiveSumRC(int N) {
+        this.N = N;
+    }
+
+    // computeAnswer runs in one thread
+    private void computeAnswer() {
+        for (int i = 1; i <= N; i++)
+            answer += i;
+        
+    }
+
+    // useAnswer runs in a different thread
+    private void useAnswer() {
+        ········
+    }
+
+    public static void main(String[] args) throws Exception {
+        ArrayList<Thread> a = new ArrayList<Thread>();
+        final IntensiveSumRC e = new IntensiveSumRC(1000);
+        for (int i = 0; i < 10; i++) {
+            Thread t = new Thread(new Runnable() {
+                public void run() {
+                    e.computeAnswer();
+                }
+            });
+            t.start();
+            a.add(t);
+
+        }
+        for (Thread t : a)
+            t.join();
+        e.useAnswer();
+    }
+}
