@@ -1,0 +1,32 @@
+Redis Coomands
+==============
+
+starting
+------------
+
+sudo systemctl start redis
+
+Status
+----------
+
+sudo systemctl status redis
+
+using
+=======
+
+redis-cli - will give the redis prompt
+
+Positive testing
+-------------------
+
+127.0.0.1:6379> ping
+PONG
+127.0.0.1:6379> set test "It's working!"
+OK
+127.0.0.1:6379> get test
+"It's working!"
+
+
+
+
+
