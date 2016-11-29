@@ -18,4 +18,4 @@ p {}          ${"p"} > dom element ( <p> )
 
 $(".promo,#france)  help to choose multiple items ( select class promo and element with if france)
 
-${"#dest li:First"} - choose li first
+${"#dest li:First"} - choose <li> first

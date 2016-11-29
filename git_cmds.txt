@@ -21,3 +21,13 @@ Syncing repo with master
 ===========================
 git pull
 
+Adding a remote location from local
+====================================
+git remote add origin https://github.com/bithu30/myRepo.git
+#adding a remote location origin 
+
+Checking remote location
+=========================
+git remote -v
+
+

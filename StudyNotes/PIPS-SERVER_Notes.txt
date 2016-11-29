@@ -135,3 +135,19 @@ simple soln for 403 error in Angular2 -> Django POST Requests
  do this in the MIddleware list in settings.py in your django project
  
  otherewise you will by default will be given a 403 error
+
+ 
+  DocumentRoot /home/pips_web/apache2/html
+        <Directory /home/pips_web/apache2/html/>
+                Require all granted
+        </Directory>
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        <Directory "/usr/lib/cgi-bin">
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        RedirectMatch ^/$ /webgis/
