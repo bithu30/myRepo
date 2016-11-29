@@ -1,8 +1,0 @@
-
-public class Tutorial {
-    public static void main(String[] args) {
-        int x = ········;
-        int y = x * 20;
-        System.out.println("X = " + x + ", Y = " + y);
-    }
-}
