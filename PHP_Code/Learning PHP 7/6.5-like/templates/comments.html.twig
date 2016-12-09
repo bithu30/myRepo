@@ -1,0 +1,11 @@
+<table class="table table-bordered table-striped">
+
+    <tbody id="comment-list">
+    {% for comment in comments %}
+        {% include 'single_comment.html.twig' %}
+    {% endfor %}
+    </tbody>
+
+</table>
+
+

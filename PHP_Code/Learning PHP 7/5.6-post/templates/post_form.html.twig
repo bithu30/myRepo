@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Post{% endblock %}
+
+    {% block content %}
+    <h2>Post</h2>
+
+    <div class="row">
+        <div class="col-sm-4">
+            {% for error in errors %}
+                <div class="alert-warning">
+                {{ error }}
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+
+        <form method="POST" action="{{ path('submit_post') }}" class="form-horizontal">
+
+          <div class="form-group">
+            <label for="inputTitle" class="col-sm-3 control-label">Title</label>
+            <div class="col-sm-9">
+              <input name="title" type="text" class="form-control" id="inputTitle" placeholder="Title">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputDescription" class="col-sm-3 control-label">Description</label>
+            <div class="col-sm-9">
+                <textarea rows="5" name="description" type="text" class="form-control" id="inputDescription" placeholder="Description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <input name="token" type="hidden" value="{{ token }}">
+                <button type="submit" class="btn btn-primary">Post</button>
+            </div>
+          </div>
+
+        </form>
+
+        </div>
+
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,15 @@
+App\Model\User:
+  type: entity
+  table: user
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    email:
+      type: string
+      length: 100
+    password:
+      type: string
+      length: 255

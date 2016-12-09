@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+    <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+
+    <script type="text/javascript" src="/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/js/jquery-ui-1.11.4/jquery-ui.min.css"/>
+
+    <!-- Include one of jTable styles. -->
+    <link href="/js/jtable/themes/metro/lightgray/jtable.min.css" rel="stylesheet" type="text/css" />
+    <!-- Include jTable script file. -->
+    <script src="/js/jtable/jquery.jtable.js" type="text/javascript"></script>
+
+    <title>{% block title %}My Webpage{% endblock %}</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Admin panel</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('home') }}">Public Home</a></li>
+                <li><a href="{{ path('admin_users') }}">Users</a></li>
+                <li><a href="{{ path('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

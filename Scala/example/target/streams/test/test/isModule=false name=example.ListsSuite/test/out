@@ -1,0 +1,33 @@
+[0m[[0minfo[0m] [0m[32mListsSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- one plus one is two[0m[0m
+[0m[[0minfo[0m] [0m[31m- one plus one is three? *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  org.scalatest.exceptions.TestFailedException was thrown. (ListsSuite.scala:50)[0m[0m
+[0m[[0minfo[0m] [0m[31m- details why one plus one is not three *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  2 did not equal 3 (ListsSuite.scala:75)[0m[0m
+[0m[[0minfo[0m] [0m[32m- intNotZero throws an exception if its argument is 0[0m[0m
+[0m[[0minfo[0m] [0m[31m- sum of a few numbers *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:225)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.Lists$.sum(Lists.scala:26)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.ListsSuite$$anonfun$5.apply$mcV$sp(ListsSuite.scala:117)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.ListsSuite$$anonfun$5.apply(ListsSuite.scala:117)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.ListsSuite$$anonfun$5.apply(ListsSuite.scala:117)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[31m- max of a few numbers *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:225)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.Lists$.max(Lists.scala:41)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.ListsSuite$$anonfun$6.apply$mcV$sp(ListsSuite.scala:121)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.ListsSuite$$anonfun$6.apply(ListsSuite.scala:121)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at example.ListsSuite$$anonfun$6.apply(ListsSuite.scala:121)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m

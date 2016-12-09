@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Dashboard{% endblock %}
+
+    {% block content %}
+        <h2>My Posts</h2>
+        <blockquote>
+            <p>Below you can find all your posts.</p>
+        </blockquote>
+        <div id="posts-list">
+        {% for post in posts %}
+            {% include 'post.html.twig' %}
+        {% endfor %}
+        </div>
+    {% endblock %}

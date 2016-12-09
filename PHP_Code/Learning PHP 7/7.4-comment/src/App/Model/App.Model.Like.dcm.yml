@@ -1,0 +1,27 @@
+App\Model\Like:
+  type: entity
+  table: post_like
+  manyToOne:
+    user:
+      targetEntity: App\Model\User
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+        nullable: FALSE
+        onDelete: CASCADE
+    post:
+      targetEntity: App\Model\Post
+      inversedBy: post
+      joinColumn:
+        name: post_id
+        referencedColumnName: id
+        nullable: FALSE
+        onDelete: CASCADE
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    posted_at:
+      type: datetime

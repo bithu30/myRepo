@@ -1,0 +1,22 @@
+<article class="col-xs-12 col-sm-6 col-md-3">
+    <div class="thumbnail">
+        <img src="{{ post.image }}" alt="" class="bg-primary">
+        <div class="caption">
+            <h4>{{ post.title }}</h4>
+            <p>
+                {{ post.description }}
+            </p>
+
+            <div class="row text-right bg-info">
+                <div class="col-xs-6">
+                    {{ post.comments }} <span class="glyphicon glyphicon-comment"></span>
+                </div>
+                <div class="col-xs-6">
+                    {{ post.likes }} <span class="glyphicon glyphicon-heart text-danger"></span>
+                </div>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</article>

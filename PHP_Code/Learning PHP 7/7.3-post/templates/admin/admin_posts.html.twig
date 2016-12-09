@@ -1,0 +1,72 @@
+{% extends 'admin/admin_base.html.twig' %}
+    {% block title %}Posts management - Admin panel{% endblock %}
+
+    {% block content %}
+        <div class="row">
+            <h2>Posts management</h2>
+        </div>
+
+        <div id="postTable"></div>
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $('#postTable').jtable({
+                    title: 'Table of posts',
+                    paging: true,
+                    sorting: true,
+                    actions: {
+                        listAction: '{{ path('admin_post_list') }}',
+                        deleteAction: '{{ path('admin_post_delete') }}'
+                    },
+                    fields: {
+                        id: {
+                            title: 'Id',
+                            key: true,
+                            width: '2%'
+                        },
+                        title: {
+                            title: 'Title',
+                            width: '15%'
+                        },
+                        description: {
+                            title: 'Description',
+                            width: '45%'
+                        },
+                        image: {
+                            title: 'Image',
+                            width: '5%',
+                            display: function (data) {
+                                if (data.record.image != null) {
+                                    return '<img src="/images/'+data.record.image+'" width="90" height="90"/>';
+                                } else {
+                                    return 'No image';
+                                }
+                            }
+                        },
+                        user: {
+                            title: 'Author',
+                            width: '13%',
+                            display: function (data) {
+                                return data.record.user.email;
+                            }
+                        },
+                        posted_at: {
+                            title: 'Date',
+                            width: '10%',
+                            display: function (data) {
+                                var creationDate = Date(data.record.posted_at.date);
+                                return creationDate.toString();
+                            }
+                        }
+                    }
+                });
+
+                $('#postTable').jtable('load');
+            });
+
+        </script>
+
+    {% endblock %}

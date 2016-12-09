@@ -1,0 +1,67 @@
+{% extends 'admin/admin_base.html.twig' %}
+    {% block title %}My Webpage - Admin panel{% endblock %}
+
+    {% block content %}
+        <div class="row">
+            <h2>Statistics</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Visitors</h4>
+                <canvas id="visitsChart" width="600" height="300"></canvas>
+            </div>
+            <div class="col-md-4">
+                <h4>Activity</h4>
+                <canvas id="actionsChart" width="300" height="300"></canvas>
+            </div>
+        </div>
+
+        <script src="/js/Chart.min.js"></script>
+        <script type="text/javascript">
+            var visitsData = {
+                labels:[
+                    {% for visit in visits %}
+                    "{{ visit.date }}",
+                    {% endfor %}
+                        ],
+                datasets: [
+                    {
+                        label: "Visitors",
+                        fillColor: "rgba(50,150,210,0.2)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [
+                            {% for visit in visits %}
+                            {{ visit.visits }},
+                            {% endfor %}
+                        ]
+                    }
+                ]
+            };
+
+            var ctx = document.getElementById("visitsChart").getContext("2d");
+            var myLineChart = new Chart(ctx).Line(visitsData);
+
+            var actionsData = {
+                labels: [ "Posts", "Comments", "Likes", "Users"],
+                datasets: [
+                    {
+                        label: "My First dataset",
+                        fillColor: "rgba(0,67,234,0.5)",
+                        strokeColor: "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                        data: [{{ actions.posts }}, {{ actions.comments }}, {{ actions.likes }}, {{ actions.users }}]
+                    }
+                ]
+            };
+            var ctx = document.getElementById("actionsChart").getContext("2d");
+            var myBarChart = new Chart(ctx).Bar(actionsData);
+
+        </script>
+
+    {% endblock %}

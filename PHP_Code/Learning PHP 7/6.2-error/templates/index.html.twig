@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+    {% block title %}My Webpage{% endblock %}
+
+    {% block content %}
+        <div id="posts-list">
+        {% for post in posts %}
+            {% include 'post.html.twig' %}
+        {% endfor %}
+        </div>
+    {% endblock %}

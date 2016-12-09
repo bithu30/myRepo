@@ -1,0 +1,35 @@
+<article class="col-xs-12 col-sm-6 col-md-3">
+    <div class="thumbnail">
+        {% if  post.image  %}
+            <img src="{{ app.image_path }}/{{ post.image }}" alt="" class="bg-primary">
+        {% endif %}
+        <div class="caption">
+            <h4>{{ post.title }}</h4>
+            <p>
+                {{ post.description }}
+            </p>
+
+            <div class="row text-right bg-info">
+                <div class="col-xs-6">
+                    <span id="comments-num-{{ post.id }}">{{ post.commentsNum }}</span> <span class="glyphicon glyphicon-comment" onclick="getPostComments({{ post.id }})" style="cursor: pointer"></span>
+                </div>
+                <div class="col-xs-6">
+                    {% set user = app.user_session.getUser(app.session) %}
+                    {% if post.isLikedByUser(user) %}
+                        {% set likeStatus = 'like' %}
+                        {% set likeColor = 'text-danger' %}
+                    {% else %}
+                        {% set likeStatus = 'unlike' %}
+                        {% set likeColor = 'text-muted' %}
+                    {% endif %}
+
+                    <span id="like-{{ post.id }}" data-like="{{ likeStatus }}">{{ post.getLike|length }}</span>
+                    <span id="heart-{{ post.id }}" class="glyphicon glyphicon-heart {{ likeColor }}" onclick="like({{ post.id }})"  style="cursor: pointer"></span>
+
+                </div>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</article>

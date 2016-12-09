@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Login{% endblock %}
+
+    {% block content %}
+    <h2>Log in</h2>
+
+    <div class="row">
+        <div class="col-sm-4">
+            {% for error in errors %}
+                <div class="alert-warning">
+                {{ error }}
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+
+        <form method="POST" action="{{ path('login_check') }}" class="form-horizontal">
+
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+              <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+              <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <input name="token" type="hidden" value="{{token}}">
+              <button type="submit" class="btn btn-primary">Login</button> or
+              <a href="{{ path('signup') }}">Sign up</a>
+            </div>
+          </div>
+
+        </form>
+
+        </div>
+
+    </div>
+
+    {% endblock %}

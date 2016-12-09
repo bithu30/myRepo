@@ -1,0 +1,40 @@
+<div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Publish a post</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-sm-11">
+
+                        <form method="POST" action="{{ path('submit_post') }}" class="form-horizontal" id="postForm">
+
+                            <div class="form-group">
+                                <label for="inputTitle" class="col-sm-3 control-label">Title</label>
+                                <div class="col-sm-9">
+                                    <input name="title" type="text" class="form-control" id="inputTitle" placeholder="Title">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputDescription" class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea rows="5" name="description" type="text" class="form-control" id="inputDescription" placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input name="token" type="hidden" value="{{ csrf.getToken('token') }}">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">Publish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

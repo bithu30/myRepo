@@ -1,0 +1,20 @@
+Data Analysis Tools 
+https://www.coursera.org/learn/data-analysis-tools/
+I'm a post graduate in Data Science after my studies I was looking for something to sustain my interest and knowledge in this field, it is then that I decided to do some courses online to achieve my goal.I found the 'Data Analysis and Interpretation' Specialization in coursera interesting as it had the option to do the course work in SAS, which is the same I used to complete my master thesis.
+
+'Data Analysis Tools ' was the part of this Specialization it teaches about different tools at the disposal of a data analyst like Hypothesis Testing,ANOVA,Pearson Correlation and Statistical Interactions , which helps the analyst to examine the data with him and help him in deriving the type of information he can derive out of it.My experience on this course was good , it helped in fortifying my knowledge and also to clear some misconception I have , I also like the grading process of this course which is completly based on peer review which made my studies more in depth and focused , because my assignments must be crisp and focused.The grade I obtained and my strong background in data science makes me a good fit to mentor this course 
+
+Q1
+==
+
+How can we compare the correlation coefficient of all the variables in the dataset?
+
+ correlation coefficient  will help you to determine how closely different variables in your dataset is related.The max value that it can take is +1 indicating a strong positive correlation and -1 indicating a negative positive correlation, generally, if the value is above 0.6 we consider a strong positive correlation and strong negative correlation in case of a correlation coefficient  above -0.6, Correlation coefficient determines whether we need to include these variables in the final computation.
+
+PROC CORR,  in SAS, will help you built a correlation matrix, I would stop here and would request you to follow the course videos and the internet to understand the method , as it will contribute to your learning , I will be there to help you move further in the case of any difficulties.
+
+Q2
+==
+
+How to use p-values in Hypothesis Testing?
+P-values explain the probability of  your Hypothesis ( or topic under research) being true , if the p-value is 0.5 or more we accept the hypothesis , if not we reject it.

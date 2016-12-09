@@ -1,0 +1,16 @@
+{
+    "name": "niklongstone/learning-php7",
+    "description": "My application",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicola Pietroluongo",
+            "email": "nik.longstone@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\" : "src/App/"
+        }
+    }
+}

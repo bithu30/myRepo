@@ -1,0 +1,34 @@
+<div class="modal fade" id="commentsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Comments</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <form method="POST" action="{{ path('post_comment') }}" class="form-horizontal" id="commentForm">
+                            <div class="form-group">
+                                <textarea rows="3" name="comment" type="text" class="form-control" id="inputComment" placeholder="Comment"></textarea>
+                                <input id="commentPostId" name="postId" type="hidden" value="">
+                                <input name="token" type="hidden" value="{{ csrf.getToken('token') }}">
+                                <button class="btn btn-primary pull-right" type="submit">Publish</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div id="comments">Loading...</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

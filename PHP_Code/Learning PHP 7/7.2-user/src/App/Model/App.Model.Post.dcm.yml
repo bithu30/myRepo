@@ -1,0 +1,37 @@
+App\Model\Post:
+  type: entity
+  table: post
+  manyToOne:
+    user:
+      targetEntity: App\Model\User
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+        onDelete: CASCADE
+        nullable: FALSE
+  oneToMany:
+    like:
+      targetEntity: Like
+      mappedBy: post
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    title:
+      type: string
+      length: 150
+    description:
+      type: text
+      nullable: TRUE
+    image:
+      type: string
+      length: 150
+      nullable: TRUE
+    posted_at:
+      type: datetime
+    comments_num:
+      type: integer
+      options:
+       default: 0

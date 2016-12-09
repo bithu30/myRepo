@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+        <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+        <title>{% block title %}My Webpage{% endblock %}</title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">My app</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/my-posts">My Posts</a></li>
+                        <li><a href="/post">Publish a post</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+    </body>
+</html>

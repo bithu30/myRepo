@@ -1,0 +1,19 @@
+web:
+  build: .
+  ports:
+    - "8080:80"
+  volumes:
+    - .:/var/www/html
+    - ./dockerconfig/virtualhosts.conf:/etc/apache2/sites-enabled/virtualhosts.conf
+  links:
+    - mysql
+
+mysql:
+  image: mysql:5.7
+  ports:
+    - "3307:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456
+    MYSQL_USER: dev
+    MYSQL_PASSWORD: 123456
+    MYSQL_DATABASE: mydb

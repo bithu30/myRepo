@@ -19,3 +19,20 @@ p {}          ${"p"} > dom element ( <p> )
 $(".promo,#france)  help to choose multiple items ( select class promo and element with if france)
 
 ${"#dest li:First"} - choose <li> first
+
+
+The first operation you'll typically perform in any page that uses jQuery is to register a document.ready event handler. The document.ready event handler executes after everything on the page has loaded, ensuring that the entire DOM is now in memory, and the jQuery library is now available.
+
+There are a couple of ways to register this event handler. The first is to access the document object in jQuery, and register an event handler with the jQuery ready event.
+
+
+$(document).ready(function() {
+	// code here
+});
+Because registering an event handler with jQuery is so common, jQuery provides a shortcut. Simply passing a function into the constructor will register that function as the event handler for document.load.
+
+
+$(function() {
+	// code here
+});
+Both of the code blocks above are semantically identical.

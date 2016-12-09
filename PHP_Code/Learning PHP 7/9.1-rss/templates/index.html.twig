@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+    {% block title %}My Webpage{% endblock %}
+
+    {% block content %}
+        <div class="row">
+            <div id="posts-list">
+                {%  include 'posts_list.html.twig' %}
+            </div>
+        </div>
+
+        <div class="row">
+            <button id="view-more-home" type="button" class="btn btn-info center-block">View more</button>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#view-more-home').hide();
+
+                getNextPage('view-more-home', '{{ path('next_home_page') }}');
+            });
+        </script>
+    {% endblock %}

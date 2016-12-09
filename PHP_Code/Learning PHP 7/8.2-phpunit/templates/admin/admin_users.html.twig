@@ -1,0 +1,54 @@
+{% extends 'admin/admin_base.html.twig' %}
+    {% block title %}Users management - Admin panel{% endblock %}
+
+    {% block content %}
+        <div class="row">
+            <h2>Users management</h2>
+        </div>
+
+        <div id="userTable"></div>
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $('#userTable').jtable({
+                    title: 'Table of users',
+                    paging: true,
+                    actions: {
+                        listAction: '{{ path('admin_user_list') }}',
+                        createAction: '{{ path('admin_user_create') }}',
+                        updateAction: '{{ path('admin_user_update') }}',
+                        deleteAction: '{{ path('admin_user_delete') }}'
+                    },
+                    fields: {
+                        id: {
+                            title: 'Id',
+                            key: true,
+                            width: '10%'
+                        },
+                        email: {
+                            title: 'Email',
+                            width: '60%'
+                        },
+                        password: {
+                            title: 'Password',
+                            list: false,
+                            input: function (data) {
+                                return '<input type="password" name="password" value="" />';
+                            }                        },
+                        role: {
+                            title: 'Role',
+                            width: '30%',
+                            options: {'user':'User', 'admin':'Admin'}
+                        }
+                    }
+                });
+
+                $('#userTable').jtable('load');
+            });
+        </script>
+
+
+    {% endblock %}

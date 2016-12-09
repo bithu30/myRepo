@@ -1,0 +1,1 @@
+{"preview":"http://localhost:8000","terminals":[{"name":"Gulp","command":"gulp\r"}],"files":["process/typescript/artist-details.component.ts","process/typescript/app.component.ts","process/typescript/artist-item.component.ts","builds/development/css/app.css"],"ui":{"bottom":false}}
