@@ -1,3 +1,29 @@
-SQLAlchemy
-===========
+# Import create_engine, this is the basic entity in SQLAlchemy 
+#which is used to manipulate Database
+from sqlalchemy import create_engine
 
+# Create an engine that connects to the census.sqlite file: engine
+engine = create_engine('sqlite:///census.sqlite')
+
+# Print table names
+print(engine.table_names())
+
+#The way to import Tables
+# Import Table
+from sqlalchemy import Table
+
+# Reflect census table from the engine: census
+census = Table('census', metadata, autoload=True, autoload_with=engine)
+
+# Print repr
+print(repr(census))
+
+
+# Reflect census table from the engine: census
+census = Table('census', metadata, autoload=True, autoload_with=engine)
+
+# Print columns names
+print(census.columns.keys())
+
+# Print full table metadata
+print(repr(metadata.tables['census']))
