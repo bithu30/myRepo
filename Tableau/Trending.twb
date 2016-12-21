@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10000.16.1104.2200                               -->
+<workbook source-build='10.0.3 (10000.16.1104.2200)' source-platform='win' version='10.0' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Archive (longer_tweets_myTAGSv6.1)' inline='true' name='federated.1i29ez504c4huy16av7z91o2zuk5' version='10.0'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='longer_tweets_myTAGSv6.1' name='excel-direct.0br500s032gyw61a5fzzs1kt993d'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:\myGit\local\myRepo\Tableau\longer_tweets_myTAGSv6.1.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.0br500s032gyw61a5fzzs1kt993d' name='Archive' table='[Archive$]' type='table'>
+          <columns gridOrigin='A1:R9900:no:A1:R9900:0' header='yes' outcome='2'>
+            <column datatype='string' name='id_str' ordinal='0' />
+            <column datatype='string' name='from_user' ordinal='1' />
+            <column datatype='string' name='text' ordinal='2' />
+            <column datatype='string' name='created_at' ordinal='3' />
+            <column datatype='datetime' name='time' ordinal='4' />
+            <column datatype='string' name='geo_coordinates' ordinal='5' />
+            <column datatype='string' name='user_lang' ordinal='6' />
+            <column datatype='string' name='in_reply_to_user_id_str' ordinal='7' />
+            <column datatype='string' name='in_reply_to_screen_name' ordinal='8' />
+            <column datatype='string' name='from_user_id_str' ordinal='9' />
+            <column datatype='string' name='in_reply_to_status_id_str' ordinal='10' />
+            <column datatype='string' name='source' ordinal='11' />
+            <column datatype='string' name='profile_image_url' ordinal='12' />
+            <column datatype='integer' name='user_followers_count' ordinal='13' />
+            <column datatype='integer' name='user_friends_count' ordinal='14' />
+            <column datatype='string' name='user_location' ordinal='15' />
+            <column datatype='string' name='status_url' ordinal='16' />
+            <column datatype='string' name='entities_str' ordinal='17' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>id_str</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[id_str]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>id_str</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>from_user</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[from_user]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>from_user</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>text</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[text]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>text</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>created_at</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[created_at]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>created_at</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[time]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>time</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>geo_coordinates</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[geo_coordinates]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>geo_coordinates</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_lang</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[user_lang]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>user_lang</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>in_reply_to_user_id_str</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[in_reply_to_user_id_str]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>in_reply_to_user_id_str</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>in_reply_to_screen_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[in_reply_to_screen_name]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>in_reply_to_screen_name</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>from_user_id_str</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[from_user_id_str]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>from_user_id_str</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>in_reply_to_status_id_str</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[in_reply_to_status_id_str]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>in_reply_to_status_id_str</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>source</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[source]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>source</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>profile_image_url</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[profile_image_url]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>profile_image_url</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_followers_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[user_followers_count]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>user_followers_count</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_friends_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[user_friends_count]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>user_friends_count</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_location</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[user_location]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>user_location</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>status_url</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[status_url]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>status_url</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>entities_str</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[entities_str]</local-name>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias>entities_str</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Archive]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:R9900:no:A1:R9900:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Hashtag' datatype='string' name='[Calculation_2317102032248315904]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF(LOWER(REGEXP_EXTRACT_NTH([text],&apos;\#([a-zA-Z0-9_]+)&apos;,1)) = &apos;trump&apos;) THEN&#13;&#10;LOWER(REGEXP_EXTRACT_NTH([text],&apos;\#([a-zA-Z0-9_]+)&apos;,2)) ELSE&#13;&#10;LOWER(REGEXP_EXTRACT_NTH([text],&apos;\#([a-zA-Z0-9_]+)&apos;,1)) END' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Created At' datatype='string' name='[created_at]' role='dimension' type='nominal' />
+      <column caption='Entities Str' datatype='string' name='[entities_str]' role='dimension' type='nominal' />
+      <column caption='From User' datatype='string' name='[from_user]' role='dimension' type='nominal' />
+      <column caption='From User Id Str' datatype='string' name='[from_user_id_str]' role='dimension' type='nominal' />
+      <column caption='Geo Coordinates' datatype='string' name='[geo_coordinates]' role='dimension' type='nominal' />
+      <column aggregation='CountD' caption='Id Str' datatype='string' default-role='measure' default-type='quantitative' name='[id_str]' role='dimension' type='nominal' />
+      <column caption='In Reply To Screen Name' datatype='string' name='[in_reply_to_screen_name]' role='dimension' type='nominal' />
+      <column caption='In Reply To Status Id Str' datatype='string' name='[in_reply_to_status_id_str]' role='dimension' type='nominal' />
+      <column caption='In Reply To User Id Str' datatype='string' name='[in_reply_to_user_id_str]' role='dimension' type='nominal' />
+      <column caption='Profile Image Url' datatype='string' name='[profile_image_url]' role='dimension' type='nominal' />
+      <column caption='Source' datatype='string' name='[source]' role='dimension' type='nominal' />
+      <column caption='Status Url' datatype='string' name='[status_url]' role='dimension' type='nominal' />
+      <column caption='Text' datatype='string' name='[text]' role='dimension' type='nominal' />
+      <column caption='Time' datatype='datetime' name='[time]' role='dimension' type='ordinal' />
+      <column caption='User Followers Count' datatype='integer' name='[user_followers_count]' role='measure' type='quantitative' />
+      <column caption='User Friends Count' datatype='integer' name='[user_friends_count]' role='measure' type='quantitative' />
+      <column caption='User Lang' datatype='string' name='[user_lang]' role='dimension' type='nominal' />
+      <column caption='User Location' datatype='string' name='[user_location]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.788873' measure-ordering='alphabetic' measure-percentage='0.211127' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Reino Unido&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='44'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='45'>
+            <card type='columns' />
+          </strip>
+          <strip size='45'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7EAAAOxAGVKw4b
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
