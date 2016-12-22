@@ -1,0 +1,41 @@
+hadoop fs commands
+===================
+
+[hdfs@node1 ~]$ hadoop fs -ls /user
+Found 1 items
+drwxrwx---   - ambari-qa hdfs          0 2016-12-02 17:46 /user/ambari-qa
+[hdfs@node1 ~]$ hadoop fs -mkdir /user/vagrant
+[hdfs@node1 ~]$ hadoop fs -chown vagrant:vagrant /user/vagrant
+[hdfs@node1 ~]$ hadoop fs -ls /user
+Found 2 items
+drwxrwx---   - ambari-qa hdfs             0 2016-12-02 17:46 /user/ambari-qa
+drwxr-xr-x   - vagrant   vagrant          0 2016-12-22 13:57 /user/vagrant
+
+hadoop fs -put /vagrant/data/salaries.csv salaries.csv -> copy from local to hdfs
+
+hdfs fsck /user/vagrant/salaries.csv -> show the stat of teh file uploaded
+
+hadoop fs -D dfs.blocksize=1m -put   /vagrant/data/salaries.csv  salaries2.csv
+
+hdfs fsck /user/vagrant/salaries2.csv
+
+.Status: HEALTHY
+ Total size:    16257213 B
+ Total dirs:    0
+ Total files:   1
+ Total symlinks:                0
+ *Total blocks (validated):      16 (avg. block size 1016075 B)*
+ Minimally replicated blocks:   16 (100.0 %)
+ Over-replicated blocks:        0 (0.0 %)
+ Under-replicated blocks:       0 (0.0 %)
+ Mis-replicated blocks:         0 (0.0 %)
+ Default replication factor:    3
+ Average block replication:     3.0
+ Corrupt blocks:                0
+ Missing replicas:              0 (0.0 %)
+ Number of data-nodes:          3
+ Number of racks:               1
+FSCK ended at Thu Dec 22 14:07:34 UTC 2016 in 2 milliseconds
+
+
+The filesystem under path '/user/vagrant/salaries2.csv' is HEALTHY
