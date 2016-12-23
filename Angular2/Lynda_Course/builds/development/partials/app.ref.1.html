@@ -1,0 +1,22 @@
+ <div class="artistsearch">
+        <div class="card search">
+            <h1>Artist Directory</h1>
+            <label *ngIf="name" [innerHTML] = "'Artist:'+name"></label>
+            <input #newArtist 
+            [value] = "name"
+            (input) = "name=$event.target.value"
+            (keyup.enter) = "addArtist(newArtist.value); newArtist.value=''" 
+            (blur) = "addArtist(newArtist.value);newArtist.value=''"
+             >
+                <button (click) = "addArtist(newArtist.value);newArtist.value=''"  >Add</button>
+           
+        </div>
+    </div>
+
+    <ul class="artistlist cf">
+        <li #artistContainer (click) = "onClick(artist,artistContainer)" *ngFor="#artist of artists" >
+            <h2>{{artist}}</h2>
+        </li>
+    </ul>
+
+ 

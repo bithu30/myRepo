@@ -1,0 +1,20 @@
+ <div class="artistsearch">
+        <div class="card search">
+            <h1>Artist Directory</h1>
+            <label><span *ngIf="query">for:{{query}}</span></label>
+            <input [(ngModel)]="query" placeholder="type in search term">
+                
+           
+        </div>
+    </div>
+
+    <ul class="artistlist cf" *ngIf="query">
+        <li (click)="showArtist(artist);query=''" class="artist cf" #artistContainer  *ngFor="#artist of (artists)| find:query" >
+          <artist-item class="content" [ainfo] = artist></artist-item>
+
+        </li>
+    </ul>
+
+    <artist-detail *ngIf="currentArtist" [adetail]="currentArtist"></artist-detail>
+
+ 

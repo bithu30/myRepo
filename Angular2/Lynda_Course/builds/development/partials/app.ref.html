@@ -1,0 +1,19 @@
+ <div class="artistsearch">
+        <div class="card search">
+            <h1>Artist Directory</h1>
+            <span *ngIf="name">Curator: {{name}}</span>
+        </div>
+    </div>
+
+    <ul class="artistlist cf">
+        <li *ngFor="#artist of artists" >
+            <h2>{{artist}}</h2>
+        </li>
+    </ul>
+
+    <ul class="artistlist cf">
+        <li *ngFor="#artistobj of artistsObj" >
+            <h2>{{artistobj.name}}</h2>
+            <p>{{artistobj.school}}</p>
+        </li>
+    </ul>
