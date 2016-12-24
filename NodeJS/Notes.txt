@@ -1,0 +1,12 @@
+NodeJS
+========
+- Any variable that we create inside a Node JS script is only available in that script.
+- There is a global namespce or global object that contains methods available to all applications
+  ex:console is a method in global object
+
+- `Rock on world from ${justNode}` , a way to create to conduct interpolation in NodeJS 
+- ${varname} will substitute the value of the variable. 
+- gives dir name
+console.log(__dirname);
+- gives filename
+console.log(__filename);

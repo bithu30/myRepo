@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.eclipse.persistence:org.eclipse.persistence.asm:2.5.0-M13">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/org.eclipse.persistence.asm/2.5.0-M13/org.eclipse.persistence.asm-2.5.0-M13.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/org.eclipse.persistence.asm/2.5.0-M13/org.eclipse.persistence.asm-2.5.0-M13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/org.eclipse.persistence.asm/2.5.0-M13/org.eclipse.persistence.asm-2.5.0-M13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,27 @@
+Yarn Data Flow
+================
+
+1) When we submit an application the yarn client will communicate with the service Resource Manager(RM)
+   which is part of yarn and runs in the master node, it manages the Resources.
+
+2)RM is only process tht has the fullview of the Resource Utilization in the Cluster
+
+3)Scheduler runs inside RM and it Schedules the applications based on Certain Rules
+
+4) ON the slave nodes yarn runs a process called Node Manager(NM)
+
+5) NM will monitor the Compute Container in the Node and will updates it status to the RM Periodically
+
+6) if RM does not receive the status from a NM for long time then it will consider that as dead and will not use it.
+
+7)  Apllication Manager(AM) is the part of RM which starts the Apllication Master( AMa) in the NM
+
+8) AMa start the application tasks in containers and the resources are allocated to the containers
+
+9) THe containers can take 2GB of Memory
+
+10) The RM will send a list of free nodes to AMa on which the applications tasks are executed
+
+11) This architecture make it possible to run multiple applications on Yarn 
+
+
