@@ -1,0 +1,5 @@
+#! /bin/bash -ex
+yum update -y
+yum groupinstall -y "Web Server" "MySQL Database" "PHP Support"
+service httpd start
+chkconfig httpd on

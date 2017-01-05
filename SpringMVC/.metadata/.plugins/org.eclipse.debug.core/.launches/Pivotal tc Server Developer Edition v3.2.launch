@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.pivotal.server.tc.launchConfiguration">
+<listAttribute key="org.eclipse.jdt.launching.CLASSPATH">
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry containerPath=&quot;org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Java8&quot; path=&quot;2&quot; type=&quot;4&quot;/&gt;&#13;&#10;"/>
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry externalArchive=&quot;C:/Users/bkomalan/Downloads/sts-bundle/pivotal-tc-server-developer-3.2.2.RELEASE/tomcat-8.5.6.B.RELEASE/bin/bootstrap.jar&quot; path=&quot;3&quot; type=&quot;2&quot;/&gt;&#13;&#10;"/>
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry externalArchive=&quot;C:/Users/bkomalan/Downloads/sts-bundle/pivotal-tc-server-developer-3.2.2.RELEASE/tomcat-8.5.6.B.RELEASE/bin/tomcat-juli.jar&quot; path=&quot;3&quot; type=&quot;2&quot;/&gt;&#13;&#10;"/>
+</listAttribute>
+<booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Java8"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;C:\Users\bkomalan\Downloads\sts-bundle\pivotal-tc-server-developer-3.2.2.RELEASE\base-instance&quot; -Dcatalina.home=&quot;C:\Users\bkomalan\Downloads\sts-bundle\pivotal-tc-server-developer-3.2.2.RELEASE\tomcat-8.5.6.B.RELEASE&quot; -Dwtp.deploy=&quot;C:\Users\bkomalan\Downloads\sts-bundle\pivotal-tc-server-developer-3.2.2.RELEASE\base-instance\wtpwebapps&quot; -Djava.endorsed.dirs=&quot;C:\Users\bkomalan\Downloads\sts-bundle\pivotal-tc-server-developer-3.2.2.RELEASE\tomcat-8.5.6.B.RELEASE\endorsed&quot; -Xmx768m -Xss256k -XX:MaxPermSize=256m -Djava.util.logging.manager=com.springsource.tcserver.serviceability.logging.TcServerLogManager -Djava.util.logging.config.file=&quot;C:/Users/bkomalan/Downloads/sts-bundle/pivotal-tc-server-developer-3.2.2.RELEASE/base-instance/conf/logging.properties&quot;"/>
+<stringAttribute key="server-id" value="Pivotal tc Server Developer Edition v3.2"/>
+</launchConfiguration>

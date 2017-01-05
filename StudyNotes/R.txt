@@ -3,7 +3,7 @@ You can give a name to the elements of a vector with the names() function. Have 
 some_vector <- c("John Doe", "poker player")
 names(some_vector) <- c("Name", "Profession")
 
-elect the first and the fifth day of the week: use the vector c(1, 5) between the square brackets. 
+select the first and the fifth day of the week: use the vector c(1, 5) between the square brackets. 
 For example, the code below selects the first and fifth element of poker_vector:
 
 poker_vector[c(1, 5)]
@@ -17,6 +17,9 @@ poker_vector[c("Monday","Tuesday")]
 by putting selection_vector between the square brackets that follow poker_vector:
 
 poker_vector[selection_vector]
+
+> c(4, 5, 6) > 5
+[1] FALSE FALSE TRUE
 
 Matrix
 =======
@@ -33,3 +36,94 @@ In the matrix() function:
 The first argument is the collection of elements that R will arrange into the rows and columns of the matrix. Here, we use 1:9 which is a shortcut for c(1, 2, 3, 4, 5, 6, 7, 8, 9).
 The argument byrow indicates that the matrix is filled by the rows. If we want the matrix to be filled by the columns, we just place byrow = FALSE.
 The third argument nrow indicates that the matrix should have three rows.
+
+Similar to vectors, you can add names for the rows and the columns of a matrix:
+
+rownames(my_matrix) <- row_names_vector
+colnames(my_matrix) <- col_names_vector
+
+In R, the function rowSums() conveniently calculates the totals for each row of a matrix. 
+This function creates a new vector:
+
+rowSums(my_matrix)
+
+colSums is used to claculate the values in columns , syntax same as rowSums
+
+You can add a column or multiple columns to a matrix with the cbind() function, 
+which merges matrices and/or vectors together by column. For example:
+
+big_matrix <- cbind(matrix1, matrix2, vector1 ...)
+
+rbind() - can be used add a row to matrix, syntax same as cbind()
+
+Similar to vectors, you can use the square brackets [ ] to select one or multiple elements from a matrix. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate that what to select from the rows from that what you want to select from the columns. For example:
+
+my_matrix[1,2] selects the element at the first row and second column.
+my_matrix[1:3,2:4] results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3, 4.
+If you want to select all elements of a row or a column, no number is needed before or after the comma, respectively:
+
+my_matrix[,1] selects all elements of the first column.
+my_matrix[1,] selects all elements of the first row.
+
+you can do all arthmatic operations on matrix 
+ex: my_matrix * 2, matrix1 * matrix2
+
+Factors
+=========
+
+The term factor refers to a statistical data type used to store categorical variables. 
+The difference between a categorical variable and a continuous variable is that a categorical variable can belong to a limited number of categories. 
+A continuous variable, on the other hand, can correspond to an infinite number of values.
+
+It is important that R knows whether it is dealing with a continuous or a categorical variable, 
+as the statistical models you will develop in the future treat both types differently. (You will see later why this is the case.)
+
+A good example of a categorical variable is the variable 'Gender'. A human individual can either be "Male" or "Female", 
+making abstraction of inter-sexes. So here "Male" and "Female" are, in a simplified sense, the two values of the categorical variable "Gender", 
+and every observation can be assigned to either the value "Male" of "Female".
+
+To create factors in R, you make use of the function factor(). 
+First thing that you have to do is create a vector that contains all the observations that belong to a limited number of categories. 
+For example, gender_vector contains the sex of 5 different individuals:
+
+gender_vector <- c("Male","Female","Female","Male","Male")
+It is clear that there are two categories, or in R-terms 'factor levels', at work here: "Male" and "Female".
+
+The function factor() will encode the vector as a factor:
+
+factor_gender_vector <- factor(gender_vector)
+
+
+There are two types of categorical variables: a nominal categorical variable and an ordinal categorical variable.
+
+A nominal variable is a categorical variable without an implied order. 
+This means that it is impossible to say that 'one is worth more than the other'. 
+For example, think of the categorical variable animals_vector with the categories "Elephant", "Giraffe", "Donkey" and "Horse". 
+Here, it is impossible to say that one stands above or below the other. (Note that some of you might disagree ;-) ).
+
+In contrast, ordinal variables do have a natural ordering. 
+Consider for example the categorical variable temperature_vector with the categories: "Low", "Medium" and "High". 
+Here it is obvious that "Medium" stands above "Low", and "High" stands above "Medium"
+
+factor_survey_vector
+[1] Male   Female Female Male   Male  
+Levels: Female Male
+
+Level names can be altered by levels() 
+levels(factors_vectors) <- c("name1","name2")
+
+please mention in the level names in the correct order for R to map them correctly
+
+summary() will give you a quick overview of the contents of a variable
+
+ By default, the function factor() transforms speed_vector into an unordered factor. 
+ To create an ordered factor, you have to add two additional arguments: ordered and levels.
+
+factor(some_vector,
+       ordered = TRUE,
+       levels = c("lev1", "lev2" ...))
+	   
+DataFrames
+===========
+
+

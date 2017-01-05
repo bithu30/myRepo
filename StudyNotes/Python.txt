@@ -1,0 +1,29 @@
+- __iter__, is a mgic method to traverse a list, which can be used only once
+
+- an object that has __iter__ method , it is called iterable
+
+-if we call a __iter__ method twice , you will not get any value, no error occurs
+
+- id will return a number for each python object, same objects will have same id
+
+- function with yeild keyword is called a generator function
+
+- the object it return is called generator object
+
+- only a collection is iterable
+
+- generate functions can have multiple yeild stmts
+
+- .items will return a dictonary view object
+
+- [EXPR for VAR in SEQ]  format of List comprehension
+
+- EXPR could be anything 
+- SEQ could be list,tuple,iterator,set
+
+- if you replace [] in list comphrehension with () we get a generator experssion 
+
+- namedTuple,defaultDict,Ordered Dict
+
+- every class in python is inherted from the super class object
+
