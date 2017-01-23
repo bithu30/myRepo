@@ -1,0 +1,27 @@
+-run ckanr_script_AQUACROSS.R
+
+- there is two sets like this in the begining of the script:
+   
+   #details of the source
+   url<- "http://dataportal-dev.aquacross.eu:5252"
+ckanr_setup(url=url, key = "api_key of sys_admin user") 
+  #details of destination
+url<- "http://dataportal-dev.aquacross.eu:5253/"  
+ckanr_setup(url=url, key = "api_key of sys_admin user") 
+
+-once the script finishes execution it will populate organizations , group and some datasets 
+ in the aquacross platforms
+ 
+Now start the steps to download quacross users from 252 to 253 platforms:
+
+- cd /usr/lib/ckan/v253
+
+-  . /usr/lib/ckan/v252/bin/activate - activate 252 environment
+ 
+- run 'ckanapi dump users -all -c /etc/ckan/v252/development.ini -O my_database_users.jsonl' 
+
+- . /usr/lib/ckan/v253/bin/activate - switching back to 253 environment
+
+
+  run 'ckanapi load users  -c /etc/ckan/v253/development.ini -I my_database_users.jsonl' 
+ 

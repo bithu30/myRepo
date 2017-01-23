@@ -1,3 +1,6 @@
 #Tomcat publish data
-#Thu Jan 05 22:42:50 GMT 2017
+#Fri Jan 06 14:08:12 GMT 2017
+org.eclipse.jst.j2ee.server\:chocolatestore-model=C\:\\Users\\bkomalan\\Downloads\\sts-bundle\\pivotal-tc-server-developer-3.2.2.RELEASE\\base-instance\\wtpwebapps\\springchocolatestore\\WEB-INF\\lib\\chocolatestore-model-1.2.jar
+org.eclipse.jst.jee.server\:springchocolatestore=C\:\\Users\\bkomalan\\Downloads\\sts-bundle\\pivotal-tc-server-developer-3.2.2.RELEASE\\base-instance\\wtpwebapps\\springchocolatestore
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\bkomalan\\.m2\\repository\\org\\springframework\\spring-web\\4.0.2.RELEASE\\spring-web-4.0.2.RELEASE.jar=C\:\\Users\\bkomalan\\Downloads\\sts-bundle\\pivotal-tc-server-developer-3.2.2.RELEASE\\base-instance\\wtpwebapps\\springchocolatestore\\WEB-INF\\lib\\spring-web-4.0.2.RELEASE.jar
 org.eclipse.jst.jee.server\:FirstSpringMvcProject=C\:\\Users\\bkomalan\\Downloads\\sts-bundle\\pivotal-tc-server-developer-3.2.2.RELEASE\\base-instance\\wtpwebapps\\FirstSpringMvcProject

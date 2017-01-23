@@ -4,5 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!--  adding artifact for the choclate store model -->
+	<import resource="classpath*:META-INF/spring/applicationContext.xml"/>
 		
 </beans>

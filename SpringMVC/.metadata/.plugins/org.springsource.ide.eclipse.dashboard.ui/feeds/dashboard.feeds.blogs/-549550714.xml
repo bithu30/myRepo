@@ -5,7 +5,48 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-01-05T20:18:00Z</updated>
+  <updated>2017-01-06T22:23:21Z</updated>
+  <entry>
+    <title>Spring Cloud Task 1.1.1.RELEASE is now available</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/01/06/spring-cloud-task-1-1-1-release-is-now-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Glenn Renfro</name>
+    </author>
+    <id>tag:spring.io,2017-01-06:2771</id>
+    <updated>2017-01-06T22:23:21Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that Spring Cloud Task 1.1.1.RELEASE is now available via Github, Pivotal download repository, and Maven Central. &lt;/p&gt;
+&lt;p&gt;The main driver for this Spring Cloud Task release is to replace the MYISAM engine that is used to create TASK_SEQ table for the MySQL database with the InnoDB engine. &lt;/p&gt;
+&lt;p&gt;For more information please look at the following Github &lt;a href="https://github.com/spring-cloud/spring-cloud-task/issues/262"&gt;issue&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-do-you-think" class="anchor" name="what-do-you-think"&gt;&lt;/a&gt;What do you think?&lt;/h2&gt;
+&lt;p&gt;We look forward to your feedback on these new features in &lt;a href="https://github.com/spring-cloud/spring-cloud-task/issues"&gt;Github&lt;/a&gt;, &lt;a href="http://stackoverflow.com/tags/spring-cloud-task"&gt;StackOverflow&lt;/a&gt;, or to me directly via Twitter &lt;a href="https://twitter.com/michaelminella"&gt;@michaelminella&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://cloud.spring.io/spring-cloud-task/"&gt;Spring Cloud Task Home&lt;/a&gt; | &lt;a href="https://github.com/spring-cloud/spring-cloud-task"&gt;Source on GitHub&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-cloud-task/current/reference/htmlsingle/"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot 1.5.0 RC1 Available Now</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/01/06/spring-boot-1-5-0-rc1-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Madhura</name>
+    </author>
+    <id>tag:spring.io,2017-01-06:2770</id>
+    <updated>2017-01-06T21:02:52Z</updated>
+    <content type="html">&lt;p&gt;Spring Boot v1.5.0.RC1 is available now from the &lt;a href="http://repo.spring.io/milestone/"&gt;Spring milestone repository&lt;/a&gt;. This release closes over &lt;a href="https://github.com/spring-projects/spring-boot/milestone/69?closed=1"&gt;220 issues and pull requests&lt;/a&gt;! Thanks to everyone that has contributed!&lt;/p&gt;
+&lt;p&gt;Highlights of the new release include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Out of the box security for actuators&lt;/li&gt;
+  &lt;li&gt;Auto-configured &lt;code&gt;@IntegrationComponentScan&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Auto-detection of &lt;code&gt;spring.jpa.database&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Support for Apache Kafka&lt;/li&gt;
+  &lt;li&gt;Support for Cloud Foundry and actuator integration&lt;/li&gt;
+  &lt;li&gt;Support for embedded in-memory LDAP server and auto-configuration for any compliant LDAP server&lt;/li&gt;
+  &lt;li&gt;Upgrades to Spring Data Ingalls, Jetty 9.4, JooQ 3.9, AssertJ 2.6.0, Hikari 2.5 and Neo4J 2.1 and more&lt;/li&gt;
+  &lt;li&gt;Upgrades to several Maven plugins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For a complete list of changes, and upgrade instructions, see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Release-Notes"&gt;Spring Boot 1.5 Release Notes&lt;/a&gt; on the WIKI and the updated &lt;a href="http://docs.spring.io/spring-boot/docs/1.5.0.RC1/reference/htmlsingle/"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please do try &lt;code&gt;1.5.0.RC1&lt;/code&gt; on your projects and let us know if you find any &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;problems&lt;/a&gt;. Check &lt;a href="http://projects.spring.io/spring-boot/"&gt;the QuickStart instruction&lt;/a&gt; to upgrade your project to &lt;code&gt;1.5.0.RC1&lt;/code&gt; or generate an empty project on &lt;a href="https://start.spring.io"&gt;https://start.spring.io&lt;/a&gt; for a concrete example. &lt;/p&gt;
+&lt;p&gt;Stay tuned for the upcoming &lt;code&gt;1.5.0.RELEASE&lt;/code&gt; scheduled for the end of the month!&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Spring Integration 5.0 Milestone 2 Available</title>
     <link rel="alternate" href="https://spring.io/blog/2017/01/05/spring-integration-5-0-milestone-2-available" />
@@ -663,65 +704,5 @@ They can be provided later at runtime via &lt;code&gt;addQueues()&lt;/code&gt;&l
 &lt;p&gt;Spring Boot 1.4.3 includes &lt;a href="https://github.com/spring-projects/spring-boot/milestone/75?closed=1"&gt;over 70 fixes, improvements and 3rd party dependency updates&lt;/a&gt;! Thanks to all that have contributed!&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask at &lt;a href="http://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="http://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>CVE-2016-9879: Spring Security 3.2.10, 4.1.4, 4.2.1 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2016/12/22/cve-2016-9879-spring-security-3-2-10-4-1-4-4-2-1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Rob Winch</name>
-    </author>
-    <id>tag:spring.io,2016-12-22:2751</id>
-    <updated>2016-12-22T22:12:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I&amp;#8217;m pleased to announce the release of Spring Security 3.2.10, 4.1.4, and 4.2.1 which fix &lt;a href="https://pivotal.io/security/cve-2016-9879"&gt;CVE-2016-9879&lt;/a&gt;. Users are encouraged to update immediately.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;It is important to note that Spring Framework 3.2.x has &lt;a href="https://spring.io/blog/2016/12/21/spring-framework-4-3-5-4-2-9-and-3-2-18-available-now"&gt;reached EOL&lt;/a&gt;. As with Spring Framework, we expect all users to upgrade to 4.2.1+ for further support. Detailed instructions (including samples) on migrating both XML and Java Config based projects can be found in the &lt;a href="https://docs.spring.io/spring-security/site/docs/4.2.x/reference/html/m3to4.html"&gt;reference appendix&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; |
-&lt;a href="http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/"&gt;Reference&lt;/a&gt;
-|
-&lt;a href="http://docs.spring.io/spring-security/site/docs/current/guides/html5/"&gt;Guides&lt;/a&gt;
-| &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring LDAP 2.2.1 &amp; 2.3 RC1 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2016/12/22/spring-ldap-2-2-1-2-3-rc1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Rob Winch</name>
-    </author>
-    <id>tag:spring.io,2016-12-22:2752</id>
-    <updated>2016-12-22T18:02:49Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I&amp;#8217;m pleased to announce the release of Spring LDAP 2.2.1 and 2.3 RC1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;A special thanks to &lt;a href="https://twitter.com/mp911de"&gt;Mark Paluch&lt;/a&gt; for getting spring-data-ldap aligned on the Spring Data side!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="spring-ldap-2-3-rc1"&gt;&lt;a class="anchor" href="#spring-ldap-2-3-rc1"&gt;&lt;/a&gt;Spring LDAP 2.3 RC1&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This release brings in a new era for Spring Data compatibility. Integration for Spring LDAP and Spring Data has been moved to &lt;a href="http://projects.spring.io/spring-data-ldap/"&gt;spring-data-ldap&lt;/a&gt; so that it can partake in the Spring Data release train and ensure compatibility with the latest and greatest Spring Data code base. For additional details refer to the &lt;a href="https://github.com/spring-projects/spring-ldap/milestone/25?closed=1"&gt;changelog&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="spring-ldap-2-2-1"&gt;&lt;a class="anchor" href="#spring-ldap-2-2-1"&gt;&lt;/a&gt;Spring LDAP 2.2.1&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This release contains some minor bug fixes along with an update to make updates to newer versions of Spring Data more seamless. For additional details refer to the &lt;a href="https://github.com/spring-projects/spring-ldap/milestone/23?closed=1"&gt;changelog&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-ldap/"&gt;Project Site&lt;/a&gt; |
-&lt;a href="http://docs.spring.io/spring-ldap/site/docs/current/reference/htmlsingle/"&gt;Reference&lt;/a&gt;
-| &lt;a href="http://stackoverflow.com/questions/tagged/spring-ldap"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
   </entry>
 </feed>

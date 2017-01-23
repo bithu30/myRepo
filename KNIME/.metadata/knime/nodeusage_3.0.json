@@ -9,7 +9,7 @@
                 "nrexecs":1,
                 "nrfails":0,
                 "exectime":1531,
-                "nrcreated":1,
+                "nrcreated":2,
                 "successor":"org.knime.base.node.mine.bayes.naivebayes.learner2.NaiveBayesLearnerNodeFactory3#Naive Bayes Learner"
             },
             {
@@ -58,11 +58,11 @@
         "wrappedNodes":{
         }
     },
-    "uptime":755944392,
+    "uptime":378756813,
     "workflowsOpened":1,
     "remoteWorkflowsOpened":3,
-    "launches":1,
-    "timeSinceLastStart":755944392,
+    "launches":2,
+    "timeSinceLastStart":1569234,
     "crashes":0,
     "properlyShutDown":true
 }

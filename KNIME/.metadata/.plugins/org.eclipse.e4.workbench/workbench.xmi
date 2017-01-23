@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_j2V-MWGaEeakd_isWursaA" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_j2V-MmGaEeakd_isWursaA" bindingContexts="_j2WlQWGaEeakd_isWursaA">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; tooltip=&quot;knime://LOCAL/Naye_Bayes_assignment/workflow.knime&quot;>&#xD;&#xA;&lt;persistable uri=&quot;knime://LOCAL/Naye_Bayes_assignment/workflow.knime&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; tooltip=&quot;knime://LOCAL/03_Example_for_Learning_a_Naive_Bayes_Model/workflow.knime&quot;>&#xD;&#xA;&lt;persistable uri=&quot;knime://LOCAL/03_Example_for_Learning_a_Naive_Bayes_Model/workflow.knime&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; tooltip=&quot;knime://LOCAL/Weather_Data/workflow.knime&quot;>&#xD;&#xA;&lt;persistable uri=&quot;knime://LOCAL/Weather_Data/workflow.knime&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; tooltip=&quot;knime://LOCAL/Bigdata_ML_DataExploration/workflow.knime&quot;>&#xD;&#xA;&lt;persistable uri=&quot;knime://LOCAL/Bigdata_ML_DataExploration/workflow.knime&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; tooltip=&quot;knime://LOCAL/Naye_Bayes_assignment/workflow.knime&quot;>&#xD;&#xA;&lt;persistable uri=&quot;knime://LOCAL/Naye_Bayes_assignment/workflow.knime&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; tooltip=&quot;knime://LOCAL/03_Example_for_Learning_a_Naive_Bayes_Model/workflow.knime&quot;>&#xD;&#xA;&lt;persistable uri=&quot;knime://LOCAL/03_Example_for_Learning_a_Naive_Bayes_Model/workflow.knime&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; tooltip=&quot;knime://LOCAL/Weather_Data/workflow.knime&quot;>&#xD;&#xA;&lt;persistable uri=&quot;knime://LOCAL/Weather_Data/workflow.knime&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_j2V-MmGaEeakd_isWursaA" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_kTRx0GGaEeakd_isWursaA" x="0" y="0" width="1024" height="768">
@@ -39,9 +39,12 @@
           <tags>persp.newWizSC:org.knime.workbench.ui.wizards.project.NewProjectWizard</tags>
           <tags>persp.newWizSC:org.knime.workbench.ui.newworkflowgroup</tags>
           <tags>persp.perspSC:org.knime.workbench.ui.ModellerPerspective</tags>
+          <tags>persp.actionSet:org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo</tags>
+          <tags>persp.actionSet:org.eclipse.ui.actionSet.openFiles</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_k01mwWGaEeakd_isWursaA" selectedElement="_k01mymGaEeakd_isWursaA" horizontal="true">
             <children xsi:type="basic:PartSashContainer" xmi:id="_k01mwmGaEeakd_isWursaA" containerData="3000" selectedElement="_k01mxWGaEeakd_isWursaA">
               <children xsi:type="basic:PartStack" xmi:id="_k01mw2GaEeakd_isWursaA" elementId="org.knime.workbench.explorer.viewMStack" containerData="3000" selectedElement="_k01mxGGaEeakd_isWursaA">
+                <tags>noFocus</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_k01mxGGaEeakd_isWursaA" elementId="org.knime.workbench.explorer.view" ref="_k0lIEGGaEeakd_isWursaA"/>
               </children>
               <children xsi:type="basic:PartSashContainer" xmi:id="_k01mxWGaEeakd_isWursaA" containerData="7000" selectedElement="_k01myGGaEeakd_isWursaA">
@@ -62,7 +65,7 @@
                   <children xsi:type="advanced:Placeholder" xmi:id="_k01mzmGaEeakd_isWursaA" elementId="org.knime.workbench.helpview" ref="_k0sc0GGaEeakd_isWursaA"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_k01mz2GaEeakd_isWursaA" containerData="3000" selectedElement="_k01m0mGaEeakd_isWursaA" horizontal="true">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_k01mz2GaEeakd_isWursaA" containerData="3000" selectedElement="_k01m0GGaEeakd_isWursaA" horizontal="true">
                 <children xsi:type="basic:PartStack" xmi:id="_k01m0GGaEeakd_isWursaA" elementId="org.eclipse.ui.views.ContentOutlineMStack" containerData="3000" selectedElement="_k01m0WGaEeakd_isWursaA">
                   <children xsi:type="advanced:Placeholder" xmi:id="_k01m0WGaEeakd_isWursaA" elementId="org.eclipse.ui.views.ContentOutline" ref="_k0qnoGGaEeakd_isWursaA"/>
                 </children>
@@ -93,24 +96,13 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_k0gPkGGaEeakd_isWursaA" elementId="org.eclipse.ui.editorss" selectedElement="_k0gPkWGaEeakd_isWursaA">
-      <children xsi:type="basic:PartStack" xmi:id="_k0gPkWGaEeakd_isWursaA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_3W-KMGZFEeakd_isWursaA">
+      <children xsi:type="basic:PartStack" xmi:id="_k0gPkWGaEeakd_isWursaA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_ovQooNixEeaWPP5TKUiwPQ">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_sPQUcGGbEeakd_isWursaA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="2: Weather_Data" iconURI="platform:/plugin/org.knime.workbench.editor/icons/knime.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; partName=&quot;2: Weather_Data&quot; title=&quot;2: Weather_Data&quot; tooltip=&quot;2: Weather_Data&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;knime://LOCAL/Weather_Data/workflow.knime&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.knime.workbench.editor.WorkflowEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_te27IGGbEeakd_isWursaA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="0: 03_Example_for_Learning_a_Naive_Bayes_Model" iconURI="platform:/plugin/org.knime.workbench.editor/icons/knime.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; partName=&quot;0: 03_Example_for_Learning_a_Naive_Bayes_Model&quot; title=&quot;0: 03_Example_for_Learning_a_Naive_Bayes_Model&quot; tooltip=&quot;0: 03_Example_for_Learning_a_Naive_Bayes_Model&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;knime://LOCAL/03_Example_for_Learning_a_Naive_Bayes_Model/workflow.knime&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.knime.workbench.editor.WorkflowEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_3W-KMGZFEeakd_isWursaA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="4: Naye_Bayes_assignment" iconURI="platform:/plugin/org.knime.workbench.editor/icons/knime.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; partName=&quot;4: Naye_Bayes_assignment&quot; title=&quot;4: Naye_Bayes_assignment&quot; tooltip=&quot;4: Naye_Bayes_assignment&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;knime://LOCAL/Naye_Bayes_assignment/workflow.knime&quot;/>&#xD;&#xA;&lt;/editor>"/>
+        <tags>noFocus</tags>
+        <children xsi:type="basic:Part" xmi:id="_ovQooNixEeaWPP5TKUiwPQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="2: Bigdata_ML_DataExploration" iconURI="platform:/plugin/org.knime.workbench.editor/icons/knime.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.knime.workbench.editor.WorkflowEditor&quot; name=&quot;workflow.knime&quot; partName=&quot;2: Bigdata_ML_DataExploration&quot; title=&quot;2: Bigdata_ML_DataExploration&quot; tooltip=&quot;2: Bigdata_ML_DataExploration&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;knime://LOCAL/Bigdata_ML_DataExploration/workflow.knime&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.knime.workbench.editor.WorkflowEditor</tags>
           <tags>removeOnHide</tags>
@@ -120,7 +112,7 @@
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_k0lIEGGaEeakd_isWursaA" elementId="org.knime.workbench.explorer.view" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="KNIME Explorer" iconURI="platform:/plugin/org.knime.workbench.explorer.view/icons/knime_explorer.png" tooltip="" closeable="true">
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view>&#xD;&#xA;&lt;content expandedElements=&quot;EXAMPLES&quot;/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view>&#xD;&#xA;&lt;content expandedElements=&quot;&quot;/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:KNIME Views</tags>
       <menus xmi:id="_k6GhQGGaEeakd_isWursaA" elementId="org.knime.workbench.explorer.view">

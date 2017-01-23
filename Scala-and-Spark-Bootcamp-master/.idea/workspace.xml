@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d3f6b44-365e-41b2-90d5-e89d1d423e3d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/derby.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/README_DO_NOT_TOUCH_FILES.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/db.lck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/dbex.lck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/log/README_DO_NOT_TOUCH_FILES.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/log/log.ctrl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/log/log1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/log/logmirror.ctrl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/README_DO_NOT_TOUCH_FILES.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c10.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c101.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c111.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c121.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c130.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c141.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c150.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c161.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c171.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c180.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c191.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c1a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c1b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c1c0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c1d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c1e0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c1f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c20.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c200.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c211.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c221.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c230.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c241.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c251.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c260.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c271.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c281.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c290.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c2a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c2b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c2c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c2d0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c2e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c2f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c300.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c31.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c311.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c321.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c331.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c340.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c351.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c361.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c371.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c380.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c391.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c3a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c3b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c3c0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c3d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c3e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c3f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c400.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c41.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c411.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c421.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c430.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c441.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c451.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c461.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c470.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c481.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c490.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c4a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c4b0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c4c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c4d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c4e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c4f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c501.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c51.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c510.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c521.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c530.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c541.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c550.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c561.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c570.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c581.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c590.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c5a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c5b0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c5c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c5d0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c5e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c5f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c60.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c601.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c610.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c621.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c630.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c641.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c650.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c661.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c670.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c681.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c690.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c6a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c6b0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c6c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c6d0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c6e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c6f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c701.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c71.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c711.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c721.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c731.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c741.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c751.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c761.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c771.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c781.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c791.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c7a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c7b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c7c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c7d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c7e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c7f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c801.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c81.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c811.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c821.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c831.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c840.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c851.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c860.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c871.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c880.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c891.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c8a0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c8b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c8c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c8d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c8e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c8f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c90.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c901.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c911.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c920.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c931.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c940.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c951.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c960.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c971.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c981.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c990.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c9a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c9b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c9c0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c9d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c9e0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/c9f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/ca01.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/ca1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/ca11.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/ca21.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/cb1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/cc0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/cd1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/ce1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/seg0/cf0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Linear_Regression/metastore_db/service.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/derby.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/extra" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/README_DO_NOT_TOUCH_FILES.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/db.lck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/dbex.lck" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/log/README_DO_NOT_TOUCH_FILES.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/log/log.ctrl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/log/log1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/log/logmirror.ctrl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/README_DO_NOT_TOUCH_FILES.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c10.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c101.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c111.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c121.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c130.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c141.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c150.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c161.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c171.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c180.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c191.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c1a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c1b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c1c0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c1d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c1e0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c1f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c20.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c200.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c211.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c221.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c230.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c241.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c251.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c260.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c271.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c281.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c290.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c2a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c2b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c2c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c2d0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c2e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c2f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c300.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c31.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c311.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c321.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c331.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c340.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c351.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c361.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c371.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c380.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c391.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c3a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c3b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c3c0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c3d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c3e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c3f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c400.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c41.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c411.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c421.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c430.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c441.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c451.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c461.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c470.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c481.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c490.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c4a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c4b0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c4c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c4d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c4e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c4f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c501.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c51.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c510.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c521.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c530.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c541.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c550.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c561.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c570.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c581.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c590.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c5a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c5b0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c5c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c5d0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c5e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c5f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c60.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c601.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c610.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c621.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c630.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c641.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c650.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c661.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c670.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c681.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c690.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c6a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c6b0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c6c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c6d0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c6e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c6f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c701.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c71.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c711.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c721.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c731.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c741.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c751.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c761.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c771.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c781.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c791.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c7a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c7b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c7c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c7d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c7e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c7f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c801.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c81.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c811.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c821.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c831.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c840.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c851.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c860.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c871.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c880.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c891.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c8a0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c8b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c8c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c8d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c8e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c8f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c90.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c901.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c911.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c920.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c931.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c940.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c951.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c960.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c971.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c981.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c990.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c9a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c9b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c9c0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c9d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c9e0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/c9f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/ca01.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/ca1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/ca11.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/ca21.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/cb1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/cc0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/cd1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/ce1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/seg0/cf0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Model_Validation/metastore_db/service.properties" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Machine_Learning_Sections/Logistic_Regression/LogRegExample.scala" afterPath="$PROJECT_DIR$/Machine_Learning_Sections/Logistic_Regression/LogRegExample.scala" />
+    </list>
+    <ignored path="Scala-and-Spark-Bootcamp.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Scala-and-Spark-Bootcamp" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="DataFrame_Overview.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Spark DataFrames/DataFrame_Overview.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Spark DataFrames/DataFrame_Overview.scala" />
+        <option value="$PROJECT_DIR$/Machine Learning Sections/Linear Regression/LinRegExample.scala" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="772" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scala-and-Spark-Bootcamp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scala-and-Spark-Bootcamp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scala-and-Spark-Bootcamp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Scala-and-Spark-Bootcamp" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d3f6b44-365e-41b2-90d5-e89d1d423e3d" name="Default" comment="" />
+      <created>1476997965426</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1476997965426</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="772" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3598862" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25546876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Spark DataFrames/DataFrame_Overview.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Machine Learning Sections/Linear Regression/LinRegExample.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="8" column="89" selection-start-line="8" selection-start-column="89" selection-end-line="8" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Machine Learning Sections/Linear Regression/samplinregdata">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Spark DataFrames/DataFrame_Overview.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Spark DataFrames/DataFrame_Overview.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Machine Learning Sections/Linear Regression/samplinregdata">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Machine Learning Sections/Linear Regression/LinRegExample.scala" />
+    <entry file="file://$PROJECT_DIR$/Spark DataFrames/DataFrame_Overview.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

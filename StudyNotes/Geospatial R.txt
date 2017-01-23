@@ -1,0 +1,4 @@
+Geospatial R
+================
+
+point data - data which has location info ( lat and long )
