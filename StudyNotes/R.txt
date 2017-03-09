@@ -249,3 +249,9 @@ ext_list <- c(my_list , my_val)
 or
 
 ext_list <- c(my_list, my_name = my_val)
+
+Function in R
+======================
+func<- function(arg1,arg2){
+ body
+}

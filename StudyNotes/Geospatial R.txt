@@ -2,3 +2,63 @@ Geospatial R
 ================
 
 point data - data which has location info ( lat and long )
+
+Line data - collection of points , it could describe for example a river
+
+polygon data - data associated with an area
+
+raster data - data described in the form of a grid , a grid is formed by its origin and x and y axis
+              data is associated with a cell in the grid
+			  
+
+Polygon data
+=============
+
+# Add a point layer with color mapped to ward
+ggplot(ward_sales, aes(lon, lat)) + geom_point(aes(color=ward),data=ward_sales ) 
+
+
+# Add a point layer with color mapped to group
+ggplot(ward_sales, aes(lon, lat)) + geom_point(aes(color=group),data=ward_sales ) 
+
+
+# Add a path layer with group mapped to group
+ggplot(ward_sales, aes(lon, lat)) + geom_path(aes(group=group),data=ward_sales ) 
+
+
+# Add a polygon layer with fill mapped to ward, and group to group
+ggplot(ward_sales, aes(lon, lat))+ geom_polygon(aes(group=group,fill=ward),data=ward_sales ) 
+
+
+# Fix the polygon cropping
+ggmap(corvallis_map_bw, 
+      base_layer = ggplot(ward_sales, aes(lon, lat)),extent = "normal", 
+      maprange = FALSE) +
+  geom_polygon(aes(group = group, fill = ward))
+
+# Repeat, but map fill to num_sales
+ggmap(corvallis_map_bw, 
+      base_layer = ggplot(ward_sales, aes(lon, lat)),extent = "normal", 
+      maprange = FALSE) +
+  geom_polygon(aes(group = group, fill = num_sales))
+
+# Repeat again, but map fill to avg_price
+ggmap(corvallis_map_bw, 
+      base_layer = ggplot(ward_sales, aes(lon, lat)),extent = "normal", 
+      maprange = FALSE) +
+  geom_polygon(aes(group = group, fill = avg_price),alpha=0.8)
+
+  Creating heatmap of Raster data
+  ==================================
+  
+  # Add a geom_point() layer
+ggplot(preds, aes(lon, lat))  + geom_point(data=preds ) 
+
+# Add a tile layer with fill mapped to predicted_price
+ggplot(preds, aes(lon, lat)) + geom_tile(aes(fill=predicted_price ),data=preds ) 
+
+# Use ggmap() instead of ggplot()
+ggmap(corvallis_map_bw, 
+      base_layer = ggplot(preds, aes(lon, lat)),extent = "normal", 
+      maprange = FALSE) +
+  geom_tile(aes(lon,lat,fill=predicted_price ),alpha=0.8, data=preds)
