@@ -30,4 +30,9 @@ Checking remote location
 =========================
 git remote -v
 
+Clone fail due to long file name in windows
+===============================================
+1) git config --system core.longpaths true
+2)  git checkout -f HEAD ( this will resume the checkout that got aborted due to the error)
+
 
