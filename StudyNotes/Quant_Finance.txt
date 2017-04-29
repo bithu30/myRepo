@@ -1,0 +1,15 @@
+Quant Finanace
+================
+
+> setwd("C:/myRepo/R/Quant_Fin")
+> sp500<-read.csv('SP500Data.csv')
+> View(sp500)
+> View(sp500)
+> colnames(sp500)
+[1] "Date"      "Open"      "High"      "Low"      
+[5] "Close"     "Volume"    "Adj.Close"
+> price=sp500$Close
+> sp500(3,5)
+Error: could not find function "sp500"
+> sp500[3,5]
+[1] 2079.36

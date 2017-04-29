@@ -27,3 +27,131 @@
 
 - every class in python is inherted from the super class object
 
+iterators
+===========
+for loop
+
+list,strings,dictionaries are iterables
+
+once an iter() method is applied to the iterator it becames iterable.
+
+an iterable is an object that can return an iterator, while an iterator is an object that keeps state 
+and produces the next value when you call next() on it.
+
+creating iterables 
+====================
+
+# Create a list of strings: flash
+flash = ['jay garrick', 'barry allen', 'wally west', 'bart allen']
+
+# Print each list item in flash using a for loop
+for person in flash:
+    print(person)
+
+
+# Create an iterator for flash: superspeed
+superspeed = iter(flash)
+
+# Print each item from the iterator
+print(next(superspeed))
+print(next(superspeed))
+print(next(superspeed))
+print(next(superspeed))
+
+range()
+========
+range() doesn't actually create the list; instead, it creates a range object with an 
+iterator that produces the values until it reaches the limit
+
+splat operator
+===============
+is a way to print all the elements of a iterator withput using next()
+ex:print(*iteratorObj)
+
+enumerate()
+================
+enumerate() returns an enumerate object that produces a sequence of tuples, 
+and each of the tuples is an index-value pair.
+
+
+# Create a list of strings: mutants
+mutants = ['charles xavier', 
+            'bobby drake', 
+            'kurt wagner', 
+            'max eisenhardt', 
+            'kitty pride']
+
+# Create a list of tuples: mutant_list
+mutant_list = list(enumerate(mutants))
+
+# Print the list of tuples
+print(mutant_list)
+
+# Unpack and print the tuple pairs
+for index1, value1 in enumerate(mutants):
+    print(index1, value1)
+
+# Change the start index
+for index2, value2 in enumerate(mutants, start=1):
+    print(index2, value2)
+
+zip()
+======
+zip(), which takes any number of iterables and returns a zip object that is an iterator of tuples. 
+If you wanted to print the values of a zip object, you can convert it into a list and then print it. 
+Printing just a zip object will not return the values unless you unpack it first.
+
+# Create a list of tuples: mutant_data
+mutant_data = list(zip(mutants,aliases,powers))
+
+# Print the list of tuples
+print(mutant_data)
+
+# Create a zip object using the three lists: mutant_zip
+mutant_zip = zip(mutants,aliases,powers)
+
+# Print the zip object
+print(mutant_zip)
+
+# Unpack the zip object and print the tuple values
+for value1, value2, value3 in zip(mutants,aliases,powers):
+    print(value1, value2, value3)
+
+zip() and splat operator(*)
+==============================	
+# Create a zip object from mutants and powers: z1
+z1 = zip(mutants,powers)
+
+# Print the tuples in z1 by unpacking with *
+print(*z1)
+
+# Re-create a zip object from mutants and powers: z1
+z1 = zip(mutants,powers)
+
+# 'Unzip' the tuples in z1 by unpacking with * and zip(): result1, result2
+result1, result2 = zip(*z1)
+
+# Check if unpacked tuples are equivalent to original tuples
+print(result1 == mutants)
+print(result2 == powers)
+
+chunks iterating:
+================
+
+# Initialize an empty dictionary: counts_dict
+counts_dict={}
+
+# Iterate over the file chunk by chunk
+for chunk in pd.read_csv('tweets.csv',chunksize=10):
+
+    # Iterate over the column in dataframe
+    for entry in chunk['lang']:
+        if entry in counts_dict.keys():
+            counts_dict[entry] += 1
+        else:
+            counts_dict[entry] = 1
+
+# Print the populated dictionary
+print(counts_dict)
+
+

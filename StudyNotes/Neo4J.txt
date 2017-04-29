@@ -157,6 +157,12 @@ merge (n)-[:ToyRelation {relationship: 'fiancee'}]->(m:ToyNode {name:'Joyce', jo
 
 create (n:ToyNode {name:'Julian'})-[:ToyRelation {relationship: 'fiancee'}]->(m:ToyNode {name:'Joyce', job:'store clerk'})
 
+match(n:ToyNode {name:'Michele'})
+merger (n)-[:ToyRelation {relationship:'spouse'}]->(n1:ToyNode {name:'Kate'})
+
+match(n:ToyNode 
+
+
 //Correct your mistake by deleting the bad nodes and edge
 
 match (n:ToyNode {name:'Joyce'})-[r]-(m) delete n, r, m
@@ -166,3 +172,39 @@ match (n:ToyNode {name:'Joyce'})-[r]-(m) delete n, r, m
 match (n:ToyNode) where n.name = 'Harry' set n.job = 'drummer'
 
 match (n:ToyNode) where n.name = 'Harry' set n.job = n.job + ['lead guitarist']
+
+
+More Examples of modification
+===============================
+match (n:ToyNode {name:'Tom'})
+
+merge(n)-[:ToyRelation {relationship:'brother'}]->(n2:ToyNode {name:'Sam',job:'Accountant'})
+
+match (n:ToyNode {name:'Harry'})
+merge(n)-[:ToyRelation {relationship:'Manager'}]->(n3:ToyNode {name:'Bill',Job:'Bank Manager'})
+
+create (M1:CheckNode {name:'T1'}) - [:CheckRel {relationship:'R1'}]->(M2:CheckNode {name:'T2'})
+
+match (n:ToyNode) where n.name='Kate' set n.job='Software Engineer'
+
+match (n:ToyNode) where n.name='Kate' set n.job = n.job+['Data Scientist']
+
+importing data from external files
+====================================
+
+load csv with headers from "file:///test.csv" as line
+merge (origin:BusNode {name:line.Source})
+merge (dest:BusNode {name:line.Target})
+merge (origin) - [:distance {dist:line.distance}] -> (dest)
+
+load csv with headers from "file:///terrorist_data_subset" as row
+merge(c:country {name:row.Country} )
+merge(a:actor {name:row.ActorName,alias:row.Aliases,type:row.ActorType} )
+merge (o:Org {name:row.AffiliationTo})
+merge (a)-[:AffiliatedTo {start:row.AffiliationStartDate,end:row.AffiliationEndDate}]->(o)
+merge (c) <-[:is_from]-(a)
+
+
+
+
+

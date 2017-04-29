@@ -1,0 +1,11 @@
+DeepLearning
+==============
+
+-DeepLearning uses very powerful NNs for predictions
+
+-DeepLearning facilitates interactions between different input features 
+
+-Inputlayer,Hiddenlayer,Outputlayer are three different layers in a NN
+
+-more nodes in the Hiddenlayer will facilitates the NN to capture more interactions between
+ input

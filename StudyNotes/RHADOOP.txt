@@ -1,0 +1,19 @@
+RHADOOP
+=======
+
+imp cmds for the VM
+---------------------
+
+user:hduser
+pwd:hadoop
+
+maintain the order
+--------------------
+1) start-dfs.sh
+2) start-yarn.sh
+3) hadoop fs -ls
+4) rstudio
+5) library(rhdfs)
+   hdfs.init()
+6) stop-yarn.sh
+7) stop-dfs.sh
