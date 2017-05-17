@@ -1,0 +1,50 @@
+$ ./presto-cli --server localhost:8081 --catalog hive --user hadoop
+
+presto> use hive.default;
+presto:default> create table orders as select * from tpch.sf1.orders;
+presto:default> create table foo(a integer);
+
+# GRANT INSERT, SELECT on orders to alice;
+presto:default> grant select on foo to bob;
+presto:default> grant select on foo to alice;
+presto:default> quit;
+
+$ ./presto-cli --server localhost:8081 --catalog hive --user alice
+
+presto> use hive.default;
+presto:default> select count(*) from orders;
+presto:default> select * from foo;
+presto:default> insert into foo values(1); -- expect error
+presto:default> quit;
+
+$ ./presto-cli --server localhost:8081 --catalog hive --user bob
+
+presto> use hive.default;
+presto:default> select count(*) from orders; -- expect error
+presto:default> select * from foo;
+presto:default> insert into foo values(1); -- expect error
+presto:default> quit;
+
+$ ./presto-cli --server localhost:8081 --catalog hive --user hadoop;
+
+presto> use hive.default;
+presto:default> grant insert on foo to bob;
+presto:default> revoke select on orders from alice;
+presto:default> quit;
+
+$ ./presto-cli --server localhost:8081 --catalog hive --user bob
+
+presto> use hive.default;
+presto:default> insert into foo values(1);
+presto:default> select * from foo;
+presto:default> quit;
+
+$ ./presto-cli --server localhost:8081 --catalog hive --user alice
+
+presto> use hive.default;
+presto:default> select count(*) from orders; -- expect error
+presto:default> select * from foo;
+
+
+
+

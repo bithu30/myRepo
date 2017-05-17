@@ -1,0 +1,35 @@
+
+# 1. Download unixODBC Driver Manager from: http://www.unixodbc.org/
+# 2. Extract: tar xvzf unixODBC*.tar
+# 3. Build
+#    ./configure
+#    make
+#    sudo make install
+
+
+# 4. Set env variables
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/odbc:/opt/teradata/prestoodbc/lib/64
+# OR (depending on your Linux distribution)
+# export LD_LIBRARY_PATH=/usr/lib64/:/opt/teradata/prestoodbc/lib/64
+
+export ODBCINI=/opt/teradata/prestoodbc/Setup/odbc.ini
+export SIMBAINI=/opt/teradata/prestoodbc/lib/64/teradata.prestoodbc.ini
+export ODBCSYSINI=/opt/teradata/prestoodbc/Setup/
+
+# 5. Connect to Presto using ODBC via isql
+$ /usr/local/bin/isql -v PrestoDSN
+
+# You should see something like this:
+#
+#SQL> [ec2-user@ip-172-31-15-74 Setup]$ /usr/local/bin/isql -v PrestoDSN
+#+---------------------------------------+
+#| Connected!                            |
+#|                                       |
+#| sql-statement                         |
+#| help [tablename]                      |
+b#| quit                                  |
+#|                                       |
+#+---------------------------------------+
+#SQL> 
+
+# Make sure to not put ";" after your queries. This tool does not require them

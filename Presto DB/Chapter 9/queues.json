@@ -1,0 +1,44 @@
+{
+  "queues": {
+    "user.${USER}": {
+      "maxConcurrent": 5,
+      "maxQueued": 20
+    },
+    "user_pipeline.${USER}": {
+      "maxConcurrent": 1,
+      "maxQueued": 10
+    },
+    "pipeline": {
+      "maxConcurrent": 10,
+      "maxQueued": 100
+    },
+    "admin": {
+      "maxConcurrent": 100,
+      "maxQueued": 100
+    },
+    "global": {
+      "maxConcurrent": 100,
+      "maxQueued": 1000
+    }
+  },
+  "rules": [
+    {
+      "user": "bob",
+      "queues": ["admin"]
+    },
+    {
+      "source": ".*pipeline.*",
+      "queues": [
+        "user_pipeline.${USER}",
+        "pipeline",
+        "global"
+      ]
+    },
+    {
+      "queues": [
+        "user.${USER}",
+        "global"
+      ]
+    }
+  ]
+}

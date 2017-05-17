@@ -1,0 +1,88 @@
+ODS stands for output delivery system which manages the output and displays such as those in HTML. 
+
+PROC HPSPLIT, is the SAS procedure that builds tree based statistical models for classification regression. 
+With it, we include the seed option which allows us to specify a five digit random number seed Which will be used in the cross validation process. 
+Here, I choose the random number 15531 followed by a semicolon. 
+Within the context of PROC HPSPLIT, our class statement should include both the binary categorical target variable 
+as well as categorical explanatory variables  we wish to be considered within our model. 
+
+Similar to the model statement used in regression analysis, we next include the keyword model, a target or response TREG1, 
+followed by an equal sign, and then the full list of explanatory variables, both categorical and quantitative followed by a semi-colon. 
+
+We use the Grow Statement to specify the criterion for splitting internal nodes into additional internal or terminal ones. 
+Sometimes called parent and child nodes as the tree is grown. 
+
+The goal of the partitioning that occurs when a decision tree is grown is to recursively subdivide in such a way that the values of the 
+target variable for the observations in the terminal or leaf nodes are as similar as possible. 
+As I've mentioned, the process of building a decision tree begins with growing a large full tree based on the randomly selected training sample. 
+
+The HPSPLIT procedure provides different types of criteria for growing this full tree and 
+splitting internal nodes in such a way that minimizes the nodes impurity or error.The GINI index Entropy and residual sums of squares to name a few. 
+Each can be used to assess candidate splits for each node. You select a criterion by specifying it as an option in the GROW statement.
+Entropy is the most common and highly recommended choice when growing a classification tree. Genie is another common option. 
+Based on the growth criterion that is selected. The growth process continues until the tree reaches a maximum depth of 10 split levels. 
+The result is often a large tree that over fit the data is likely to perform poorly by not adequately generalizing to new data. 
+The solution is to find a smaller sub tree results in a low air rate on both the training and validation samples. 
+
+To do this, you use the Prune statement to specify the method you'd like to use for pruning. 
+3:29
+The most common and recommended method is pruning through Cost-complexity. Cost-complexity can be requested for either a categorical or 
+quantitative target or response variable by specifying Prune Cost-complexity. 
+This algorithm is based on making trade-offs between the complexity that is size 
+of the tree and the error rate to help prevent over-fitting thus 
+large trees with a low error rate are penalized in favor of smaller trees. 
+
+PROC HPSPILT creates a plot of the cross validated average standard error, ASE, based on number of leaves each of the trees generated on the training sample. 
+A vertical reference line is drawn for the tree with the number of leaves that has the lowest cross validated ASE. In this case, the 21 leaf tree. 
+The horizontal reference line represents the average standard error plus one standard error for this complexity parameter. 
+Often, the one minus SE rule is applied when you are pruning via the cost-complexity method. To potentially select a smaller 
+tree that has only a slightly higher error rate than the minimum ASE. 
+Selecting the smallest tree that has an ASE below the horizontal reference line is in effect implementing the one minus SE rule. 
+By default, SAS uses this rule to select and display the final tree.
+
+
+The total model correctly classifies 42% of those who have smoked regularly. That is, one minus the error rate of .58 and 96% of those who have not. 
+Again, 1 minus the 4% error rate. So we are clearly better able to predict those who are protected against regular smoking during adolescence, 
+and less likely to predict those who are at risk for regular smoking.
+
+a receiver operator characteristic curve is displayed, known as the ROC curve, 
+which shows sensitivity, that is the true positive rate, and specificity, 
+the true negative rate plotted against each other. 
+
+SAS provides a variable importance table. Due to the fact that decision trees attempt to maximize correct classification with the simplest tree structure, 
+it's possible for variables that do not necessarily represent primary splits in the model to be of notable importance in the prediction of the target variable. 
+When potential explanatory variables are for example highly correlated, or provide similar information, 
+for example our separate variables measuring race only one is likely to be selected for the model. 
+The absence of the alternate variable from the model does not necessarily suggest that it's unimportant, but rather that it's masked by the other. 
+
+To evaluate this phenomenon of masking, an importance measure is calculated on the primary splitting variables and 
+for competing variables that were not selected as a primary predictor in our final model. 
+
+In short, the importance score measures a variable's ability to mimic the chosen tree and to play the role as stand-in for variables 
+appearing as primary splits. Here we see that variables such as school connected-ness, alcohol problems, and age, have important scores 
+that are relatively similar to grade point average, which was selected as a split in our final model. 
+
+I'm adding an assignmissing option to proc hpsplit. 
+As I mentioned, the default in SAS is to drop all observations with any missing data. 
+Another option that can be used is called popular. This option specifies that missing values not be dropped, 
+but rather be assigned to the most popular, that is largest, node at each split. 
+
+By adding this missing data option and running my program, the result is again a similar tree, 
+but this time with new splits on cigarette availability and race. 
+
+small changes in the data can lead to different splits, and this can undermine the interpretability of the model. 
+Also, decision trees are not very reproducible on future data,
+
+code
+=====
+
+proc hpsplit assignmissing=popular  seed=15531;
+class TREG1 BIO_SEX HISPANIC WHITE BLACK NAMERICAN ASIAN 
+   alcevr1 marever1 cocever1 inhever1 Cigavail EXPEL1 ;
+model TREG1 =AGE BIO_SEX HISPANIC WHITE BLACK NAMERICAN ASIAN alcevr1 ALCPROBS1 
+  marever1 cocever1 inhever1 DEVIANT1 VIOL1 DEP1 ESTEEM1 PARPRES PARACTV 
+  FAMCONCT schconn1 Cigavail PASSIST EXPEL1 GPA1;
+grow entropy;
+prune costcomplexity;
+   
+RUN;

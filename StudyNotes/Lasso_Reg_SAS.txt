@@ -1,0 +1,91 @@
+Lasso Regression in SAS 
+=========================
+Also called Penalised Regression Method.
+Supervised Machine Learning
+
+Lasso regression analysis is a shrinkage and variable selection method for linear regression models. 
+The goal of lasso regression is to obtain the subset of predictors that minimizes prediction error for a quantitative response variable. 
+The lasso does this by imposing a constraint on the model parameters that causes regression coefficients for some variables to shrink toward zero. 
+Variables with a regression coefficient equal to zero after the shrinkage process are excluded from the model.
+Variables with non-zero regression coefficients variables are most strongly associated with the response variable. 
+
+The LASSO imposes a constraint on the sum of the absolute values of the model parameters, 
+where the sum has a specified constant as an upper bound. 
+This constraint causes regression coefficients for some variables to shrink towards zero. 
+This is the shrinkage process. 
+The shrinkage process allows for better interpretation of the model and identifies the variables most strongly associated with the target corresponds variable.
+That is the variable selection process. It goes to obtain the subset of predictors that minimizes prediction error. 
+ 
+Lasso  can provide greater prediction accuracy. If the true relationship between the response variable and the predictors is approximately linear and 
+you have a large number of observations, then OLS regression parameter estimates will have low bias and low variance. 
+However, if you have a relatively small number of observations and a large number of predictors, 
+then the variance of the OLS perimeter estimates will be higher. 
+In this case, Lasso Regression is useful because shrinking the regression coefficient
+can reduce variance without a substantial increase in bias.
+
+Lasso Regression can increase model interpretability. Often times, at least some of the explanatory variables in an OLS multiple regression analysis 
+are not really associated with the response variable. As a result, we often end up with a model that's over fitted and more difficult to interpret. 
+With Lasso Regression, the regression coefficients for unimportant variables are reduced to zero which effectively removes them from the model and 
+produces a simpler model that selects only the most important predictors.
+
+In Lasso Regression, a tuning parameter called lambda is applied to the regression model to control the strength of the penalty. 
+As lambda increases, more coefficients are reduced to zero that is fewer predictors are selected and there is more shrinkage of the non-zero coefficient. 
+With Lasso Regression where lambda is equal to zero then we have an OLS regression analysis. 
+Bias increases and variance decreases as lambda increases. 
+
+
+
+Code
+=====
+
+* Split data randomly into test and training data;
+proc surveyselect data=new out=traintest seed = 123
+ samprate=0.7 method=srs outall;
+run; 
+
+survey select procedure to randomly split my data set into a training data set consisting of 70% of the total observations in the data set, 
+and a test data set consisting of the other 30% of the observations. 
+data=new specifies the name of my managed input data set. And out equals the name of the randomly split output data set, which I will call traintest. 
+With it, we include the seed option which allows us to specify a random number seed to ensure that the data are randomly split the same way if I run the code again. 
+The samprate command, tells SAS to split the input data set so that 70% of the observations are designated as training observations, 
+and the remaining 30% are designated as test observations. method=srs, specifies that the data are to be split using simple random sampling. 
+And the out all option, tells SAS to include, both, the training and test observations in a single output data set that has a new variable called selected, 
+to indicate whether an observation belongs to the training set, or the test set.  
+
+
+
+* lasso multiple regression with lars algorithm k=10 fold validation;
+proc glmselect data=traintest plots=all seed=123;
+     partition ROLE=selected(train='1' test='0');
+     model schconn1 = male hispanic white black namerican asian alcevr1 marever1 cocever1 
+     inhever1 cigavail passist expel1 age alcprobs1 deviant1 viol1 dep1 esteem1 parpres paractv 
+     famconct gpa1/selection=lar(choose=cv stop=none) cvmethod=random(10);
+run;
+
+glmselect procedure to test my lasso regression model. data=traintest tells SAS to use the randomly split dataset, and the plots=all option, 
+asks that all plots associated with the lasso regression be printed. With it we include the seed option, which allows us to specify a random number seed, 
+which will be used in the cross-validation process. The partition command assigns each observation a role, based on the variable called selected, 
+to indicate whether the observation is a training or test observation. Observations with a value of one on the selected variable, 
+are assigned the role of training observation. And observations with a value of zero, are assigned the role of test observation. 
+The model command specifies the regression model for which my response variable, school connected-ness, is equal to the list of the 23 candidate predictor variables. 
+After the slash, we specify the options we want to use to test the model. The selection option tells us which method to use to compute the parameters for variable selection. 
+In this example, I will use the LAR algorithm, which stands for Least Angled Regression. This algorithm starts with no predictors in the model, and adds a predictor at each step. 
+It first adds a predictor that is most correlated with the response variable, and moves it towards least square estimate, until there is another predictor that is equally correlated 
+with the model residual. It adds this predictor to the model and starts the least square estimation process over again, with both variables. 
+The LAR algorithm continues with this process until it has tested all the predictors. Parameter estimates at any step are shrunk, and predictors with coefficients 
+that are shrunk to zero are removed from the model ,and the process starts all over again. 
+
+The choose=cv option, ask SAS to use cross validation to choose the final statistical model. stop=none ensures that the model doesn't stop running until each of the 
+candidate predictor variables is tested. Finally, cvmethod=random, and in parentheses, (10) Specifies that I use a K-fold cross-validation method with ten randomly selected folds. 
+So, what I'm doing here is using K-fold cross validation, in which the first fold is treated as a validation set, 
+and the model is estimated on the training data set using the remaining nine folds.
+
+Limitations
+=================
+1. 100% statistically driven
+2. If predictors are correlated the lasso will select
+   one of them.
+3. p-value estimation is not straightforward.
+4. No guarntee that the model selected will not be overfiited
+   not it is the best model.
+5. different methods or software gives different results.

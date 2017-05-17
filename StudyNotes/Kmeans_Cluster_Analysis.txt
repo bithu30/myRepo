@@ -1,0 +1,126 @@
+K Means Cluster Analysis
+=========================
+Cluster analysis is an unsupervised machine learning method that partitions the observations in a data set into a smaller set of clusters 
+where each observation belongs to only one cluster. The goal of cluster analysis is to group, or cluster, observations into subsets based on their 
+similarity of responses on multiple variables. Clustering variables should be primarily quantitative variables, but binary variables may also be included.
+
+unsupervised method = no response variable included 
+
+With cluster analysis, what we want is to obtain clusters that have less variance within clusters and more variance between clusters. 
+That is, we want observations within clusters to be more similar to each other than they are to observations in other clusters. 
+Less variance within clusters means that the observations within a particular cluster are similar to each other in their pattern of response 
+on the clustering variables. More variance between clusters means the clusters are distinct. That is, there is little to no overlap between the clusters.
+
+Cluster analysis can also be used as a data reduction technique that allows you to take many variables and reduce them down to a single categorical variable 
+that has as many categories as the number of clusters identified in the dataset. This categorical variable can then be used in other analysis to predict some 
+response variable of interest. 
+
+K-means cluster analysis, which is one of the most commonly uses clustering algorithms. K-means cluster analysis, is conducted by creating a space that has as 
+many dimensions as the number of input variables. The input variables are designated with the notation P, so p-dimensional space is formed. 
+The distance between observations in this space is used to determine how the data are partitioned. Cluster analysis measures the distance between 
+points in the p-dimensional space, and groups together those observations that are close to each other. There are multiple ways to calculate the distance between observations. 
+The most commonly used distance measuring, K-means cluster analysis, is call Euclidean distance. 
+The Euclidian distance measure determines how close observations are to each other by drawing a straight line between pairs of observations, 
+and calculating the distance between them based on the length of this line.
+
+The first step in the Kmeans cluster analysis is to randomly choose two points in the two dimensional space. These points will start as the center or centroid 
+for each of the two clusters. Then the distance between each point and cluster centroids is calculated. 
+Then the point is assigned to the cluster that has the smallest distance between it and the cluster centroid. 
+So in this case, this point is closest to the blue centroid. So it is assigned to the blue cluster. 
+This is done for every point or observation. After the initial formation of the clusters, the centroid for each cluster is recalculated based on the location 
+of the points that were assigned to it. Specifically, it is relocated to the place at which all the points and the centroid are smallest. 
+Then the process starts all over again by calculating the distances between the points and the new locations of both centroids.
+Reassigning points to the closest centroid, and then relocating the centroid to the place where the sum of the new distances for the points assigned
+to the cluster is at the minimum. This process is repeated using multiple iterations until the location of the centroids doesn't change very much. 
+During the process, observations that were originally assigned to one cluster may end up in a different cluster. 
+
+%macro kmean(K);
+
+proc fastclus data=clustvar out=outdata&K. outstat=cluststat&K. maxclusters= &K. maxiter=300;
+var alcevr1 marever1 alcprobs1 deviant1 viol1 dep1 esteem1 schconn1 
+    parpres paractv famconct;
+run;
+
+%mend;
+
+%kmeans(1);
+%kmeans(2);
+%kmeans(3);
+%kmeans(4);
+%kmeans(5);
+%kmeans(6);
+%kmeans(7);
+%kmeans(8);
+%kmeans(9);
+
+because we don't know how many clusters actually exist in the population, we will run a series of cluster analyses. For a range of values for the number of clusters. 
+Rather than run new Sass code for each value of K, there's a macro called knean that we can use to automate the process. 
+The % macro code here, indicates that the code is part of a Sass macro. The name of the macro is kmean and the K in parenthesis indicates that the 
+macro will run the procedure code for number of different values of K. Which we specify later. We will this fastclus procedure to conduct the K means cluster analysis. 
+The fastclus procedure uses the standardized training data equals clustvar as input. In L equals data ampersand K dot, creates an output data set called outdata 
+for a range of values of K. This data set contains a variable for cluster assignment for each observation. And the distance of each observation from the cluster centroid. 
+The ampersand K dot, tells Sass to add a numeric value to the name of the data set. So for example, the alpha data set for K equals one cluster will be called outdata1. 
+The alpha data set for K equals two clusters will be called outdata2 and so on. Outstat equals clusterstat ampersand K dot, creates an output dataset for the cluster analysis 
+statistics for range of values of K. Maxclusters equals ampersand K dot, tells Sass to run the cluster analysis. Specifying the maximum number of clusters for a range of values of K.
+And maxiter equals 300, as to up to 300 iterations be used to find the cluster solution. Then, we list the standardized clustering variables, then type run, to run the code. 
+Percent mend tells Sass to stop running the macro. Following that, we asked Sass to print the output and create the output data sets for K equals 1 to 9 clusters. 
+We do this by typing % knean which is the name of the macro and in parenthesis, the value of K. You'll do this from 1 to 9 clusters. 
+
+data clus1;
+set cluststat1;
+nclust=1;
+
+if _type_='RSQ';
+
+keep nclust over_all;
+run;
+
+We can then create an elbow plot by plotting the r squared values for each of the k equals one to nine cluster solutions. 
+To help us determine how many clusters to retain and interpret. To do this though, we first have to extract the r squared value 
+from the output For each of the 1 to 9 cluster solutions. And merge them together using the following code, data clus1 tells sass 
+to create a dataset called clus1. Set cluststat1 tells Sass to use the cluster analysis to a statistics dataset for K=1 to create this dataset. 
+We are then going to create a variable called nclust. Which will be the variable that identifies the value of K for the r square. So we will set nclust=1. 
+Then we select r-square statistics, which is quoted RSQ and the underscore type, underscore variable using quotes because it is a string variable.
+Finally, we'll keep the nclust variable and the variable label over_all. Which is the variable that contains the actual r-square value.
+
+* plot elbow curve using r-square values;
+symbol1 color=blue interpol=join;
+proc gplot data=clusrsquare;
+plot over_all*nclust;
+ run;
+ 
+plot the elbow curve using the clusrsquare data set, with the gplot procedure. 
+The first line of code provides some display parameters for the plot. Color equals blue tells Sass to plot the r-square in blue. 
+And I-N-T-E-R-P-O-L equals join, tells Sass i to connect each of the plotted r-square values with a line.
+ Then we type proc gplot and the name of the data set, which is clusrsquare followed by a semicolon. 
+ In the next line of code, we type the plot command to plot the name of the variable that has the R2 values over_all on the Y axis.
+ And the variable that has the number of clusters nclust on the x axis followed by semi colon. Then we type run to generate the plot. 
+ So, what this plot shows is the increase in the proportion advantage in the clustering variables, explained by each of the cluster solutions. 
+ We start with the K equals 1R squared which is zero because there's no clustering yet. Then we can see that the two cluster solution accounts for about 20% of the variance.
+ The R-square value increases as more clusters are specified. What we're looking for here is a bend in the elbow that kind of shows where the R-square value might be leveling off. 
+ Sets the adding more cluster doesn't increase the r-square is much. We can see how subjective this is though. 
+ There appears to be a couple of bends in the line at 2 clusters, 4 clusters, and again at 8 clusters. To help us figure out which solutions is best, 
+ we should further examine the results for the 2, 4, and 8 cluster solutions. To see whether the clusters overlap. Or the patterns of means on the clustering variables are unique and meaningful. 
+ And whether there are significant differences between the clusters on our external validation variable, GPA. 
+ 
+ * plot clusters for 4 cluster solution;
+proc candisc data=outdata4 out=clustcan;
+class cluster;
+var alcevr1 marever1 alcprobs1 deviant1 viol1 dep1 esteem1 schconn1 
+    parpres paractv famconct;
+run;
+
+
+proc sgplot data=clustcan;
+scatter y=can2 x=can1 / group=cluster;
+run;
+
+
+A scatterplot will work to visualize a few dimensions, but not 11 dimensions. So what we're going to do is use canonical discriminate analysis
+ which is a data reduction technique that creates a smaller number of variables that are linear combinations of the 11 clustering variables. 
+ The new variables called canonical variables are ordered in terms of the proportion of variance in the clustering variables that is accounted 
+ for by each of the canonical variables. So the first canonical variable will account for the largest proportion of the variance. 
+ The second canonical variable will account for the next largest proportion of variance and so on. 
+ Usually, the majority of the variants in the clustering variable will be accounted for by the first couple of canonical variables 
+ and those are the variables we can plot. In SAS, we can use the candisc procedure to create the canonical variables from our cluster analysis output data 
+set that has the cluster assignment variable that we created when we ran the cluster analysis. 

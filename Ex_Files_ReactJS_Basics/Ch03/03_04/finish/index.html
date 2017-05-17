@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://fb.me/react-15.2.1.js"></script>
+        <script src="https://fb.me/react-dom-15.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+        <title>React Components</title>
+    </head>
+    <body>
+        <div id='react-container'></div>
+        <script type="text/babel">
+            const MyComponent = () => {
+                return <div>
+                        <h1>Hello World</h1>
+                        <p>This is my first React component!</p>
+                    </div>
+            }
+
+            ReactDOM.render(<MyComponent />,
+                document.getElementById('react-container'))
+
+        </script>
+    </body>
+</html>

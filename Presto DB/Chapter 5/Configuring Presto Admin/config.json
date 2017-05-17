@@ -1,0 +1,12 @@
+{
+    "username":"<ssh user>",
+    "port":<ssh port>,
+    "coordinator":"<coordinate ip>",
+    "workers":[
+        "<worker ip 1>",
+        "<worker ip 2>",
+        "<worker ip n>"
+    ]
+    
+}   
+    

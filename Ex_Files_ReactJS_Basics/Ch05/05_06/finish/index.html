@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://fb.me/react-15.2.1.js"></script>
+        <script src="https://fb.me/react-dom-15.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+        <title>Component Lifecycle</title>
+    </head>
+    <body>
+        <div id='react-container'></div>
+        <script type="text/babel">
+            var Box = React.createClass({
+                getDefaultProps() {
+                    return {
+                        backgroundColor: 'purple',
+                        height: 200,
+                        width: 200
+                    }
+                },
+                render() {
+                    return (<div id='myDiv'>
+                                <div style={this.props}></div>
+                                <section style={this.props}></section>
+                            </div>)
+                }
+            })
+
+            ReactDOM.render(<Box />, 
+                document.getElementById('react-container'))
+        </script>
+
+    </body>
+</html>
+
+
+

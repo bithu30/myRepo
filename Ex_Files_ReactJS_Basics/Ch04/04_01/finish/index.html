@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://fb.me/react-15.2.1.js"></script>
+        <script src="https://fb.me/react-dom-15.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+        <title>React Components</title>
+    </head>
+    <body>
+        <div id='react-container'></div>
+        <script type="text/babel">
+
+            var MyComponent = React.createClass({
+                render() {
+                    return <div>
+                        <h1>{this.props.text}</h1>
+                        <p>{this.props.children}</p>
+                    </div>
+                }
+            })
+
+            ReactDOM.render(<div>
+                <MyComponent text="Hello World">
+                This is message 1
+                </MyComponent>
+                <MyComponent text="I am a Component">
+                This is message 2
+                </MyComponent>
+                <MyComponent text="I have been reused!">
+                This is message 3
+                </MyComponent>
+                </div>,
+                document.getElementById('react-container'))
+
+        </script>
+    </body>
+</html>
+
+
+
+

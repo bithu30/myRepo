@@ -1,9 +1,0 @@
-[0m[[0mdebug[0m] [0mRunning TaskDef(example.ListsSuite, org.scalatest.tools.Framework$$anon$1@7ccde5ca, false, [SuiteSelector])[0m
-[0m[[0minfo[0m] [0m[36mRun completed in 756 milliseconds.[0m[0m
-[0m[[0minfo[0m] [0m[36mTotal number of tests run: 6[0m[0m
-[0m[[0minfo[0m] [0m[36mSuites: completed 1, aborted 0[0m[0m
-[0m[[0minfo[0m] [0m[36mTests: succeeded 2, failed 4, canceled 0, ignored 0, pending 0[0m[0m
-[0m[[0minfo[0m] [0m[31m*** 4 TESTS FAILED ***[0m[0m
-[0m[[31merror[0m] [0mFailed tests:[0m
-[0m[[31merror[0m] [0m	example.ListsSuite[0m
-[0m[[31merror[0m] [0m(test:[31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m

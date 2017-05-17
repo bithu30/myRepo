@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://fb.me/react-15.2.1.js"></script>
+        <script src="https://fb.me/react-dom-15.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+        <style>
+            #myDiv {
+                background-color: blue;
+                height: 200px;
+                width: 200px;
+            }
+        </style>
+        <title>Component Lifecycle</title>
+    </head>
+    <body>
+        <div id='react-container'></div>
+        <script type="text/babel">
+            var Box = React.createClass({
+                componentWillMount() {
+                    alert('Component is about to mount')
+                },
+                componentDidMount() {
+                    alert('Component just mounted')
+                },
+                render() {
+                    return <div id='myDiv'></div>
+                }
+            })
+            ReactDOM.render(<Box />, 
+                document.getElementById('react-container'))
+
+            var getRidOfBox = document.getElementById('myDiv')
+            getRidOfBox.onclick = function() {
+                ReactDOM.unmountComponentAtNode(
+                    document.getElementById('react-container'))
+                    alert('component is unmounted')
+            }
+        </script>
+
+    </body>
+</html>
+
+
+

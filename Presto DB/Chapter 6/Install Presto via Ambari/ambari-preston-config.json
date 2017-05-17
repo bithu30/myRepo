@@ -1,0 +1,4 @@
+{
+    'hive': ['connector.name=hive-hadoop2', 'hive.metastore.uri=thrift://<ip-address>:9083'],
+    'tpch': ['connector.name=tpch']
+}

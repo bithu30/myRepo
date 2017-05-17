@@ -1,0 +1,57 @@
+Random Forrests
+=================
+
+ This data mining algorithm is based on decision trees, but proceeds by growing many trees, 
+ that is a decision tree forest. In ways, directly address the problem of model reproducability. 
+ 
+ Like decision trees, Random Forests allow us to make binary splits in our data that creates segmentations or sub groups. 
+ By applying a series of simple rules or criteria over and over again, which choose variables that best predict our target variable. 
+ While decision trees proceed by searching for a split on every variable in every node, Random Forests searches for a split on only one variable in a node. 
+ The variable that has the largest association with the Target among candidate explanatory variables but only among those explanatory variables 
+ that have been randomly selected to be tested for that node.
+ 
+ First, a small subset of explanatory variables is selected at random. 
+ Next the node is split with the BEST variable among the small number of randomly selected variables. 
+ Not the best variable of all the variables, as is true when we are interested in creating only single decision tree. 
+ Once the best variable from the eligible random subset of variables is used to split the node in question. 
+ A new list of eligible explanatory variables is selected on random to split on the next node.. This continues until the tree is fully grown, 
+ and Ideally there is one observation in each terminal mode. 
+ Uniquely explained by all of the decisions that came before it. 
+ With a large number of explanatory variables, the Eligible variables set will be quite different from node to node. 
+ However, Important variables will eventually make it into the tree. 
+ And Their relative success in predicting the target variable will begin to get them larger and larger numbers of "votes" in their favor.
+ 
+ The growing of each tree in a random forest is not only based on subsets of explanatory variables at each node. 
+ But also based on A random subset of the sample for each tree in the forest. 
+ This process of selecting a random sample of observations is known as Bagging.
+ 
+ Importantly, each tree is growing on a different randomly selected sample of Bagged data with the remaining Out of Bag data available to test the accuracy of each tree. 
+ For each tree, the Bagging Process selects about 60% of the original sample, 
+ while the resulting tree is tested against the remaining 40% of the sample. 
+ Thus, the randomly selected bag data and out of bag data, will be a different 60% and 40% of observations for each tree. 
+ Finally, before we start to grow our first random forest, I want to mention the most important thing to know when interrupting the results of random forests 
+ is that the trees generated are not themselves interpreted. Instead, They are used to collectively rank the importance of variables in predicting our target of interest. 
+ 
+ How to code random forrest in SAS
+ ===================================
+Following the lib name statement and data step, which I am using to call in this data set called triad health, 
+I will include PROC HPFOREST. Next, I name my response, or target variable, TREG1. 
+And indicate with a forward slash and the level option that is a categorical variable by including the word nominal following the equal sign. 
+Categorical, quantitative, and even ordinal variables for my random forest need to be included in separate input statements. 
+Here I include my categorical explanatory variables, followed by the word input and end the statement with a forward slash, level option, 
+and the word nominal following the equal sign. 
+
+Then a second input statement for my quantitative explanatory variables, 
+Indicating that they are on an interval scale. As always, all statements are ended with a semicolon. 
+Finally I end my program with a run statement.
+
+Drawback of Random Forests is that the results are less satisfactory as trees are not interperted.
+
+PROC HPFOREST;
+target TREG1/level=nominal;
+input BIO_SEX HISPANIC WHITE BLACK NAMERICAN ASIAN alcevr1 MARever1 cocever1 inhever1 
+	Cigavail PASSIST EXPEL1 /level=nominal;
+input age DEVIANT1 VIOL1 DEP1 ESTEEM1 PARPRES PARACTV 
+  	FAMCONCT schconn1 GPA1 /level=interval;
+   
+RUN;

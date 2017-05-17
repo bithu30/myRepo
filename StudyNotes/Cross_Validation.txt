@@ -1,0 +1,43 @@
+Validation and Cross Validation
+================================
+
+ One way to do this is to randomly split the data into training and test or validation data sets. 
+ The model is developed on the training data set, then applied to the test data set to predict the values of the target for the response variable 
+ for the observations in the test data set. This is called the validation set approach, while easy to implement the validation set approach has a couple of drawbacks. 
+ 
+ First, the test error estimate can be highly variable depending on which observations are included in the training and test data set. 
+ Because the model is estimated on only a single data set. And then validated on only a single data set again. 
+ Second, because we end up splitting the observations into two data sets, the model is developed on only a subset of the data. 
+ Statistical methods generally perform worse when there are fewer observations, leading to greater estimation error in the training data set. 
+ Which leads to poor performance of the statistical model in the test data set. To address these drawbacks, we can use Cross Validation.
+ 
+ The goal of Cross Validation is to define a data set to test the model during the training phase. 
+ It involves partitioning the training data set into subsets, where one subset is held out to test the performance of the model. 
+ This data set is called the validation data set. 
+ 
+ There are different cross value validation methods. To Leave One Out Cross Validation Method, 
+ holds out one observation from the training set for validation. 
+ The statistical model is fit on the rest of the observations, and the response for the single observation is predicted based on the values of the predictors. 
+ And the regression coefficients from the model estimated on the n-1 observations. 
+ Then the process is repeated by holding out a different observation for validation and training the data on the other observations. 
+ Because the test error is based on only a single observation, it is highly variable and is therefore a poor estimate of the true test error. 
+ But, if we repeat this process for every observation each time holding out a different validation observation and using the rest of the observations to train the model, 
+ then we will end up with as many test error estimates as observations in the full data set. 
+ These individual test error estimates can be averaged to get an overall test error estimate. 
+ The advantage to using Leave One Out Cross Validation is that the regression coefficients will have 
+ less bias because the model travel is fit in all but one observation in the data set. 
+ In addition, unlike the single validation set approach, the parameter estimates will not vary as a result of how the data is split in 
+ to training and test data sets. Because the test error is estimated multiple times and then averaged. 
+ The disadvantage is that because the model is fit n times where n is equal to the observations n the data sets, 
+ Leave One Out Cross Validation approach can be time consuming and computationally intensive. Especially in large data sets.
+ 
+ K-fold Cross Validation is a kind of compromise between a validation set and leave one out cross validation approaches. 
+ This approach involves randomly dividing the observations in the data set into k groups or folds of approximately equal size. 
+ The first fold is treated as a validation set and the model is estimated using the remaining K minus one folds. 
+ Then, the error for each of the fold is average, where the model with the smallest amount of error is selected.
+ 
+ One major advantage to K-fold Cross Validation over Leave One Out Validation is that it requires considerably less computational resources. 
+ Because rather than fitting the statistical model as many times as the number of observations in your data set, you fit it,
+ a substantially smaller number of times, typically less than 20 times.
+ 
+ 

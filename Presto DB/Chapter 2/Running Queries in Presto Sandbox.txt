@@ -1,0 +1,10 @@
+# 1. SSH into the Presto Demo VM
+# Password is “presto”
+$ ssh presto@<ip address>
+
+
+# 2. Connect to Presto via the Presto CLI (executable jar)
+$ ./presto-cli
+
+
+# 3.  Run queries in 'SanboxQueries.sql'

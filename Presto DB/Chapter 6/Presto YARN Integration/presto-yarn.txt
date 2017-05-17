@@ -1,0 +1,26 @@
+# 1. Build Presto YARN package and deploy to Ambari
+wget https://github.com/prestodb/presto-yarn/archive/presto-yarn-<presto-yarn-version>.tar.gz
+tar xvzf presto-yarn-<presto-yarn-version>.tar.gz
+cd presto-yarn-presto-yarn-<presto-yarn-version>
+./mvnw clean package
+sudo cp presto-yarn-package/target/presto-yarn-package-<presto-yarn-version>-<presto-version>.zip /var/lib/ambari-server/resources/apps/
+sudo ambari-server restart
+
+
+# 2. Prep for Slider / Ambari Integration
+su hdfs
+hdfs dfs -mkdir -p /user/yarn
+hdfs dfs -chown yarn:yarn /user/yarn
+
+# 3. Prep for Presto Slider / Amabari Integration
+# Do this on all nodes
+
+sudo mkdir -p /var/lib/presto/data
+sudo chown -R yarn:hadoop /var/lib/presto/data
+
+sudo mkdir -p /var/lib/presto/etc
+sudo chown -R yarn:hadoop /var/lib/presto/etc
+
+sudo chown -R yarn:hadoop /var/lib/presto
+
+

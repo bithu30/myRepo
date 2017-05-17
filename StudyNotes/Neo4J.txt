@@ -197,7 +197,7 @@ merge (origin:BusNode {name:line.Source})
 merge (dest:BusNode {name:line.Target})
 merge (origin) - [:distance {dist:line.distance}] -> (dest)
 
-load csv with headers from "file:///terrorist_data_subset" as row
+load csv with headers from "file:///terrorist_data_subset.csv" as row
 merge(c:country {name:row.Country} )
 merge(a:actor {name:row.ActorName,alias:row.Aliases,type:row.ActorType} )
 merge (o:Org {name:row.AffiliationTo})

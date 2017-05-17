@@ -1,0 +1,27 @@
+# 1. Create database in PostgreSQL to query from Presto
+
+$ psql postgres
+
+postgres=# create user presto superuser;
+postgres=#create database test owner presto;
+postgres=# \q
+
+psql test -U presto
+
+test=# create table foo(x int);
+test=# insert into foo values(1);
+test=# insert into foo values(2);
+test=# insert into foo values(3);
+test=# \q
+
+# 2. Add Connector for PostgreSQL in Presto
+
+# 3. Query PostgreSQL from Presto
+
+$ ./presto-cli --server localhost:8181
+presto> show catalogs;
+presto> show schemas in postgres;
+presto:public> use postgres.public;
+presto:public> show tables;
+presto:public> select * from foo;
+

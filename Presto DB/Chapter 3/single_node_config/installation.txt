@@ -1,0 +1,38 @@
+
+Download the Presto Server and CLI
+----------------------------------
+https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/<VERSION>/presto-cli-<VERSION>-executable.jar
+https://repo1.maven.org/maven2/com/facebook/presto/presto-server/<VERSION>/presto-server-<VERSION>.tar.gz
+
+
+Extract the presto-server-<VERSION>.tar.gz
+------------------------------------------
+tar xvzf presto-server-<VERSION>.tar.gz
+
+
+Copy the lesson configuration files into the installation directory
+-------------------------------------------------------------------
+cd presto-server-<VERSION>
+mkdir -p etc/catalog
+cp -r <LESSON_FILES> etc
+cp etc/tpch.properties etc/catalog/tpch.properies
+
+
+Run Presto Server
+-----------------
+sudo bin/launcher run
+
+
+Connect via Presto CLI
+----------------------
+mv presto-cli-<VERSION>-executable.jar presto-cli
+chmod +x presto-cli
+
+./presto-cli --server localhost:8080
+
+show catalogs;
+show schemas in tpch;
+show tables in tpch.sf1;
+use tpch.sf1;
+
+select count(*) from lineitem;
