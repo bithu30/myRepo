@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="candidatePost" class="onePadding">
+    <div class="alert alert-success hidden" id="success_alert" role="alert">
+        <p id="success_message"></p>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <form class="form-horizontal">
+
+                <div class="form-group">
+                    <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name"
+                               name="first_name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name"
+                               name="last_name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
+
+                    <div class="col-sm-10">
+                        <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" name="phone">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="saveCandidate();">Add Candidate
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script lang="text/javascript" src="{{url_for('static', filename='scripts/candidate.js')}}">
+
+
+</script>
+{% endblock %}

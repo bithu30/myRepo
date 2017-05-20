@@ -1,0 +1,17 @@
+Hadoop
+==========
+Data Flow
+------------
+- Client takes to YARN Resource Manager, notify about the intent to start a MR Job
+- YARN Resource Manager knows which node can be made available for the job
+- At the same time the client copies all the needed data for the MR Job into HDFS
+- MR Application Master kicks off under a NodeManager
+- Anything that is running a MR job is managed by a NodeManager
+- Application Master laison with YARN Resource Manager and distributes the 
+  job onto different nodes under different NodeManager 
+- The Nodes running different tasks under the MRJob, talks with the 
+  HDFS to obtain the needed data
+- YARN Resource Manager tries to schedule the job in a node that is closer to the data
+- YARN Resource Manager can restart the Application Master if it goes down
+- Application master monitors and restart all the worker tasks , if any tasks fail.
+- Application master restart a task preferably on a different node.

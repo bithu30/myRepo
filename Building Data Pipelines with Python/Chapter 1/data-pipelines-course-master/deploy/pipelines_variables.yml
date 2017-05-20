@@ -1,0 +1,4 @@
+deploy_url: YOUR_DOMAIN_HERE
+deploy_pass: PUT_SHA1_PW_HERE
+deploy_email: PUT_EMAIL_HERE
+rabbitmq_pass: PUT_PLAINTEXT_PASS_HERE

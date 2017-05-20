@@ -1,0 +1,21 @@
+data/*.json.gz
+*.png
+config/*
+*/config/*
+*.db
+*.log
+*~
+*.pyc
+venv/*
+*.*/
+*.pid
+*.db
+real_variables.yml
+data/tweets/*.csv
+
+# airflow configs / logs
+airflow.cfg
+unittests.cfg
+*/logs/*
+
+django/*

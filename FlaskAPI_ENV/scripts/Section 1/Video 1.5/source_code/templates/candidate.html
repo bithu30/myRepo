@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Candidates</h3>
+
+<h4>Senior candidates</h4>
+
+<div class="row onePadding">
+    <div class="col-md-12 col-sm-12">
+        <div class="table-responsive">
+            <table class="table table-condensed">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Domain</th>
+                    <th>Years of Exp.</th>
+                </tr>
+                {% for candidate in candidates | senior_candidate %}
+                    <tr>
+                        <td>{{candidate['first_name']}}</td>
+                        <td>{{candidate['last_name']}}</td>
+                        <td>{{candidate['domain']}}</td>
+                        <td>{{candidate['years']}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

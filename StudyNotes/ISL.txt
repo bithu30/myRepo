@@ -1,0 +1,4 @@
+Intro to STatistical learning
+===============================
+Regression function gives you the conditional
+expectation of Y given X at each value of X. 

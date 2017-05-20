@@ -1,0 +1,4 @@
+mysql
+--------
+
+select @@hostname; - gives the hostname were mysql is running

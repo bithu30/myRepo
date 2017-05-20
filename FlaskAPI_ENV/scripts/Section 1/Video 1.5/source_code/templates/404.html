@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>We're sorry :(</h2>
+
+        <p>It seems you found a broken link...</p>
+
+        {% with errors = get_flashed_messages(category_filter=["error"]) %}
+            {% if errors %}
+                {% for message in errors %}
+
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        {{message}}
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <p><a class="btn btn-primary btn-sm" href="{{url_for('page_index')}}" role="button">Go Home</a></p>
+    </div>
+
+</div>
+
+{% endblock %}

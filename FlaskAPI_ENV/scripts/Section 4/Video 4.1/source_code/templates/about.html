@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{% with infos = get_flashed_messages(category_filter=["info"]) %}
+
+    {% if infos %}
+        {% for message in infos %}
+
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            {{message}}
+        </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
+
+<h2>About the Sample Application</h2>
+
+<p>During the course we will create a RESTful web API which could be used by a Professional Head
+    Hunting company, storing data about professions, candidates, jobs, clients, contracts and
+    preferences. </p>
+<p>Using the Web API the reader can build frontend applications for different platforms
+    (website and applications for smartphones and tablets).</p>
+
+{% endblock %}

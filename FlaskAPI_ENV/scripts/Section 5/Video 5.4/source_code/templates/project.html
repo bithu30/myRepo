@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Projects</h3>
+
+<ul id="projects_nav" class="nav nav-tabs">
+    <li id="projects_nav_get" role="presentation" class="active"><a href="#">All Projects</a></li>
+    <li id="projects_nav_post" role="presentation"><a href="#">Create</a></li>
+</ul>
+
+<div id="projects_get" class="onePadding">
+    <div class="row">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-primary btn-sm" onclick="loadProjects();">Load Projects</button>
+        </div>
+    </div>
+    <div class="row onePadding">
+        <div class="col-md-12 col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-condensed" id="projects_table">
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="projects_post" class="onePadding" style="display:none">
+
+    <div class="alert alert-success hidden" id="success_alert" role="alert">
+        <p id="success_message"></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" class="form-control" id="projectName" name="name" placeholder="Project Name">
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Description</label>
+                    <input type="text" class="form-control" id="projectDescription" name="description"
+                           placeholder="Project Description">
+                </div>
+
+                <button type="button" class="btn btn-primary btn-sm" onclick="saveProject();">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+<script lang="text/javascript" src="{{url_for('static', filename='scripts/projects.js')}}">
+
+
+</script>
+{% endblock %}
