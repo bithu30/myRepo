@@ -34,5 +34,6 @@ Clone fail due to long file name in windows
 ===============================================
 1) git config --system core.longpaths true
 2)  git checkout -f HEAD ( this will resume the checkout that got aborted due to the error)
+3) git config --global http.postBuffer 524288000 ( if the writing of objects takes too much time )
 
 
