@@ -1,0 +1,15 @@
+[Project]
+FileName=C:\myRepo\C++\simpleProj.dev
+Name=simpleProj
+Use_gpp=1
+UnitCount=2
+ResFiles=C:\myRepo\C++\rsrc.rc
+NoConsole=1
+IsDll=0
+Icon=Mainicon.ico
+[Unit1]
+FileName=WinMain
+[Unit2]
+FileName=hello.cpp
+[Unit0]
+FileName=C:\myRepo\C++\hello_world.cpp
