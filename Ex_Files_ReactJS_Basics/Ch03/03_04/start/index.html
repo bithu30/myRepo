@@ -9,15 +9,14 @@
     <body>
         <div id='react-container'></div>
         <script type="text/babel">
-            class MyComponent extends React.Component {
-                render() {
-                    return <div>
-                        <h1>Hello World</h1>
-                        <p>This is my first React component!</p>
-                    </div>
-                }
-            }
+            const MyComponent = () => {
+              return <div>
+                  <h1>Hello World</h1>
+                  <p>This is my first React component!</p>
+              </div>
 
+            }
+          
             ReactDOM.render(<MyComponent />,
                 document.getElementById('react-container'))
 

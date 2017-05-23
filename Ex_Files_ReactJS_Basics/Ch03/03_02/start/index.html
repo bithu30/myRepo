@@ -9,7 +9,16 @@
     <body>
         <div id='react-container'></div>
         <script type="text/babel">
+        var MyCompo = React.createClass({
+          render() {
+            return <div>
+                  <h1>Hello World</h1>
+                  <p>This is my First React Componenet!</p>
+                  </div>
+          }
 
+        })
+        ReactDOM.render(<MyCompo />,document.getElementById('react-container'))
         </script>
     </body>
 </html>
