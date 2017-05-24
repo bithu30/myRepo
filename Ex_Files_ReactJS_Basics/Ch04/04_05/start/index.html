@@ -18,6 +18,8 @@
                 this.setState({editing: true})
             },
             save() {
+                var val = this.refs.new_note.value
+                alert('We will save this later:  '+ val )
                 this.setState({editing: false})
             },
             remove() {
@@ -26,13 +28,13 @@
             renderForm() {
                 return (
                     <div className="note">
-                      <textarea></textarea>
+                      <textarea ref="new_note"></textarea>
                       <button onClick={this.save}>SAVE</button>
                     </div>
                 )
             },
             renderDisplay() {
-                return ( 
+                return (
                     <div className="note">
                         <p>{this.props.children}</p>
                         <span>
@@ -48,14 +50,10 @@
 
             }
         })
-        
-        ReactDOM.render(<Note>Hello World</Note>, 
+
+        ReactDOM.render(<Note>Hello World</Note>,
             document.getElementById('react-container'))
 
         </script>
     </body>
 </html>
-
-
-
-

@@ -18,11 +18,12 @@
                 this.setState({editing: true})
             },
             save() {
-                this.props.onChange(this.refs.newText.value, this.props.id)
+                this.props.onChange(this.refs.newText.value,this.props.id)
                 this.setState({editing: false})
             },
             remove() {
-                this.props.onRemove(this.props.id)
+              this.props.onRemove(this.props.id)
+
             },
             renderForm() {
                 return (
@@ -33,7 +34,7 @@
                 )
             },
             renderDisplay() {
-                return ( 
+                return (
                     <div className="note">
                         <p>{this.props.children}</p>
                         <span>
@@ -55,7 +56,7 @@
                 count: function(props, propName) {
                     if(typeof props[propName] !== "number") {
                         return new Error("the count must be a number")
-                    } 
+                    }
 
                     if(props[propName] > 100) {
                         return new Error('Creating ' + props[propName] + ' notes is ridiculous')
@@ -64,50 +65,57 @@
             },
             getInitialState() {
                 return {
-                    notes: [
-                      {id: 0, note: 'Call Bob'},
-                      {id: 1, note: 'Email Sarah'},
-                      {id: 2, note: 'Eat Lunch'},
-                      {id: 3, note: 'Finish proposal'}
-                    ]
+                    notes: []
                 }
             },
-            update(newText, id) {
-                var notes = this.state.notes.map(
-                    note => (note.id !== id) ?
-                       note : 
-                        {
-                            ...note, 
-                            note: newText
-                        }
-                    )
-                this.setState({notes})
+            nextId() {
+              this.uniqueId = this.uniqueId || 0
+              return this.uniqueId++
             },
-            remove(id) {
-                var notes = this.state.notes.filter(note => note.id !== id)
-                this.setState({notes})
+            add(text){
+              var notes = [
+                ...this.state.notes,
+                {
+                  id:this.nextId(),
+                  note:text
+                }
+              ]
+              this.setState({notes})
             },
-            eachNote(note) {
-                return (<Note key={note.id}
-                              id={note.id}
-                              onChange={this.update}
-                              onRemove={this.remove}>
-                          {note.note}
-                        </Note>)
+            update(newText,id){
+              var notes = this.state.notes.map(
+                note => (note.id !== id) ?
+                note:
+                {
+                  ...note,
+                  note:newText
+                }
+              )
+              this.setState({notes})
+            },
+            remove(id){
+              var notes = this.state.notes.filter( note => note.id !== id)
+              this.setState({notes})
+            },
+            eachNote(note){
+              return ( <Note key={note.id}
+                             id={note.id}
+                             onChange={this.update}
+                             onRemove={this.remove}>
+                             {note.note}
+                             </Note> )
             },
             render() {
                 return (<div className='board'>
-                           {this.state.notes.map(this.eachNote)}
-                        </div>)
+                    {this.state.notes.map(this.eachNote)}
+                    <button onClick={ () => this.add('New Note') }>+</button>
+                    </div>)
             }
         })
-        
-        ReactDOM.render(<Board count={10}/>, 
+
+        ReactDOM.render(<Board count={10}/>,
             document.getElementById('react-container'))
 
         </script>
     </body>
 </html>
-
-
-
