@@ -23,6 +23,15 @@
                     top: this.randomBetween(0, window.innerHeight -150, 'px')
                 }
             },
+            componentDidUpdate(){
+              if(this.state.editing) {
+                this.refs.newText.focus()
+                this.refs.newText.select()
+              }
+            },
+            shouldComponentUpdate(nextProps,nextState){
+              return this.props.children !== nextProps.children || this.state !== nextState
+            },
             randomBetween(x, y, s) {
                 return (x + Math.ceil(Math.random() * (y-x))) + s
             },
@@ -38,15 +47,15 @@
             },
             renderForm() {
                 return (
-                    <div className="note" 
+                    <div className="note"
                          style={this.style}>
-                      <textarea ref="newText"></textarea>
+                      <textarea ref="newText" defaultValue={this.props.children}></textarea>
                       <button onClick={this.save}>SAVE</button>
                     </div>
                 )
             },
             renderDisplay() {
-                return ( 
+                return (
                     <div className="note"
                          style={this.style}>
                         <p>{this.props.children}</p>
@@ -69,7 +78,7 @@
                 count: function(props, propName) {
                     if(typeof props[propName] !== "number") {
                         return new Error("the count must be a number")
-                    } 
+                    }
 
                     if(props[propName] > 100) {
                         return new Error('Creating ' + props[propName] + ' notes is ridiculous')
@@ -80,6 +89,12 @@
                 return {
                     notes: []
                 }
+            },
+            componentWillMount(){
+              if ( this.props.count) {
+                var url =  `http://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`
+                
+              }
             },
             nextId() {
                 this.uniqueId = this.uniqueId || 0
@@ -98,9 +113,9 @@
             update(newText, id) {
                 var notes = this.state.notes.map(
                     note => (note.id !== id) ?
-                       note : 
+                       note :
                         {
-                            ...note, 
+                            ...note,
                             note: newText
                         }
                     )
@@ -125,13 +140,10 @@
                         </div>)
             }
         })
-        
-        ReactDOM.render(<Board count={10}/>, 
+
+        ReactDOM.render(<Board count={10}/>,
             document.getElementById('react-container'))
 
         </script>
     </body>
 </html>
-
-
-
