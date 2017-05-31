@@ -15,3 +15,5 @@ Data Flow
 - YARN Resource Manager can restart the Application Master if it goes down
 - Application master monitors and restart all the worker tasks , if any tasks fail.
 - Application master restart a task preferably on a different node.
+- Both Application master and Resource Manager can restart a node 
+- We can have a Hot standby for Resource Manager using the HA feature of Zookeeper

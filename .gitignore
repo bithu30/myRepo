@@ -4,3 +4,4 @@
 C++/simpleProj/.vs/
 C++/simpleProj/Debug/
 */.vs/* 
+*/node_modules/*

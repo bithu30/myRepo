@@ -9,3 +9,41 @@ DeepLearning
 
 -more nodes in the Hiddenlayer will facilitates the NN to capture more interactions between
  input
+
+- The firing of a NN classifier, or activation as its commonly called, produces a score.
+
+-A neural net can be viewed as the result of spinning classifiers together in a layered web.
+ This is because each node in the hidden and output layers has its own classifier.
+ 
+- A set of inputs is passed to the first hidden layer,
+  the activations from that layer are passed to the next layer and so on,
+  until you reach the output layer,where the results of the classification are determined by the scores at each node.
+  This happens for each set of inputs.
+  
+- This series of events starting from the input where each activation is sent to the next layer, and then the next, all the way to the output,
+  is known as forward propagation, or forward prop.Forward prop is a neural net's way of classifying a set of inputs.
+
+- Each node has the same classifier, and none of them fire randomly;
+  if you repeat an input, you get the same output.
+  So if every node in the hidden layer received the same input,
+  why didn’t they all fire out the same value?
+  The reason is that each set of inputs is modified by unique weights and biases.
+  
+-You may have guessed that the prediction accuracy of a neural net depends on its weights and biases.
+We want that accuracy to be high,
+meaning we want the neural net to predict a value that is as close to the actual output as possible,
+every single time.
+The process of improving a neural net’s accuracy is called training
+
+- to train the net, the output from forward prop is compared to the output that is known to be correct,
+and the cost is the difference of the two.
+The point of training is to make that cost as small as possible, across millions of training examples.
+To do this, the net tweaks the weights and biases step by step
+until the prediction closely matches the correct output.
+Once trained well, a neural net has the potential to make accurate predictions each time.
+
+- let’s say that a net had to decide whether or not an image contained a human face. A
+deep net would first use edges to detect different parts of the face – the lips, nose, eyes,
+ears, and so on – and would then combine the results together to form the whole face.
+This important feature – using simpler patterns as building blocks to detect complex patterns
+
