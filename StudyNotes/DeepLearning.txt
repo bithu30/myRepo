@@ -47,3 +47,24 @@ deep net would first use edges to detect different parts of the face – the lip
 ears, and so on – and would then combine the results together to form the whole face.
 This important feature – using simpler patterns as building blocks to detect complex patterns
 
+- if you’re interested in unsupervised learning – that is, you want to extract patterns
+from a set of unlabelled data – then your best bet is to use either a Restricted Boltzmann
+Machine, or an autoencoder.
+
+-For text processing tasks like sentiment analysis, parsing, and named entity recognition – use
+a Recurrent Net or a Recursive Neural Tensor Network, which we’ll refer to as an RNTN.
+
+- For any language model that operates on the character level, use a Recurrent Net.
+
+- For image recognition, use a Deep Belief Network or a Convolutional Net.
+
+- For object recognition, use a Convolutional Net or an RNTN.
+
+- Finally, for speech recognition, use a Recurrent Net.
+
+- In general, Deep Belief Networks and Multilayer Perceptrons with rectified linear units – also
+known as RELU – are both good choices for classification. 
+
+- For time series analysis, it’s best to use a Recurrent Net.
+
+- Deep Nets are the current state of the art in pattern recognition

@@ -17,3 +17,7 @@ sum(myIndieFlights$DepTime<600,na.rm = TRUE)
 sum(airline$Dest=='LAX')
 temp_flight<-subset(airline,(airline$Origin == 'ATL') & (airline$Dest == 'LAX') )
 sum(temp_flight$DepTime < 1200,na.rm = TRUE)
+
+
+
+
