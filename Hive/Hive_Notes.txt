@@ -1,0 +1,13 @@
+Hive
+===========
+describe extended students;
+- to get more verbose info abt the table students
+
+select gender,count(studentid) as num_students from students group by gender;
+- this query will force hive to run a map reduce job
+
+- running any shell cmd in hive
+  !<shell cmd>; ex:!clear;
+  #make sure u end any cmd in hive with a ;
+  
+- from students select firstname where gender = "M";

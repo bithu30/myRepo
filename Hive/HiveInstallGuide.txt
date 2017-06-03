@@ -1,0 +1,68 @@
+1. Download from http://www.apache.org/dyn/closer.cgi/hive/
+
+2. Unzip the zip file into the location where you want Hive to reside
+
+3. In a terminal Edit bash profile 
+For Mac: 
+$ nano ~/.bash_profile
+For Linux: 
+$ gedit ~/.bashrc
+
+4. Add following to bash profile 
+export HIVE_HOME=<HIVE_HOME_DIR>
+export PATH=$PATH:$HIVE_HOME/bin
+
+export CLASSPATH=$CLASSPATH:$HADOOP_HOME/lib/*:.
+export CLASSPATH=$CLASSPATH:$HIVE_HOME/lib/*:.
+
+Also confirm that your bash profile includes: 
+export HADOOP_HOME=<HADOOP_HOME>
+export PATH=$PATH:$HADOOP_HOME/bin
+
+5. Create hive-site.xml 
+$ cd $HIVE_HOME/conf
+$ cp hive-default.xml.template hive-site.xml 
+
+
+6. Open the hive-site.xml file and insert the following in between the 
+<configuration> tags
+
+<property>
+
+   <name>javax.jdo.option.ConnectionURL</name>
+
+   <value>jdbc:derby:;databaseName=metastore_db;create=true </value>
+
+   <description>JDBC connect string for a JDBC metastore </description>
+
+</property>
+
+7. In the same file: 
+find and replace 
+${system:java.io.tmpdir} with /tmp/hive_io
+
+find and replace 
+${system:user.name} with your user name 
+
+
+8. Back to terminal 
+$ hadoop fs -mkdir /tmp 
+$ hadoop fs -mkdir /user
+$ hadoop fs -mkdir /user/hive
+$ hadoop fs -mkdir /user/hive/warehouse
+$ hadoop fs -chmod g+w /tmp
+$ hadoop fs -chmod g+w /user/hive/warehouse
+
+9. Try running hive 
+$ hive 
+You will get an error asking you to initialize the metastore using schematool
+
+10. Initialize the metastore
+$ mv metastore_db metastore_db.tmp
+$ schematool -initSchema -dbType derby
+
+11. Run hive again 
+$ hive 
+
+
+
