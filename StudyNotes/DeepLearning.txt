@@ -68,3 +68,23 @@ known as RELU – are both good choices for classification.
 - For time series analysis, it’s best to use a Recurrent Net.
 
 - Deep Nets are the current state of the art in pattern recognition
+
+- Well as it turns out, when you try to train deep nets
+with a method called backpropagation, you run into a fundamental problem called the
+vanishing gradient, or sometimes the exploding gradient. When that happens, training takes
+too long and the accuracy really suffers. 
+
+- Until 2006, there was no way to accurately
+train deep nets due to a fundamental problem with the training process: the vanishing gradient.
+Let’s think of a gradient like a slope, and the training process like a rock rolling
+down that slope. A rock will roll quickly down a steep slope but will barely move at
+all on a flat surface. The same is true with the gradient of a deep net. When the gradient
+is large, the net will train quickly. When the gradient is small, the net will train
+slowly.
+
+-  The gradients are much smaller in the
+earlier layers. As a result, the early layers of the network are the slowest to train. But
+this is a fundamental problem! The early layers are responsible for detecting the simple patterns
+and the building blocks – when it came to facial recognition, the early layers detected
+the edges which were combined to form facial features later in the network. And if the
+early layers get it wrong, the result built up by the net will be wrong as well.

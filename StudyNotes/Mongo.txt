@@ -54,3 +54,44 @@ var cur = db.movies.find()
 cur.next()
 cur.hasNext()
 
+- mongo db document consists of field and values represented in Javascript notations 
+
+- Every item in a Mongo database has an ID field. If it's not specified at the time the object is created, one will be assigned by Mongo. 
+  This field must be unique across a specific collection, but otherwise can be any identifying string you wish to use
+  if you don't want to work directly with the Mongo IDs. 
+
+-  Just like the items within the database or documents, the query language used by Mongo relies heavily on documents to know what objects to operate on. 
+    
+	db.users.find({first_name:'John'})
+	
+   For instance, the find command here instructs Mongo to find all of the items matching the first name of John.
+   It does this by passing in a simple JSON document defining first_name as John. 
+   
+   The pattern holds true for other MongoDB queries as well, 
+   both in the shell and in the Mongo drivers. Updates, sorts and deletes all use documents to express how the operation should work with the data in the system. 
+   
+   db.users.remove({first_name:'John'})
+
+   This remove command removes all items in the collection with the first name of John. 
+   A documents is set, and the operation happens on the items matching that document.
+   
+-  The update seen here updates all of the items in the database with John as the first name and sets the value specified here. 
+   Note, the update is a complete overwrite. If you had left out the address and phone, John would only have first and last names.
+
+   db.users.update({first_name:'John'},{first_name:'John',last_name:'Mathew',addr:'142,glemorgan'} )
+   
+  The original update could have been done with the set operator, and this operation leaves all of the remaining fields in place. 
+  It's likely that you'll use set much more often than a bare update, 
+  because most changes to a database are additive and adding new fields can easily be done with this operation.
+  
+   db.users.update({first_name:'John'},{ $set: { last_name:'Mathew'} } )
+
+- Mongo documents also support nested objects, objects which are deeper than a single set of keys and values.
+
+- Sharding is a powerful scaling feature of MongoDB. Sometimes referred to as partitioning, sharding splits the database across multiple machines, storing a subset of data on each of the systems.
+
+- Using sharding means that you can scale your application across several smaller systems rather than investing in a larger, 
+  more expensive solution. While manual sharding is possible with almost any database system, 
+  Mongo can handle the sharding operation so that your code can work with the database as a single system. 
+  Sharding is complex to set up and maintain, but it can make it possible to manage databases at large scale without a huge capitol investment. 
+  While sharding is aimed at scalability, it's arguably even more important to ensure the uptime of your system, and for this, Mongo provides replication.

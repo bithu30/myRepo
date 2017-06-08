@@ -1,0 +1,19 @@
+{
+  "name": "learning_mongodb",
+  "version": "1.0.0",
+  "description": "Required libraries for the learning_mongodb class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type":"git",
+    "url":"git://githubcom/synedra/learning_mongo.git"
+  },
+  "author": "Kirsten Hunter",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "mongodb": "^2.2.22"
+  }
+}
