@@ -95,3 +95,70 @@ cur.hasNext()
   Mongo can handle the sharding operation so that your code can work with the database as a single system. 
   Sharding is complex to set up and maintain, but it can make it possible to manage databases at large scale without a huge capitol investment. 
   While sharding is aimed at scalability, it's arguably even more important to ensure the uptime of your system, and for this, Mongo provides replication.
+
+-  my default connected to the test Database, just type 'db' on the mongo prompt to confirm this
+- > show dbs
+     admin  0.000GB
+     local  0.000GB
+- A DB will be created automatically once you use the use stmt
+  
+   > use learning_mongo
+     switched to db learning_mongo
+  But they will not show in the list of dbs once you insert at least one document in a collection
+  
+  > show dbs
+	admin  0.000GB
+	local  0.000GB
+  > db.cars.insert({'make':'Suburau'})
+	WriteResult({ "nInserted" : 1 })
+  > show dbs
+	admin           0.000GB
+	learning_mongo  0.000GB
+	local           0.000GB
+
+- > show collections
+    cars
+-  > for ( i=0;i<1000;i++ ) { db.numbers.insert({"number":i}) }
+     WriteResult({ "nInserted" : 1 })
+   > show collections
+     cars
+     numbers
+
+- > db.numbers.count()
+  1000
+  > db.numbers.find({"number":1})
+  { "_id" : ObjectId("593a7c60e4f34c3f00c54846"), "number" : 1 }
+  > db.numbers.find({"number":1}).explain
+    function (verbose) {
+      var explainQuery = new DBExplainQuery(this, verbose);
+      return explainQuery.finish();
+    }
+	> db.numbers.find({"number":1}).explain()
+	> db.numbers.find({"number":1}).explain('executionStats')   
+	   
+- db.numbers.createIndex({numbers:1}) - creates index
+
+- mongoimport --db learning_mongo --collection tours --jsonArray --file tours.json	   ** importing data from external sources
+
+- updating a document in mongo
+   db.tours.update({"tourName":"Wine of Santa Cruz"}, {$set:{"tourRegion":"Center Coast"}})
+
+- updating an array in the document,here the array is 'tourTags'
+  > db.tours.update({"tourName":"Wine of Santa Cruz"}, {$addToSet:{"tourTags":"broadwalk"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+- removing a document from a collection
+> db.tours.remove({"tourName":"Wine of Santa Cruz"})
+WriteResult({ "nRemoved" : 1 })
+
+- removing a collection from a db
+
+> db.tours.drop()
+true
+> show collections
+cars
+numbers
+
+
+- finding a tour with price less than or equal to  500 and duration less than or equal to 3 days 
+   db.tours.find({"tourPrice":{$lte:500},"tourLength":{$lte:3}})

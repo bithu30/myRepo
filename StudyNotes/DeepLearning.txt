@@ -88,3 +88,14 @@ this is a fundamental problem! The early layers are responsible for detecting th
 and the building blocks – when it came to facial recognition, the early layers detected
 the edges which were combined to form facial features later in the network. And if the
 early layers get it wrong, the result built up by the net will be wrong as well.
+
+- The process used for training a neural net is called back-propagation or back-prop. We
+saw before that forward prop starts with the inputs and works forward; back-prop does the
+reverse, calculating the gradient from right to left. For example, here are 5 gradients,
+4 weight and 1 bias. It starts with the left and works back through the layers, like so.
+Each time it calculates a gradient, it uses all the previous gradients up to that point.
+So, lets start with that node. That edge uses the gradient at that node. And the next. So
+far things are simple. As you keep going back, things get a bit more complex 
+
+- Restricted Boltzmann Machine is a method that can automatically find patterns in our data by reconstructing
+the input. 
