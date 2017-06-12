@@ -1,0 +1,42 @@
+updating one param in the document
+======================================
+http PUT http://localhost:8080/api/tours/Kristen's%20Fabulous%20Tour tourBlurb="Get Your Tan On"
+
+HTTP/1.1 200 OK
+Connection: keep-alive
+Date: Mon, 12 Jun 2017 10:52:59 GMT
+Transfer-Encoding: chunked
+cache-control: no-cache
+content-encoding: gzip
+content-type: application/json; charset=utf-8
+vary: accept-encoding
+
+{
+    "_id": "593e6f2aca77dc21bc8f1011",
+    "tourBlurb": "Get Your Tan On",
+    "tourLength": "5",
+    "tourName": "Kristen's Fabulous Tour",
+    "tourPackage": "Fun in the Sun",
+    "tourPrice": "10000"
+}
+
+Replacing a document
+======================================
+
+http PUT http://localhost:8080/api/tours/Kristen's%20Fabulous%20Tour tourBlurb="Get Your Tan On" replace==true
+
+C:\WINDOWS\system32>http PUT http://localhost:8080/api/tours/Kristen's%20Fabulous%20Tour tourBlurb="Get Your Tan On" replace==true
+HTTP/1.1 200 OK
+Connection: keep-alive
+Date: Mon, 12 Jun 2017 11:12:05 GMT
+Transfer-Encoding: chunked
+cache-control: no-cache
+content-encoding: gzip
+content-type: application/json; charset=utf-8
+vary: accept-encoding
+
+{
+    "_id": "593e6f2aca77dc21bc8f1011",
+    "tourBlurb": "Get Your Tan On",
+    "tourName": "Kristen's Fabulous Tour"
+}

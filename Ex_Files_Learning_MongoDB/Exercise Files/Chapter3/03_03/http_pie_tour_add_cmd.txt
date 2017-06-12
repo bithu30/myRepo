@@ -1,0 +1,17 @@
+http POST http://localhost:8080/api/tours tourPackage="Fun in the Sun" tourName="Kristen's Fabulous Tour" tourPrice=10000 tourLength=5
+HTTP/1.1 200 OK
+Connection: keep-alive
+Date: Mon, 12 Jun 2017 10:38:34 GMT
+Transfer-Encoding: chunked
+cache-control: no-cache
+content-encoding: gzip
+content-type: application/json; charset=utf-8
+vary: accept-encoding
+
+{
+    "_id": "593e6f2aca77dc21bc8f1011",
+    "tourLength": "5",
+    "tourName": "Kristen's Fabulous Tour",
+    "tourPackage": "Fun in the Sun",
+    "tourPrice": "10000"
+}

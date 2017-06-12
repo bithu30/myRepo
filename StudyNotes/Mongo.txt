@@ -88,6 +88,9 @@ cur.hasNext()
 
 - Mongo documents also support nested objects, objects which are deeper than a single set of keys and values.
 
+LL Learning Mongo
+====================
+
 - Sharding is a powerful scaling feature of MongoDB. Sometimes referred to as partitioning, sharding splits the database across multiple machines, storing a subset of data on each of the systems.
 
 - Using sharding means that you can scale your application across several smaller systems rather than investing in a larger, 
@@ -162,3 +165,154 @@ numbers
 
 - finding a tour with price less than or equal to  500 and duration less than or equal to 3 days 
    db.tours.find({"tourPrice":{$lte:500},"tourLength":{$lte:3}})
+
+- deleting all recordrs in a collection 
+  > db.tour.remove({})
+WriteResult({ "nRemoved" : 0 })
+
+- creating a collection tours with a unique index on the field tourName
+
+ db.tours.createIndex({"tourName":1},{unique:true})
+{
+        "createdCollectionAutomatically" : true,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+
+- Getting only selected fields from a collection 
+
+db.tours.find({},{"tourName":1})
+{ "_id" : ObjectId("593eb355ef43bfa97957b343"), "tourName" : "Big Sur Retreat" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b344"), "tourName" : "In the Steps of John Muir" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b345"), "tourName" : "The Death Valley Survivor's Trek" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b346"), "tourName" : "The Mt. Whitney Climbers Tour" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b347"), "tourName" : "Channel Islands Excursion" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b348"), "tourName" : "Day Spa Package" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b349"), "tourName" : "Restoration Package" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b34a"), "tourName" : "Huntington Library and Pasadena Retreat Tour" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b34b"), "tourName" : "Avila Beach Hot springs" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b34c"), "tourName" : "Matilija Hot springs" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b34d"), "tourName" : "Paso Robles Artesian Spring" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b34e"), "tourName" : "Amgen Tour of California Special" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b34f"), "tourName" : "Monterey to Santa Barbara Tour" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b350"), "tourName" : "Cycle California: My Way" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b351"), "tourName" : "2 Days Adrift the Salton Sea" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b352"), "tourName" : "Mojave to Malibu" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b353"), "tourName" : "Kids L.A. Tour" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b354"), "tourName" : "Islands of the Blue Dolphins Tour" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b355"), "tourName" : "Eco-Tour" }
+{ "_id" : ObjectId("593eb355ef43bfa97957b356"), "tourName" : "Endangered Species Expedition" }
+
+-suppressing _id in the results
+
+> db.tours.find({},{"tourName":1,"_id":0})
+{ "tourName" : "Big Sur Retreat" }
+{ "tourName" : "In the Steps of John Muir" }
+{ "tourName" : "The Death Valley Survivor's Trek" }
+{ "tourName" : "The Mt. Whitney Climbers Tour" }
+{ "tourName" : "Channel Islands Excursion" }
+{ "tourName" : "Day Spa Package" }
+{ "tourName" : "Restoration Package" }
+{ "tourName" : "Huntington Library and Pasadena Retreat Tour" }
+{ "tourName" : "Avila Beach Hot springs" }
+{ "tourName" : "Matilija Hot springs" }
+{ "tourName" : "Paso Robles Artesian Spring" }
+{ "tourName" : "Amgen Tour of California Special" }
+{ "tourName" : "Monterey to Santa Barbara Tour" }
+{ "tourName" : "Cycle California: My Way" }
+{ "tourName" : "2 Days Adrift the Salton Sea" }
+{ "tourName" : "Mojave to Malibu" }
+{ "tourName" : "Kids L.A. Tour" }
+{ "tourName" : "Islands of the Blue Dolphins Tour" }
+{ "tourName" : "Eco-Tour" }
+{ "tourName" : "Endangered Species Expedition" }
+
+- add .pretty() after any query to beautify the results
+
+- sorting in descing order of tourPrice
+
+db.tours.find({},{"tourName":1,"_id":0,"tourPrice":1,"tourLength":1}).pretty().sort({tourPrice:-1})
+
+- limiting and skiping records
+
+ db.tours.find({},{"tourName":1,"_id":0,"tourPrice":1,"tourLength":1}).pretty().sort({tourPrice:-1}).limit(1).skip(5)
+
+ 
+  db.tours.find({"tourTags":"boating"}).pretty()
+
+  db.tours.find({"tourPrice":{$lte:1000,$gte:800}}).pretty() - selecting tours priced b/w 800-100 , both inclusive
+
+  - creating text index
+   db.tours.createIndex({"tourDescription":"text","tourBlurb":"text"})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+
+- searching on the text index
+   
+   db.tours.find({  $text:{ $search:"wine" }   }).pretty()
+    
+   
+- searching by text index and sorting by score
+
+  db.tours.find(   {$text:{ $search:"wine" }}, {score:{ $meta:"textScore"},tourName:1,_id:0}    ).pretty().sort({ score : {$meta:"textScore"} }) 
+  
+db.tours.find( {tourDescription:{$regex:/backpack/} }).pretty() - regex search
+
+> db.tours.find( {tourDescription:{$regex:/backpack/}},{tourName:1,_id:0} ).pretty()
+{ "tourName" : "In the Steps of John Muir" }
+
+> db.tours.find( {tourDescription:{$regex:/backpack/i}},{tourName:1,_id:0} ).pretty()
+{ "tourName" : "In the Steps of John Muir" }
+{ "tourName" : "The Mt. Whitney Climbers Tour" }
+
+ db.tours.find( {tourDescription:/backpack/i},{tourName:1,_id:0} ).pretty()
+{ "tourName" : "In the Steps of John Muir" }
+{ "tourName" : "The Mt. Whitney Climbers Tour" }
+
+- misc queries
+
+  db.people.findOne({_id:"Brad Pitt"})
+  db.people.find({movies:"The Avengers"})
+  db.tours.count({"tourPackage":"Cycle California"})
+  
+  > db.tours.aggregate([{$group :{_id:'$tourPackage',count:{$sum:1}}}])
+{ "_id" : "Taste of California", "count" : 4 }
+{ "_id" : "Snowboard Cali", "count" : 3 }
+{ "_id" : "From Desert to Sea", "count" : 2 }
+{ "_id" : "Nature Watch", "count" : 3 }
+{ "_id" : "California Hot springs", "count" : 3 }
+{ "_id" : "Cycle California", "count" : 3 }
+{ "_id" : "California Calm", "count" : 3 }
+{ "_id" : "Kids California", "count" : 3 }
+{ "_id" : "Backpack Cal", "count" : 5 }
+
+> db.tours.aggregate([{$group :{_id:'$tourOrganizer.organizerName',count:{$sum:1}}}])
+{ "_id" : "Alison Birch", "count" : 4 }
+{ "_id" : "Tony Hawkins", "count" : 3 }
+{ "_id" : "Smokey Bear", "count" : 2 }
+{ "_id" : "Jack Kerouak", "count" : 1 }
+{ "_id" : "Ishmael Fisher", "count" : 4 }
+{ "_id" : "Martin Jones", "count" : 4 }
+{ "_id" : "Lance Armstrong", "count" : 2 }
+{ "_id" : "Amber Fineway", "count" : 3 }
+{ "_id" : "Mickey Mouse", "count" : 1 }
+{ "_id" : "John Smith", "count" : 5 }
+
+> db.tours.aggregate([{$group :{_id:'$tourPackage',average:{$avg:'$tourPrice'},count:{$sum:1}}}])
+{ "_id" : "Taste of California", "average" : 418.75, "count" : 4 }
+{ "_id" : "Snowboard Cali", "average" : 900, "count" : 3 }
+{ "_id" : "From Desert to Sea", "average" : 275, "count" : 2 }
+{ "_id" : "Nature Watch", "average" : 866.6666666666666, "count" : 3 }
+{ "_id" : "California Hot springs", "average" : 916.6666666666666, "count" : 3 }
+{ "_id" : "Cycle California", "average" : 3233.3333333333335, "count" : 3 }
+{ "_id" : "California Calm", "average" : 558.3333333333334, "count" : 3 }
+{ "_id" : "Kids California", "average" : 716.6666666666666, "count" : 3 }
+{ "_id" : "Backpack Cal", "average" : 480, "count" : 5 }
+
+-  db.tours.stats() - get the stats for the collection tours
+    db.stats() - get the stats for the current db

@@ -31,7 +31,9 @@ server.route( [
         method: 'POST',
         path: '/api/tours',
         handler: function(request, reply) {
-            reply ("Adding new tour");
+            collection.insertOne(request.payload,function(err,res){
+                reply(request.payload)
+            })
         }
     },
     // Get a single tour
@@ -51,8 +53,26 @@ server.route( [
         method: 'PUT',
         path: '/api/tours/{name}',
         handler: function(request, reply) {
-            // request.payload variables
-            reply ("Updating " + request.params.name);
+            if (request.query.replace == "true") {
+                request.payload.tourName = request.params.name;
+                console.log(request.payload);
+                collection.replaceOne({"tourName": request.params.name},
+                                      request.payload,
+                   function(error, results) {
+                        collection.findOne({"tourName":request.params.name}, 
+                            function(error, results) {
+                                reply(results);
+                    })
+            })
+            } else {
+                    collection.updateOne({tourName:request.params.name},
+                                    {$set: request.payload},
+                                    function(error, results) {
+                    collection.findOne({"tourName":request.params.name}, function(error, results) {
+                        reply(results);
+                }) 
+              })
+            }
         }
     },
     // Delete a single tour
@@ -60,7 +80,10 @@ server.route( [
         method: 'DELETE',
         path: '/api/tours/{name}',
         handler: function(request, reply) {
-            reply ("Deleting " + request.params.name).code(204);
+            collection.deleteOne({tourName:request.params.name},function(err,res){
+                 reply ("Deleting " + request.params.name).code(204);
+            })
+           
         }
     },
     // Home page

@@ -1,0 +1,10 @@
+http DELETE http://localhost:8080/api/tours/Kristen's%20Fabulous%20Tour
+
+HTTP/1.1 204 No Content
+Connection: keep-alive
+Date: Mon, 12 Jun 2017 11:18:22 GMT
+cache-control: no-cache
+content-type: text/html; charset=utf-8
+vary: accept-encoding
+
+
