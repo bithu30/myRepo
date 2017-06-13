@@ -1,0 +1,53 @@
+---
+
+## This playbook expects:
+# one Database server
+# one or more web servers
+# upstart or systemd on the webservers
+# webserver IP address entered in ansible inventory (hostnames are problematic because we use the inventory_hostname to set up the postgres pg_hba.conf)
+
+
+####################################################
+# Common configuration options:
+####################################################
+# The domain that nginx listens for
+mattermost_domain: mattermost.tutorialinux.com
+
+# If you're using a separate database server, choose "require"
+# If you're installing both DB and Web on a single server, choose "disable"
+# "require" (default), "verify-full", "verify-ca", and "disable" are supported
+mm_ssl_mode: disable
+
+
+## Change this to 'localhost' if you're running your 
+## database on the same machine as your web application
+## mattermost will try to connect to {{ db_server }}:5432
+# grab the first DB server (this is not elegant)
+# db_server: "{{ hostvars[groups['dbservers'][0]]['ansible_default_ipv4']['address'] }}"
+db_server: localhost
+
+####################################################
+# Database
+####################################################
+# Postgres Version
+PG_VERSION: "9.3"
+PG_HBA_CONF: /etc/postgresql/{{ PG_VERSION }}/main/pg_hba.conf
+PG_CONF: /etc/postgresql/{{ PG_VERSION }}/main/postgresql.conf
+
+db_user: mmuser
+db_password: "your_mattermost_user_password"
+
+
+####################################################
+# System
+####################################################
+mattermost_sysuser: "mattermost"
+mattermost_directory: /home/{{ mattermost_sysuser }}/mattermost_app
+
+
+####################################################
+# Web
+####################################################
+LATEST_MM_VERSION: "3.5.0"
+LATEST_MM_DOWNLOADNAME: "mattermost-team-{{ LATEST_MM_VERSION }}-linux-amd64.tar.gz"
+LATEST_MM_URL: https://releases.mattermost.com/{{ LATEST_MM_VERSION }}/{{ LATEST_MM_DOWNLOADNAME }}
