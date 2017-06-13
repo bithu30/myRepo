@@ -15,3 +15,10 @@ imputer = Imputer(missing_values='NaN',strategy="mean",axis=0)
 imputer = imputer.fit(X[:,1:3]) #3 because the upper-bound is always excluded in python
 X[:,1:3] = imputer.transform(X[:,1:3])
 print(X)
+
+#Taking care of categorical data
+
+from sklearn.preprocessing import  LabelEncoder
+labelEncoder_X = LabelEncoder()
+X[:,0] = labelEncoder_X.fit_transform(X[:,0])
+print(X)
