@@ -34,3 +34,9 @@ var x = function bar(){
     // ..
 }; ---- function expersion
 
+
+- closure is a way to “remember” and continue to access afunction’s scope (its variables) even once the function has finishedrunning.
+
+- If a function has a this reference inside it, that thisreference usually points to an object.
+ But which object it points todepends on how the function was called.
+ It’s important to realize that this does not refer to the functionitself, as is the most common misconception.

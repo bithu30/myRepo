@@ -8,8 +8,9 @@ function multiplier(x) {
 
 var func1 = multiplier(8);
 console.log(func1(10));
-/*
+
 var input = 8;
+processData(input)
 function processData(input) {
     var waterWeight = multiplier(1);
     console.log(waterWeight);
@@ -20,4 +21,4 @@ function processData(input) {
     console.log("Weight of " + input + " metric cube of mercury = " + mercuryWeight(input) + " kg");
     console.log("Weight of " + input + " metric cube of oil = " + oilWeight(input) + " kg");
 } 
-*/
+

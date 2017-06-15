@@ -13,3 +13,10 @@ mvt$Month = months(DateConvert)
 mvt$Weekday = weekdays(DateConvert)
 mvt$Date = DateConvert
 write.csv(mvt,file = "mvt_new.csv")
+
+#for section3 Q1-5
+mvt<-read.csv('mvt_new.csv')
+hist(mvt$Year, breaks=100)
+boxplot(mvt$Date~mvt$Arrest)
+mvt <- read.csv('mvtWeek1.csv')
+mvt_new<-read.csv('mvt_new.csv')
