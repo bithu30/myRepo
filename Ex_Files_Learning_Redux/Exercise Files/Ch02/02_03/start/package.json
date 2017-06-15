@@ -1,0 +1,19 @@
+{
+  "name": "ski-day-counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/babel-node ./src/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0"
+  },
+  "devDependencies": {
+    "babel-preset-stage-0": "^6.16.0"
+  }
+}

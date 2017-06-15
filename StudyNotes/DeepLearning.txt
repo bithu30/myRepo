@@ -99,3 +99,7 @@ far things are simple. As you keep going back, things get a bit more complex
 
 - Restricted Boltzmann Machine is a method that can automatically find patterns in our data by reconstructing
 the input. 
+
+Deep Belief Nets
+=================
+

@@ -1,0 +1,28 @@
+@import "globals";
+
+div.show-errors {
+
+  width: 100%;
+  font-size: 1.5em;
+
+  div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    background-color: red;
+    color: white;
+    font-family: verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+       margin-left: 1em;
+    }
+
+    svg {
+      font-size: 2em;
+    }
+  }
+}

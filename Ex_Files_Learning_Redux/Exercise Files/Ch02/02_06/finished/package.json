@@ -1,0 +1,23 @@
+{
+  "name": "ski-day-counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "challenge-a": "babel-node ./src/challenges/FETCH_RESORT_NAMES.js",
+    "challenge-b": "babel-node ./src/challenges/CANCEL_FETCHING.js",
+    "challenge-c": "babel-node ./src/challenges/CLEAR_SUGGESTIONS.js",
+    "challenge-d": "babel-node ./src/challenges/CHANGE_SUGGESTIONS.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0"
+  },
+  "devDependencies": {
+    "babel-preset-stage-0": "^6.16.0",
+    "expect": "^1.20.2"
+  }
+}

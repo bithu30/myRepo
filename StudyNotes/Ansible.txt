@@ -1,0 +1,13 @@
+Ansible Notes
+=============
+config file - ansible.cfg
+
+check for the config file in the following order:
+
+1) in the path specified in Ansible_Config env variable
+
+2) in current dir
+
+3) in users home dir
+
+4) in /etc/ansible

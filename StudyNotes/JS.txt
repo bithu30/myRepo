@@ -17,3 +17,20 @@ var res = numbers.map ( function (arraycell) {
 }
 
 );
+
+The specific list of “falsy” values in JavaScript is as follows:
+
+-"" (empty string)
+-0, -0, NaN (invalid number)
+-null, undefined
+-false
+
+- The difference between == and === is usually characterized that ==checks for value equality and === checks for both value and typeequality. 
+ However, this is inaccurate. The proper way to characterizethem is that == checks for value equality with coercion allowed, 
+ and=== checks for value equality without allowing coercion; === isoften called “strict equality” for this reason.
+- for enforcing more stricter coding in JS use "use strict"
+
+var x = function bar(){
+    // ..
+}; ---- function expersion
+

@@ -1,5 +1,7 @@
 //Global variable index has been declared and initialized
 //Edit the code below.
+index=0;
+N=10;
 console.log("The global index (before for-loop) is : ", index);
 
 for(let index = 0; index < N; index++){

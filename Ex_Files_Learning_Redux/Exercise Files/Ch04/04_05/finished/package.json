@@ -1,0 +1,32 @@
+{
+  "name": "ski-day-counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "suggestions": "./node_modules/.bin/babel-node ./server --port 3333 --delay 500",
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "isomorphic-fetch": "^2.2.1",
+    "minimist": "^1.2.0",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.16.0",
+    "babel-loader": "^6.2.6",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "expect": "^1.20.2",
+    "json-loader": "^0.5.4",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
