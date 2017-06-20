@@ -7,3 +7,4 @@ C++/simpleProj/Debug/
 */node_modules/*
 *.deb
 .Rhistory
+.RData
