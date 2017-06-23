@@ -1,0 +1,10 @@
+regression notes
+=================
+baseline prediction of a reg model ( single value ) is teh average of the dependenat variable(y).
+
+SSE = (Actual - Prediction)^2
+
+SST = Total Sum of Squares is the error for the baseline model/prediction 
+
+R2 = 1 - (SSE/SST)
+
