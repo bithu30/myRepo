@@ -8,3 +8,95 @@ SST = Total Sum of Squares is the error for the baseline model/prediction
 
 R2 = 1 - (SSE/SST)
 
+
+Multiple R-squared will always increase
+if you add more independent variables.
+
+Adjusted R-squared will decrease
+if you add an independent variable that
+doesn't help the model.
+
+A coefficient of 0 means that the value
+of the independent variable does not
+change our prediction for the dependent variable.
+
+If a coefficient is not significantly different from 0,
+then we should probably remove the variable from our model
+since it's not helping to predict the dependent variable.
+
+standard error  gives a measure
+of how much the coefficient is likely to vary
+from the estimate value.
+
+The t value is the estimate divided by the standard error.
+It will be negative if the estimate
+is negative and positive if the estimate is positive.
+The larger the absolute value of the t value, the more likely
+the coefficient is to be significant.
+So we want independent variables with a large absolute t value
+
+The p-value gives a measure of how plausible
+it is that the coefficient is actually 0, given
+the data we used to build the model.
+The less plausible it is, or the smaller the probability number
+in this column, the less likely it
+is that our coefficient estimate is actually 0.
+This number will be large if the absolute value of the t value
+is small, and it will be small if the absolute value of the t
+value is large.
+We want independent variables with small p values.
+
+The star coding scheme is explained
+at the bottom of the Coefficients table.
+Three stars is the highest level of significance
+and corresponds to a probability value less than 0.001,
+or the smallest possible probabilities.
+Two stars is also very significant and corresponds
+to a probability between 0.001 and 0.01.
+One star is still significant and corresponds
+to a probability between 0.01 and 0.05.
+A period, or dot, means that the coefficient is almost
+significant and corresponds to a probability between 0.05
+and 0.10.
+When we ask you to list the significant variables
+in a problem, we will usually not include these.
+Nothing at the end of a row means that the variable is not
+significant in the model.
+
+Correlation measures the linear relationship between two
+variables and is a number between -1 and +1.
+A correlation of +1 means a perfect positive linear
+relationship.
+A correlation of -1 means a perfect negative linear
+relationship.
+In the middle of these two extremes
+is a correlation of 0, which means
+that there is no linear relationship between the two
+variables.
+
+When we say that two variables are highly correlated,
+we mean that the absolute value of the correlation
+is close to 1.
+
+Multicollinearity reminds us that coefficients
+are only interpretable in the presence
+of other variables being used.
+High correlations can even cause coefficients
+to have an unintuitive sign.
+
+a correlation greater than 0.7
+or less than -0.7 is cause for concern.
+
+
+When selecting a model, we want one with a good model R-squared
+but also with a good test set R-squared.
+
+The formula for R² is
+R² = 1 - SSE/SST,
+where SST is calculated using the average value of the dependent variable on the training set.
+Since SSE and SST are the sums of squared terms, we know that both will be positive. 
+Thus SSE/SST must be greater than or equal to zero. This means it is not possible to have an out-of-sample R² value of 2.4.
+However, all other values are valid (even the negative ones!), since SSE can be more or less than SST, due to the fact that this is an out-of-sample R², not a model R².
+
+
+
