@@ -40,3 +40,41 @@ var x = function bar(){
 - If a function has a this reference inside it, that thisreference usually points to an object.
  But which object it points todepends on how the function was called.
  It’s important to realize that this does not refer to the functionitself, as is the most common misconception.
+ 
+- undefined means 'no value' , null means 'no object', they both are considered false
+ 
+- typeof is mainly used for primitive values, while instanceof is used for objects
+ 
+- typeof null = object, is a bug in JS
+ 
+-  The following values are interpreted as false:
+undefined, null
+Boolean: false
+Number: -0, NaN
+String: ''
+
+- && - If the first operand is falsy, return it. Otherwise, return the second operand
+  || - If the first operand is truthy, return it. Otherwise, return the second operand
+
+- In all loops:
+break leaves the loop.
+continue starts a new loop iteration.
+
+- You can call any function in JavaScript with an arbitrary amount of arguments; the language will never complain. It will, however, 
+make all parameters available via the special variable arguments. arguments looks like an array, but has none of the array methods:
+
+> function f() { return arguments }
+> var args = f('a', 'b', 'c');
+> args.length
+3
+> args[0]  // read element at index 0
+'a'
+
+- If you want to enforce an arity (a specific number of parameters), you can check arguments.length:
+
+function pair(x, y) {
+    if (arguments.length !== 2) {
+        throw new Error('Need exactly 2 arguments');
+    }
+    ...
+}

@@ -1,0 +1,63 @@
+Logistic Regression
+---------------------
+
+The Logistic Response Function is
+used to produce a number between 0 and 1.
+
+The logistic response function always
+takes values between 0 and 1, which makes sense,
+since it equals a probability.
+A positive coefficient value for a variable
+increases the linear regression piece,
+which increases the probability that y = 1,
+or increases the probability of poor care.
+On the other hand, a negative coefficient value
+for a variable decreases the linear regression piece,
+which in turn decreases the probability that y = 1,
+or increases the probability of good care.
+
+The coefficients, or betas, are selected
+to predict a high probability for the actual poor care cases,
+and to predict a low probability for the actual good care cases.
+Another useful way to think about the logistic response
+function is in terms of Odds, like in gambling.
+The Odds are the probability of 1
+divided by the probability of 0.
+The Odds are greater than 1 if 1 is more likely, and less than 1
+if 0 is more likely.
+The Odds are equal to 1 if the outcomes are equally likely.
+
+If you substitute the Logistic Response Function
+for the probabilities in the Odds
+equation on the previous slide, you
+can see that the Odds are equal to "e" raised
+to the power of the linear regression equation.
+By taking the log of both sides, the log(Odds),
+or what we call the Logit, looks exactly
+like the linear regression equation.
+
+A positive beta value increases the Logit,
+which in turn increases the Odds of 1.
+A negative beta value decreases the Logit,
+which in turn, decreases the Odds of one.
+
+In a classification problem, a standard baseline method
+is to just predict the most frequent outcome
+for all observations.
+
+We see here that the coefficients for OfficeVisits
+and Narcotics are both positive, which
+means that higher values in these two variables
+are indicative of poor care as we
+suspected from looking at the data.
+
+The last thing we want to look at in the output
+is the AIC value.
+This is a measure of the quality of the model
+and is like Adjusted R-squared in that it accounts
+for the number of variables used compared
+to the number of observations.
+Unfortunately, it can only be compared
+between models on the same data set.
+But it provides a means for model selection.
+The preferred model is the one with the minimum AIC.

@@ -54,3 +54,21 @@ SST = sum((winetest$Price-mean(wine$Price))^2)
 #1 - SSE/SST
 
 1-SSE/SST
+
+#Moneyball
+baseball <- read.csv('baseball.csv')
+str(baseball)
+moneyball = subset(baseball,baseball$Year<2002)
+moneyball$RD = moneyball$RS - moneyball$RA
+plot(moneyball$RD,moneyball$W)
+WinsReg = lm(W ~ RD,data=moneyball)
+summary(WinsReg)
+
+runsReg <- lm(RS ~ OBP+SLG+BA,data=moneyball)
+summary(runsReg)
+
+runsReg <- lm(RS ~ OBP+SLG,data=moneyball)
+summary(runsReg)
+
+raReg <- lm(RA ~ OOBP+OSLG,data=moneyball)
+summary(raReg)
