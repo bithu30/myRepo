@@ -1,0 +1,6 @@
+Tableau
+=========
+
+Data Tab : Dimesions has categorical and Measures have Numeric data
+
+Dimesions are independeant variables  and  Measures are dependeant variables 
