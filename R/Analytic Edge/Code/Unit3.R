@@ -28,3 +28,7 @@ summary(q1LR)
 q1Predict = predict(q1LR,type="response")
 summary(q1Predict)
 tapply(q1Predict,quality_train$PoorCare,mean)
+table(quality_train$PoorCare,predictTrain > 0.5)
+library(ROCR)
+
+ROCRpred = prediction(predictTrain,quality_train$PoorCare)
