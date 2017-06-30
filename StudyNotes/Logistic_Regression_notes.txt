@@ -177,3 +177,47 @@ pick a threshold that minimizes the false positive rate
 but has a very high true positive rate.
 
 
+Interperting the Model
+=======================
+Multicollinearity occurs when the various independent
+variables are correlated, and this
+might confuse the coefficients-- the betas-- in the model.
+So tests to address that involve checking the correlations
+of independent variables.
+If they are excessively high, this
+would mean that there might be multicollinearity,
+and you have to potentially revisit the model,
+as well as whether the signs of the coefficients make sense.
+Is the coefficient beta positive or negative?
+If it agrees with intuition, then multicollinearity
+has not been a problem, but if intuition suggests
+a different sign, this might be a sign of multicollinearity.
+
+The Area Under the Curve, or AUC for short, is used to interpert a logistic regression model
+So the Area Under the Curve shows an absolute measure
+of quality of prediction-- in this particular case, 77.5%,
+which means that, given that the perfect score is 100%,
+so this is like a B, whereas, as we'll see later,
+a 50% score, which is pure guessing,
+is a 50% rate of success.
+So the area under the curve gives an absolute measure
+of quality, and it's less affected by various benchmarks.
+So it illustrates how accurate the model
+is on a more absolute sense.
+
+TP=True Postive TN=True Negative
+FP=False Postive FN=False Negative
+N=No:of Observations
+
+Accuracy = TP+TN/N 
+
+overall error rate = FP+FN/N
+
+sensitivity = TP/TP+FN 
+False Negative error rate = FN/TP+FN
+
+specificity = TN/TN+FP 
+False Positive error rate = FP/TN+FP 
+
+
+

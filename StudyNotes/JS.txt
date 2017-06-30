@@ -78,3 +78,15 @@ function pair(x, y) {
     }
     ...
 }
+
+Properties of functions in JS
+=================================
+
+-functions can be stored inside a variable
+-functions can return function
+-function taking function as a arg
+
+- All function in JS is 'First Class Functions'
+
+- Function that can return function or can take in another function 
+  as arg are called Higher Order function

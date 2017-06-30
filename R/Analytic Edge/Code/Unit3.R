@@ -32,6 +32,7 @@ table(quality_train$PoorCare,predictTrain > 0.5)
 library(ROCR)
 
 ROCRpred = prediction(predictTrain,quality_train$PoorCare)
+<<<<<<< HEAD
 ROCRpref = performance(ROCRpred,"tpr","fpr")
 plot(ROCRpref)
 plot(ROCRpref,colorize=TRUE,print.cutoffs.at=seq(0,1,by=0.1), text.adj=c(-0.2,1.7))
@@ -43,3 +44,25 @@ str(framingham)
 library(caTools)
 set.seed(1000)
 split=sample.split(framingham$TenYearCHD,SplitRatio = 0.65)
+=======
+
+# Performance function
+ROCRperf = performance(ROCRpred, "tpr", "fpr")
+
+# Add colors
+plot(ROCRperf, colorize=TRUE)
+
+# Add threshold labels 
+plot(ROCRperf, colorize=TRUE, print.cutoffs.at=seq(0,1,by=0.1), text.adj=c(-0.2,1.7))
+
+
+# Add colors
+plot(ROCRperf, colorize=TRUE)
+
+# Add threshold labels 
+plot(ROCRperf, colorize=TRUE, print.cutoffs.at=seq(0,1,by=0.1), text.adj=c(-0.2,1.7))
+
+predictTest = predict(qualityLR, type="response", newdata=quality_test)
+ROCRpredTest = prediction(predictTest, quality_test$PoorCare)
+auc = as.numeric(performance(ROCRpredTest, "auc")@y.values)
+>>>>>>> d6e487f01203afd64d3b3de6600e27db97cd4c11
