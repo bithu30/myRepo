@@ -32,3 +32,6 @@ table(quality_train$PoorCare,predictTrain > 0.5)
 library(ROCR)
 
 ROCRpred = prediction(predictTrain,quality_train$PoorCare)
+ROCRpref = performance(ROCRpred,"tpr","fpr")
+plot(ROCRpref)
+plot(ROCRpref,colorize=TRUE,print.cutoffs.at=seq(0,1,by=0.1), text.adj=c(-0.2,1.7))
