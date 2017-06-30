@@ -35,3 +35,11 @@ ROCRpred = prediction(predictTrain,quality_train$PoorCare)
 ROCRpref = performance(ROCRpred,"tpr","fpr")
 plot(ROCRpref)
 plot(ROCRpref,colorize=TRUE,print.cutoffs.at=seq(0,1,by=0.1), text.adj=c(-0.2,1.7))
+
+#firmingham study
+
+framingham = read.csv('framingham.csv')
+str(framingham)
+library(caTools)
+set.seed(1000)
+split=sample.split(framingham$TenYearCHD,SplitRatio = 0.65)
