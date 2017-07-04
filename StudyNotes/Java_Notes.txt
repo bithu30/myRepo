@@ -1,0 +1,49 @@
+JAVA_Notes
+===========
+A primitive is a type of data in Java that's
+considered the simplest form of data.
+It's so simple that it's stored directly in memory.
+These are things like ints, chars, doubles booleans.
+And when you create a new variable of type int, which is
+a primitive, the computer separates out a box in memory
+with the name and the value of that int right directly there.
+So whenever you pass this into round or you pass it in as
+parameter or copy it, you're copying the value.
+So you're creating a brand new version of this every time you
+manipulate it.
+This is called value semantics.
+
+Because primitives are so
+simple, we can do direct mathematical operations on them
+with the characters we're probably pretty used to using
+from our calculators.
+Things like addition, subtraction, division,
+and so on.
+
+There's also a number of shortcuts that you can apply
+directly to primitives to increase their value, or
+decrease it, or add into it.
+
+An object is a much more complicated type of data,
+because really it's a way of storing multiple pieces
+of related information and the different things you can
+do with that information under a single data type.
+
+When you create a new variable that is of type object, like for
+example, an Array of ints, the computer separates out a box and
+memory for the reference to where that code is
+actually gonna store that data.
+Then, when you pass this around as a parameter,
+you're passing the reference, not the actual data.
+This is called reference semantics.
+
+And it's because objects are gonna be so much bigger
+in memory, it doesn't want to keep copying them around.
+So you always need to be paying attention to when you're
+actually copying the reference to an object or
+the object's data itself.
+
+Null is just a word that literally means no object.
+Essentially it's the 0 value for an object.
+
+Null means 'no object'
