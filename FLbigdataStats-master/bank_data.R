@@ -9,7 +9,13 @@ dim(bank_data)
 
 summary(bank_data)
 
+sample_frame <- h2o.splitFrame(bank_data,ratios = 0.2)[[1]]
+
+bank_data_sample <- as.data.frame(sample_frame)
+
 by_job <- bank_data_sample %>% group_by(y,job) %>% tally()
 
-by_job
+
 #plotting the y_job stats
+ggplot(data=by_job,aes(x=job,y=n, fill=y))+geom_bar(stat="identity",position = "dodge")
+        

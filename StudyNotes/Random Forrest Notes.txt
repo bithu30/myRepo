@@ -1,0 +1,33 @@
+Random Forrest
+==============
+
+An example
+-----------
+
+Suppose we have five data points in our training set.
+We'll call them 1, 2, 3, 4, and 5.
+For the first tree, we'll randomly
+pick five data points randomly sampled with replacement.
+So the data could be 2, 4, 5, 2, and 1.
+Each time we pick one of the five data
+points regardless of whether or not it's been selected already.
+These would be the five data points
+we would use when constructing the first CART tree.
+Then we repeat this process for the second tree.
+This time the data set might be 3, 5, 1, 5, and 2.
+And we would use this data when building the second CART tree.
+Then we would repeat this process
+for each additional tree we want to create.
+So since each tree sees a different set of variables
+and a different set of data, we get
+what's called a forest of many different trees.
+
+
+Just like CART, random forests has some parameter values
+that need to be selected.
+The first is the minimum number of observations in a subset,
+or the minbucket parameter from CART.
+When we create a random forest in R,
+this will be called nodesize.
+A smaller value of nodesize, which leads to bigger trees,
+may take longer in R.
