@@ -7,5 +7,16 @@ Train <- subset(stevens,spl==TRUE)
 Test<-subset(stevens,spl==FALSE)
 library(rpart)
 library(rpart.plot)
-See <- rpart(Reverse ~  Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst,
-             data=Train, minbucket=25, method = "class")
+
+#CART Model
+
+StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, method="class", minbucket=25)
+prp(StevensTree)
+PredictCART <- predict(StevensTree,newdata = Test,type="class")
+table(Test$Reverse,PredictCART)
+#Accuracy 
+
+(41+71)/(41+36+22+71)
+
+library(ROCR)
+PredictROC = predict()
