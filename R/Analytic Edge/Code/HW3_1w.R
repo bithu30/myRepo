@@ -28,3 +28,15 @@ table(asian$MetroArea)
 sort(tapply(CPS$Race=="Asian",CPS$MetroArea,mean,na.rm=T))
 
 sort(tapply(CPS$Education == "No high school diploma", CPS$MetroArea, mean,na.rm=T),decreasing = T)
+
+CPS = merge(CPS, CountryMap, by.x="CountryOfBirthCode", by.y="Code", all.x=TRUE)
+
+nyc <- subset(CPS,CPS$MetroArea=='New York-Northern New Jersey-Long Island, NY-NJ-PA')
+
+mean(nyc$Country!='United States',na.rm = T)
+
+sort(tapply(CPS$Country=="India", CPS$MetroArea, sum, na.rm=T))
+
+sort(tapply(CPS$Country=="Brazil", CPS$MetroArea, sum, na.rm=T))
+
+sort(tapply(CPS$Country=="Somalia", CPS$MetroArea, sum, na.rm=T))
