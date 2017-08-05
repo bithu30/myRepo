@@ -1,0 +1,57 @@
+Usage() {
+
+echo -e "Usage: $0 
+-w [string,Temporary Work Area,will be removed once the work is done 
+-i [string,Absoulte path of the input files] 
+-o [string,Absolute path pf the location to store the output]"
+exit
+
+}
+
+
+
+
+#No options
+if [ $# -eq 0  ]; then
+        Usage
+fi
+#if there is only partial arguments i.e, instead of
+#3 there is only 2 or 1
+if [ $# -ne 6 ]; then
+        Usage
+fi
+
+
+WORKAREA=''
+INPUT_LOC=''
+OUTPUT_LOC=''
+
+while getopts ":w:i:o:" option; 
+do
+
+if [ "${option}" = 'w' ]; then
+        WORKAREA=${OPTARG}
+
+elif [ "$option" = 'i' ]; then
+        INPUT_LOC=${OPTARG}
+
+elif [ "$option" = 'o' ]; then
+        OUTPUT_LOC=${OPTARG}
+
+else
+        Usage
+fi
+
+
+
+done
+
+extracting file name and extension
+
+====================================
+
+
+INFILE=$INPUT_LOC'/'$IN_FILE
+        BASEFN=${IN_FILE%%.csv}
+        EXT=${INFILE#*.}
+        OUTFILE=$WORKAREA'/'$BASEFN'_final.'$EXT

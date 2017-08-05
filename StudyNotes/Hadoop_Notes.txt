@@ -17,3 +17,99 @@ Data Flow
 - Application master restart a task preferably on a different node.
 - Both Application master and Resource Manager can restart a node 
 - We can have a Hot standby for Resource Manager using the HA feature of Zookeeper
+
+
+-hadoop/sbin - contains the shell script start hadoop
+
+-etc/hadoop/ - contains all user configurable config files of hadoop
+
+-main conf files are core-site.xml,hdfs-site.xml,mapred-site.xml , yarn-site.xml
+
+Installation
+=============
+
+/etc/hadoop/hadoop-env.sh
+
+- add JAVA_HOME into 
+
+- add config path 
+
+- add $HADOOP_HOME to .bashrc
+
+- add $HADOOP_HOME/bin to PATH variable in .bashrc
+
+- Following steps will help us in creating a pwd less ssh login to localhost
+
+  ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+
+  cat ~/.ssh/id_dsa >> ~/.ssh/authorized_keys
+
+ - above method doesn't worked for me, the one below worked
+
+    ssh-keygen, keep pressing enter till you are done
+    
+    ssh-copy-id -i id@localhost
+
+- Psuedo distributed mode changes
+
+  core-site.xml
+  ---------------
+
+    <property>
+	<name>fs.defaultFS</name>
+	<value>hdfs://localhost:9000</value>
+    </property>
+
+   This tells the name of the default file system , it should setup for every node in the cluster
+
+   hdfs-site.xml
+  ----------------
+
+   we must override the replication factor here,since it is in Psuedo distributed mode
+
+    <property>
+	<name>dfs.replication</name>
+	<value>1</value>
+    </property>
+
+   mapred-site.xml
+  ----------------
+
+   Setting the framework that runs the map reduce jobs , in this case , yarn
+
+    <property>
+	<name>mapreduce.framework.name</name>
+	<value>yarn</value>
+    </property>
+
+  yarn-site.xml
+  ----------------
+
+   This is optional
+
+  This setting is needed if you are using multiple reducers for your mapred job
+
+    <property>
+	<name>yarn.nodemanager.aux-services</name>
+	<value>mapreduce_shuffle</value>
+    </property>
+
+- format namenode by running 'hdfs namenode -format'
+
+- run sbin/start-dfs.sh
+  run sbin/start-yarn.sh
+
+- for resolving the namenode failure on restart I have done the following
+
+  edited the hdfs-site.xml and added the following
+
+<property>
+  <name>dfs.name.dir</name>
+  <value>file:///home/bithu/pseudo/dfs/name</value>
+</property>
+<property>
+  <name>dfs.data.dir</name>
+  <value>file:///home/bithu/pseudo/dfs/data</value>
+</property>
+  
+  

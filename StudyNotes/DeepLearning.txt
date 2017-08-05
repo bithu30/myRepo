@@ -23,11 +23,20 @@ DeepLearning
 - This series of events starting from the input where each activation is sent to the next layer, and then the next, all the way to the output,
   is known as forward propagation, or forward prop.Forward prop is a neural net's way of classifying a set of inputs.
 
+- The first neural nets were born out of the need to address the inaccuracy of an early classifier, the perceptron.
+It was shown that by using a layered web of perceptrons,
+the accuracy of predictions could be improved.
+As a result, this new breed of neural nets was called a Multi-Layer Perceptron or MLP.
+Since then, the nodes inside neural nets have replaced perceptrons with more powerful classifiers,
+but the name MLP has stuck.
+
 - Each node has the same classifier, and none of them fire randomly;
   if you repeat an input, you get the same output.
   So if every node in the hidden layer received the same input,
   why didn’t they all fire out the same value?
   The reason is that each set of inputs is modified by unique weights and biases.
+
+
   
 -You may have guessed that the prediction accuracy of a neural net depends on its weights and biases.
 We want that accuracy to be high,
@@ -41,6 +50,8 @@ The point of training is to make that cost as small as possible, across millions
 To do this, the net tweaks the weights and biases step by step
 until the prediction closely matches the correct output.
 Once trained well, a neural net has the potential to make accurate predictions each time.
+
+- When the pattern to detect becomes more and more complex then the neural nets outperforms all competition
 
 - let’s say that a net had to decide whether or not an image contained a human face. A
 deep net would first use edges to detect different parts of the face – the lips, nose, eyes,
@@ -97,8 +108,56 @@ Each time it calculates a gradient, it uses all the previous gradients up to tha
 So, lets start with that node. That edge uses the gradient at that node. And the next. So
 far things are simple. As you keep going back, things get a bit more complex 
 
+
 - Restricted Boltzmann Machine is a method that can automatically find patterns in our data by reconstructing
 the input. 
+
+Restricted Boltzmann Machine(RBM)
+====================================
+
+An RBM is a shallow, two-layer net; the first layer is known as the visible layer and the
+second is called the hidden layer. Each node in the visible layer is connected to every
+node in the hidden layer. An RBM is considered “restricted” because no two nodes in the
+same layer share a connection.
+
+An RBM is the mathematical equivalent of a two-way translator – in the forward pass,
+an RBM takes the inputs and translates them into a set of numbers that encode the inputs.
+In the backward pass, it takes this set of numbers and translates them back to form the
+re-constructed inputs. A well-trained net will be able to perform the backwards translation
+with a high degree of accuracy. In both steps, the weights and biases have a very important
+role. They allow the RBM to decipher the interrelationships among the input features, and they also help
+the RBM decide which input features are the most important when detecting patterns.
+
+Through several forward and backward passes, an RBM is trained to reconstruct the input
+data. Three steps are repeated over and over through the training process:
+a) With a forward pass, every input is combined with an individual weight and one overall
+bias, and the result is passed to the hidden layer which may or may not activate. Here’s
+how it flows for the whole net. b) Next, in a backward pass, each activation
+is combined with an individual weight and an overall bias, and the result is passed
+to the visible layer for reconstruction. Here’s how it flows back.
+c) At the visible layer, the reconstruction is compared against the original input to
+determine the quality of the result.
+RBMs use a measure called KL Divergence for step c); steps a) thru c) are repeated with
+varying weights and biases until the input and the re-construction are as close as possible.
+
+An interesting aspect of an RBM is that the data does not need to be labelled. This turns
+out to be very important for real-world data sets like photos, videos, voices, and sensor
+data – all of which tend to be unlabelled. Rather than having people manually label the
+data and introduce errors, an RBM automatically sorts through the data, and by properly adjusting
+the weights and biases, an RBM is able to extract the important features and reconstruct
+the input. An important note is that an RBM is actually making decisions about which input
+features are important and how they should be combined to form patterns. In other words,
+an RBM is part of a family of feature extractor neural nets, which are all designed to recognize
+inherent patterns in data. These nets are also called autoencoders, because in a way,
+they have to encode their own structure.
+
+
+
+
+
+
+
+
 
 Deep Belief Nets
 =================

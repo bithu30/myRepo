@@ -31,3 +31,71 @@ When we create a random forest in R,
 this will be called nodesize.
 A smaller value of nodesize, which leads to bigger trees,
 may take longer in R.
+
+The second parameter is the number of trees to build,
+which is called ntree in R. This should not
+be set too small, but the larger it is the longer it will take.
+A couple hundred trees is typically plenty.
+A nice thing about random forests
+is that it's not as sensitive to the parameter values
+as CART is.
+In the next video, we'll talk about a nice way
+to pick the CART parameter.
+For random forests, as long as the selection is reasonable,
+it's OK.
+
+Cross Validation
+=====================
+
+This method works by going through the following steps.
+First, we split the training set into k
+equally sized subsets, or folds.
+In this example, k equals 5.
+Then we select k - 1, or four folds, to estimate the model,
+and compute predictions on the remaining one fold, which
+is often referred to as the validation set.
+We build a model and make predictions
+for each possible parameter value we're considering.
+Then we repeat this for each of the other folds,
+or pieces of our training set.
+So we would build a model using folds 1, 2, 3,
+and 5 to make predictions on fold 4,
+and then we would build a model using folds 1, 2, 4,
+and 5 to make predictions on fold 3, etc.
+So ultimately, cross validation builds
+many models, one for each fold and possible parameter value.
+Then, for each candidate parameter value,
+and for each fold, we can compute
+the accuracy of the model.
+
+We can also compute the accuracy of the model using
+each of the other folds as the validation sets.
+We then average the accuracy over the k
+folds to determine the final parameter
+value that we want to use.
+Typically, the behavior looks like this--
+if the parameter value is too small,
+then the accuracy is lower, because the model is probably
+over-fit to the training set.
+But if the parameter value is too large,
+then the accuracy is also lower, because the model
+is too simple.
+In this case, we would pick a parameter value around six,
+because it leads to the maximum average accuracy
+over all parameter values.
+
+So far, we've used the parameter minbucket
+to limit our tree in R. When we use cross validation in R,
+we'll use a parameter called cp instead.
+This is the complexity parameter.
+It's like Adjusted R-squared for linear regression,
+and AIC for logistic regression, in that it measures
+the trade-off between model complexity and accuracy
+on the training set.
+A smaller cp value leads to a bigger tree,
+so a smaller cp value might over-fit the model
+to the training set.
+But a cp value that's too large might
+build a model that's too simple.
+
+

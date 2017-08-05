@@ -1,0 +1,24 @@
+html
+=======
+
+<h2 style="color: red">CatPhotoApp</h2>
+
+<style>
+  .red-text {
+    color: red;
+  }
+</style>
+
+- .red-text is a CSS style class
+
+- usage : <h2 class="red-text">CatPhotoApp</h2>
+
+There are several default fonts that are available in all browsers. These include Monospace, Serif and Sans-Serif
+
+When one font isn't available, you can tell the browser to "degrade" to another font.
+
+For example, if you wanted an element to use the Helvetica font, but also degrade to the Sans-Serif font when Helvetica wasn't available, you could use this CSS style:
+
+p {
+  font-family: Helvetica, Sans-Serif;
+}

@@ -70,3 +70,47 @@ library(caret)
 library(class)
 library(e1071)
 library(ggplot2)
+
+numFolds = trainControl(method = "cv",number = 10)
+cpGrid = expand.grid(.cp=seq(0.01,0.5,0.01))
+train(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train,method="rpart",trControl=numFolds,tuneGrid=cpGrid)
+
+StevensTreeCV = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst,data = Train,method="class",cp=0.18)
+
+PredictCV=predict(StevensTreeCV,newdata = Test,type="class")
+
+table(Test$Reverse,PredictCV)
+
+(59+64)/(59+64+18+29)
+
+prp(StevensTreeCV)
+
+#Claims Data
+claims <- read.csv('ClaimsData.csv')
+str(claims)
+table(claims$bucket2009)/nrow(claims)
+library(caTools)
+set.seed(88)
+split_claims <- sample.split(claims$bucket2009,SplitRatio = 0.6)
+ClaimsTrain = subset(claims,split_claims == TRUE)
+ClaimsTest = subset(claims,split_claims == FALSE)
+mean(ClaimsTrain$age)
+
+summary(ClaimsTrain)
+
+table(ClaimsTrain$diabetes)
+
+104692/274803
+
+#Predicting the baseline
+
+
+table(ClaimsTest$bucket2009,ClaimsTest$bucket2008)
+
+#Accuracy
+(110138+10721+2774+1539+104)/nrow(ClaimsTest)
+
+PenaltyMatrix = matrix(c(0,1,2,3,4,2,0,1,2,3,4,2,0,1,2,6,4,2,0,1,8,6,4,2,0), byrow=TRUE, nrow=5)
+
+#PenaltyError
+sum(as.matrix(table(ClaimsTest$bucket2009,ClaimsTest$bucket2008))*PenaltyMatrix)/nrow(ClaimsTest)

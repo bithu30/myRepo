@@ -97,3 +97,87 @@ sel = cars[cars['drives_right'] == True ]
 
 # Print sel
 print(sel)
+
+- Extracting a single column from a dataframe returns a series
+
+Plotting DataFrames
+======================
+
+# Create a plot with color='red'
+df.plot(color='red')
+
+# Add a title
+plt.title('Temperature in Austin')
+
+# Specify the x-axis label
+plt.xlabel('Hours since midnight August 1, 2010')
+
+# Specify the y-axis label
+plt.ylabel('Temperature (degrees F)')
+
+# Display the plot
+plt.show()
+
+====================================
+
+# Plot all columns (default)
+df.plot()
+plt.show()
+
+# Plot all columns as subplots
+df.plot(subplots=True)
+plt.show()
+
+# Plot just the Dew Point data
+column_list1 = ['Dew Point (deg F)']
+df[column_list1].plot()
+plt.show()
+
+# Plot the Dew Point and Temperature data, but not the Pressure data
+column_list2 = ['Temperature (deg F)','Dew Point (deg F)']
+df[column_list2].plot()
+plt.show()
+
+Scatter Plots on dataframes
+===============================
+
+# Generate a scatter plot
+df.plot(kind='scatter', x='hp', y='mpg', s=sizes)
+
+# Add the title
+plt.title('Fuel efficiency vs Horse-power')
+
+# Add the x-axis label
+plt.xlabel('Horse-power')
+
+# Add the y-axis label
+plt.ylabel('Fuel efficiency (mpg)')
+
+# Display the plot
+plt.show()
+
+Box plots
+==========
+
+# Make a list of the column names to be plotted: cols
+cols = ['weight','mpg']
+
+# Generate the box plots
+df[cols].plot(kind="box",subplots=True)
+
+# Display the plot
+plt.show()
+
+Proba Density function Cumlative density function ( CDF ) in Pandas
+===========================================================================
+
+# This formats the plots such that they appear on separate rows
+fig, axes = plt.subplots(nrows=2, ncols=1)
+
+# Plot the PDF
+df.fraction.plot(ax=axes[0],kind='hist', bins=30, normed=True, range=(0,.3))
+plt.show()
+
+# Plot the CDF
+df.fraction.plot(kind='hist',bins=30, normed=True,ax=axes[1],cumulative=True, range=(0,.3))
+plt.show()

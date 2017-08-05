@@ -1,0 +1,17 @@
+Celery cmds
+==============
+
+RabbitMQ Cmds
+=============
+
+- creating user
+
+sudo rabbitmqctl add_user celery_user bijikom@40kr
+
+-creating virtual host
+
+sudo rabbitmqctl add_vhost celery_host
+
+-granting permissions
+
+sudo rabbitmqctl set_permissions -p  celery_host celery_user ".*" ".*" ".*"

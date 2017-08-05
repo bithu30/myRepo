@@ -1,0 +1,13 @@
+library(ISLR)
+str(NCI60)
+#List of 2
+#$ data: num [1:64, 1:6830] 0.3 0.68 0.94 0.28 0.485 ...
+#..- attr(*, "dimnames")=List of 2
+#.. ..$ : chr [1:64] "V1" "V2" "V3" "V4" ...
+#.. ..$ : chr [1:6830] "1" "2" "3" "4" ...
+#$ labs: chr [1:64] "CNS" "CNS" "CNS" "RENAL" ...
+
+#data is matrix with 64 rows and 6830 cols
+#labs contains the type of cancer
+unique(NCI60$labs)
+length(unique(NCI60$labs)) #there is 14 types of cancer
