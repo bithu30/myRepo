@@ -10,3 +10,8 @@ Examine the directory /proc/$pid in order to see details about the script; in pa
 see /proc/$pid/environ which will give you the process environment separated by nulls. To read this "file" properly, use this command:
 xargs -0 -i{} < /proc/$pid/environ
 You can pipe that into less or save it in a file. There is also /proc/$pid/cmdline but it is possible that that will only give you the shell name (-bash for instance).
+
+
+get the child process
+=======================
+ps --ppid  $(pidof yourscript)
