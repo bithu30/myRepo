@@ -111,5 +111,9 @@ Installation
   <name>dfs.data.dir</name>
   <value>file:///home/bithu/pseudo/dfs/data</value>
 </property>
-  
+
+alias start_dfs=/home/bijith/hadoop-2.7.3/sbin/start-dfs.sh
+alias stop_dfs=/home/bijith/hadoop-2.7.3/sbin/stop-dfs.sh
+alias yarn_start=/home/bijith/hadoop-2.7.3/sbin/start-yarn.sh
+alias yarn_stop=/home/bijith/hadoop-2.7.3/sbin/stop-yarn.sh
   
