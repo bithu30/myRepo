@@ -8,3 +8,4 @@ C++/simpleProj/Debug/
 *.deb
 .Rhistory
 .RData
+.Rproj.user

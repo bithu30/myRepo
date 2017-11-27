@@ -1,0 +1,74 @@
+ Welcome!
+
+
+   1. Install Pandas and the IPython Notebook
+
+      The Anaconda distribution includes Pandas built-in:
+      http://continuum.io/downloads
+
+
+   2. Download and unzip "Pandas-Tutorial.zip" from
+
+      https://github.com/brandon-rhodes/pycon-pandas-tutorial/releases
+
+
+   3. Start the IPython Notebook and visit the "pandas-tutorial"
+      folder from inside the .zip
+
+
+    len(df)
+    df.head()
+    df.tail()
+    df.COLUMN
+    df['COLUMN']
+
+    df[['column1', 'column2']]
+    df[df.c == value]
+    df[(df.c >= value) & (df.d < value)]
+    df[(df.c < value) | (df.d != value)]
+    df.sort_values('column')
+    df.sort_values(['column1', 'column2'])
+
+    s.str.len()
+    s.str.contains()
+    s.str.startswith() s.plot(...)
+
+    df.set_index('a').sort_index()
+    df.set_index(['a', 'b']).sort_index() df.loc[('v','u')]
+    df.groupby('column')
+    df.groupby(['column1', 'column2'])
+
+    df.unstack()
+    df.stack()
+    df.fillna(value)
+    s.fillna(value)
+
+    series + value
+    series + series2
+    series.notnull()
+    series.isnull()
+    series.order()
+    s.value_counts()
+    s.sort_index()
+
+    df.plot(x='a', y='b', kind='bar')
+    df.loc['value']
+
+    .size() .mean() .min() .max()
+    .agg(['min', 'max'])
+
+    s.dt.year
+    s.dt.month
+    s.dt.day
+    s.dt.dayofweek
+
+    df.merge(df2, how='outer', ...)
+    df.rename(columns={'a': 'y', 'b': 'z'})
+    pd.concat([df1, df2])
+    
+
+    df.corr()
+
+
+    celery worker -A celery_basics -c 4 --loglevel=debug
+
