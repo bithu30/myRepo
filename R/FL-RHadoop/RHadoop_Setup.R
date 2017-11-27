@@ -1,0 +1,13 @@
+Sys.setenv(HADOOP_HOME="/home/bijith/hadoop-2.7.3")
+Sys.setenv(HADOOP_CMD="/home/bijith/hadoop-2.7.3/bin/hadoop")
+Sys.setenv(HADOOP_STREAMING="/home/bijith/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar")
+Sys.setenv(HADOOP_OPTS="-Djava.library.path=/home/bijith/hadoop-2.7.3/lib/native")
+#Sys.setenv(HADOOP_OPTS="-Djava.library.path=/usr/local/hadoop/lib/native") 
+Sys.setenv(JAVA_HOME="/usr/lib/jvm/java-8-oracle")
+
+library(rhdfs)
+library(rmr2)
+
+hdfs.init()
+
+library(fields)
