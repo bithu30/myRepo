@@ -1,0 +1,64 @@
+Presto CLI details
+------------------------------
+located in /home/bijith
+
+starting presto cli
+====================
+
+./presto --server localhost:8080 --catalog hive --schema default --debug
+
+presto UI:http://localhost:8080
+
+we can also start as 
+
+./presto --server localhost:8080
+
+will show all catalogues in Presto
+=======================================
+
+
+presto> show catalogs;
+ Catalog 
+---------
+ hive    
+ jmx     
+ system  
+(3 rows)
+
+
+Using catalogue
+================
+
+presto> show schemas from hive;
+       Schema       
+--------------------
+ default            
+ information_schema 
+(2 rows)
+
+Fetching data from hive tables
+================================
+presto> select * from hive.default.orders;
+ orderkey | orderstatus | totalprice | orderdate 
+----------+-------------+------------+-----------
+(0 rows)
+
+Queries that don't need a table
+=================================
+presto> select now();
+                 _col0                 
+---------------------------------------
+ 2017-12-03 20:20:56.436 Europe/Dublin 
+(1 row)
+
+presto> select now() as Curr_Date;
+               Curr_Date               
+---------------------------------------
+ 2017-12-03 20:21:47.388 Europe/Dublin 
+(1 row)
+
+
+
+
+
+

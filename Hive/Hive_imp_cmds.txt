@@ -1,0 +1,56 @@
+Hadoop/Hive Cmds
+===================
+
+Clearing namenode safe mode
+============================
+hdfs dfsadmin -safemode leave
+
+Connecting to hiveserver2 with beeline
+==========================================
+!connect jdbc:hive2://localhost:10000 username password org.apache.hive.jdbc.HiveDriver 0: jdbc:hive2://localhost:10000
+
+Connecting to beeline when you have embededd server
+=====================================================
+ ! connect jdbc:hive2:///
+just press ENTER when prompted for id and password
+
+Quitting beeline
+=================
+type !q on the cli
+
+
+How to check if a particular Hadoop/Hive srevice is running from a configured port
+===================================================================================
+netstat -nl | grep <port number>
+
+Schematool cmds for hive
+========================
+
+for intializing the schema
+===============================
+
+schematool -dbType derby -initSchema
+
+To get to schema
+================
+schematool -dbType derby -info
+
+Upgrading the Schema
+=====================
+schematool -dbType derby -upgradeSchemaFrom 0.10.0->version
+
+init script for hive
+=======================
+
+/home/bijith/apache-hive-2.3.0/scripts/metastore/upgrade/derby/hive-schema-2.3.0.derby.sql
+
+
+
+running hive in debug mode
+==========================
+hive -hiveconf hive.root.logger=DEBUG,console
+
+
+
+
+
