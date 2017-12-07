@@ -1,0 +1,61 @@
+# Aggregating Data
+# Interesting feature of Presto is you can use more agg functions than are
+# supported by the underlying db itself.
+
+# example, this fails in mysql
+mysql> select histogram(hs_rank) from test.us_grad_rates;
+ERROR 1305 (42000): FUNCTION histogram does not exist
+
+# but it works in presto
+presto> select histogram(hs_rank) from mysql.test.us_grad_rates;
+------------------------------------------------------
+ {1=1, 2=1, 3=2, 5=1, 6=1, 7=1, 8=1, 9=1, 10=1, 11=2, ...
+(1 row)
+
+
+# Simple Aggregations
+presto> select orderkey,
+     -> 	count(1) as num_items,
+		 -> 	sum(extendedprice) sum_price,
+		 -> 	max(quantity) max_qty,
+		 -> 	min(quantity) min_qty,
+		 -> 	avg(extendedprice) avg_price
+     -> from tpch.tiny.lineitem
+     -> group by orderkey
+     -> limit 20;
+
+# Compare avg price to standard deviation
+presto> select partkey, avg(extendedprice) avg_price, stddev(extendedprice) stdev_price from tpch.tiny.lineitem
+     -> group by partkey
+     -> limit 20;
+
+# Use historgram to get an array for graphing
+presto> select histogram() from mysql.test.us_grad_rates;
+------------------------------------------------------
+ {1=1, 2=1, 3=2, 5=1, 6=1, 7=1, 8=1, 9=1, 10=1, 11=2, ...
+(1 row)
+
+# Get an approximate count of unique items
+# this is essential for larger data sets
+# This is equivalent to count(distinct x) but is much faster
+presto> select approx_distinct(partkey) as part_count
+     -> from tpch.tiny.lineitem
+     -> limit 20;
+ part_count
+------------
+       1937
+
+presto> select count(distinct partkey) as part_count
+     -> from tpch.tiny.lineitem;
+ part_count
+------------
+       2000
+
+
+## use count_if to count the results of expressions
+presto> select count_if(extendedprice > 30000) as above_30k
+     -> from tpch.tiny.lineitem;
+ above_30k
+-----------
+     33947
+(1 row)

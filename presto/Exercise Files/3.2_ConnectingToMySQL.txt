@@ -1,0 +1,107 @@
+# Connecting to MySQL
+
+# Create table in mysql db and add some data
+> mysql -u root -p
+>root
+>use test;
+
+# copy/paste this script once logged in to the mysql console as root
+# download from https://en.wikipedia.org/wiki/List_of_U.S._states_by_educational_attainment
+# convert to SQL below using http://www.convertcsv.com/csv-to-sql.htm
+
+mysql> use test; 
+
+
+CREATE TABLE IF NOT EXISTS us_grad_rates(
+   state                VARCHAR(20) NOT NULL PRIMARY KEY
+  ,pct_high_school_grad NUMERIC(4,2) NOT NULL
+  ,hs_rank              INTEGER
+  ,pct_bachelors_degree NUMERIC(4,2) NOT NULL
+  ,bach_rank            INTEGER
+  ,pct_advanced_degree  NUMERIC(4,2) NOT NULL
+  ,advanced_rank        INTEGER
+);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Montana',0.93,1,0.3,20,0.1,32);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Minnesota',0.92,2,0.34,10,0.11,17);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('New Hampshire',0.92,3,0.35,8,0.13,9);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Wyoming',0.92,3,0.26,40,0.09,40);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Alaska',0.92,5,0.28,26,0.1,27);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Vermont',0.92,6,0.36,7,0.14,6);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('North Dakota',0.92,7,0.28,28,0.08,48);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Maine',0.92,8,0.29,22,0.1,24);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Iowa',0.92,9,0.27,35,0.09,41);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Utah',0.91,10,0.31,15,0.1,23);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Hawaii',0.91,11,0.31,17,0.11,21);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Wisconsin',0.91,11,0.28,27,0.09,33);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('South Dakota',0.91,13,0.27,33,0.08,43);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Nebraska',0.91,14,0.29,21,0.1,30);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Colorado',0.91,14,0.38,2,0.14,7);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Washington',0.9,16,0.33,11,0.12,13);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Kansas',0.9,17,0.31,16,0.11,19);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Connecticut',0.9,18,0.38,4,0.17,3);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Oregon',0.9,19,0.31,17,0.12,15);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Massachusetts',0.9,19,0.41,1,0.18,1);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Michigan',0.9,21,0.27,34,0.11,21);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Idaho',0.9,22,0.26,38,0.08,42);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Maryland',0.89,23,0.38,3,0.17,2);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('District of Columbia',0.89,NULL,0.55,NULL,0.31,NULL);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Pennsylvania',0.89,24,0.29,24,0.11,17);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Ohio',0.89,25,0.26,37,0.1,30);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('New Jersey',0.89,26,0.37,5,0.14,7);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Delaware',0.88,27,0.3,19,0.12,12);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Missouri',0.88,27,0.27,32,0.1,25);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Virginia',0.88,29,0.36,6,0.15,4);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Illinois',0.88,30,0.32,12,0.12,11);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Indiana',0.88,31,0.24,42,0.09,38);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Oklahoma',0.87,32,0.24,42,0.08,43);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Florida',0.87,32,0.27,31,0.1,29);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('United States',0.87,NULL,0.3,NULL,0.11,NULL);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Rhode Island',0.86,34,0.32,13,0.13,10);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Arizona',0.86,35,0.28,30,0.1,25);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('North Carolina',0.86,36,0.28,25,0.1,28);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('New York',0.86,37,0.34,9,0.15,5);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('South Carolina',0.86,37,0.26,39,0.09,35);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Tennessee',0.86,39,0.25,41,0.09,37);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Georgia',0.85,40,0.29,23,0.11,20);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Nevada',0.85,41,0.23,45,0.08,45);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('West Virginia',0.85,42,0.19,50,0.07,50);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Arkansas',0.85,43,0.21,48,0.08,49);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Alabama',0.84,44,0.24,44,0.09,38);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('New Mexico',0.84,45,0.26,36,0.12,15);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Kentucky',0.84,45,0.22,47,0.09,36);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Louisiana',0.83,47,0.23,46,0.08,46);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Mississippi',0.82,48,0.21,49,0.08,46);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('Texas',0.82,49,0.28,29,0.09,33);
+INSERT INTO us_grad_rates(state,pct_high_school_grad,hs_rank,pct_bachelors_degree,bach_rank,pct_advanced_degree,advanced_rank) VALUES ('California',0.82,50,0.31,14,0.12,14);
+
+## Exit mysql console
+mysql> exit;
+
+
+## Create properties file for mysql
+> vi ~/.prestoadmin/catalog/mysql.properties
+
+## Add connection info to file
+connector.name=mysql
+connection-url=jdbc:mysql://localhost:3306
+connection-user=root
+connection-password=root
+
+## Exit VI
+> :wq
+
+## Add catalog to presto
+> presto-admin catalog add mysql
+
+## Restart server
+> presto-admin server restart
+
+## Connect to presto
+> presto --server localhost:8080 --catalog mysql --schema test
+
+## Show tables in db
+> show tables;
+
+## Query us_grad_rates table
+> select count(1) from us_grad_rates;
+> select * from us_grad_rates;

@@ -1,0 +1,44 @@
+# Conditional Expressions (CASE, IF, COALESCE, NULLIF, TRY)
+
+## Use CASE to combine market segments and do 'what if' analysis
+presto> select
+     ->   case mktsegment
+     ->     when 'FURNITURE' then 'HOME'
+     ->     when 'HOUSEHOLD' then 'HOME'
+     ->     else mktsegment
+     ->   end as mkt, avg(acctbal) as avg_bal, count(1) as cnt
+     -> from mysql.test.customer cust
+     -> group by
+     ->   case mktsegment
+     ->     when 'FURNITURE' then 'HOME'
+     ->     when 'HOUSEHOLD' then 'HOME'
+     ->     else mktsegment
+     ->  end;
+
+## IF statements can achieve the same effect when nesting, but can get cluttered
+presto> select
+     ->    if (mktsegment = 'FURNITURE', 'HOME',mktsegment)
+     ->    as mkt,
+     ->   avg(acctbal) avg_bal
+     ->   count(1) cnt
+     ->   from mysql.test.customer
+     ->   group by if(mktsegment = 'HOUSEHOLD', 'HOME', mktsegment)
+     ->   ) ;
+
+## COALESCE helps to replace null values
+presto> select coalesce(hs_rank, 99) as rank, state
+     -> from mysql.test.us_grad_rates
+     -> order by coalesce(hs_rank, 99);
+
+		 rank |        state
+		------+----------------------
+		    1 | Montana
+		    2 | Minnesota
+		    3 | New Hampshire
+		    3 | Wyoming
+....
+		   49 | Texas
+		   50 | California
+		   99 | United States
+		   99 | District of Columbia
+

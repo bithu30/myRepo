@@ -1,0 +1,28 @@
+# Connecting to Hive
+
+## View Hive Catalog
+> vi ~/.prestoadmin/catalog/hive.properties
+
+## Login to hive on sandbox
+> hive
+
+## Create new table
+> create table foo(a int, b int);
+
+## Verify table was created
+> show tables;
+
+## Logout of Hive
+> exit;
+
+## Login to Presto
+> presto --server localhost:8080 --catalog hive --schema default
+
+## See new table
+> show tables;
+Table
+--------
+foo
+nation
+region
+(3 rows)

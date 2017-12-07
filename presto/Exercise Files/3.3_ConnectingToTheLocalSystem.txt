@@ -1,0 +1,26 @@
+# Connecting to the local system
+# This connection is built-in, just use the catalog 'system'
+
+# Login to the system catalog
+> presto --server localhost:8080 --catalog system
+
+# show schemas/dbs
+presto> show schemas from system;
+
+# Browse the metadata schema
+presto> show tables from system.metadata;
+
+# View catalogs
+presto> select * from system.metadata.catalogs;
+
+# view schema properties
+presto> select * from system.metadata.schema_properties;
+ 
+# view tables from runtime schema
+presto> show tables from system.runtime;
+
+# view query log
+presto> select * from system.runtime.queries;
+
+# view node info
+presto> select * from system.runtime.nodes;

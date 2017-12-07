@@ -1,0 +1,32 @@
+# Combining Data Sources
+
+# Start with the top 20 customers w/ an above average account balance
+presto> with bals as (select mktsegment as mkt, avg(acctbal) as bal
+     -> from mysql.test.customer group by mktsegment)
+     -> select name, mktsegment, acctbal, bals.bal, (acctbal - bals.bal) as diff
+     -> from mysql.test.customer
+     -> join bals on mysql.test.customer.mktsegment = bals.mkt
+     -> where (acctbal - bals.bal) > 0
+     -> order by diff desc
+     -> limit 20;
+
+# Now add the nation and region from Hive
+presto> with bals as (select mktsegment as mkt, avg(acctbal) as bal from mysql.test.customer group by mktsegment)
+     -> select n_name as nation, name, mktsegment, acctbal, bals.bal, (acctbal - bals.bal) as diff
+     -> from mysql.test.customer as cust
+     -> join bals on cust.mktsegment = bals.mkt
+     -> join hive.default.nation as nat on cust.nationkey = nat.n_nationkey
+     -> where (acctbal - bals.bal) > 0
+     -> order by diff desc
+     -> limit 20;
+
+# Use multiple 'with' tables to simplify
+presto> with bals as (select mktsegment as mkt, avg(acctbal) as bal from mysql.test.customer group by mktsegment),
+     -> nat as (select n_nationkey, n_name as nation from hive.default.nation)
+     -> select nation, name, mktsegment, acctbal, bals.bal, (acctbal - bals.bal) as diff
+     -> from mysql.test.customer as cust
+     -> join bals on cust.mktsegment = bals.mkt
+     -> join nat on cust.nationkey = nat.n_nationkey
+     -> where (acctbal - bals.bal) > 0
+     -> order by diff desc
+     -> limit 20;

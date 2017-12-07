@@ -1,0 +1,24 @@
+
+# Format of URL [protocol:][//host[:port]][path][?query][#fragment]
+# ex. https://www.linkedin.com/learning/search?keywords=ben%20sullins
+
+## Parse a URL
+with u as (select 'https://www.linkedin.com/learning/search?keywords=ben%20sullins' as url)
+select
+  url_extract_host(url) as host,
+  url_extract_path(url) path,
+  url_extract_port(url) port,
+  url_extract_protocol(url) protocol,
+  url_extract_query(url) query
+from u;
+
+# Encode a URL
+select
+  concat(
+    'https://www.linkedin.com/learning/search?keywords=',
+    url_encode('ben sullins')
+  );
+_col0
+---------------------------------------------------------------
+ https://www.linkedin.com/learning/search?keywords=ben+sullins
+(1 row)

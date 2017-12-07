@@ -1,0 +1,54 @@
+## Working with Maps
+
+
+## Create a map of arrays
+presto> select map(array['a','b'], array['apple','banana']);
+---------------------
+ {a=apple, b=banana}
+
+## Setup some maps using WITH
+presto> with maps as (select map(array['a','b'], array['apple','banana']) as m1, map(array['c','d'], array['coconut','date']) as m2)
+     -> select m1, m2 from maps;
+     m1          |         m2
+---------------------+---------------------
+{a=apple, b=banana} | {c=coconut, d=date}
+
+## Combine maps using map_concat()
+presto> with maps as (select map(array['a','b'], array['apple','banana']) as m1, map(array['c','d'], array['coconut','date']) as m2)
+     -> select map_concat(m1, m2) from maps;
+----------------------------------------
+{a=apple, b=banana, c=coconut, d=date}
+
+
+## Extract individual elements from the map
+presto> with maps as (select map(array['a','b'], array['apple','banana']) as m1, map(array['c','d'], array['coconut','date']) as m2)
+     -> select
+     ->   m1['a'] AS c1,
+     ->   m1['b'] AS c2,
+     ->   m2['c'] AS c3,
+     ->   m2['d'] AS c4
+     ->from maps;
+
+
+## Extract just the keys or values
+presto> with maps as (select map(array['a','b'], array['apple','banana']) as m1, map(array['c','d'], array['coconut','date']) as m2)
+     -> select
+     ->   map_keys(m1),
+     ->   map_values(m1)
+     ->from maps;
+
+# Split a string that has a delimeter
+presto> with pris as (select distinct orderpriority from tpch.tiny.orders)
+     -> select split(orderpriority, '-')
+     -> from pris;
+
+## Split the string, and create a map from it
+presto> with pris as (select distinct orderpriority from tpch.tiny.orders)
+     -> select map_agg(
+     ->   split_part(orderpriority,'-',1),
+     ->   split_part(orderpriority,'-',2)
+     ->   )
+     -> from pris;
+
+------------------------------------------------------
+{1=URGENT, 2=HIGH, 3=MEDIUM, 4=NOT SPECIFIED, 5=LOW}

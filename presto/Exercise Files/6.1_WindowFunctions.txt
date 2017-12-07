@@ -1,0 +1,32 @@
+# Window Functions
+
+## Rank the highest price parts
+presto> select partkey, extendedprice,
+     -> rank() over (order by extendedprice desc) as rnk
+     -> from tpch.tiny.lineitem
+     -> order by rnk;
+partkey | extendedprice | rnk
+---------+---------------+------
+    998 |       94949.5 |    1
+    997 |       94899.5 |    2
+    996 |       94849.5 |    3
+   1995 |       94849.5 |    3
+   1994 |       94799.5 |    5
+    995 |       94799.5 |    5
+    994 |       94749.5 |    7
+    994 |       94749.5 |    7
+
+
+## Moving Average
+## First create an aggregation table, then perform the rolling average
+presto> with sales_weekly as (select date_trunc('week', orderdate) as wk, sum(totalprice) as total from tpch.tiny.orders group by date_trunc('week',orderdate))
+     -> select wk, avg(total) over (order by wk rows between 5 preceding and current row)
+     -> from sales_weekly
+     -> order by wk;
+
+
+## Running Total
+presto> select custkey, orderdate,
+     -> sum(totalprice) over (partition by custkey order by orderdate) as running_total
+     -> from tpch.tiny.orders
+     -> order by custkey, orderdate;

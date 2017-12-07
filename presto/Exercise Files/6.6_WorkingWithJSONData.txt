@@ -1,0 +1,20 @@
+# Working with JSON Data
+
+## Size a json object
+SELECT json_size('{"x": {"a": 1, "b": 2}}', '$.x'); => 2
+SELECT json_size('{"x": [1, 2, 3]}', '$.x'); => 3
+SELECT json_size('{"x": {"a": 1, "b": 2}}', '$.x.a'); => 0
+
+## Parse string into a JSON object
+SELECT json_parse('[1, 2, 3]');
+
+## Format JSON as a String
+presto> SELECT json_format(JSON '["a","b","c"]');
+---------------
+ ["a","b","c"]
+
+
+## Extract element from JSON
+presto> select json_extract('{"x": {"a": 1, "b": 2}}','$.x.a');
+-------
+ 1

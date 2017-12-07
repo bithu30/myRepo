@@ -1,0 +1,33 @@
+# Retrieving Data
+
+# Basic SELECT
+presto> select * from mysql.test.customer;
+
+# Using with to simplify
+presto> with cust_agg as (select mktsegment, count(1) from mysql.test.customer group by mktsegment)
+     -> select * from cust_agg;
+ mktsegment | _col1
+------------+-------
+ FURNITURE  |    22
+ HOUSEHOLD  |    21
+ MACHINERY  |    16
+ AUTOMOBILE |    21
+ BUILDING   |    20
+(5 rows)
+
+# Compare market avg to each customer
+presto> with bals as (select mktsegment as mkt, avg(acctbal) as bal from mysql.test.customer group by mktsegment)
+     -> select name, mktsegment, acctbal, bals.bal, (acctbal - bals.bal) as diff
+     -> from mysql.test.customer
+     -> join bals on mysql.test.customer.mktsegment = bals.mkt;
+
+# Filter those w/ a negative balance and sort by highest balance
+# top 20 customers w/ an above average account balance
+presto> with bals as (select mktsegment as mkt, avg(acctbal) as bal
+     -> from mysql.test.customer group by mktsegment)
+     -> select name, mktsegment, acctbal, bals.bal, (acctbal - bals.bal) as diff
+     -> from mysql.test.customer
+     -> join bals on mysql.test.customer.mktsegment = bals.mkt
+     -> where (acctbal - bals.bal) > 0
+     -> order by diff desc
+     -> limit 20;

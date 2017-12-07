@@ -1,0 +1,24 @@
+# Combining Data Sources
+
+# Add grouping sets to create multiple result sets
+presto> select
+     ->   nat.n_name as nation,
+     ->   mktsegment as mkt,
+     ->   avg(acctbal) as avg_bal,
+     ->   count(1) as cnt
+     -> from mysql.test.customer cust
+     ->   join hive.default.nation nat on cust.nationkey = nat.n_nationkey
+     -> group by grouping sets (n_name, mktsegment, (n_name, mktsegment));
+
+# Use CUBE to achieve the same thing
+presto> select nat.n_name as nation, mktsegment as mkt, avg(acctbal) as avg_bal, count(1) as cnt
+     -> from mysql.test.customer cust
+     -> join hive.default.nation nat on cust.nationkey = nat.n_nationkey
+     -> group by cube(nat.n_name, mktsegment);
+
+# Use ROLLUP to return a hierarchical grouping
+presto> select nat.n_name as nation, mktsegment as mkt, avg(acctbal) as avg_bal, count(1) as cnt
+    -> from mysql.test.customer cust
+    -> join hive.default.nation nat on cust.nationkey = nat.n_nationkey
+    -> group by rollup(nat.n_name, mktsegment);
+      

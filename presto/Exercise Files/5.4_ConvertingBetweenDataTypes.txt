@@ -1,0 +1,16 @@
+# Conversion Functions
+
+# Use cast to explicitly change the data type
+presto> presto> select cast(current_date as varchar);
+------------
+ 2017-02-27
+
+# Handle invalid data types using try_cast();
+presto> select try_cast('123' as bigint);
+-- works
+
+presto> select try_cast('xyz' as bigint);
+-- returns NULL
+
+presto> select coalesce(try_cast('xyz' as bigint),99);
+-- uses conditional expression

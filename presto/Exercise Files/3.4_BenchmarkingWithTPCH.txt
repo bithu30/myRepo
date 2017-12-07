@@ -1,0 +1,89 @@
+# Using TPCH connector for benchmarking
+# This connector generates data on the fly without needing access to external
+# sources using a deterministic algorithm
+
+# Check that the connector is setup, if not create it with the following info
+> vi ~/.prestoadmin/catalog/tpch.properties
+connector.name=tpch
+
+# Login to tpch catalog in presto
+> presto --server localhost:8080 --catalog tpch
+
+# See the schemas
+> show schemas;
+Schema
+--------------------
+ information_schema
+ sf1
+ sf100
+ sf1000
+ sf10000
+ sf100000
+ sf100000_decimal
+ sf10000_decimal
+ sf1000_decimal
+ sf100_decimal
+ sf1_decimal
+ sf300
+ sf3000
+ sf30000
+ sf30000_decimal
+ sf3000_decimal
+ sf300_decimal
+ tiny
+ tiny_decimal
+(19 rows)
+
+#  Check out tables in tiny db
+presto> show tables from tpch.tiny;
+  Table
+----------
+ customer
+ lineitem
+ nation
+ orders
+ part
+ partsupp
+ region
+ supplier
+(8 rows)
+
+# Retrieve some customer data
+presto> select * from tpch.tiny.customer limit 10;
+
+## About TPCH Schemas
+# Every TPCH schema provides the same set of tables. Some tables are identical
+# in all schemas. Other tables vary based on the scale factor which is
+# determined based on the schema name. For example, the schema sf1 corresponds
+# to scale factor 1 and the schema sf300 corresponds to scale factor 300. The
+# TPCH connector provides an infinite number of schemas for any scale factor,
+# not just the few common ones listed by SHOW SCHEMAS. The tiny schema is an
+# alias for scale factor 0.01, which is a very small data set useful for
+# testing.
+
+# Create a new table in MySQL using TPCH
+presto> create table mysql.test.customer as select * from tpch.tiny.customer
+      -> limit 100;
+
+CREATE TABLE: 100 rows
+Query 20170216_100304_00053_fchrk, FINISHED, 1 node
+Splits: 5 total, 5 done (100.00%)
+0:00 [1.5K rows, 0B] [21.9K rows/s, 0B/s]
+
+
+# View new table in MySQL
+presto> show tables from mysql.test;
+
+Table
+---------------
+customer
+us_grad_rates
+(2 rows)
+
+# Return some results from our new table
+presto> select * from mysql.test.customer limit 10;
+
+# Export table to CSV file
+[presto@presto-demo ~]$ presto
+  --execute "select * from mysql.test.customer"
+  --output-format CSV > customer.csv

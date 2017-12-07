@@ -1,0 +1,35 @@
+# Working with Dates
+
+## Get current date or time
+presto> select current_date;
+
+presto> select current_time;
+
+presto> select now();
+
+
+## Work w/ Unix timestamps
+presto> select to_unixtime(now());
+------------------
+ 1.487275689184E9
+
+
+presto> select from_unixtime(to_unixtime(now()));
+-------------------------
+ 2017-02-16 20:08:35.580
+
+
+## Truncate date
+presto> select date_trunc('month',now());
+-----------------------------
+ 2017-02-01 00:00:00.000 UTC
+
+## Add month
+presto> select date_add('month',1,date_trunc('month',now()));
+-----------------------------
+ 2017-03-01 00:00:00.000 UTC
+
+## Get last day of current month
+presto> select date_add('day',-1,date_add('month',1,date_trunc('month',now())));
+-----------------------------
+ 2017-02-28 00:00:00.000 UTC

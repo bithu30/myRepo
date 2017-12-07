@@ -1,0 +1,28 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 ## Bollinger Bands\
+### lowerBB(lower Bollinger Band) = avg - (k * stddev),\
+### upperBB(upper Bollinger Band) = avg + (k * stddev)\
+### View sample graph output bollinger-bands.png\
+\
+with sales_weekly as (\
+select date_trunc('week', orderdate) as wk, \
+sum(totalprice) as total \
+from tpch.tiny.orders \
+group by date_trunc('week',orderdate)\
+order by wk)\
+\
+select wk,\
+avg(total) over (order by wk rows between 5 preceding and current row) as avg,\
+stddev(total) over (order by wk rows between 5 preceding and current row) as stddev,\
+avg(total) over (order by wk rows between 5 preceding and current row)\
+ - (2 * stddev(total) over (order by wk rows between 5 preceding and current row)) as lowerBB,\
+avg(total) over (order by wk rows between 5 preceding and current row)\
+ + (2 * stddev(total) over (order by wk rows between 5 preceding and current row)) as upperBB\
+\
+from sales_weekly\
+order by wk;}

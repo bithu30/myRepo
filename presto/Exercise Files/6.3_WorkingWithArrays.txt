@@ -1,0 +1,21 @@
+# Array Functions
+
+## Manually create an array
+presto> select array[5,3,6,1,4];
+
+## Use Concat operator || to combine arrays
+presto> select array[1] || array[2];
+presto> select array[1] || 2;
+presto> select 2 || array[1];
+
+
+## Remove duplicates in array
+presto> select array_distinct(array['1-A','2-B','1-A','3-C']);
+
+## Sort an array
+with ar as (select array[5,3,6,1,4] as nums)
+select array_sort(nums) from ar;
+
+## Find a string within an array
+select pris, contains(pris,'2-B')
+from (select array['1-A','2-B','1-A','3-C'] as pris);
