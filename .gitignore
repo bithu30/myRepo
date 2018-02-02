@@ -3,8 +3,8 @@
 /J2EE/cargo-tracker/target/
 C++/simpleProj/.vs/
 C++/simpleProj/Debug/
-*/.vs/* 
-*/node_modules/*
+.vs 
+node_modules
 *.deb
 .Rhistory
 .RData
