@@ -1,0 +1,56 @@
+Feature Eng
+================
+- it is important to select the smallest number of maximally informative features.
+
+- Feature selection approaches do this by seeking to find an appropriate 
+  subset of the raw features to use with our models. 
+
+- Feature transformation approaches take a more sophisticated line and seek to transform our 
+  original features into a small number of highly informative features.
+  
+Regression
+============
+
+The target variable in the regression case is a real number. The aim is either to obtain a point estimate (a single value) of the target variable given the values taken by the input features, or a probability distribution over the values of the target variable given the same. Associated with regression models is the concept of a the regression curve (or surface/hypersurface in higher dimensions), which gives an estimated value of the target variable for each combination of input features.
+
+Classification
+================
+
+In the classification case, the target variable is a discrete or nominal variable. This means it takes one of a number of classes as a value. The aim is to either obtain an estimate of the value taken by the target variable given the values of the input features, or a probability distribution of the target variable given the same. Assosiated with classification models is the concept of a decision boundary, which is a curve (surface/hypersurface) that seperates the feature space into regions where the target variable is estimated to take different values.
+
+Unsupervised Learning
+======================
+In unsupervised learning, our statistical models are used to describe patterns found in the data. The data used in unlabelled, which means there is no division in it between target and input variables. Examples include clustering, anomaly detection and explicit or implicit density estimation. In many cases, such as clustering or anomaly detection, the accuracy of the classification provided by the model is difficult or impossible to independently verify.
+
+Key characteristics:
+
+Variables not differentiated into input features and target variables.
+Training data is unlabelled (no such thing as target variables)
+Model seeks to identify some pattern in the data
+Accuracy of the model may be difficult or impossible to independently verify.
+
+Semi-supervised Learning
+==========================
+Semi-supervised learning pursues the same goal as supervised learning, but makes us not only of labelled training data, where the values of the target variable are known, but also unlabelled training data, where the values of the target variable are unknown. Typically the amount of unlabelled data is substantially larger than the amount of labelled data.
+
+Key characteristics:
+
+Data contains input features (X) and target (Y) variables
+Training data includes both labelled (values of target variables known) and unlabelled (values of target variables unknown) cases
+Model seeks to estimate values of target variables based on input features
+Accuracy of the model can be evaluated by its performance on new labelled cases, though these may be difficult to obtain.
+
+Reinforcement Learning
+=======================
+Reinforcement learning shares the same goal as supervised learning, in that some target variable should be estimated from a set of input features. However, like unsupervised learning, the true value of this target variable is not present in available data. Instead, during the training process, guesses about the value of the target variable for given inputs will lead to some form of feedback from the environment - not in the form of directly indicating the correctness of the guess, but rather in the sense of some reward or punishment related to the correctness of the guess. Typically, the process of data acquisition is, in at least some degree, controlled by the algorithm itself.
+
+An example is a model learning the best moves to make under different circumstances in an arcade game. The model is never informed that a particular move was optimal under particular circumstances, but is given feedback about sequences of moves via the game score.
+
+Key characteristics:
+
+Data contains only input features (X)
+Training data is unlabelled (values of target variables unknown)
+Model seeks to estimate values of target variables based on input features
+Estimates about the target variable lead to some form of feedback from the environment
+Training typically online and data acquisition during training commonly under at least partial control of the model or training process.
+Performance of the model can typically be evaluated only in terms of the environmental feedback

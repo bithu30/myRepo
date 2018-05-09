@@ -1,0 +1,12 @@
+ng serve --open  ( run this from the command prompt of the project folder )- this will start the dev server
+
+The app is place in src folder, all angular comps,templates, styles and images go here
+
+src/main.ts - entry point to the app
+
+tsconfig.json - config file for TS compiler , how to compile TS files into JS 
+
+package.json - config for all third party node js packages 
+we are using in the app, you can also add any custom scripts here
+
+src/app/app.module.ts tells how to assemble you application
