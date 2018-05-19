@@ -24,7 +24,7 @@ print(cars[['country']])
 # Print out DataFrame with country and drives_right columns
 print(cars[['country','drives_right']])
 
-Square brackets can do more than just selecting columns. You can also use them to get rows, or observations, from a DataFrame. 
+Square brackets can do more than just selecting columns. You can also use them to get rows, or observations, from a DataFrame.
 The following call selects the first five rows from the cars DataFrame:
 
 cars[0:5]
@@ -36,7 +36,7 @@ Pay attention: You can only select rows using square brackets if you specify a s
 loc and iloc
 ==============
 
-With loc and iloc you can do practically any data selection operation on DataFrames you can think of. loc is label-based, which means that you have to specify rows and 
+With loc and iloc you can do practically any data selection operation on DataFrames you can think of. loc is label-based, which means that you have to specify rows and
 columns based on their row and column labels. iloc is integer index based, so you have to specify rows and columns by their integer index like you did in the previous exercise.
 
 Try out the following commands in the IPython Shell to experiment with loc and iloc to select observations. Each pair of commands here gives the same result.
@@ -180,4 +180,44 @@ plt.show()
 
 # Plot the CDF
 df.fraction.plot(kind='hist',bins=30, normed=True,ax=axes[1],cumulative=True, range=(0,.3))
+plt.show()
+
+
+numpy pandas interaction
+==============================
+# Import numpy
+import numpy as np
+
+# Create array of DataFrame values: np_vals
+np_vals = df.values
+
+# Create new array of base 10 logarithm values: np_vals_log10
+np_vals_log10 = np.log10(np_vals)
+
+# Create array of new DataFrame by passing df to np.log10(): df_log10
+df_log10 = np.log10(df)
+
+# Print original and new data containers
+print(type(np_vals), type(np_vals_log10))
+print(type(df), type(df_log10))
+
+Plotting in pandas
+====================
+
+# Plot all columns (default)
+df.plot()
+plt.show()
+
+# Plot all columns as subplots
+df.plot(subplots=True)
+plt.show()
+
+# Plot just the Dew Point data
+column_list1 = ['Dew Point (deg F)']
+df[column_list1].plot()
+plt.show()
+
+# Plot the Dew Point and Temperature data, but not the Pressure data
+column_list2 = ['Temperature (deg F)','Dew Point (deg F)']
+df[column_list2].plot()
 plt.show()
