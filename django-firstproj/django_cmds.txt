@@ -1,0 +1,24 @@
+To create a project stub
+============================
+
+django-admin startproject mysite -> name of the project
+
+mysite/mysite -> this folder is the main control center for your Django project
+
+mysite/mysite/__init__.py -> consider this as a package
+
+mysite/mysite/settings.py -> your wensite settings
+
+mysite/mysite/urls.py -> urls for your website
+
+Starting the project
+=====================
+
+cd mysite and
+Run python manage.py runserver
+
+Creating an app
+================
+
+python manage.py startapp webapp
+

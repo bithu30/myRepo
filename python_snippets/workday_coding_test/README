@@ -1,0 +1,15 @@
+
+This are the steps to deploy the scripts
+
+- All the dependencies needed for the scripts are available in anaconda python
+  You can get that from here https://www.anaconda.com/download 
+  The link will take you the page that suits your OS, download python3.6 from here
+
+-Downlaod the  'workday_coding_test' folder from the google drive link provided
+
+- Go to  'workday_coding_test' folder and run the script calc_wfreq.py like this:
+  python calc_wfreq.py -pid <page_id> -n <How many top n words needed>
+  ex: python calc_wfreq.py -pid 21721040 -n 3
+
+- Run the command py.test inside the 'workday_coding_test' folder  to run the unit tests
+

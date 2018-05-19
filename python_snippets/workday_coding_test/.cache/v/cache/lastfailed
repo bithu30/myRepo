@@ -1,0 +1,7 @@
+{
+  "test_word_freq.py::test_no_exception": true,
+  "test_word_freq.py::test_wrong_title": true,
+  "test_word_freq.py::test_wrong_topn": true,
+  "test_word_freq.py::test_wrong_word_freq": true,
+  "test_word_freq.py::test_wrong_words": true
+}
