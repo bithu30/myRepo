@@ -3,7 +3,7 @@
 3) Ess Maths for AI - Edx
 4) Fintech - edx
 5) Kakfka - Udemy
-6) MEAN - Udemy
+6) Angular5 - Safari
 7) Adv ML - Futurelearn
 8) Elements of AI
 9) Trianz - DT
@@ -13,3 +13,4 @@
 13) AWS edx
 14) Storage edx
 15) Learning Spark - safari/book
+16) Scala fundamentals - Safari Recording
