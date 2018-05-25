@@ -1,6 +1,6 @@
 1) Intro to tf - PS
 2) Spark Streaming - PS
-3) Ess Maths for AI - Edx
+3) Ess Maths for AI - edx
 4) Fintech - edx
 5) Kakfka - Udemy
 6) Angular5 - Safari
