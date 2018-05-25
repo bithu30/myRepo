@@ -1,0 +1,14 @@
+1) Intro to tf - PS
+2) Spark Streaming - PS
+3) Ess Maths for AI - Edx
+4) Fintech - edx
+5) Kakfka - Udemy
+6) MEAN - Udemy
+7) Adv ML - Futurelearn
+8) Elements of AI
+9) Trianz - DT
+10) Trianz NHO  - Fin
+11) Trianz NHO - HR
+12) AWS Business
+13) AWS edx
+14) Storage edx

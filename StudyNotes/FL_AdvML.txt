@@ -54,3 +54,20 @@ Model seeks to estimate values of target variables based on input features
 Estimates about the target variable lead to some form of feedback from the environment
 Training typically online and data acquisition during training commonly under at least partial control of the model or training process.
 Performance of the model can typically be evaluated only in terms of the environmental feedback
+
+Bias & Variance
+===============
+3 concepts to understand:
+
+The Irreducible Error. This is the inherent randomness in the system being modelled.
+
+The Bias of the Model. This is the extent to which the expected value of the system differs from the expected value of the model.
+
+The bias-variance decomposition is the decomposition of the expected error of a model into these three concepts, with the formula:
+
+ExpectedError=IrreducibleError+Variance+( Bias * Bias )
+
+Since there is nothing we can do about irreducible error, our aim in statistical learning must be to find models than minimize variance and bias.
+
+
+The Variance of the Model. This is just what is stated: The variance of the model function. Intuitively it can be understood as the extent to which the model moves around its mean.
