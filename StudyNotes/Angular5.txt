@@ -2,7 +2,7 @@ ng serve --open  ( run this from the command prompt of the project folder )- thi
 
 The app is place in src folder, all angular comps,templates, styles and images go here
 
-src/main.ts - entry point to the app
+src/main.ts - entry point to the app, the first code that gets executed
 
 tsconfig.json - config file for TS compiler , how to compile TS files into JS 
 
@@ -10,3 +10,35 @@ package.json - config for all third party node js packages
 we are using in the app, you can also add any custom scripts here
 
 src/app/app.module.ts tells how to assemble you application
+
+src/app/app.component.ts - holds your appl
+
+index.html - this is served by your server
+
+app.componenet.html -other compos selectors will be added here
+
+for every new compo , create a folder inside your app folder
+
+every time a new componenet is made register in the app.module
+
+import it 
+
+import { ServerComponent } from './server/server.component';
+
+declare it
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ServerComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+
+ng generate component servers - will generate a componenet servers
+or
+ng g c servers

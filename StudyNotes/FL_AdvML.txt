@@ -63,11 +63,29 @@ The Irreducible Error. This is the inherent randomness in the system being model
 
 The Bias of the Model. This is the extent to which the expected value of the system differs from the expected value of the model.
 
+The Variance of the Model. This is just what is stated: The variance of the model function. Intuitively it can be understood as the extent to which the model moves around its mean.
+
 The bias-variance decomposition is the decomposition of the expected error of a model into these three concepts, with the formula:
 
 ExpectedError=IrreducibleError+Variance+( Bias * Bias )
 
 Since there is nothing we can do about irreducible error, our aim in statistical learning must be to find models than minimize variance and bias.
 
+In seeking an optimal model we seek the best trade-off between bias and variance.
 
-The Variance of the Model. This is just what is stated: The variance of the model function. Intuitively it can be understood as the extent to which the model moves around its mean.
+When we utilize a model that is too complex for the function being modelled (given the amount of learning data we have available) we see that the variance component of the expected error increases. In popular parlance this is known as overfitting.
+
+It is possible to reduce both bias and variance by increase the amount of training data used, and often altering the complexity of the model as the training data is increased is essential to finding the optimal model.A common, though imperfect, measure of the complexity of a statistical model is the number of parameters it has
+
+It is important to note that increasing the complexity of a model will always lead to better performance on the training data. Essentially, by increasing complexity (increasing the number of parameters that can be fit to the training data) we increase the ability of the model to customize itself to the training data. This is great if what it is doing is fitting itself to patterns in the training data that are present in the entire population (i.e. in all data). But it is not good if what is actually going on is that the model is fitting itself to random noise present only in the training data.
+
+More complex models are better able to model complex systems/functions.
+
+Increasing the complexity of the model is not guaranteed to improve the performance of the model.
+
+Increasing the complexity of the model will increase the variance component of the expected error.
+
+Increasing the amount of training data will normally reduce both bias and variance.
+
+One type of model can have lower bias and lower variance than another type.
+

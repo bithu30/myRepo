@@ -6,7 +6,7 @@
 6) Angular5 - Safari
 7) Adv ML - Futurelearn
 8) Elements of AI
-9) Trianz - DT
+9) Data Science for Bussiness- book/safari
 10) Trianz NHO  - Fin
 11) Trianz NHO - HR
 12) AWS Business
@@ -14,3 +14,8 @@
 14) Storage edx
 15) Learning Spark - safari/book
 16) Scala fundamentals - Safari Recording
+17) Fin ML - coursera
+
+Completed
+=========
+1) Trianz - DT
