@@ -15,7 +15,32 @@
 15) Learning Spark - safari/book
 16) Scala fundamentals - Safari Recording
 17) Fin ML - coursera
+18) Java - TBD
 
 Completed
 =========
 1) Trianz - DT
+
+Day-to-day
+========
+spark - everyday ( complete PS first )
+
+kafka/scala or Akka - alternate days
+
+DS for Business / AI graphic guide - alternate days
+
+Fintech / ML for Fin - alternate days
+
+AWS Business / Aws Edx - aletrnate days
+
+AdvML/Tensor flow - either one
+
+elements of AI
+
+Trianz/netapp trainings - alternate days
+
+Angular5
+
+Java
+
+Java 
