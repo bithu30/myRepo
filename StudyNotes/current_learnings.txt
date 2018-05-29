@@ -15,9 +15,9 @@
 15) Learning Spark - safari/book
 16) Scala fundamentals - Safari Recording
 17) Fin ML - coursera
-18) Java - TBD
+18) Java - Core Java-safari
 19) MIcroservices fundamentals - LL
-20) Python - TBD
+20) Python - Udemy / DC
 Completed
 =========
 1) Trianz - DT
@@ -42,8 +42,8 @@ Trianz/netapp trainings - alternate days
 
 Angular5
 
-Java
+Core Java 
 
 MIcroservices/Storage - either one
 
-Python 
+Udemy Python3 / DC - Pandas foundations - alternate days
