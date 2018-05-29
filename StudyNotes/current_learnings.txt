@@ -36,7 +36,7 @@ AWS Business / Aws Edx - aletrnate days
 
 AdvML/Tensor flow - either one
 
-elements of AI
+elements of AI / essential maths in AI-edx - alternate days
 
 Trianz/netapp trainings - alternate days
 
