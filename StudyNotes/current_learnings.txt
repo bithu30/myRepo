@@ -16,7 +16,8 @@
 16) Scala fundamentals - Safari Recording
 17) Fin ML - coursera
 18) Java - TBD
-
+19) MIcroservices fundamentals - LL
+20) Python - TBD
 Completed
 =========
 1) Trianz - DT
@@ -43,4 +44,6 @@ Angular5
 
 Java
 
-Java 
+MIcroservices/Storage - either one
+
+Python 
