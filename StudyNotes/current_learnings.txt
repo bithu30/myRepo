@@ -47,3 +47,5 @@ Core Java
 MIcroservices/Storage - either one
 
 Udemy Python3 / DC - Pandas foundations - alternate days
+
+misc - AV/Mckinsey/Medium/Soundcloud/Coursera middeleast/edx civil war

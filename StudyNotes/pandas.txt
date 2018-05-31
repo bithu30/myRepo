@@ -221,3 +221,5 @@ plt.show()
 column_list2 = ['Temperature (deg F)','Dew Point (deg F)']
 df[column_list2].plot()
 plt.show()
+
+read_csv method of pandas has a param parse_dates, which you have to enable ( parse_date=True)
